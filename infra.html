@@ -1,0 +1,247 @@
+<!doctype html><html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  <meta content="#3c790a" name="theme-color">
+  <title>Infra Standard</title>
+  <link href="https://resources.whatwg.org/standard.css" rel="stylesheet">
+  <link href="https://resources.whatwg.org/bikeshed.css" rel="stylesheet">
+  <link href="https://resources.whatwg.org/logo.svg" rel="icon">
+  <meta content="Bikeshed 1.0.0" name="generator">
+<style>/* style-syntax-highlighting */
+pre.idl.highlight { color: #708090; }
+        .highlight:not(.idl) { background: hsl(24, 20%, 95%); }
+        code.highlight { padding: .1em; border-radius: .3em; }
+        pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
+        .highlight .c { color: #708090 } /* Comment */
+        .highlight .k { color: #990055 } /* Keyword */
+        .highlight .l { color: #000000 } /* Literal */
+        .highlight .n { color: #0077aa } /* Name */
+        .highlight .o { color: #999999 } /* Operator */
+        .highlight .p { color: #999999 } /* Punctuation */
+        .highlight .cm { color: #708090 } /* Comment.Multiline */
+        .highlight .cp { color: #708090 } /* Comment.Preproc */
+        .highlight .c1 { color: #708090 } /* Comment.Single */
+        .highlight .cs { color: #708090 } /* Comment.Special */
+        .highlight .kc { color: #990055 } /* Keyword.Constant */
+        .highlight .kd { color: #990055 } /* Keyword.Declaration */
+        .highlight .kn { color: #990055 } /* Keyword.Namespace */
+        .highlight .kp { color: #990055 } /* Keyword.Pseudo */
+        .highlight .kr { color: #990055 } /* Keyword.Reserved */
+        .highlight .kt { color: #990055 } /* Keyword.Type */
+        .highlight .ld { color: #000000 } /* Literal.Date */
+        .highlight .m { color: #000000 } /* Literal.Number */
+        .highlight .s { color: #a67f59 } /* Literal.String */
+        .highlight .na { color: #0077aa } /* Name.Attribute */
+        .highlight .nc { color: #0077aa } /* Name.Class */
+        .highlight .no { color: #0077aa } /* Name.Constant */
+        .highlight .nd { color: #0077aa } /* Name.Decorator */
+        .highlight .ni { color: #0077aa } /* Name.Entity */
+        .highlight .ne { color: #0077aa } /* Name.Exception */
+        .highlight .nf { color: #0077aa } /* Name.Function */
+        .highlight .nl { color: #0077aa } /* Name.Label */
+        .highlight .nn { color: #0077aa } /* Name.Namespace */
+        .highlight .py { color: #0077aa } /* Name.Property */
+        .highlight .nt { color: #669900 } /* Name.Tag */
+        .highlight .nv { color: #222222 } /* Name.Variable */
+        .highlight .ow { color: #999999 } /* Operator.Word */
+        .highlight .mb { color: #000000 } /* Literal.Number.Bin */
+        .highlight .mf { color: #000000 } /* Literal.Number.Float */
+        .highlight .mh { color: #000000 } /* Literal.Number.Hex */
+        .highlight .mi { color: #000000 } /* Literal.Number.Integer */
+        .highlight .mo { color: #000000 } /* Literal.Number.Oct */
+        .highlight .sb { color: #a67f59 } /* Literal.String.Backtick */
+        .highlight .sc { color: #a67f59 } /* Literal.String.Char */
+        .highlight .sd { color: #a67f59 } /* Literal.String.Doc */
+        .highlight .s2 { color: #a67f59 } /* Literal.String.Double */
+        .highlight .se { color: #a67f59 } /* Literal.String.Escape */
+        .highlight .sh { color: #a67f59 } /* Literal.String.Heredoc */
+        .highlight .si { color: #a67f59 } /* Literal.String.Interpol */
+        .highlight .sx { color: #a67f59 } /* Literal.String.Other */
+        .highlight .sr { color: #a67f59 } /* Literal.String.Regex */
+        .highlight .s1 { color: #a67f59 } /* Literal.String.Single */
+        .highlight .ss { color: #a67f59 } /* Literal.String.Symbol */
+        .highlight .vc { color: #0077aa } /* Name.Variable.Class */
+        .highlight .vg { color: #0077aa } /* Name.Variable.Global */
+        .highlight .vi { color: #0077aa } /* Name.Variable.Instance */
+        .highlight .il { color: #000000 } /* Literal.Number.Integer.Long */
+        </style>
+ <body class="h-entry status-LS">
+  <div class="head">
+   <p data-fill-with="logo"><a class="logo" href="https://whatwg.org/"> <img alt="WHATWG" height="100" src="https://resources.whatwg.org/logo.svg"> </a> </p>
+   <hgroup>
+    <h1 class="p-name no-ref" id="title">Infra</h1>
+    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard — Last Updated <time class="dt-updated" datetime="2016-11-04">4 November 2016</time></span></h2>
+   </hgroup>
+   <div data-fill-with="spec-metadata">
+    <dl>
+     <dt>Participate:
+     <dd><span><a href="https://github.com/whatwg/infra">GitHub whatwg/infra</a> (<a href="https://github.com/whatwg/infra/issues/new">new issue</a>, <a href="https://github.com/whatwg/infra/issues">open issues</a>)</span>
+     <dd><span><a href="https://wiki.whatwg.org/wiki/IRC">IRC: #whatwg on Freenode</a></span>
+     <dt>Commits:
+     <dd><span><a href="https://github.com/whatwg/infra/commits">GitHub whatwg/infra/commits</a></span>
+    </dl>
+   </div>
+   <div data-fill-with="warning"></div>
+  </div>
+  <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
+  <div class="p-summary" data-fill-with="abstract">
+   <p>Infra aims to define the fundamental concepts upon which standards are built.</p>
+  </div>
+  <nav data-fill-with="table-of-contents" id="toc">
+   <h2 class="no-num no-toc no-ref" id="contents">Table of Contents</h2>
+   <ol class="toc" role="directory">
+    <li><a href="#goals"><span class="secno"></span> <span class="content">Goals</span></a>
+    <li><a href="#usage"><span class="secno">1</span> <span class="content">Usage</span></a>
+    <li>
+     <a href="#conventions"><span class="secno">2</span> <span class="content">Conventions</span></a>
+     <ol class="toc">
+      <li><a href="#conformance"><span class="secno">2.1</span> <span class="content">Conformance</span></a>
+      <li><a href="#typography"><span class="secno">2.2</span> <span class="content">Typography</span></a>
+     </ol>
+    <li>
+     <a href="#primitive-data-types"><span class="secno">3</span> <span class="content">Primitive data types</span></a>
+     <ol class="toc">
+      <li><a href="#bytes"><span class="secno">3.1</span> <span class="content">Bytes</span></a>
+      <li><a href="#byte-sequences"><span class="secno">3.2</span> <span class="content">Byte sequences</span></a>
+      <li><a href="#code-points"><span class="secno">3.3</span> <span class="content">Code points</span></a>
+      <li><a href="#strings"><span class="secno">3.4</span> <span class="content">Strings</span></a>
+     </ol>
+    <li>
+     <a href="#data-structures"><span class="secno">4</span> <span class="content">Data structures</span></a>
+     <ol class="toc">
+      <li><a href="#lists"><span class="secno">4.1</span> <span class="content">Lists</span></a>
+      <li><a href="#maps"><span class="secno">4.2</span> <span class="content">Maps</span></a>
+     </ol>
+    <li>
+     <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
+     <ol class="toc">
+      <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
+     </ol>
+    <li><a href="#acknowledgments"><span class="secno"></span> <span class="content">Acknowledgments</span></a>
+   </ol>
+  </nav>
+  <main>
+<script async="" src="https://resources.whatwg.org/file-issue.js"></script>
+<script defer="" id="head" src="https://resources.whatwg.org/dfn.js"></script>
+   <h2 class="no-num heading settled" id="goals"><span class="content">Goals</span></h2>
+   <ul>
+    <li>
+     <p>Deduplicate boilerplate in standards. </p>
+    <li>
+     <p>Align standards on conventions, terminology, and data structures. </p>
+   </ul>
+   <p>Suggestions for more goals welcome.</p>
+   <h2 class="heading settled" data-level="1" id="usage"><span class="secno">1. </span><span class="content">Usage</span><a class="self-link" href="#usage"></a></h2>
+   <p>To make use of the Infra Standard in a document titled <var>X</var>, use <samp><var>X</var> depends on the Infra Standard.</samp> Additionally, cross-referencing terminology
+is encouraged to avoid ambiguity. </p>
+   <h2 class="heading settled" data-level="2" id="conventions"><span class="secno">2. </span><span class="content">Conventions</span><a class="self-link" href="#conventions"></a></h2>
+   <h3 class="heading settled" data-level="2.1" id="conformance"><span class="secno">2.1. </span><span class="content">Conformance</span><a class="self-link" href="#conformance"></a></h3>
+   <p>All diagrams, examples, and notes are non-normative, as are all sections explicitly marked
+non-normative. Everything else is normative. </p>
+   <p>The keywords "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT",
+"RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" are to be interpreted as described in
+RFC 2119. <a data-link-type="biblio" href="#biblio-rfc2119">[RFC2119]</a> </p>
+   <p>These keywords have equivalent meaning when written in lowercase and cannot appear in
+non-normative content. Standards are encouraged to limit themselves to "must", "must not", "should",
+and "may". </p>
+   <p>Requirements phrased in the imperative as part of algorithms (such as "strip any leading spaces"
+or "return false") are to be interpreted with the meaning of the keyword (e.g., "must") used in
+introducing the algorithm or step. </p>
+   <p>Conformance requirements phrased as algorithms or specific steps may be implemented in any
+manner, so long as the end result is equivalent. (In particular, the algorithms are intended to be
+easy to follow, and not intended to be performant.)</p>
+   <h3 class="heading settled" data-level="2.2" id="typography"><span class="secno">2.2. </span><span class="content">Typography</span><a class="self-link" href="#typography"></a></h3>
+   <p>This is a definition, requirement, or explanation.</p>
+   <p class="note" role="note">This is a note.</p>
+   <p class="example" id="example-example"><a class="self-link" href="#example-example"></a>This is an example.</p>
+   <p class="XXX">This is an open issue.</p>
+   <p class="warning">This is a warning.</p>
+<pre class="idl extract highlight def"><span class="kt">interface</span> <dfn class="nv idl-code" data-dfn-type="interface" data-export="" id="example">Example<a class="self-link" href="#example"></a></dfn> {  // this is an IDL definition
+};</pre>
+   <dl class="domintro">
+    <dt><code><var>variable</var> = <var>object</var> . <a data-link-type="dfn" href="#x-that">method</a>( [ <var>optionalArgument</var> ] )</code> 
+    <dd>
+     <p>This is a note to authors describing the usage of an interface. </p>
+   </dl>
+<pre class="css">/* this is a CSS fragment */</pre>
+   <p>The defining instance of a term is marked up like <dfn data-dfn-type="dfn" data-lt="x-this" data-noexport="" id="x-this">this<a class="self-link" href="#x-this"></a></dfn>. Uses of that term
+are marked up like <a data-link-type="dfn" href="#x-this">this</a>. </p>
+   <p>The defining instance of an element, attribute, or API is marked up like <dfn data-dfn-type="dfn" data-lt="x-that" data-noexport="" id="x-that"><code>this</code><a class="self-link" href="#x-that"></a></dfn>. References to that element, attribute, or API are marked up
+like <a data-link-type="dfn" href="#x-that"><code>this</code></a>. </p>
+   <p>Other code fragments are marked up <code>like this</code>.</p>
+   <p>Byte sequences with bytes in the range 0x00 to 0x7F, inclusive, are marked up like
+`<code>this</code>`.</p>
+   <p>Variables are marked up like <var>this</var>.</p>
+   <p>In some cases, requirements are given in the form of lists with conditions and corresponding
+requirements. In such cases, the requirements that apply to a condition are always the first set of
+requirements that follow the condition, even in the case of there being multiple sets of conditions
+for those requirements. Such cases are presented as follows:</p>
+   <dl class="switch">
+    <dt>This is a condition 
+    <dt>This is another condition 
+    <dd>This is the requirement that applies to the conditions above. 
+    <dt>This is a third condition 
+    <dd>This is the requirement that applies to the third condition. 
+   </dl>
+   <h2 class="heading settled" data-level="3" id="primitive-data-types"><span class="secno">3. </span><span class="content">Primitive data types</span><a class="self-link" href="#primitive-data-types"></a></h2>
+   <h3 class="heading settled" data-level="3.1" id="bytes"><span class="secno">3.1. </span><span class="content">Bytes</span><a class="self-link" href="#bytes"></a></h3>
+   <p>A <dfn data-dfn-type="dfn" data-export="" id="byte">byte<a class="self-link" href="#byte"></a></dfn> is a sequence of eight bits, represented as a double-digit hexadecimal
+number in the range 0x00 to 0xFF, inclusive. </p>
+   <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-byte">ASCII byte<a class="self-link" href="#ascii-byte"></a></dfn> is a <a data-link-type="dfn" href="#byte">byte</a> in the range 0x00 to 0x7F, inclusive. </p>
+   <h3 class="heading settled" data-level="3.2" id="byte-sequences"><span class="secno">3.2. </span><span class="content">Byte sequences</span><a class="self-link" href="#byte-sequences"></a></h3>
+   <p>A <dfn data-dfn-type="dfn" data-export="" id="byte-sequence">byte sequence<a class="self-link" href="#byte-sequence"></a></dfn> is a sequence of <a data-link-type="dfn" href="#byte">bytes</a>. </p>
+   <p>To <dfn data-dfn-type="dfn" data-export="" id="byte-lowercase">byte-lowercase<a class="self-link" href="#byte-lowercase"></a></dfn> a <a data-link-type="dfn" href="#byte-sequence">byte sequence</a>, increase each <a data-link-type="dfn" href="#byte">byte</a> it
+contains, in the range 0x41 to 0x5A, inclusive, by 0x20. </p>
+   <p>To <dfn data-dfn-type="dfn" data-export="" id="byte-uppercase">byte-uppercase<a class="self-link" href="#byte-uppercase"></a></dfn> a <a data-link-type="dfn" href="#byte-sequence">byte sequence</a>, subtract each byte it contains, in
+the range 0x61 to 0x7A, inclusive, by 0x20. </p>
+   <h3 class="heading settled" data-level="3.3" id="code-points"><span class="secno">3.3. </span><span class="content">Code points</span><a class="self-link" href="#code-points"></a></h3>
+   <p>A <dfn data-dfn-type="dfn" data-export="" id="code-point">code point<a class="self-link" href="#code-point"></a></dfn> is a Unicode code point and is represented as a four-to-six digit
+hexadecimal number, typically prefixed with "U+". In certain contexts <a data-link-type="dfn" href="#code-point">code points</a> are
+prefixed with "0x". <a data-link-type="biblio" href="#biblio-unicode">[UNICODE]</a> </p>
+   <p>A <dfn data-dfn-type="dfn" data-export="" id="scalar-value">scalar value<a class="self-link" href="#scalar-value"></a></dfn> is a <a data-link-type="dfn" href="#code-point">code point</a> that is not in the range
+U+D800 to U+DFFF, inclusive. </p>
+   <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-code-point">ASCII code point<a class="self-link" href="#ascii-code-point"></a></dfn> is a <a data-link-type="dfn" href="#code-point">code point</a> in the range U+0000 to U+007F,
+inclusive. </p>
+   <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-tab-or-newline">ASCII tab or newline<a class="self-link" href="#ascii-tab-or-newline"></a></dfn> is U+0009, U+000A, or U+000D. </p>
+   <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-whitespace">ASCII whitespace<a class="self-link" href="#ascii-whitespace"></a></dfn> is U+0009, U+000A, U+000C, U+000D, or U+0020. </p>
+   <p>A <dfn data-dfn-type="dfn" data-export="" id="c0-control">C0 control<a class="self-link" href="#c0-control"></a></dfn> is a <a data-link-type="dfn" href="#code-point">code point</a> in the range U+0000 to U+001F, inclusive. </p>
+   <p>A <dfn data-dfn-type="dfn" data-export="" id="c0-control-or-space">C0 control or space<a class="self-link" href="#c0-control-or-space"></a></dfn> is a <a data-link-type="dfn" href="#c0-control">C0 controls</a> or U+0020. </p>
+   <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-digit">ASCII digit<a class="self-link" href="#ascii-digit"></a></dfn> is a <a data-link-type="dfn" href="#code-point">code points</a> in the range U+0030 to U+0039,
+inclusive. </p>
+   <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-hex-digit">ASCII hex digit<a class="self-link" href="#ascii-hex-digit"></a></dfn> is an <a data-link-type="dfn" href="#ascii-digit">ASCII digit</a>, a <a data-link-type="dfn" href="#code-point">code point</a> in the range
+U+0041 to U+0046, inclusive, or a <a data-link-type="dfn" href="#code-point">code point</a> in the range U+0061 to U+0066, inclusive. </p>
+   <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-alpha-upper">ASCII alpha upper<a class="self-link" href="#ascii-alpha-upper"></a></dfn> is a <a data-link-type="dfn" href="#code-point">code points</a> in the range U+0041 to U+005A,
+inclusive. </p>
+   <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-alpha-lower">ASCII alpha lower<a class="self-link" href="#ascii-alpha-lower"></a></dfn> is a <a data-link-type="dfn" href="#code-point">code points</a> in the range U+0061 to U+007A,
+inclusive. </p>
+   <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-alpha">ASCII alpha<a class="self-link" href="#ascii-alpha"></a></dfn> is an <a data-link-type="dfn" href="#ascii-alpha-upper">ASCII alpha upper</a> or <a data-link-type="dfn" href="#ascii-alpha-lower">ASCII alpha lower</a>. </p>
+   <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-alphanumeric">ASCII alphanumeric<a class="self-link" href="#ascii-alphanumeric"></a></dfn> is an <a data-link-type="dfn" href="#ascii-digit">ASCII digit</a> or <a data-link-type="dfn" href="#ascii-alpha">ASCII alpha</a>. </p>
+   <h3 class="heading settled" data-level="3.4" id="strings"><span class="secno">3.4. </span><span class="content">Strings</span><a class="self-link" href="#strings"></a></h3>
+   <p>A <dfn data-dfn-type="dfn" data-export="" id="string">string<a class="self-link" href="#string"></a></dfn> is a sequence of <a data-link-type="dfn" href="#code-point">code points</a>. </p>
+   <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-string">ASCII string<a class="self-link" href="#ascii-string"></a></dfn> is a <a data-link-type="dfn" href="#string">string</a> whose <a data-link-type="dfn" href="#code-point">code points</a> are all <a data-link-type="dfn" href="#ascii-code-point">ASCII code points</a>. </p>
+   <p>To <dfn data-dfn-type="dfn" data-export="" id="ascii-lowercase">ASCII lowercase<a class="self-link" href="#ascii-lowercase"></a></dfn> a <a data-link-type="dfn" href="#string">string</a>, replace all <a data-link-type="dfn" href="#ascii-alpha-upper">ASCII alpha upper</a> in the <a data-link-type="dfn" href="#string">string</a> with the corresponding <a data-link-type="dfn" href="#code-point">code points</a> in <a data-link-type="dfn" href="#ascii-alpha-lower">ASCII alpha lower</a>. </p>
+   <p>To <dfn data-dfn-type="dfn" data-export="" id="ascii-uppercase">ASCII uppercase<a class="self-link" href="#ascii-uppercase"></a></dfn> a <a data-link-type="dfn" href="#string">string</a>, replace all <a data-link-type="dfn" href="#ascii-alpha-lower">ASCII alpha lower</a> in the <a data-link-type="dfn" href="#string">string</a> with the corresponding <a data-link-type="dfn" href="#code-point">code points</a> in <a data-link-type="dfn" href="#ascii-alpha-upper">ASCII alpha upper</a>. </p>
+   <p>A <a data-link-type="dfn" href="#string">string</a> <var>A</var> is an <dfn data-dfn-type="dfn" data-export="" id="ascii-case-insensitive">ASCII case-insensitive<a class="self-link" href="#ascii-case-insensitive"></a></dfn> match for a <a data-link-type="dfn" href="#string">string</a> <var>B</var>, if the <a data-link-type="dfn" href="#ascii-lowercase">ASCII lowercase</a> of <var>A</var> is the <a data-link-type="dfn" href="#ascii-lowercase">ASCII lowercase</a> of <var>B</var>. </p>
+   <h2 class="heading settled" data-level="4" id="data-structures"><span class="secno">4. </span><span class="content">Data structures</span><a class="self-link" href="#data-structures"></a></h2>
+   <h3 class="heading settled" data-level="4.1" id="lists"><span class="secno">4.1. </span><span class="content">Lists</span><a class="self-link" href="#lists"></a></h3>
+   <p class="XXX">... </p>
+   <h3 class="heading settled" data-level="4.2" id="maps"><span class="secno">4.2. </span><span class="content">Maps</span><a class="self-link" href="#maps"></a></h3>
+   <p class="XXX">... </p>
+   <div data-fill-with="references">
+    <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
+    <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
+    <dl>
+     <dt id="biblio-rfc2119">[RFC2119]
+     <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
+     <dt id="biblio-unicode">[UNICODE]
+     <dd><a href="http://www.unicode.org/versions/latest/">The Unicode Standard</a>. URL: <a href="http://www.unicode.org/versions/latest/">http://www.unicode.org/versions/latest/</a>
+    </dl>
+   </div>
+   <h2 class="no-num heading settled" id="acknowledgments"><span class="content">Acknowledgments</span><a class="self-link" href="#acknowledgments"></a></h2>
+   <p>Many thanks to <span class="XXX">...</span> for being awesome! </p>
+   <p>This standard is written by <a href="//annevankesteren.nl/" lang="nl">Anne van Kesteren</a> (<a href="https://www.mozilla.org/">Mozilla</a>, <a href="mailto:annevk@annevk.nl">annevk@annevk.nl</a>). </p>
+   <p>Per <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="license">CC0</a>, to the extent
+possible under law, the editors have waived all copyright and related or neighboring rights to this
+work. </p>
+  </main>

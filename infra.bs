@@ -1,0 +1,213 @@
+<pre class='metadata'>
+Title: Infra Standard
+H1: Infra
+Shortname: infra
+Status: LS
+Group: WHATWG
+No Editor: true
+Logo: https://resources.whatwg.org/logo.svg
+Abstract: Infra aims to define the fundamental concepts upon which standards are built.
+!Participate: <a href=https://github.com/whatwg/infra>GitHub whatwg/infra</a> (<a href=https://github.com/whatwg/infra/issues/new>new issue</a>, <a href=https://github.com/whatwg/infra/issues>open issues</a>)
+!Participate: <a href=https://wiki.whatwg.org/wiki/IRC>IRC: #whatwg on Freenode</a>
+!Commits: <a href=https://github.com/whatwg/infra/commits>GitHub whatwg/infra/commits</a>
+Boilerplate: omit conformance, omit feedback-header, omit index, omit idl-index
+</pre>
+
+<script src=https://resources.whatwg.org/file-issue.js async></script>
+<script id=head src=https://resources.whatwg.org/dfn.js defer></script>
+
+
+<h2 id=goals class=no-num>Goals</h2>
+
+<ul>
+ <li><p>Deduplicate boilerplate in standards.
+
+ <li><p>Align standards on conventions, terminology, and data structures.
+</ul>
+
+<p>Suggestions for more goals welcome.</p>
+
+
+<h2 id=usage>Usage</h2>
+
+<p>To make use of the Infra Standard in a document titled <var>X</var>, use
+<samp><var>X</var> depends on the Infra Standard.</samp> Additionally, cross-referencing terminology
+is encouraged to avoid ambiguity.
+
+
+<h2 id=conventions>Conventions</h2>
+
+<h3 id=conformance>Conformance</h3>
+
+<p>All diagrams, examples, and notes are non-normative, as are all sections explicitly marked
+non-normative. Everything else is normative.
+
+<p>The keywords "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT",
+"RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" are to be interpreted as described in
+RFC 2119. [[!RFC2119]]
+
+<p>These keywords have equivalent meaning when written in lowercase and cannot appear in
+non-normative content. Standards are encouraged to limit themselves to "must", "must not", "should",
+and "may".
+
+<p>Requirements phrased in the imperative as part of algorithms (such as "strip any leading spaces"
+or "return false") are to be interpreted with the meaning of the keyword (e.g., "must") used in
+introducing the algorithm or step.
+
+<p>Conformance requirements phrased as algorithms or specific steps may be implemented in any
+manner, so long as the end result is equivalent. (In particular, the algorithms are intended to be
+easy to follow, and not intended to be performant.)</p>
+
+<h3 id=typography>Typography</h3>
+
+<p>This is a definition, requirement, or explanation.</p>
+
+<p class=note>This is a note.</p>
+
+<p id=example-example class=example>This is an example.</p>
+
+<p class=XXX>This is an open issue.</p>
+
+<p class=warning>This is a warning.</p>
+
+<pre class="idl extract">interface Example {
+  // this is an IDL definition
+};</pre>
+
+<dl class=domintro>
+ <dt><code><var>variable</var> = <var>object</var> . <a lt="x-that">method</a>( [ <var>optionalArgument</var> ] )</code>
+ <dd><p>This is a note to authors describing the usage of an interface.
+</dl>
+
+<pre class="css">/* this is a CSS fragment */</pre>
+
+<p>The defining instance of a term is marked up like <dfn lt=x-this>this</dfn>. Uses of that term
+are marked up like <a lt=x-this>this</a>.
+
+<p>The defining instance of an element, attribute, or API is marked up like
+<dfn lt=x-that><code>this</code></dfn>. References to that element, attribute, or API are marked up
+like <a lt=x-that><code>this</code></a>.
+
+<p>Other code fragments are marked up <code>like this</code>.</p>
+
+<p>Byte sequences with bytes in the range 0x00 to 0x7F, inclusive, are marked up like
+`<code>this</code>`.</p>
+
+<p>Variables are marked up like <var>this</var>.</p>
+
+<p>In some cases, requirements are given in the form of lists with conditions and corresponding
+requirements. In such cases, the requirements that apply to a condition are always the first set of
+requirements that follow the condition, even in the case of there being multiple sets of conditions
+for those requirements. Such cases are presented as follows:</p>
+
+<dl class="switch">
+ <dt>This is a condition
+ <dt>This is another condition
+ <dd>This is the requirement that applies to the conditions above.
+
+ <dt>This is a third condition
+ <dd>This is the requirement that applies to the third condition.
+</dl>
+
+
+<h2 id=primitive-data-types>Primitive data types</h2>
+
+<h3 id=bytes>Bytes</h3>
+
+<p>A <dfn export>byte</dfn> is a sequence of eight bits, represented as a double-digit hexadecimal
+number in the range 0x00 to 0xFF, inclusive.
+
+<p>An <dfn export>ASCII byte</dfn> is a <a>byte</a> in the range 0x00 to 0x7F, inclusive.
+
+<h3 id=byte-sequences>Byte sequences</h3>
+
+<p>A <dfn export>byte sequence</dfn> is a sequence of <a>bytes</a>.
+
+<p>To <dfn export>byte-lowercase</dfn> a <a>byte sequence</a>, increase each <a>byte</a> it
+contains, in the range 0x41 to 0x5A, inclusive, by 0x20.
+
+<p>To <dfn export>byte-uppercase</dfn> a <a>byte sequence</a>, subtract each byte it contains, in
+the range 0x61 to 0x7A, inclusive, by 0x20.
+
+<h3 id=code-points>Code points</h3>
+
+<p>A <dfn export>code point</dfn> is a Unicode code point and is represented as a four-to-six digit
+hexadecimal number, typically prefixed with "U+". In certain contexts <a>code points</a> are
+prefixed with "0x". [[!UNICODE]]
+
+<p>A <dfn export>scalar value</dfn> is a <a>code point</a> that is not in the range
+U+D800 to U+DFFF, inclusive.
+
+<p>An <dfn export>ASCII code point</dfn> is a <a>code point</a> in the range U+0000 to U+007F,
+inclusive.
+
+<p>An <dfn export>ASCII tab or newline</dfn> is U+0009, U+000A, or U+000D.
+
+<p>An <dfn export>ASCII whitespace</dfn> is U+0009, U+000A, U+000C, U+000D, or U+0020.
+
+<p>A <dfn export>C0 control</dfn> is a <a>code point</a> in the range U+0000 to U+001F, inclusive.
+
+<p>A <dfn export>C0 control or space</dfn> is a <a>C0 controls</a> or U+0020.
+
+<p>An <dfn export>ASCII digit</dfn> is a <a>code points</a> in the range U+0030 to U+0039,
+inclusive.
+
+<p>An <dfn export>ASCII hex digit</dfn> is an <a>ASCII digit</a>, a <a>code point</a> in the range
+U+0041 to U+0046, inclusive, or a <a>code point</a> in the range U+0061 to U+0066, inclusive.
+
+<p>An <dfn export>ASCII alpha upper</dfn> is a <a>code points</a> in the range U+0041 to U+005A,
+inclusive.
+
+<p>An <dfn export>ASCII alpha lower</dfn> is a <a>code points</a> in the range U+0061 to U+007A,
+inclusive.
+
+<p>An <dfn export>ASCII alpha</dfn> is an <a>ASCII alpha upper</a> or <a>ASCII alpha lower</a>.
+
+<p>An <dfn export>ASCII alphanumeric</dfn> is an <a>ASCII digit</a> or <a>ASCII alpha</a>.
+
+<h3 id=strings>Strings</h3>
+
+<p>A <dfn export>string</dfn> is a sequence of <a>code points</a>.
+
+<p>An <dfn export>ASCII string</dfn> is a <a>string</a> whose <a>code points</a> are all
+<a>ASCII code points</a>.
+
+<p>To <dfn export>ASCII lowercase</dfn> a <a>string</a>, replace all <a>ASCII alpha upper</a> in the
+<a>string</a> with the corresponding <a>code points</a> in <a>ASCII alpha lower</a>.
+
+<p>To <dfn export>ASCII uppercase</dfn> a <a>string</a>, replace all <a>ASCII alpha lower</a> in the
+<a>string</a> with the corresponding <a>code points</a> in <a>ASCII alpha upper</a>.
+
+<p>A <a>string</a> <var>A</var> is an <dfn export>ASCII case-insensitive</dfn> match for a
+<a>string</a> <var>B</var>, if the <a>ASCII lowercase</a> of <var>A</var> is the
+<a>ASCII lowercase</a> of <var>B</var>.
+<!-- TODO: define string equals? -->
+
+
+<h2 id=data-structures>Data structures</h2>
+
+<h3 id=lists>Lists</h3>
+
+<p class=XXX>...
+
+<h3 id=maps>Maps</h3>
+
+<p class=XXX>...
+
+
+<div data-fill-with=references></div>
+
+
+<h2 class=no-num id=acknowledgments>Acknowledgments</h2>
+
+<p>Many thanks to
+<span class=XXX>...</span>
+for being awesome!
+
+<p>This standard is written by <a lang=nl href=//annevankesteren.nl/>Anne van Kesteren</a>
+(<a href=https://www.mozilla.org/>Mozilla</a>,
+<a href=mailto:annevk@annevk.nl>annevk@annevk.nl</a>).
+
+<p>Per <a rel=license href=https://creativecommons.org/publicdomain/zero/1.0/>CC0</a>, to the extent
+possible under law, the editors have waived all copyright and related or neighboring rights to this
+work.
