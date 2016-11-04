@@ -8,70 +8,12 @@
   <link href="https://resources.whatwg.org/bikeshed.css" rel="stylesheet">
   <link href="https://resources.whatwg.org/logo.svg" rel="icon">
   <meta content="Bikeshed 1.0.0" name="generator">
-<style>/* style-syntax-highlighting */
-pre.idl.highlight { color: #708090; }
-        .highlight:not(.idl) { background: hsl(24, 20%, 95%); }
-        code.highlight { padding: .1em; border-radius: .3em; }
-        pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
-        .highlight .c { color: #708090 } /* Comment */
-        .highlight .k { color: #990055 } /* Keyword */
-        .highlight .l { color: #000000 } /* Literal */
-        .highlight .n { color: #0077aa } /* Name */
-        .highlight .o { color: #999999 } /* Operator */
-        .highlight .p { color: #999999 } /* Punctuation */
-        .highlight .cm { color: #708090 } /* Comment.Multiline */
-        .highlight .cp { color: #708090 } /* Comment.Preproc */
-        .highlight .c1 { color: #708090 } /* Comment.Single */
-        .highlight .cs { color: #708090 } /* Comment.Special */
-        .highlight .kc { color: #990055 } /* Keyword.Constant */
-        .highlight .kd { color: #990055 } /* Keyword.Declaration */
-        .highlight .kn { color: #990055 } /* Keyword.Namespace */
-        .highlight .kp { color: #990055 } /* Keyword.Pseudo */
-        .highlight .kr { color: #990055 } /* Keyword.Reserved */
-        .highlight .kt { color: #990055 } /* Keyword.Type */
-        .highlight .ld { color: #000000 } /* Literal.Date */
-        .highlight .m { color: #000000 } /* Literal.Number */
-        .highlight .s { color: #a67f59 } /* Literal.String */
-        .highlight .na { color: #0077aa } /* Name.Attribute */
-        .highlight .nc { color: #0077aa } /* Name.Class */
-        .highlight .no { color: #0077aa } /* Name.Constant */
-        .highlight .nd { color: #0077aa } /* Name.Decorator */
-        .highlight .ni { color: #0077aa } /* Name.Entity */
-        .highlight .ne { color: #0077aa } /* Name.Exception */
-        .highlight .nf { color: #0077aa } /* Name.Function */
-        .highlight .nl { color: #0077aa } /* Name.Label */
-        .highlight .nn { color: #0077aa } /* Name.Namespace */
-        .highlight .py { color: #0077aa } /* Name.Property */
-        .highlight .nt { color: #669900 } /* Name.Tag */
-        .highlight .nv { color: #222222 } /* Name.Variable */
-        .highlight .ow { color: #999999 } /* Operator.Word */
-        .highlight .mb { color: #000000 } /* Literal.Number.Bin */
-        .highlight .mf { color: #000000 } /* Literal.Number.Float */
-        .highlight .mh { color: #000000 } /* Literal.Number.Hex */
-        .highlight .mi { color: #000000 } /* Literal.Number.Integer */
-        .highlight .mo { color: #000000 } /* Literal.Number.Oct */
-        .highlight .sb { color: #a67f59 } /* Literal.String.Backtick */
-        .highlight .sc { color: #a67f59 } /* Literal.String.Char */
-        .highlight .sd { color: #a67f59 } /* Literal.String.Doc */
-        .highlight .s2 { color: #a67f59 } /* Literal.String.Double */
-        .highlight .se { color: #a67f59 } /* Literal.String.Escape */
-        .highlight .sh { color: #a67f59 } /* Literal.String.Heredoc */
-        .highlight .si { color: #a67f59 } /* Literal.String.Interpol */
-        .highlight .sx { color: #a67f59 } /* Literal.String.Other */
-        .highlight .sr { color: #a67f59 } /* Literal.String.Regex */
-        .highlight .s1 { color: #a67f59 } /* Literal.String.Single */
-        .highlight .ss { color: #a67f59 } /* Literal.String.Symbol */
-        .highlight .vc { color: #0077aa } /* Name.Variable.Class */
-        .highlight .vg { color: #0077aa } /* Name.Variable.Global */
-        .highlight .vi { color: #0077aa } /* Name.Variable.Instance */
-        .highlight .il { color: #000000 } /* Literal.Number.Integer.Long */
-        </style>
  <body class="h-entry status-LS">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://whatwg.org/"> <img alt="WHATWG" height="100" src="https://resources.whatwg.org/logo.svg"> </a> </p>
    <hgroup>
     <h1 class="p-name no-ref" id="title">Infra</h1>
-    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard — Last Updated <time class="dt-updated" datetime="2016-11-04">4 November 2016</time></span></h2>
+    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard — Last Updated <time class="dt-updated" datetime="2016-11-07">7 November 2016</time></span></h2>
    </hgroup>
    <div data-fill-with="spec-metadata">
     <dl>
@@ -97,7 +39,6 @@ pre.idl.highlight { color: #708090; }
      <a href="#conventions"><span class="secno">2</span> <span class="content">Conventions</span></a>
      <ol class="toc">
       <li><a href="#conformance"><span class="secno">2.1</span> <span class="content">Conformance</span></a>
-      <li><a href="#typography"><span class="secno">2.2</span> <span class="content">Typography</span></a>
      </ol>
     <li>
      <a href="#primitive-data-types"><span class="secno">3</span> <span class="content">Primitive data types</span></a>
@@ -151,54 +92,27 @@ introducing the algorithm or step. </p>
    <p>Conformance requirements phrased as algorithms or specific steps may be implemented in any
 manner, so long as the end result is equivalent. (In particular, the algorithms are intended to be
 easy to follow, and not intended to be performant.)</p>
-   <h3 class="heading settled" data-level="2.2" id="typography"><span class="secno">2.2. </span><span class="content">Typography</span><a class="self-link" href="#typography"></a></h3>
-   <p>This is a definition, requirement, or explanation.</p>
-   <p class="note" role="note">This is a note.</p>
-   <p class="example" id="example-example"><a class="self-link" href="#example-example"></a>This is an example.</p>
-   <p class="XXX">This is an open issue.</p>
-   <p class="warning">This is a warning.</p>
-<pre class="idl extract highlight def"><span class="kt">interface</span> <dfn class="nv idl-code" data-dfn-type="interface" data-export="" id="example">Example<a class="self-link" href="#example"></a></dfn> {  // this is an IDL definition
-};</pre>
-   <dl class="domintro">
-    <dt><code><var>variable</var> = <var>object</var> . <a data-link-type="dfn" href="#x-that">method</a>( [ <var>optionalArgument</var> ] )</code> 
-    <dd>
-     <p>This is a note to authors describing the usage of an interface. </p>
-   </dl>
-<pre class="css">/* this is a CSS fragment */</pre>
-   <p>The defining instance of a term is marked up like <dfn data-dfn-type="dfn" data-lt="x-this" data-noexport="" id="x-this">this<a class="self-link" href="#x-this"></a></dfn>. Uses of that term
-are marked up like <a data-link-type="dfn" href="#x-this">this</a>. </p>
-   <p>The defining instance of an element, attribute, or API is marked up like <dfn data-dfn-type="dfn" data-lt="x-that" data-noexport="" id="x-that"><code>this</code><a class="self-link" href="#x-that"></a></dfn>. References to that element, attribute, or API are marked up
-like <a data-link-type="dfn" href="#x-that"><code>this</code></a>. </p>
-   <p>Other code fragments are marked up <code>like this</code>.</p>
-   <p>Byte sequences with bytes in the range 0x00 to 0x7F, inclusive, are marked up like
-`<code>this</code>`.</p>
-   <p>Variables are marked up like <var>this</var>.</p>
-   <p>In some cases, requirements are given in the form of lists with conditions and corresponding
-requirements. In such cases, the requirements that apply to a condition are always the first set of
-requirements that follow the condition, even in the case of there being multiple sets of conditions
-for those requirements. Such cases are presented as follows:</p>
-   <dl class="switch">
-    <dt>This is a condition 
-    <dt>This is another condition 
-    <dd>This is the requirement that applies to the conditions above. 
-    <dt>This is a third condition 
-    <dd>This is the requirement that applies to the third condition. 
-   </dl>
    <h2 class="heading settled" data-level="3" id="primitive-data-types"><span class="secno">3. </span><span class="content">Primitive data types</span><a class="self-link" href="#primitive-data-types"></a></h2>
    <h3 class="heading settled" data-level="3.1" id="bytes"><span class="secno">3.1. </span><span class="content">Bytes</span><a class="self-link" href="#bytes"></a></h3>
    <p>A <dfn data-dfn-type="dfn" data-export="" id="byte">byte<a class="self-link" href="#byte"></a></dfn> is a sequence of eight bits, represented as a double-digit hexadecimal
 number in the range 0x00 to 0xFF, inclusive. </p>
    <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-byte">ASCII byte<a class="self-link" href="#ascii-byte"></a></dfn> is a <a data-link-type="dfn" href="#byte">byte</a> in the range 0x00 to 0x7F, inclusive. </p>
    <h3 class="heading settled" data-level="3.2" id="byte-sequences"><span class="secno">3.2. </span><span class="content">Byte sequences</span><a class="self-link" href="#byte-sequences"></a></h3>
-   <p>A <dfn data-dfn-type="dfn" data-export="" id="byte-sequence">byte sequence<a class="self-link" href="#byte-sequence"></a></dfn> is a sequence of <a data-link-type="dfn" href="#byte">bytes</a>. </p>
+   <p>A <dfn data-dfn-type="dfn" data-export="" id="byte-sequence">byte sequence<a class="self-link" href="#byte-sequence"></a></dfn> is a sequence of <a data-link-type="dfn" href="#byte">bytes</a>. Byte sequences with bytes in the
+range 0x00 to 0x7F, inclusive, can be marked up with backticks, to avoid confusion with an actual
+string. </p>
+   <p class="example" id="example-byte-sequence-notation"><a class="self-link" href="#example-byte-sequence-notation"></a>Headers, such as `<code>Content-Type</code>`,
+are <a data-link-type="dfn" href="#byte-sequence">byte sequences</a>. </p>
    <p>To <dfn data-dfn-type="dfn" data-export="" id="byte-lowercase">byte-lowercase<a class="self-link" href="#byte-lowercase"></a></dfn> a <a data-link-type="dfn" href="#byte-sequence">byte sequence</a>, increase each <a data-link-type="dfn" href="#byte">byte</a> it
 contains, in the range 0x41 to 0x5A, inclusive, by 0x20. </p>
-   <p>To <dfn data-dfn-type="dfn" data-export="" id="byte-uppercase">byte-uppercase<a class="self-link" href="#byte-uppercase"></a></dfn> a <a data-link-type="dfn" href="#byte-sequence">byte sequence</a>, subtract each byte it contains, in
-the range 0x61 to 0x7A, inclusive, by 0x20. </p>
+   <p>To <dfn data-dfn-type="dfn" data-export="" id="byte-uppercase">byte-uppercase<a class="self-link" href="#byte-uppercase"></a></dfn> a <a data-link-type="dfn" href="#byte-sequence">byte sequence</a>, subtract each <a data-link-type="dfn" href="#byte">byte</a> it
+contains, in the range 0x61 to 0x7A, inclusive, by 0x20. </p>
    <h3 class="heading settled" data-level="3.3" id="code-points"><span class="secno">3.3. </span><span class="content">Code points</span><a class="self-link" href="#code-points"></a></h3>
    <p>A <dfn data-dfn-type="dfn" data-export="" id="code-point">code point<a class="self-link" href="#code-point"></a></dfn> is a Unicode code point and is represented as a four-to-six digit
 hexadecimal number, typically prefixed with "U+". In certain contexts <a data-link-type="dfn" href="#code-point">code points</a> are
 prefixed with "0x". <a data-link-type="biblio" href="#biblio-unicode">[UNICODE]</a> </p>
+   <p class="example" id="example-code-point-notation"><a class="self-link" href="#example-code-point-notation"></a>The <a data-link-type="dfn" href="#code-point">code point</a> rendered as 🤔 is
+represented as U+1F914. </p>
    <p>A <dfn data-dfn-type="dfn" data-export="" id="scalar-value">scalar value<a class="self-link" href="#scalar-value"></a></dfn> is a <a data-link-type="dfn" href="#code-point">code point</a> that is not in the range
 U+D800 to U+DFFF, inclusive. </p>
    <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-code-point">ASCII code point<a class="self-link" href="#ascii-code-point"></a></dfn> is a <a data-link-type="dfn" href="#code-point">code point</a> in the range U+0000 to U+007F,
@@ -206,19 +120,21 @@ inclusive. </p>
    <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-tab-or-newline">ASCII tab or newline<a class="self-link" href="#ascii-tab-or-newline"></a></dfn> is U+0009, U+000A, or U+000D. </p>
    <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-whitespace">ASCII whitespace<a class="self-link" href="#ascii-whitespace"></a></dfn> is U+0009, U+000A, U+000C, U+000D, or U+0020. </p>
    <p>A <dfn data-dfn-type="dfn" data-export="" id="c0-control">C0 control<a class="self-link" href="#c0-control"></a></dfn> is a <a data-link-type="dfn" href="#code-point">code point</a> in the range U+0000 to U+001F, inclusive. </p>
-   <p>A <dfn data-dfn-type="dfn" data-export="" id="c0-control-or-space">C0 control or space<a class="self-link" href="#c0-control-or-space"></a></dfn> is a <a data-link-type="dfn" href="#c0-control">C0 controls</a> or U+0020. </p>
-   <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-digit">ASCII digit<a class="self-link" href="#ascii-digit"></a></dfn> is a <a data-link-type="dfn" href="#code-point">code points</a> in the range U+0030 to U+0039,
+   <p>A <dfn data-dfn-type="dfn" data-export="" id="c0-control-or-space">C0 control or space<a class="self-link" href="#c0-control-or-space"></a></dfn> is a <a data-link-type="dfn" href="#c0-control">C0 control</a> or U+0020. </p>
+   <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-digit">ASCII digit<a class="self-link" href="#ascii-digit"></a></dfn> is a <a data-link-type="dfn" href="#code-point">code point</a> in the range U+0030 to U+0039,
 inclusive. </p>
    <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-hex-digit">ASCII hex digit<a class="self-link" href="#ascii-hex-digit"></a></dfn> is an <a data-link-type="dfn" href="#ascii-digit">ASCII digit</a>, a <a data-link-type="dfn" href="#code-point">code point</a> in the range
 U+0041 to U+0046, inclusive, or a <a data-link-type="dfn" href="#code-point">code point</a> in the range U+0061 to U+0066, inclusive. </p>
-   <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-alpha-upper">ASCII alpha upper<a class="self-link" href="#ascii-alpha-upper"></a></dfn> is a <a data-link-type="dfn" href="#code-point">code points</a> in the range U+0041 to U+005A,
+   <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-alpha-upper">ASCII alpha upper<a class="self-link" href="#ascii-alpha-upper"></a></dfn> is a <a data-link-type="dfn" href="#code-point">code point</a> in the range U+0041 to U+005A,
 inclusive. </p>
-   <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-alpha-lower">ASCII alpha lower<a class="self-link" href="#ascii-alpha-lower"></a></dfn> is a <a data-link-type="dfn" href="#code-point">code points</a> in the range U+0061 to U+007A,
+   <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-alpha-lower">ASCII alpha lower<a class="self-link" href="#ascii-alpha-lower"></a></dfn> is a <a data-link-type="dfn" href="#code-point">code point</a> in the range U+0061 to U+007A,
 inclusive. </p>
    <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-alpha">ASCII alpha<a class="self-link" href="#ascii-alpha"></a></dfn> is an <a data-link-type="dfn" href="#ascii-alpha-upper">ASCII alpha upper</a> or <a data-link-type="dfn" href="#ascii-alpha-lower">ASCII alpha lower</a>. </p>
    <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-alphanumeric">ASCII alphanumeric<a class="self-link" href="#ascii-alphanumeric"></a></dfn> is an <a data-link-type="dfn" href="#ascii-digit">ASCII digit</a> or <a data-link-type="dfn" href="#ascii-alpha">ASCII alpha</a>. </p>
    <h3 class="heading settled" data-level="3.4" id="strings"><span class="secno">3.4. </span><span class="content">Strings</span><a class="self-link" href="#strings"></a></h3>
-   <p>A <dfn data-dfn-type="dfn" data-export="" id="string">string<a class="self-link" href="#string"></a></dfn> is a sequence of <a data-link-type="dfn" href="#code-point">code points</a>. </p>
+   <p>A <dfn data-dfn-type="dfn" data-export="" id="string">string<a class="self-link" href="#string"></a></dfn> is a sequence of <a data-link-type="dfn" href="#code-point">code points</a>. Strings are denoted by double
+quotes and monospace font. </p>
+   <p class="example" id="example-string-notation"><a class="self-link" href="#example-string-notation"></a>"<code>Hello, world!</code>" is a string. </p>
    <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-string">ASCII string<a class="self-link" href="#ascii-string"></a></dfn> is a <a data-link-type="dfn" href="#string">string</a> whose <a data-link-type="dfn" href="#code-point">code points</a> are all <a data-link-type="dfn" href="#ascii-code-point">ASCII code points</a>. </p>
    <p>To <dfn data-dfn-type="dfn" data-export="" id="ascii-lowercase">ASCII lowercase<a class="self-link" href="#ascii-lowercase"></a></dfn> a <a data-link-type="dfn" href="#string">string</a>, replace all <a data-link-type="dfn" href="#ascii-alpha-upper">ASCII alpha upper</a> in the <a data-link-type="dfn" href="#string">string</a> with the corresponding <a data-link-type="dfn" href="#code-point">code points</a> in <a data-link-type="dfn" href="#ascii-alpha-lower">ASCII alpha lower</a>. </p>
    <p>To <dfn data-dfn-type="dfn" data-export="" id="ascii-uppercase">ASCII uppercase<a class="self-link" href="#ascii-uppercase"></a></dfn> a <a data-link-type="dfn" href="#string">string</a>, replace all <a data-link-type="dfn" href="#ascii-alpha-lower">ASCII alpha lower</a> in the <a data-link-type="dfn" href="#string">string</a> with the corresponding <a data-link-type="dfn" href="#code-point">code points</a> in <a data-link-type="dfn" href="#ascii-alpha-upper">ASCII alpha upper</a>. </p>
