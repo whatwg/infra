@@ -52,7 +52,8 @@
      <a href="#data-structures"><span class="secno">4</span> <span class="content">Data structures</span></a>
      <ol class="toc">
       <li><a href="#lists"><span class="secno">4.1</span> <span class="content">Lists</span></a>
-      <li><a href="#maps"><span class="secno">4.2</span> <span class="content">Maps</span></a>
+      <li><a href="#sets"><span class="secno">4.2</span> <span class="content">Sets</span></a>
+      <li><a href="#maps"><span class="secno">4.3</span> <span class="content">Maps</span></a>
      </ol>
     <li>
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
@@ -140,23 +141,117 @@ quotes and monospace font. </p>
    <p>To <dfn data-dfn-type="dfn" data-export="" id="ascii-uppercase">ASCII uppercase<a class="self-link" href="#ascii-uppercase"></a></dfn> a <a data-link-type="dfn" href="#string">string</a>, replace all <a data-link-type="dfn" href="#ascii-alpha-lower">ASCII alpha lower</a> in the <a data-link-type="dfn" href="#string">string</a> with the corresponding <a data-link-type="dfn" href="#code-point">code points</a> in <a data-link-type="dfn" href="#ascii-alpha-upper">ASCII alpha upper</a>. </p>
    <p>A <a data-link-type="dfn" href="#string">string</a> <var>A</var> is an <dfn data-dfn-type="dfn" data-export="" id="ascii-case-insensitive">ASCII case-insensitive<a class="self-link" href="#ascii-case-insensitive"></a></dfn> match for a <a data-link-type="dfn" href="#string">string</a> <var>B</var>, if the <a data-link-type="dfn" href="#ascii-lowercase">ASCII lowercase</a> of <var>A</var> is the <a data-link-type="dfn" href="#ascii-lowercase">ASCII lowercase</a> of <var>B</var>. </p>
    <h2 class="heading settled" data-level="4" id="data-structures"><span class="secno">4. </span><span class="content">Data structures</span><a class="self-link" href="#data-structures"></a></h2>
+   <p>Conventionally, specifications have operated on a variety of vague specification-level data
+structures, based on shared understanding of their semantics. This generally works well, but can
+lead to ambiguities around edge cases, such as iteration order or what happens when you <a data-link-type="dfn" href="#set-append">append</a> an element to an <a data-link-type="dfn" href="#ordered-set">ordered set</a> that the set already <a data-link-type="dfn" href="#set-contains">contains</a>. It has also led to a variety of divergent notation and phrasing, especially
+around more complex data structures such as <a data-link-type="dfn" href="#ordered-map">maps</a>. </p>
+   <p>The Infra Standard provides a small set of common data structures, along with notation and
+phrasing for working with them, in order to create common ground. </p>
    <h3 class="heading settled" data-level="4.1" id="lists"><span class="secno">4.1. </span><span class="content">Lists</span><a class="self-link" href="#lists"></a></h3>
-   <p class="XXX">... </p>
-   <h3 class="heading settled" data-level="4.2" id="maps"><span class="secno">4.2. </span><span class="content">Maps</span><a class="self-link" href="#maps"></a></h3>
-   <p class="XXX">... </p>
+   <p>A <dfn data-dfn-type="dfn" data-export="" id="list">list<a class="self-link" href="#list"></a></dfn> is a specification type consisting of a finite ordered sequence of
+values. </p>
+   <p>For notational convenience, a literal syntax can be used to express <a data-link-type="dfn" href="#list">lists</a>, by surrounding
+the list contents by « » characters and separating list elements with a comma. An indexing syntax
+can be used by providing a zero-based index into a list inside square brackets. </p>
+   <p class="example" id="example-list-notation"><a class="self-link" href="#example-list-notation"></a>Let <var>example</var> be the <a data-link-type="dfn" href="#list">list</a> « "<code>a</code>",
+"<code>b</code>", "<code>c</code>", "<code>a</code>" ». Then <var>example</var>[1] is the <a data-link-type="dfn" href="#string">string</a> "<code>b</code>". </p>
+   <hr>
+   <p>To <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" id="list-append">append<a class="self-link" href="#list-append"></a></dfn> to a <a data-link-type="dfn" href="#list">list</a> is to add the given element to the end
+of the list. </p>
+   <p>To <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" id="list-prepend">prepend<a class="self-link" href="#list-prepend"></a></dfn> to a <a data-link-type="dfn" href="#list">list</a> is to add the given element to the
+beginning of the list. </p>
+   <p>To <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" id="list-remove">remove<a class="self-link" href="#list-remove"></a></dfn> an element from a <a data-link-type="dfn" href="#list">list</a> is to remove all elements
+from the list that match a given condition, or do nothing if none do. </p>
+   <div class="example" id="example-list-remove">
+    <a class="self-link" href="#example-list-remove"></a> 
+    <p><a data-link-type="dfn" href="#list-remove">Removing</a> <var>x</var> from the <a data-link-type="dfn" href="#list">list</a> « <var>x</var>, <var>y</var>, <var>z</var>, <var>x</var> » is to remove all
+ elements from the list that are equal to <var>x</var>. The list now is equivalent to « <var>y</var>, <var>z</var> ». </p>
+    <p><a data-link-type="dfn" href="#list-remove">Removing</a> all elements that start with the string "<code>a</code>" from the <a data-link-type="dfn" href="#list">list</a> « "<code>a</code>", "<code>b</code>", "<code>ab</code>", "<code>ba</code>" » is to
+ remove the elements "<code>a</code>" and "<code>ab</code>". The list is now equivalent to «
+ "<code>b</code>", "<code>ba</code>" ». </p>
+   </div>
+   <p>A <a data-link-type="dfn" href="#list">list</a> <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" id="list-contains">contains<a class="self-link" href="#list-contains"></a></dfn> an element if it appears in the list. </p>
+   <p>To <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" data-lt="iterate|for each" id="list-iterate">iterate<a class="self-link" href="#list-iterate"></a></dfn> over a <a data-link-type="dfn" href="#list">list</a>, performing a set
+of steps on each element in order, use phrasing of the form "<a data-link-type="dfn" href="#list-iterate">For each</a> <var>element</var> of <var>list</var>", and then operate on <var>element</var> in the subsequent prose. </p>
+   <hr>
+   <p>The <a data-link-type="dfn" href="#list">list</a> type originates from the JavaScript specification (where it is capitalized, as <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-list-and-record-specification-type">List</a>); we repeat some elements of its definition here for ease of reference,
+and provide an expanded vocabulary for manipulating <a data-link-type="dfn" href="#list">lists</a>. Whenever JavaScript expects a <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-list-and-record-specification-type">List</a>, a <a data-link-type="dfn" href="#list">list</a> as defined here can be used; they are the same type. <a data-link-type="biblio" href="#biblio-ecma-262">[ECMA-262]</a> </p>
+   <p>A <a data-link-type="dfn" href="#list">list</a> whose elements are all of a particular Web IDL type <var>T</var> can easy be <dfn data-dfn-type="dfn" data-lt="convert list to sequence" data-noexport="" id="convert-list-to-sequence">converted to the corresponding <a data-link-type="dfn" href="https://heycam.github.io/webidl/#sequence-type">sequence type</a><a class="self-link" href="#convert-list-to-sequence"></a></dfn> <code>sequence&lt;<var>T</var>></code> by simply creating a sequence whose values are the values of the list. <a data-link-type="biblio" href="#biblio-webidl">[WEBIDL]</a> </p>
+   <h3 class="heading settled" data-level="4.2" id="sets"><span class="secno">4.2. </span><span class="content">Sets</span><a class="self-link" href="#sets"></a></h3>
+   <p>A <dfn data-dfn-type="dfn" data-export="" data-lt="ordered set|set" id="ordered-set">ordered set<a class="self-link" href="#ordered-set"></a></dfn>, or sometimes just "set", is a specification
+type consisting of a finite ordered sequence of values, with no value appearing twice. </p>
+   <p class="note" role="note">Almost all cases on the web platform require an <em>ordered</em> set, instead of an
+unordered one, since interoperability requires that any developer-exposed enumeration of the set’s
+contents be consistent between browsers. In those cases where order is not required, we still use
+ordered sets; implementations may optimize based on the fact that the order is not observable. </p>
+   <p>Similar notation can be used for <a data-link-type="dfn" href="#ordered-set">ordered sets</a> as for <a data-link-type="dfn" href="#list">lists</a>, except with the
+delimiters «{ }». </p>
+   <p class="example" id="example-set-notation"><a class="self-link" href="#example-set-notation"></a>Let <var>example</var> be the <a data-link-type="dfn" href="#ordered-set">ordered set</a> «{
+"<code>a</code>", "<code>b</code>", "<code>c</code>" }». Then <var>example</var>[1] is the <a data-link-type="dfn" href="#string">string</a> "<code>b</code>". </p>
+   <hr>
+   <p>To <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" id="set-append">append<a class="self-link" href="#set-append"></a></dfn> to an <a data-link-type="dfn" href="#ordered-set">ordered set</a> is to add the given
+element to the end of the set, or do nothing if the set already <a data-link-type="dfn" href="#set-contains">contains</a> the element. </p>
+   <p class="example" id="example-set-append"><a class="self-link" href="#example-set-append"></a><a data-link-type="dfn" href="#set-append">Appending</a> <var>y</var> to the <a data-link-type="dfn" href="#ordered-set">ordered set</a> «{ <var>x</var>, <var>y</var>, <var>z</var> }» does not change the contents of the set, or their order. </p>
+   <p>To <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" id="set-prepend">prepend<a class="self-link" href="#set-prepend"></a></dfn> to an <a data-link-type="dfn" href="#ordered-set">ordered set</a> is to add the given
+element to the beginning of the set, or do nothing if the set already <a data-link-type="dfn" href="#set-contains">contains</a> the element. </p>
+   <p>To <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" id="set-remove">remove<a class="self-link" href="#set-remove"></a></dfn> an element from an <a data-link-type="dfn" href="#ordered-set">ordered set</a> is to remove
+all elements from the set that match a given condition, or do nothing if none do. </p>
+   <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a> <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" id="set-contains">contains<a class="self-link" href="#set-contains"></a></dfn> an element if it appears in the
+set. </p>
+   <p>To <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" data-lt="iterate|for each" id="set-iterate">iterate<a class="self-link" href="#set-iterate"></a></dfn> over an <a data-link-type="dfn" href="#ordered-set">ordered set</a>, performing
+a set of steps on each element in order, use phrasing of the form "<a data-link-type="dfn" href="#set-iterate">For each</a> <var>element</var> of <var>set</var>", and then operate on <var>element</var> in the subsequent prose. </p>
+   <hr>
+   <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a> can be <dfn data-dfn-type="dfn" data-lt="convert ordered set to list" data-noexport="" id="convert-ordered-set-to-list">converted to a list<a class="self-link" href="#convert-ordered-set-to-list"></a></dfn> by
+simply creating a list whose contents are the same as that of the set. This can be assumed to happen
+implicitly where it makes sense, such as when passing the <a data-link-type="dfn" href="#ordered-set">ordered set</a> to an abstract
+operation from the JavaScript specification. <a data-link-type="biblio" href="#biblio-ecma-262">[ECMA-262]</a> </p>
+   <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a> whose elements are all of a particular Web IDL type <var>T</var> can easily be <dfn data-dfn-type="dfn" data-lt="convert ordered set to sequence" data-noexport="" id="convert-ordered-set-to-sequence">converted to the corresponding <a data-link-type="dfn" href="https://heycam.github.io/webidl/#sequence-type">sequence type</a><a class="self-link" href="#convert-ordered-set-to-sequence"></a></dfn> <code>sequence&lt;<var>T</var>></code> by simply creating a sequence whose values are the values of the set. <a data-link-type="biblio" href="#biblio-webidl">[WEBIDL]</a> </p>
+   <h3 class="heading settled" data-level="4.3" id="maps"><span class="secno">4.3. </span><span class="content">Maps</span><a class="self-link" href="#maps"></a></h3>
+   <p>A <dfn data-dfn-type="dfn" data-export="" data-lt="ordered map|map" id="ordered-map">ordered map<a class="self-link" href="#ordered-map"></a></dfn>, or sometimes just "map", is a specification
+type consisting of a finite ordered sequence of key/value pairs, with no key appearing twice. </p>
+   <p class="note" role="note">As with <a data-link-type="dfn" href="#ordered-set">ordered sets</a>, by default we assume that maps must also be ordered for
+interoperability among implementations. </p>
+   <p>A literal syntax can be used to express <a data-link-type="dfn" href="#ordered-map">ordered maps</a>, by surrounding the contents with «[
+]» delimiters, denoting each key/value pair as <var>key</var> → <var>value</var>, and separating pairs with a comma.
+An indexing syntax can be used to look up and set values by providing a key inside square brackets. </p>
+   <p class="example" id="example-map-notation"><a class="self-link" href="#example-map-notation"></a>Let <var>example</var> be the <a data-link-type="dfn" href="#ordered-map">ordered map</a> «[
+"<code>a</code>" → `<code>x</code>`, "<code>b</code>" → `<code>y</code>` ]». Then <var>example</var>["<code>a</code>"] is the <a data-link-type="dfn" href="#byte-sequence">byte sequence</a> `<code>x</code>`. </p>
+   <hr>
+   <p>To <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-set-the-value-of-an-entry">set the value of an entry<a class="self-link" href="#map-set-the-value-of-an-entry"></a></dfn> in an <a data-link-type="dfn" href="#ordered-map">ordered map</a> to a given value
+is to update the value of any existing key/value pair if the map <a data-link-type="dfn" href="#map-contains-an-entry-with-a-given-key">contains an entry with the given key</a>, or if none such
+exists, to append a new entry with the given key/value. We can also denote this by saying, for an <a data-link-type="dfn" href="#ordered-map">ordered map</a> <var>map</var>, key <var>key</var>, and value <var>value</var>, "<dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-set">set<a class="self-link" href="#map-set"></a></dfn> <var>map</var>[<var>key</var>]
+to <var>value</var>". </p>
+   <p>To <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-remove-an-entry">remove an entry<a class="self-link" href="#map-remove-an-entry"></a></dfn> from an <a data-link-type="dfn" href="#ordered-map">ordered map</a> is to remove all entries
+from the map that match a given condition, or do nothing if none do. If the condition is having a
+certain key, then we can also denote this by saying, for an <a data-link-type="dfn" href="#ordered-map">ordered map</a> <var>map</var> and key <var>key</var>,
+"<dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-remove">remove<a class="self-link" href="#map-remove"></a></dfn> <var>map</var>[<var>key</var>]". </p>
+   <p>An <a data-link-type="dfn" href="#ordered-map">ordered map</a> <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-contains-an-entry-with-a-given-key">contains an entry with a given key<a class="self-link" href="#map-contains-an-entry-with-a-given-key"></a></dfn> if there
+exists a key/value pair with that key. We can also denote this by saying that, for an <a data-link-type="dfn" href="#ordered-map">ordered map</a> <var>map</var> and key <var>key</var>, "<var>map</var>[<var>key</var>] <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-exists">exists<a class="self-link" href="#map-exists"></a></dfn>". </p>
+   <p>To <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-get-the-keys">get the keys<a class="self-link" href="#map-get-the-keys"></a></dfn> of an <a data-link-type="dfn" href="#ordered-map">ordered map</a>, return a new <a data-link-type="dfn" href="#ordered-set">ordered set</a> whose elements are each of the keys in the map’s key/value pairs. </p>
+   <p>To <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" data-lt="iterate|for each" id="map-iterate">iterate<a class="self-link" href="#map-iterate"></a></dfn> over an <a data-link-type="dfn" href="#ordered-map">ordered map</a>, performing
+a set of steps on each element in order, use phrasing of the form "<a data-link-type="dfn" href="#list-iterate">For each</a> <var>key</var> → <var>value</var> of <var>map</var>", and then operate on <var>key</var> and <var>value</var> in the subsequent prose. </p>
+   <hr>
+   <p>An <a data-link-type="dfn" href="#ordered-map">ordered map</a> whose keys are all <a data-link-type="dfn" href="#string">strings</a> and whose values are all of the same Web
+IDL type <var>TValue</var> can be <dfn data-dfn-type="dfn" data-lt="convert ordered map to record" data-noexport="" id="convert-ordered-map-to-record">converted to the corresponding <a data-link-type="dfn" href="https://heycam.github.io/webidl/#record-type">record type</a><a class="self-link" href="#convert-ordered-map-to-record"></a></dfn> <code>record&lt;<var>TKey</var>, <var>TValue</var>></code> by first converting all its keys
+to the appropriate Web IDL <a data-link-type="dfn" href="https://heycam.github.io/webidl/#dfn-string-type">string type</a> <var>TKey</var>, and then creating corresponding record entries
+for each pair of converted key/original value. <a data-link-type="biblio" href="#biblio-webidl">[WEBIDL]</a> </p>
    <div data-fill-with="references">
     <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
     <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
     <dl>
+     <dt id="biblio-ecma-262">[ECMA-262]
+     <dd><a href="https://tc39.github.io/ecma262/">ECMAScript Language Specification</a>. URL: <a href="https://tc39.github.io/ecma262/">https://tc39.github.io/ecma262/</a>
      <dt id="biblio-rfc2119">[RFC2119]
      <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
      <dt id="biblio-unicode">[UNICODE]
      <dd><a href="http://www.unicode.org/versions/latest/">The Unicode Standard</a>. URL: <a href="http://www.unicode.org/versions/latest/">http://www.unicode.org/versions/latest/</a>
+     <dt id="biblio-webidl">[WEBIDL]
+     <dd>Cameron McCormack; Boris Zbarsky; Tobie Langel. <a href="https://heycam.github.io/webidl/">Web IDL</a>. URL: <a href="https://heycam.github.io/webidl/">https://heycam.github.io/webidl/</a>
     </dl>
    </div>
    <h2 class="no-num heading settled" id="acknowledgments"><span class="content">Acknowledgments</span><a class="self-link" href="#acknowledgments"></a></h2>
    <p>Many thanks to <span class="XXX">...</span> for being awesome! </p>
-   <p>This standard is written by <a href="//annevankesteren.nl/" lang="nl">Anne van Kesteren</a> (<a href="https://www.mozilla.org/">Mozilla</a>, <a href="mailto:annevk@annevk.nl">annevk@annevk.nl</a>). </p>
+   <p>This standard is written by <a href="https://annevankesteren.nl/" lang="nl">Anne van Kesteren</a> (<a href="https://www.mozilla.org/">Mozilla</a>, <a href="mailto:annevk@annevk.nl">annevk@annevk.nl</a>) and <a href="https://domenic.me/">Domenic Denicola</a> (<a href="https://www.google.com/">Google</a>, <a href="mailto:d@domenic.me">d@domenic.me</a>). </p>
    <p>Per <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="license">CC0</a>, to the extent
 possible under law, the editors have waived all copyright and related or neighboring rights to this
 work. </p>
