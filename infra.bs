@@ -300,9 +300,9 @@ An indexing syntax can be used to look up and set values by providing a key insi
 <p>To <dfn export for=map>set the value of an entry</dfn> in an <a>ordered map</a> to a given value
 is to update the value of any existing key/value pair if the map
 <a lt="contains an entry with a given key">contains an entry with the given key</a>, or if none such
-exists, to append a new entry with the given key/value. We can also denote this by saying, for an
-<a>ordered map</a> |map|, key |key|, and value |value|, "<dfn export for=map>set</dfn> |map|[|key|]
-to |value|".
+exists, to add a new entry with the given key/value to the end of the map. We can also denote this
+by saying, for an <a>ordered map</a> |map|, key |key|, and value |value|,
+"<dfn export for=map>set</dfn> |map|[|key|] to |value|".
 
 <p>To <dfn export for=map>remove an entry</dfn> from an <a>ordered map</a> is to remove all entries
 from the map that match a given condition, or do nothing if none do. If the condition is having a
