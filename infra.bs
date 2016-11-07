@@ -205,6 +205,8 @@ from the list that match a given condition, or do nothing if none do.
 <p>A <a>list</a>'s <dfn export for=list>size</dfn> is the number of elements the list
 <a for=list>contains</a>.
 
+<p>A <a>list</a> is <dfn export for=list>empty</dfn> if its <a for=list>size</a> is zero.
+
 <p>To <dfn export for=list lt="iterate|for each">iterate</dfn> over a <a>list</a>, performing a set
 of steps on each element in order, use phrasing of the form "<a for=list>For each</a> |element| of
 |list|", and then operate on |element| in the subsequent prose.
@@ -262,6 +264,8 @@ set.
 <p>An <a>ordered set</a>'s <dfn export for=set>size</dfn> is the number of elements the set
 <a for=set>contains</a>.
 
+<p>An <a>ordered set</a> is <dfn export for=set>empty</dfn> if its <a for=set>size</a> is zero.
+
 <p>To <dfn export for=set lt="iterate|for each">iterate</dfn> over an <a>ordered set</a>, performing
 a set of steps on each element in order, use phrasing of the form "<a for=set>For each</a> |element|
 of |set|", and then operate on |element| in the subsequent prose.
@@ -318,6 +322,8 @@ exists a key/value pair with that key. We can also denote this by saying that, f
 
 <p>An <a>ordered map</a>'s <dfn export for=map>size</dfn> is the <a for=set>size</a> of the result
 of running <a for=map>get the keys</a> on the map.
+
+<p>An <a>ordered map</a> is <dfn export for=map>empty</dfn> if its <a for=map>size</a> is zero.
 
 <p>To <dfn export for=map lt="iterate|for each">iterate</dfn> over an <a>ordered map</a>, performing
 a set of steps on each element in order, use phrasing of the form "<a for=list>For each</a>
