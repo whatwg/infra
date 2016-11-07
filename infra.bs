@@ -108,8 +108,14 @@ inclusive.
 <p>An <dfn export>ASCII digit</dfn> is a <a>code point</a> in the range U+0030 to U+0039,
 inclusive.
 
-<p>An <dfn export>ASCII hex digit</dfn> is an <a>ASCII digit</a>, a <a>code point</a> in the range
-U+0041 to U+0046, inclusive, or a <a>code point</a> in the range U+0061 to U+0066, inclusive.
+<p>An <dfn export>ASCII hex digit upper</dfn> is an <a>ASCII digit</a> or a <a>code point</a> in the
+range U+0041 to U+0046, inclusive.
+
+<p>An <dfn export>ASCII hex digit lower</dfn> is an <a>ASCII digit</a> or a <a>code point</a> in the
+range U+0061 to U+0066, inclusive.
+
+<p>An <dfn export>ASCII hex digit</dfn> is an <a>ASCII hex digit upper</a> or
+<a>ASCII hex digit lower</a>.
 
 <p>An <dfn export>ASCII alpha upper</dfn> is a <a>code point</a> in the range U+0041 to U+005A,
 inclusive.
