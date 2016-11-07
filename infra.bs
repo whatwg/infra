@@ -34,6 +34,8 @@ urlPrefix: https://heycam.github.io/webidl/; spec: WEBIDL; type: dfn
  <li><p>Deduplicate boilerplate in standards.
 
  <li><p>Align standards on conventions, terminology, and data structures.
+
+ <li><p>Be a place for concepts used by multiple standards without a good home.
 </ul>
 
 <p>Suggestions for more goals welcome.</p>
@@ -342,6 +344,22 @@ IDL type |TValue| can be <dfn lt="convert ordered map to record">converted to th
 <a>record type</a></dfn> <code>record&lt;|TKey|, |TValue|></code> by first converting all its keys
 to the appropriate Web IDL <a>string type</a> |TKey|, and then creating corresponding record entries
 for each pair of converted key/original value. [[!WEBIDL]]
+
+
+<h2 id=namespaces>Namespaces</h2>
+
+<p>The <dfn export>HTML namespace</dfn> is "<code>http://www.w3.org/1999/xhtml</code>".
+
+<p>The <dfn export>MathML namespace</dfn> is "<code>http://www.w3.org/1998/Math/MathML</code>".
+
+<p>The <dfn export>SVG namespace</dfn> is "<code>http://www.w3.org/2000/svg</code>".
+
+<p>The <dfn export>XLink namespace</dfn> is "<code>http://www.w3.org/1999/xlink</code>".
+
+<p>The <dfn export>XML namespace</dfn> is "<code>http://www.w3.org/XML/1998/namespace</code>".
+
+<p>The <dfn export>XMLNS namespace</dfn> is "<code>http://www.w3.org/2000/xmlns/</code>".
+
 
 <div data-fill-with=references></div>
 
