@@ -6,15 +6,26 @@ Status: LS
 Group: WHATWG
 No Editor: true
 Logo: https://resources.whatwg.org/logo.svg
-Abstract: Infra aims to define the fundamental concepts upon which standards are built.
+Abstract: The Infra Standard aims to define the fundamental concepts upon which standards are built.
 !Participate: <a href=https://github.com/whatwg/infra>GitHub whatwg/infra</a> (<a href=https://github.com/whatwg/infra/issues/new>new issue</a>, <a href=https://github.com/whatwg/infra/issues>open issues</a>)
 !Participate: <a href=https://wiki.whatwg.org/wiki/IRC>IRC: #whatwg on Freenode</a>
 !Commits: <a href=https://github.com/whatwg/infra/commits>GitHub whatwg/infra/commits</a>
 Boilerplate: omit conformance, omit feedback-header, omit index, omit idl-index
+Ignored Vars: key, value, set, list
 </pre>
 
 <script src=https://resources.whatwg.org/file-issue.js async></script>
 <script id=head src=https://resources.whatwg.org/dfn.js defer></script>
+
+<pre class="link-defaults">
+</pre>
+
+<pre class="anchors">
+urlPrefix: https://tc39.github.io/ecma262/; spec: ECMA-262; type: dfn
+    text: List; url: sec-list-and-record-specification-type
+urlPrefix: https://heycam.github.io/webidl/; spec: WEBIDL; type: dfn
+    text: sequence type
+</pre>
 
 
 <h2 id=goals class=no-num>Goals</h2>
@@ -151,14 +162,186 @@ quotes and monospace font.
 
 <h2 id=data-structures>Data structures</h2>
 
+<p>Conventionally, specifications have operated on a variety of vague specification-level data
+structures, based on shared understanding of their semantics. This generally works well, but can
+lead to ambiguities around edge cases, such as iteration order or what happens when you
+<a for=set>append</a> an element to an <a>ordered set</a> that the set already
+<a for=set>contains</a>. It has also led to a variety of divergent notation and phrasing, especially
+around more complex data structures such as <a lt="ordered map">maps</a>.
+
+<p>This standard provides a small set of common data structures, along with notation and phrasing
+for working with them, in order to create common ground.
+
 <h3 id=lists>Lists</h3>
 
-<p class=XXX>...
+<p>A <dfn export>list</dfn> is a specification type consisting of a finite ordered sequence of
+elements.
+
+<p>For notational convenience, a literal syntax can be used to express <a>lists</a>, by surrounding
+the list contents by « » characters and separating list elements with a comma. An indexing syntax
+can be used by providing a zero-based index into a list inside square brackets.
+
+<p class=example id=example-list-notation>Let |example| be the <a>list</a> « "<code>a</code>",
+"<code>b</code>", "<code>c</code>", "<code>a</code>" ». Then |example|[1] is the <a>string</a>
+"<code>b</code>".
+
+<hr>
+
+<p>To <dfn export for=list>append</dfn> to a <a>list</a> is to add the given element to the end
+of the list.
+
+<p>To <dfn export for=list>prepend</dfn> to a <a>list</a> is to add the given element to the
+beginning of the list.
+
+<p>To <dfn export for=list>remove</dfn> an element from a <a>list</a> is to remove all elements
+from the list that match a given condition, or do nothing if none do.
+
+<div class=example id=example-list-remove>
+ <p><a for=list>Removing</a> |x| from the <a>list</a> « |x|, |y|, |z|, |x| » is to remove all
+ elements from the list that are equal to |x|. The list now is equivalent to « |y|, |z| ».
+
+ <p><a for=list>Removing</a> all elements that start with the string "<code>a</code>" from the
+ <a>list</a> « "<code>a</code>", "<code>b</code>", "<code>ab</code>", "<code>ba</code>" » is to
+ remove the elements "<code>a</code>" and "<code>ab</code>". The list is now equivalent to «
+ "<code>b</code>", "<code>ba</code>" ».
+</div>
+
+<p>A <a>list</a> <dfn export for=list>contains</dfn> an element if it appears in the list.
+
+<p>A <a>list</a>'s <dfn export for=list>size</dfn> is the number of elements the list
+<a for=list>contains</a>.
+
+<p>A <a>list</a> is <dfn export for=list>empty</dfn> if its <a for=list>size</a> is zero.
+
+<p>To <dfn export for=list lt="iterate|for each">iterate</dfn> over a <a>list</a>, performing a set
+of steps on each element in order, use phrasing of the form "<a for=list>For each</a> |element| of
+|list|", and then operate on |element| in the subsequent prose.
+
+<hr>
+
+<p>The <a>list</a> type originates from the JavaScript specification (where it is capitalized, as
+<a spec=ecma-262>List</a>); we repeat some elements of its definition here for ease of reference,
+and provide an expanded vocabulary for manipulating <a>lists</a>. Whenever JavaScript expects a
+<a spec=ecma-262>List</a>, a <a>list</a> as defined here can be used; they are the same type.
+[[!ECMA-262]]
+
+<p>A <a>list</a> whose elements are all of a particular Web IDL type |T| can easy be
+<dfn lt="convert list to sequence">converted to the corresponding <a>sequence type</a></dfn>
+<code>sequence&lt;|T|></code> by simply creating a sequence whose elements are the elements of the
+list.
+[[!WEBIDL]]
+
+<h3 id=sets>Sets</h3>
+
+<p>A <dfn export lt="ordered set|set">ordered set</dfn>, or sometimes just "set", is a specification
+type consisting of a finite ordered sequence of elements, with no element appearing twice.
+
+<p class=note>Almost all cases on the web platform require an <em>ordered</em> set, instead of an
+unordered one, since interoperability requires that any developer-exposed enumeration of the set's
+contents be consistent between browsers. In those cases where order is not required, we still use
+ordered sets; implementations may optimize based on the fact that the order is not observable.
+
+<p>Similar notation can be used for <a>ordered sets</a> as for <a>lists</a>, except with the
+delimiters «{ }».
+
+<p class=example id=example-set-notation>Let |example| be the <a>ordered set</a> «{
+"<code>a</code>", "<code>b</code>", "<code>c</code>" }». Then |example|[1] is the <a>string</a>
+"<code>b</code>".
+
+<hr>
+
+<p>To <dfn export for=set>append</dfn> to an <a>ordered set</a> is to add the given
+element to the end of the set, or do nothing if the set already <a for=set>contains</a>
+the element.
+
+<p class=example id=example-set-append><a for=set>Appending</a> |y| to the
+<a>ordered set</a> «{ |x|, |y|, |z| }» does not change the contents of the set, or their order.
+
+<p>To <dfn export for=set>prepend</dfn> to an <a>ordered set</a> is to add the given
+element to the beginning of the set, or do nothing if the set already <a
+for=set>contains</a> the element.
+
+<p>To <dfn export for=set>remove</dfn> an element from an <a>ordered set</a> is to remove
+all elements from the set that match a given condition, or do nothing if none do.
+
+<p>An <a>ordered set</a> <dfn export for=set>contains</dfn> an element if it appears in the
+set.
+
+<p>An <a>ordered set</a>'s <dfn export for=set>size</dfn> is the number of elements the set
+<a for=set>contains</a>.
+
+<p>An <a>ordered set</a> is <dfn export for=set>empty</dfn> if its <a for=set>size</a> is zero.
+
+<p>To <dfn export for=set lt="iterate|for each">iterate</dfn> over an <a>ordered set</a>, performing
+a set of steps on each element in order, use phrasing of the form "<a for=set>For each</a> |element|
+of |set|", and then operate on |element| in the subsequent prose.
+
+<hr>
+
+<p>An <a>ordered set</a> can be <dfn lt="convert ordered set to list">converted to a list</dfn> by
+simply creating a list whose contents are the same as that of the set. This can be assumed to happen
+implicitly where it makes sense, such as when passing the <a>ordered set</a> to an abstract
+operation from the JavaScript specification. [[!ECMA-262]]
+
+<p>An <a>ordered set</a> whose elements are all of a particular Web IDL type |T| can easily be
+<dfn lt="convert ordered set to sequence">converted to the corresponding <a>sequence type</a></dfn>
+<code>sequence&lt;|T|></code> by simply creating a sequence whose elements are the elements of the
+set. [[!WEBIDL]]
+
 
 <h3 id=maps>Maps</h3>
 
-<p class=XXX>...
+<p>A <dfn export lt="ordered map|map">ordered map</dfn>, or sometimes just "map", is a specification
+type consisting of a finite ordered sequence of key/value pairs, with no key appearing twice.
 
+<p class=note>As with <a>ordered sets</a>, by default we assume that maps must also be ordered for
+interoperability among implementations.
+
+<p>A literal syntax can be used to express <a>ordered maps</a>, by surrounding the contents with «[
+]» delimiters, denoting each key/value pair as |key| → |value|, and separating pairs with a comma.
+An indexing syntax can be used to look up and set values by providing a key inside square brackets.
+
+<p class=example id=example-map-notation>Let |example| be the <a>ordered map</a> «[
+"<code>a</code>" → `<code>x</code>`, "<code>b</code>" → `<code>y</code>` ]». Then
+|example|["<code>a</code>"] is the <a>byte sequence</a> `<code>x</code>`.
+
+<hr>
+
+<p>To <dfn export for=map>set the value of an entry</dfn> in an <a>ordered map</a> to a given value
+is to update the value of any existing key/value pair if the map
+<a lt="contains an entry with a given key">contains an entry with the given key</a>, or if none such
+exists, to add a new entry with the given key/value to the end of the map. We can also denote this
+by saying, for an <a>ordered map</a> |map|, key |key|, and value |value|,
+"<dfn export for=map>set</dfn> |map|[|key|] to |value|".
+
+<p>To <dfn export for=map>remove an entry</dfn> from an <a>ordered map</a> is to remove all entries
+from the map that match a given condition, or do nothing if none do. If the condition is having a
+certain key, then we can also denote this by saying, for an <a>ordered map</a> |map| and key |key|,
+"<dfn export for=map>remove</dfn> |map|[|key|]".
+
+<p>An <a>ordered map</a> <dfn export for=map>contains an entry with a given key</dfn> if there
+exists a key/value pair with that key. We can also denote this by saying that, for an
+<a>ordered map</a> |map| and key |key|, "|map|[|key|] <dfn export for=map>exists</dfn>".
+
+<p>To <dfn export for=map>get the keys</dfn> of an <a>ordered map</a>, return a new
+<a>ordered set</a> whose elements are each of the keys in the map's key/value pairs.
+
+<p>An <a>ordered map</a>'s <dfn export for=map>size</dfn> is the <a for=set>size</a> of the result
+of running <a for=map>get the keys</a> on the map.
+
+<p>An <a>ordered map</a> is <dfn export for=map>empty</dfn> if its <a for=map>size</a> is zero.
+
+<p>To <dfn export for=map lt="iterate|for each">iterate</dfn> over an <a>ordered map</a>, performing
+a set of steps on each element in order, use phrasing of the form "<a for=list>For each</a>
+|key| → |value| of |map|", and then operate on |key| and |value| in the subsequent prose.
+
+<hr>
+
+<p>An <a>ordered map</a> whose keys are all <a>strings</a> and whose values are all of the same Web
+IDL type |TValue| can be <dfn lt="convert ordered map to record">converted to the corresponding
+<a>record type</a></dfn> <code>record&lt;|TKey|, |TValue|></code> by first converting all its keys
+to the appropriate Web IDL <a>string type</a> |TKey|, and then creating corresponding record entries
+for each pair of converted key/original value. [[!WEBIDL]]
 
 <div data-fill-with=references></div>
 
@@ -169,9 +352,11 @@ quotes and monospace font.
 <span class=XXX>...</span>
 for being awesome!
 
-<p>This standard is written by <a lang=nl href=//annevankesteren.nl/>Anne van Kesteren</a>
+<p>This standard is written by <a lang=nl href=https://annevankesteren.nl/>Anne van Kesteren</a>
 (<a href=https://www.mozilla.org/>Mozilla</a>,
-<a href=mailto:annevk@annevk.nl>annevk@annevk.nl</a>).
+<a href=mailto:annevk@annevk.nl>annevk@annevk.nl</a>) and
+<a href=https://domenic.me/>Domenic Denicola</a> (<a href=https://www.google.com/>Google</a>,
+<a href=mailto:d@domenic.me>d@domenic.me</a>).
 
 <p>Per <a rel=license href=https://creativecommons.org/publicdomain/zero/1.0/>CC0</a>, to the extent
 possible under law, the editors have waived all copyright and related or neighboring rights to this
