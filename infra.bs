@@ -208,16 +208,19 @@ from the list that match a given condition, or do nothing if none do.
  "<code>b</code>", "<code>ba</code>" ».
 </div>
 
-<p>A <a>list</a> <dfn export for=list>contains</dfn> an element if it appears in the list.
+<p>A <a>list</a> <dfn export for=list,stack,queue>contains</dfn> an element if it appears in the
+list.
 
-<p>A <a>list</a>'s <dfn export for=list>size</dfn> is the number of elements the list
+<p>A <a>list</a>'s <dfn export for=list,stack,queue>size</dfn> is the number of elements the list
 <a for=list>contains</a>.
 
-<p>A <a>list</a> <dfn export for=list>is empty</dfn> if its <a for=list>size</a> is zero.
+<p>A <a>list</a> <dfn export for=list,stack,queue lt="is empty|is not empty">is empty</dfn> if its
+<a for=list>size</a> is zero.
 
-<p>To <dfn export for=list lt="iterate|for each">iterate</dfn> over a <a>list</a>, performing a set
-of steps on each element in order, use phrasing of the form "<a for=list>For each</a> |element| of
-|list|", and then operate on |element| in the subsequent prose.
+<p>To <dfn export for=list,stack,queue lt="iterate|for each">iterate</dfn> over a <a>list</a>,
+performing a set of steps on each element in order, use phrasing of the form
+"<a for=list>For each</a> |element| of |list|", and then operate on |element| in the subsequent
+prose.
 
 <hr>
 
@@ -232,6 +235,29 @@ and provide an expanded vocabulary for manipulating <a>lists</a>. Whenever JavaS
 <code>sequence&lt;|T|></code> by simply creating a sequence whose elements are the elements of the
 list.
 [[!WEBIDL]]
+
+<h4 id=stacks>Stacks</h4>
+
+<p>Some <a>lists</a> are designated as <dfn export lt="stack">stacks</dfn>. A stack is simply a
+<a>list</a>, but conventionally, the following operations are used to operate on it, instead of
+using <a for=list>append</a>, <a for=list>prepend</a>, or <a for=list>remove</a>.
+
+<p>To <dfn for=stack>push</dfn> onto a <a>stack</a> is to <a for=list>append</a> to it.
+
+<p>To <dfn for=stack>pop</dfn> from a <a>stack</a> is to <a for=list>remove</a> its last element and
+return it, if the <a>stack</a> <a for=stack>is not empty</a>, or to return nothing otherwise.
+
+<h4 id=queues>Queues</h4>
+
+<p>Some <a>lists</a> are designated as <dfn export lt="queue">queues</dfn>. A queue is simply a
+<a>list</a>, but conventionally, the following operations are used to operate on it, instead of
+using <a for=list>append</a>, <a for=list>prepend</a>, or <a for=list>remove</a>.
+
+<p>To <dfn for=queue>enqueue</dfn> in a <a>queue</a> is to <a for=list>append</a> to it.
+
+<p>To <dfn for=queue>dequeue</dfn> from a <a>queue</a> is to <a for=list>remove</a> its first
+element and return it, if the <a>queue</a> <a for=queue>is not empty</a>, or to return nothing if it
+is.
 
 <h3 id=sets>Sets</h3>
 
@@ -272,7 +298,8 @@ set.
 <p>An <a>ordered set</a>'s <dfn export for=set>size</dfn> is the number of elements the set
 <a for=set>contains</a>.
 
-<p>An <a>ordered set</a> <dfn export for=set>is empty</dfn> if its <a for=set>size</a> is zero.
+<p>An <a>ordered set</a> <dfn export for=set lt="is empty|is not empty">is empty</dfn> if its
+<a for=set>size</a> is zero.
 
 <p>To <dfn export for=set lt="iterate|for each">iterate</dfn> over an <a>ordered set</a>, performing
 a set of steps on each element in order, use phrasing of the form "<a for=set>For each</a> |element|
@@ -331,7 +358,8 @@ exists a key/value pair with that key. We can also denote this by saying that, f
 <p>An <a>ordered map</a>'s <dfn export for=map>size</dfn> is the <a for=set>size</a> of the result
 of running <a for=map>get the keys</a> on the map.
 
-<p>An <a>ordered map</a> <dfn export for=map>is empty</dfn> if its <a for=map>size</a> is zero.
+<p>An <a>ordered map</a> <dfn export for=map lt="is empty|is not empty">is empty</dfn> if its
+<a for=map>size</a> is zero.
 
 <p>To <dfn export for=map lt="iterate|for each">iterate</dfn> over an <a>ordered map</a>, performing
 a set of steps on each element in order, use phrasing of the form "<a for=list>For each</a>
