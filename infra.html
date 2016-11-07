@@ -149,7 +149,7 @@ around more complex data structures such as <a data-link-type="dfn" href="#order
 for working with them, in order to create common ground. </p>
    <h3 class="heading settled" data-level="4.1" id="lists"><span class="secno">4.1. </span><span class="content">Lists</span><a class="self-link" href="#lists"></a></h3>
    <p>A <dfn data-dfn-type="dfn" data-export="" id="list">list<a class="self-link" href="#list"></a></dfn> is a specification type consisting of a finite ordered sequence of
-values. </p>
+elements. </p>
    <p>For notational convenience, a literal syntax can be used to express <a data-link-type="dfn" href="#list">lists</a>, by surrounding
 the list contents by « » characters and separating list elements with a comma. An indexing syntax
 can be used by providing a zero-based index into a list inside square brackets. </p>
@@ -177,10 +177,11 @@ of steps on each element in order, use phrasing of the form "<a data-link-type="
    <hr>
    <p>The <a data-link-type="dfn" href="#list">list</a> type originates from the JavaScript specification (where it is capitalized, as <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-list-and-record-specification-type">List</a>); we repeat some elements of its definition here for ease of reference,
 and provide an expanded vocabulary for manipulating <a data-link-type="dfn" href="#list">lists</a>. Whenever JavaScript expects a <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-list-and-record-specification-type">List</a>, a <a data-link-type="dfn" href="#list">list</a> as defined here can be used; they are the same type. <a data-link-type="biblio" href="#biblio-ecma-262">[ECMA-262]</a> </p>
-   <p>A <a data-link-type="dfn" href="#list">list</a> whose elements are all of a particular Web IDL type <var>T</var> can easy be <dfn data-dfn-type="dfn" data-lt="convert list to sequence" data-noexport="" id="convert-list-to-sequence">converted to the corresponding <a data-link-type="dfn" href="https://heycam.github.io/webidl/#sequence-type">sequence type</a><a class="self-link" href="#convert-list-to-sequence"></a></dfn> <code>sequence&lt;<var>T</var>></code> by simply creating a sequence whose values are the values of the list. <a data-link-type="biblio" href="#biblio-webidl">[WEBIDL]</a> </p>
+   <p>A <a data-link-type="dfn" href="#list">list</a> whose elements are all of a particular Web IDL type <var>T</var> can easy be <dfn data-dfn-type="dfn" data-lt="convert list to sequence" data-noexport="" id="convert-list-to-sequence">converted to the corresponding <a data-link-type="dfn" href="https://heycam.github.io/webidl/#sequence-type">sequence type</a><a class="self-link" href="#convert-list-to-sequence"></a></dfn> <code>sequence&lt;<var>T</var>></code> by simply creating a sequence whose elements are the elements of the
+list. <a data-link-type="biblio" href="#biblio-webidl">[WEBIDL]</a> </p>
    <h3 class="heading settled" data-level="4.2" id="sets"><span class="secno">4.2. </span><span class="content">Sets</span><a class="self-link" href="#sets"></a></h3>
    <p>A <dfn data-dfn-type="dfn" data-export="" data-lt="ordered set|set" id="ordered-set">ordered set<a class="self-link" href="#ordered-set"></a></dfn>, or sometimes just "set", is a specification
-type consisting of a finite ordered sequence of values, with no value appearing twice. </p>
+type consisting of a finite ordered sequence of elements, with no element appearing twice. </p>
    <p class="note" role="note">Almost all cases on the web platform require an <em>ordered</em> set, instead of an
 unordered one, since interoperability requires that any developer-exposed enumeration of the set’s
 contents be consistent between browsers. In those cases where order is not required, we still use
@@ -207,7 +208,8 @@ a set of steps on each element in order, use phrasing of the form "<a data-link-
 simply creating a list whose contents are the same as that of the set. This can be assumed to happen
 implicitly where it makes sense, such as when passing the <a data-link-type="dfn" href="#ordered-set">ordered set</a> to an abstract
 operation from the JavaScript specification. <a data-link-type="biblio" href="#biblio-ecma-262">[ECMA-262]</a> </p>
-   <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a> whose elements are all of a particular Web IDL type <var>T</var> can easily be <dfn data-dfn-type="dfn" data-lt="convert ordered set to sequence" data-noexport="" id="convert-ordered-set-to-sequence">converted to the corresponding <a data-link-type="dfn" href="https://heycam.github.io/webidl/#sequence-type">sequence type</a><a class="self-link" href="#convert-ordered-set-to-sequence"></a></dfn> <code>sequence&lt;<var>T</var>></code> by simply creating a sequence whose values are the values of the set. <a data-link-type="biblio" href="#biblio-webidl">[WEBIDL]</a> </p>
+   <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a> whose elements are all of a particular Web IDL type <var>T</var> can easily be <dfn data-dfn-type="dfn" data-lt="convert ordered set to sequence" data-noexport="" id="convert-ordered-set-to-sequence">converted to the corresponding <a data-link-type="dfn" href="https://heycam.github.io/webidl/#sequence-type">sequence type</a><a class="self-link" href="#convert-ordered-set-to-sequence"></a></dfn> <code>sequence&lt;<var>T</var>></code> by simply creating a sequence whose elements are the elements of the
+set. <a data-link-type="biblio" href="#biblio-webidl">[WEBIDL]</a> </p>
    <h3 class="heading settled" data-level="4.3" id="maps"><span class="secno">4.3. </span><span class="content">Maps</span><a class="self-link" href="#maps"></a></h3>
    <p>A <dfn data-dfn-type="dfn" data-export="" data-lt="ordered map|map" id="ordered-map">ordered map<a class="self-link" href="#ordered-map"></a></dfn>, or sometimes just "map", is a specification
 type consisting of a finite ordered sequence of key/value pairs, with no key appearing twice. </p>

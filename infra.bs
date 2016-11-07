@@ -169,7 +169,7 @@ for working with them, in order to create common ground.
 <h3 id=lists>Lists</h3>
 
 <p>A <dfn export>list</dfn> is a specification type consisting of a finite ordered sequence of
-values.
+elements.
 
 <p>For notational convenience, a literal syntax can be used to express <a>lists</a>, by surrounding
 the list contents by « » characters and separating list elements with a comma. An indexing syntax
@@ -219,13 +219,14 @@ and provide an expanded vocabulary for manipulating <a>lists</a>. Whenever JavaS
 
 <p>A <a>list</a> whose elements are all of a particular Web IDL type |T| can easy be
 <dfn lt="convert list to sequence">converted to the corresponding <a>sequence type</a></dfn>
-<code>sequence&lt;|T|></code> by simply creating a sequence whose values are the values of the list.
+<code>sequence&lt;|T|></code> by simply creating a sequence whose elements are the elements of the
+list.
 [[!WEBIDL]]
 
 <h3 id=sets>Sets</h3>
 
 <p>A <dfn export lt="ordered set|set">ordered set</dfn>, or sometimes just "set", is a specification
-type consisting of a finite ordered sequence of values, with no value appearing twice.
+type consisting of a finite ordered sequence of elements, with no element appearing twice.
 
 <p class=note>Almost all cases on the web platform require an <em>ordered</em> set, instead of an
 unordered one, since interoperability requires that any developer-exposed enumeration of the set's
@@ -274,8 +275,8 @@ operation from the JavaScript specification. [[!ECMA-262]]
 
 <p>An <a>ordered set</a> whose elements are all of a particular Web IDL type |T| can easily be
 <dfn lt="convert ordered set to sequence">converted to the corresponding <a>sequence type</a></dfn>
-<code>sequence&lt;|T|></code> by simply creating a sequence whose values are the values of the set.
-[[!WEBIDL]]
+<code>sequence&lt;|T|></code> by simply creating a sequence whose elements are the elements of the
+set. [[!WEBIDL]]
 
 
 <h3 id=maps>Maps</h3>
