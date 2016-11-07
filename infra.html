@@ -175,7 +175,7 @@ from the list that match a given condition, or do nothing if none do. </p>
    </div>
    <p>A <a data-link-type="dfn" href="#list">list</a> <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" id="list-contains">contains<a class="self-link" href="#list-contains"></a></dfn> an element if it appears in the list. </p>
    <p>A <a data-link-type="dfn" href="#list">list</a>’s <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" id="list-size">size<a class="self-link" href="#list-size"></a></dfn> is the number of elements the list <a data-link-type="dfn" href="#list-contains">contains</a>. </p>
-   <p>A <a data-link-type="dfn" href="#list">list</a> is <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" id="list-empty">empty<a class="self-link" href="#list-empty"></a></dfn> if its <a data-link-type="dfn" href="#list-size">size</a> is zero. </p>
+   <p>A <a data-link-type="dfn" href="#list">list</a> <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" id="list-is-empty">is empty<a class="self-link" href="#list-is-empty"></a></dfn> if its <a data-link-type="dfn" href="#list-size">size</a> is zero. </p>
    <p>To <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" data-lt="iterate|for each" id="list-iterate">iterate<a class="self-link" href="#list-iterate"></a></dfn> over a <a data-link-type="dfn" href="#list">list</a>, performing a set
 of steps on each element in order, use phrasing of the form "<a data-link-type="dfn" href="#list-iterate">For each</a> <var>element</var> of <var>list</var>", and then operate on <var>element</var> in the subsequent prose. </p>
    <hr>
@@ -205,7 +205,7 @@ all elements from the set that match a given condition, or do nothing if none do
    <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a> <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" id="set-contains">contains<a class="self-link" href="#set-contains"></a></dfn> an element if it appears in the
 set. </p>
    <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a>’s <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" id="set-size">size<a class="self-link" href="#set-size"></a></dfn> is the number of elements the set <a data-link-type="dfn" href="#set-contains">contains</a>. </p>
-   <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a> is <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" id="set-empty">empty<a class="self-link" href="#set-empty"></a></dfn> if its <a data-link-type="dfn" href="#set-size">size</a> is zero. </p>
+   <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a> <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" id="set-is-empty">is empty<a class="self-link" href="#set-is-empty"></a></dfn> if its <a data-link-type="dfn" href="#set-size">size</a> is zero. </p>
    <p>To <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" data-lt="iterate|for each" id="set-iterate">iterate<a class="self-link" href="#set-iterate"></a></dfn> over an <a data-link-type="dfn" href="#ordered-set">ordered set</a>, performing
 a set of steps on each element in order, use phrasing of the form "<a data-link-type="dfn" href="#set-iterate">For each</a> <var>element</var> of <var>set</var>", and then operate on <var>element</var> in the subsequent prose. </p>
    <hr>
@@ -240,7 +240,7 @@ exists a key/value pair with that key. We can also denote this by saying that, f
    <p>To <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-get-the-keys">get the keys<a class="self-link" href="#map-get-the-keys"></a></dfn> of an <a data-link-type="dfn" href="#ordered-map">ordered map</a>, return a new <a data-link-type="dfn" href="#ordered-set">ordered set</a> whose elements are each of the keys in the map’s key/value pairs. </p>
    <p>An <a data-link-type="dfn" href="#ordered-map">ordered map</a>’s <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-size">size<a class="self-link" href="#map-size"></a></dfn> is the <a data-link-type="dfn" href="#set-size">size</a> of the result
 of running <a data-link-type="dfn" href="#map-get-the-keys">get the keys</a> on the map. </p>
-   <p>An <a data-link-type="dfn" href="#ordered-map">ordered map</a> is <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-empty">empty<a class="self-link" href="#map-empty"></a></dfn> if its <a data-link-type="dfn" href="#map-size">size</a> is zero. </p>
+   <p>An <a data-link-type="dfn" href="#ordered-map">ordered map</a> <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-is-empty">is empty<a class="self-link" href="#map-is-empty"></a></dfn> if its <a data-link-type="dfn" href="#map-size">size</a> is zero. </p>
    <p>To <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" data-lt="iterate|for each" id="map-iterate">iterate<a class="self-link" href="#map-iterate"></a></dfn> over an <a data-link-type="dfn" href="#ordered-map">ordered map</a>, performing
 a set of steps on each element in order, use phrasing of the form "<a data-link-type="dfn" href="#list-iterate">For each</a> <var>key</var> → <var>value</var> of <var>map</var>", and then operate on <var>key</var> and <var>value</var> in the subsequent prose. </p>
    <hr>
