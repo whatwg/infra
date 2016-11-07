@@ -209,13 +209,17 @@ can be used by providing a zero-based index into a list inside square brackets.
 
 <hr>
 
-<p>To <dfn export for=list>append</dfn> to a <a>list</a> is to add the given element to the end
-of the list.
+<p>To <dfn export for=list>append</dfn> to a <a>list</a> that is not an <a>ordered set</a> is to add
+the given element to the end of the list.
 
-<p>To <dfn export for=list>prepend</dfn> to a <a>list</a> is to add the given element to the
-beginning of the list.
+<p>To <dfn export for=list>prepend</dfn> to a <a>list</a> that is not an <a>ordered set</a> is to
+add the given element to the beginning of the list.
 
-<p>To <dfn export for=list>remove</dfn> an element from a <a>list</a> is to remove all elements
+<p class=note>The above definitions are modified when the <a>list</a> is an <a>ordered set</a>; see
+below for <a for=set lt=append>ordered set append</a> and
+<a for=set lt=prepend>ordered set prepend</a>.
+
+<p>To <dfn export for=list,set>remove</dfn> an element from a <a>list</a> is to remove all elements
 from the list that match a given condition, or do nothing if none do.
 
 <div class=example id=example-list-remove>
@@ -228,16 +232,16 @@ from the list that match a given condition, or do nothing if none do.
  "<code>b</code>", "<code>ba</code>" ».
 </div>
 
-<p>A <a>list</a> <dfn export for=list,stack,queue>contains</dfn> an element if it appears in the
+<p>A <a>list</a> <dfn export for=list,stack,queue,set>contains</dfn> an element if it appears in the
 list.
 
-<p>A <a>list</a>'s <dfn export for=list,stack,queue>size</dfn> is the number of elements the list
-<a for=list>contains</a>.
+<p>A <a>list</a>'s <dfn export for=list,stack,queue,set>size</dfn> is the number of elements the
+list <a for=list>contains</a>.
 
-<p>A <a>list</a> <dfn export for=list,stack,queue lt="is empty|is not empty">is empty</dfn> if its
-<a for=list>size</a> is zero.
+<p>A <a>list</a> <dfn export for=list,stack,queue,set lt="is empty|is not empty">is empty</dfn> if
+its <a for=list>size</a> is zero.
 
-<p>To <dfn export for=list,stack,queue lt="iterate|for each">iterate</dfn> over a <a>list</a>,
+<p>To <dfn export for=list,stack,queue,set lt="iterate|for each">iterate</dfn> over a <a>list</a>,
 performing a set of steps on each element in order, use phrasing of the form
 "<a for=list>For each</a> |element| of <var ignore>list</var>", and then operate on |element| in the
 subsequent prose.
@@ -279,63 +283,24 @@ using <a for=list>append</a>, <a for=list>prepend</a>, or <a for=list>remove</a>
 element and return it, if the <a>queue</a> <a for=queue>is not empty</a>, or to return nothing if it
 is.
 
-<h3 id=sets>Sets</h3>
+<h4 id=sets>Sets</h4>
 
-<p>A <dfn export lt="ordered set|set">ordered set</dfn>, or sometimes just "set", is a specification
-type consisting of a finite ordered sequence of elements, with no element appearing twice.
+<p>Some <a>lists</a> are designated as <dfn export lt="ordered set|set">ordered sets</dfn>. An
+ordered set is a <a>list</a> with the additional semantic that it must not contain the same element
+twice.
 
 <p class=note>Almost all cases on the web platform require an <em>ordered</em> set, instead of an
 unordered one, since interoperability requires that any developer-exposed enumeration of the set's
 contents be consistent between browsers. In those cases where order is not required, we still use
 ordered sets; implementations may optimize based on the fact that the order is not observable.
 
-<p>Similar notation can be used for <a>ordered sets</a> as for <a>lists</a>, except with the
-delimiters «{ }».
+<p>To <dfn for=set>append</dfn> to an <a>ordered set</a> is to do nothing if the set already
+<a for=list>contains</a> the given element, or to perform the normal <a>list</a>
+<a for=list>append</a> operation otherwise.
 
-<p class=example id=example-set-notation>Let |example| be the <a>ordered set</a> «{
-"<code>a</code>", "<code>b</code>", "<code>c</code>" }». Then |example|[1] is the <a>string</a>
-"<code>b</code>".
-
-<hr>
-
-<p>To <dfn export for=set>append</dfn> to an <a>ordered set</a> is to add the given
-element to the end of the set, or do nothing if the set already <a for=set>contains</a>
-the element.
-
-<p class=example id=example-set-append><a for=set>Appending</a> |y| to the
-<a>ordered set</a> «{ |x|, |y|, |z| }» does not change the contents of the set, or their order.
-
-<p>To <dfn export for=set>prepend</dfn> to an <a>ordered set</a> is to add the given
-element to the beginning of the set, or do nothing if the set already <a
-for=set>contains</a> the element.
-
-<p>To <dfn export for=set>remove</dfn> an element from an <a>ordered set</a> is to remove
-all elements from the set that match a given condition, or do nothing if none do.
-
-<p>An <a>ordered set</a> <dfn export for=set>contains</dfn> an element if it appears in the
-set.
-
-<p>An <a>ordered set</a>'s <dfn export for=set>size</dfn> is the number of elements the set
-<a for=set>contains</a>.
-
-<p>An <a>ordered set</a> <dfn export for=set lt="is empty|is not empty">is empty</dfn> if its
-<a for=set>size</a> is zero.
-
-<p>To <dfn export for=set lt="iterate|for each">iterate</dfn> over an <a>ordered set</a>, performing
-a set of steps on each element in order, use phrasing of the form "<a for=set>For each</a> |element|
-of <var ignore>set</var>", and then operate on |element| in the subsequent prose.
-
-<hr>
-
-<p>An <a>ordered set</a> can be <dfn lt="convert ordered set to list">converted to a list</dfn> by
-simply creating a list whose contents are the same as that of the set. This can be assumed to happen
-implicitly where it makes sense, such as when passing the <a>ordered set</a> to an abstract
-operation from the JavaScript specification. [[!ECMA-262]]
-
-<p>An <a>ordered set</a> whose elements are all of a particular Web IDL type |T| can easily be
-<dfn lt="convert ordered set to sequence">converted to the corresponding <a>sequence type</a></dfn>
-<code>sequence&lt;|T|></code> by simply creating a sequence whose elements are the elements of the
-set. [[!WEBIDL]]
+<p>To <dfn for=set>prepend</dfn> to an <a>ordered set</a> is to do nothing if the set already
+<a for=list>contains</a> the given element, or to perform the normal <a>list</a>
+<a for=list>prepend</a> operation otherwise.
 
 
 <h3 id=maps>Maps</h3>

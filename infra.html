@@ -58,9 +58,9 @@
        <ol class="toc">
         <li><a href="#stacks"><span class="secno">4.1.1</span> <span class="content">Stacks</span></a>
         <li><a href="#queues"><span class="secno">4.1.2</span> <span class="content">Queues</span></a>
+        <li><a href="#sets"><span class="secno">4.1.3</span> <span class="content">Sets</span></a>
        </ol>
-      <li><a href="#sets"><span class="secno">4.2</span> <span class="content">Sets</span></a>
-      <li><a href="#maps"><span class="secno">4.3</span> <span class="content">Maps</span></a>
+      <li><a href="#maps"><span class="secno">4.2</span> <span class="content">Maps</span></a>
      </ol>
     <li><a href="#namespaces"><span class="secno">5</span> <span class="content">Namespaces</span></a>
     <li>
@@ -171,7 +171,7 @@ quotes and monospace font. </p>
    <h2 class="heading settled" data-level="4" id="data-structures"><span class="secno">4. </span><span class="content">Data structures</span><a class="self-link" href="#data-structures"></a></h2>
    <p>Conventionally, specifications have operated on a variety of vague specification-level data
 structures, based on shared understanding of their semantics. This generally works well, but can
-lead to ambiguities around edge cases, such as iteration order or what happens when you <a data-link-type="dfn" href="#set-append">append</a> an element to an <a data-link-type="dfn" href="#ordered-set">ordered set</a> that the set already <a data-link-type="dfn" href="#set-contains">contains</a>. It has also led to a variety of divergent notation and phrasing, especially
+lead to ambiguities around edge cases, such as iteration order or what happens when you <a data-link-type="dfn" href="#set-append">append</a> an element to an <a data-link-type="dfn" href="#ordered-set">ordered set</a> that the set already <a data-link-type="dfn" href="#list-contains">contains</a>. It has also led to a variety of divergent notation and phrasing, especially
 around more complex data structures such as <a data-link-type="dfn" href="#ordered-map">maps</a>. </p>
    <p>This standard provides a small set of common data structures, along with notation and phrasing
 for working with them, in order to create common ground. </p>
@@ -184,11 +184,13 @@ can be used by providing a zero-based index into a list inside square brackets. 
    <p class="example" id="example-list-notation"><a class="self-link" href="#example-list-notation"></a>Let <var>example</var> be the <a data-link-type="dfn" href="#list">list</a> « "<code>a</code>",
 "<code>b</code>", "<code>c</code>", "<code>a</code>" ». Then <var>example</var>[1] is the <a data-link-type="dfn" href="#string">string</a> "<code>b</code>". </p>
    <hr>
-   <p>To <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" id="list-append">append<a class="self-link" href="#list-append"></a></dfn> to a <a data-link-type="dfn" href="#list">list</a> is to add the given element to the end
-of the list. </p>
-   <p>To <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" id="list-prepend">prepend<a class="self-link" href="#list-prepend"></a></dfn> to a <a data-link-type="dfn" href="#list">list</a> is to add the given element to the
-beginning of the list. </p>
-   <p>To <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" id="list-remove">remove<a class="self-link" href="#list-remove"></a></dfn> an element from a <a data-link-type="dfn" href="#list">list</a> is to remove all elements
+   <p>To <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" id="list-append">append<a class="self-link" href="#list-append"></a></dfn> to a <a data-link-type="dfn" href="#list">list</a> that is not an <a data-link-type="dfn" href="#ordered-set">ordered set</a> is to add
+the given element to the end of the list. </p>
+   <p>To <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" id="list-prepend">prepend<a class="self-link" href="#list-prepend"></a></dfn> to a <a data-link-type="dfn" href="#list">list</a> that is not an <a data-link-type="dfn" href="#ordered-set">ordered set</a> is to
+add the given element to the beginning of the list. </p>
+   <p class="note" role="note">The above definitions are modified when the <a data-link-type="dfn" href="#list">list</a> is an <a data-link-type="dfn" href="#ordered-set">ordered set</a>; see
+below for <a data-link-type="dfn" href="#set-append">ordered set append</a> and <a data-link-type="dfn" href="#set-prepend">ordered set prepend</a>. </p>
+   <p>To <dfn data-dfn-for="list,set" data-dfn-type="dfn" data-export="" id="list-remove">remove<a class="self-link" href="#list-remove"></a></dfn> an element from a <a data-link-type="dfn" href="#list">list</a> is to remove all elements
 from the list that match a given condition, or do nothing if none do. </p>
    <div class="example" id="example-list-remove">
     <a class="self-link" href="#example-list-remove"></a> 
@@ -198,11 +200,13 @@ from the list that match a given condition, or do nothing if none do. </p>
  remove the elements "<code>a</code>" and "<code>ab</code>". The list is now equivalent to «
  "<code>b</code>", "<code>ba</code>" ». </p>
    </div>
-   <p>A <a data-link-type="dfn" href="#list">list</a> <dfn data-dfn-for="list,stack,queue" data-dfn-type="dfn" data-export="" id="list-contains">contains<a class="self-link" href="#list-contains"></a></dfn> an element if it appears in the
+   <p>A <a data-link-type="dfn" href="#list">list</a> <dfn data-dfn-for="list,stack,queue,set" data-dfn-type="dfn" data-export="" id="list-contains">contains<a class="self-link" href="#list-contains"></a></dfn> an element if it appears in the
 list. </p>
-   <p>A <a data-link-type="dfn" href="#list">list</a>’s <dfn data-dfn-for="list,stack,queue" data-dfn-type="dfn" data-export="" id="list-size">size<a class="self-link" href="#list-size"></a></dfn> is the number of elements the list <a data-link-type="dfn" href="#list-contains">contains</a>. </p>
-   <p>A <a data-link-type="dfn" href="#list">list</a> <dfn data-dfn-for="list,stack,queue" data-dfn-type="dfn" data-export="" data-lt="is empty|is not empty" id="list-is-empty">is empty<a class="self-link" href="#list-is-empty"></a></dfn> if its <a data-link-type="dfn" href="#list-size">size</a> is zero. </p>
-   <p>To <dfn data-dfn-for="list,stack,queue" data-dfn-type="dfn" data-export="" data-lt="iterate|for each" id="list-iterate">iterate<a class="self-link" href="#list-iterate"></a></dfn> over a <a data-link-type="dfn" href="#list">list</a>,
+   <p>A <a data-link-type="dfn" href="#list">list</a>’s <dfn data-dfn-for="list,stack,queue,set" data-dfn-type="dfn" data-export="" id="list-size">size<a class="self-link" href="#list-size"></a></dfn> is the number of elements the
+list <a data-link-type="dfn" href="#list-contains">contains</a>. </p>
+   <p>A <a data-link-type="dfn" href="#list">list</a> <dfn data-dfn-for="list,stack,queue,set" data-dfn-type="dfn" data-export="" data-lt="is empty|is not empty" id="list-is-empty">is empty<a class="self-link" href="#list-is-empty"></a></dfn> if
+its <a data-link-type="dfn" href="#list-size">size</a> is zero. </p>
+   <p>To <dfn data-dfn-for="list,stack,queue,set" data-dfn-type="dfn" data-export="" data-lt="iterate|for each" id="list-iterate">iterate<a class="self-link" href="#list-iterate"></a></dfn> over a <a data-link-type="dfn" href="#list">list</a>,
 performing a set of steps on each element in order, use phrasing of the form
 "<a data-link-type="dfn" href="#list-iterate">For each</a> <var>element</var> of <var data-var-ignore="">list</var>", and then operate on <var>element</var> in the
 subsequent prose. </p>
@@ -224,39 +228,17 @@ using <a data-link-type="dfn" href="#list-append">append</a>, <a data-link-type=
    <p>To <dfn data-dfn-for="queue" data-dfn-type="dfn" data-noexport="" id="queue-dequeue">dequeue<a class="self-link" href="#queue-dequeue"></a></dfn> from a <a data-link-type="dfn" href="#queue">queue</a> is to <a data-link-type="dfn" href="#list-remove">remove</a> its first
 element and return it, if the <a data-link-type="dfn" href="#queue">queue</a> <a data-link-type="dfn" href="#list-is-empty">is not empty</a>, or to return nothing if it
 is. </p>
-   <h3 class="heading settled" data-level="4.2" id="sets"><span class="secno">4.2. </span><span class="content">Sets</span><a class="self-link" href="#sets"></a></h3>
-   <p>A <dfn data-dfn-type="dfn" data-export="" data-lt="ordered set|set" id="ordered-set">ordered set<a class="self-link" href="#ordered-set"></a></dfn>, or sometimes just "set", is a specification
-type consisting of a finite ordered sequence of elements, with no element appearing twice. </p>
+   <h4 class="heading settled" data-level="4.1.3" id="sets"><span class="secno">4.1.3. </span><span class="content">Sets</span><a class="self-link" href="#sets"></a></h4>
+   <p>Some <a data-link-type="dfn" href="#list">lists</a> are designated as <dfn data-dfn-type="dfn" data-export="" data-lt="ordered set|set" id="ordered-set">ordered sets<a class="self-link" href="#ordered-set"></a></dfn>. An
+ordered set is a <a data-link-type="dfn" href="#list">list</a> with the additional semantic that it must not contain the same element
+twice. </p>
    <p class="note" role="note">Almost all cases on the web platform require an <em>ordered</em> set, instead of an
 unordered one, since interoperability requires that any developer-exposed enumeration of the set’s
 contents be consistent between browsers. In those cases where order is not required, we still use
 ordered sets; implementations may optimize based on the fact that the order is not observable. </p>
-   <p>Similar notation can be used for <a data-link-type="dfn" href="#ordered-set">ordered sets</a> as for <a data-link-type="dfn" href="#list">lists</a>, except with the
-delimiters «{ }». </p>
-   <p class="example" id="example-set-notation"><a class="self-link" href="#example-set-notation"></a>Let <var>example</var> be the <a data-link-type="dfn" href="#ordered-set">ordered set</a> «{
-"<code>a</code>", "<code>b</code>", "<code>c</code>" }». Then <var>example</var>[1] is the <a data-link-type="dfn" href="#string">string</a> "<code>b</code>". </p>
-   <hr>
-   <p>To <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" id="set-append">append<a class="self-link" href="#set-append"></a></dfn> to an <a data-link-type="dfn" href="#ordered-set">ordered set</a> is to add the given
-element to the end of the set, or do nothing if the set already <a data-link-type="dfn" href="#set-contains">contains</a> the element. </p>
-   <p class="example" id="example-set-append"><a class="self-link" href="#example-set-append"></a><a data-link-type="dfn" href="#set-append">Appending</a> <var>y</var> to the <a data-link-type="dfn" href="#ordered-set">ordered set</a> «{ <var>x</var>, <var>y</var>, <var>z</var> }» does not change the contents of the set, or their order. </p>
-   <p>To <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" id="set-prepend">prepend<a class="self-link" href="#set-prepend"></a></dfn> to an <a data-link-type="dfn" href="#ordered-set">ordered set</a> is to add the given
-element to the beginning of the set, or do nothing if the set already <a data-link-type="dfn" href="#set-contains">contains</a> the element. </p>
-   <p>To <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" id="set-remove">remove<a class="self-link" href="#set-remove"></a></dfn> an element from an <a data-link-type="dfn" href="#ordered-set">ordered set</a> is to remove
-all elements from the set that match a given condition, or do nothing if none do. </p>
-   <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a> <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" id="set-contains">contains<a class="self-link" href="#set-contains"></a></dfn> an element if it appears in the
-set. </p>
-   <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a>’s <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" id="set-size">size<a class="self-link" href="#set-size"></a></dfn> is the number of elements the set <a data-link-type="dfn" href="#set-contains">contains</a>. </p>
-   <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a> <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" data-lt="is empty|is not empty" id="set-is-empty">is empty<a class="self-link" href="#set-is-empty"></a></dfn> if its <a data-link-type="dfn" href="#set-size">size</a> is zero. </p>
-   <p>To <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" data-lt="iterate|for each" id="set-iterate">iterate<a class="self-link" href="#set-iterate"></a></dfn> over an <a data-link-type="dfn" href="#ordered-set">ordered set</a>, performing
-a set of steps on each element in order, use phrasing of the form "<a data-link-type="dfn" href="#set-iterate">For each</a> <var>element</var> of <var data-var-ignore="">set</var>", and then operate on <var>element</var> in the subsequent prose. </p>
-   <hr>
-   <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a> can be <dfn data-dfn-type="dfn" data-lt="convert ordered set to list" data-noexport="" id="convert-ordered-set-to-list">converted to a list<a class="self-link" href="#convert-ordered-set-to-list"></a></dfn> by
-simply creating a list whose contents are the same as that of the set. This can be assumed to happen
-implicitly where it makes sense, such as when passing the <a data-link-type="dfn" href="#ordered-set">ordered set</a> to an abstract
-operation from the JavaScript specification. <a data-link-type="biblio" href="#biblio-ecma-262">[ECMA-262]</a> </p>
-   <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a> whose elements are all of a particular Web IDL type <var>T</var> can easily be <dfn data-dfn-type="dfn" data-lt="convert ordered set to sequence" data-noexport="" id="convert-ordered-set-to-sequence">converted to the corresponding <a data-link-type="dfn" href="https://heycam.github.io/webidl/#sequence-type">sequence type</a><a class="self-link" href="#convert-ordered-set-to-sequence"></a></dfn> <code>sequence&lt;<var>T</var>></code> by simply creating a sequence whose elements are the elements of the
-set. <a data-link-type="biblio" href="#biblio-webidl">[WEBIDL]</a> </p>
-   <h3 class="heading settled" data-level="4.3" id="maps"><span class="secno">4.3. </span><span class="content">Maps</span><a class="self-link" href="#maps"></a></h3>
+   <p>To <dfn data-dfn-for="set" data-dfn-type="dfn" data-noexport="" id="set-append">append<a class="self-link" href="#set-append"></a></dfn> to an <a data-link-type="dfn" href="#ordered-set">ordered set</a> is to do nothing if the set already <a data-link-type="dfn" href="#list-contains">contains</a> the given element, or to perform the normal <a data-link-type="dfn" href="#list">list</a> <a data-link-type="dfn" href="#list-append">append</a> operation otherwise. </p>
+   <p>To <dfn data-dfn-for="set" data-dfn-type="dfn" data-noexport="" id="set-prepend">prepend<a class="self-link" href="#set-prepend"></a></dfn> to an <a data-link-type="dfn" href="#ordered-set">ordered set</a> is to do nothing if the set already <a data-link-type="dfn" href="#list-contains">contains</a> the given element, or to perform the normal <a data-link-type="dfn" href="#list">list</a> <a data-link-type="dfn" href="#list-prepend">prepend</a> operation otherwise. </p>
+   <h3 class="heading settled" data-level="4.2" id="maps"><span class="secno">4.2. </span><span class="content">Maps</span><a class="self-link" href="#maps"></a></h3>
    <p>A <dfn data-dfn-type="dfn" data-export="" data-lt="ordered map|map" id="ordered-map">ordered map<a class="self-link" href="#ordered-map"></a></dfn>, or sometimes just "map", is a specification
 type consisting of a finite ordered sequence of key/value pairs, with no key appearing twice. </p>
    <p class="note" role="note">As with <a data-link-type="dfn" href="#ordered-set">ordered sets</a>, by default we assume that maps must also be ordered for
@@ -279,7 +261,7 @@ certain key, then we can also denote this by saying, for an <a data-link-type="d
    <p>An <a data-link-type="dfn" href="#ordered-map">ordered map</a> <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-contains-an-entry-with-a-given-key">contains an entry with a given key<a class="self-link" href="#map-contains-an-entry-with-a-given-key"></a></dfn> if there
 exists a key/value pair with that key. We can also denote this by saying that, for an <a data-link-type="dfn" href="#ordered-map">ordered map</a> <var>map</var> and key <var>key</var>, "<var>map</var>[<var>key</var>] <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-exists">exists<a class="self-link" href="#map-exists"></a></dfn>". </p>
    <p>To <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-get-the-keys">get the keys<a class="self-link" href="#map-get-the-keys"></a></dfn> of an <a data-link-type="dfn" href="#ordered-map">ordered map</a>, return a new <a data-link-type="dfn" href="#ordered-set">ordered set</a> whose elements are each of the keys in the map’s key/value pairs. </p>
-   <p>An <a data-link-type="dfn" href="#ordered-map">ordered map</a>’s <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-size">size<a class="self-link" href="#map-size"></a></dfn> is the <a data-link-type="dfn" href="#set-size">size</a> of the result
+   <p>An <a data-link-type="dfn" href="#ordered-map">ordered map</a>’s <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-size">size<a class="self-link" href="#map-size"></a></dfn> is the <a data-link-type="dfn" href="#list-size">size</a> of the result
 of running <a data-link-type="dfn" href="#map-get-the-keys">get the keys</a> on the map. </p>
    <p>An <a data-link-type="dfn" href="#ordered-map">ordered map</a> <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" data-lt="is empty|is not empty" id="map-is-empty">is empty<a class="self-link" href="#map-is-empty"></a></dfn> if its <a data-link-type="dfn" href="#map-size">size</a> is zero. </p>
    <p>To <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" data-lt="iterate|for each" id="map-iterate">iterate<a class="self-link" href="#map-iterate"></a></dfn> over an <a data-link-type="dfn" href="#ordered-map">ordered map</a>, performing
