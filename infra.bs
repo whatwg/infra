@@ -6,7 +6,7 @@ Status: LS
 Group: WHATWG
 No Editor: true
 Logo: https://resources.whatwg.org/logo.svg
-Abstract: Infra aims to define the fundamental concepts upon which standards are built.
+Abstract: The Infra Standard aims to define the fundamental concepts upon which standards are built.
 !Participate: <a href=https://github.com/whatwg/infra>GitHub whatwg/infra</a> (<a href=https://github.com/whatwg/infra/issues/new>new issue</a>, <a href=https://github.com/whatwg/infra/issues>open issues</a>)
 !Participate: <a href=https://wiki.whatwg.org/wiki/IRC>IRC: #whatwg on Freenode</a>
 !Commits: <a href=https://github.com/whatwg/infra/commits>GitHub whatwg/infra/commits</a>
@@ -163,8 +163,8 @@ lead to ambiguities around edge cases, such as iteration order or what happens w
 <a for=set>contains</a>. It has also led to a variety of divergent notation and phrasing, especially
 around more complex data structures such as <a lt="ordered map">maps</a>.
 
-<p>The Infra Standard provides a small set of common data structures, along with notation and
-phrasing for working with them, in order to create common ground.
+<p>This standard provides a small set of common data structures, along with notation and phrasing
+for working with them, in order to create common ground.
 
 <h3 id=lists>Lists</h3>
 
