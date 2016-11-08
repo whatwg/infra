@@ -11,7 +11,6 @@ Abstract: The Infra Standard aims to define the fundamental concepts upon which 
 !Participate: <a href=https://wiki.whatwg.org/wiki/IRC>IRC: #whatwg on Freenode</a>
 !Commits: <a href=https://github.com/whatwg/infra/commits>GitHub whatwg/infra/commits</a>
 Boilerplate: omit conformance, omit feedback-header, omit index, omit idl-index
-Ignored Vars: key, value, set, list
 </pre>
 
 <script src=https://resources.whatwg.org/file-issue.js async></script>
@@ -61,7 +60,10 @@ RFC 2119. [[!RFC2119]]
 
 <p>These keywords have equivalent meaning when written in lowercase and cannot appear in
 non-normative content. Standards are encouraged to limit themselves to "must", "must not", "should",
-and "may".
+and "may", and to use these in their lowercase form as that is generally considered to be more
+readable.
+
+<h3 id=algorithms>Algorithms</h3>
 
 <p>Requirements phrased in the imperative as part of algorithms (such as "strip any leading spaces"
 or "return false") are to be interpreted with the meaning of the keyword (e.g., "must") used in
@@ -69,7 +71,14 @@ introducing the algorithm or step.
 
 <p>Conformance requirements phrased as algorithms or specific steps may be implemented in any
 manner, so long as the end result is equivalent. (In particular, the algorithms are intended to be
-easy to follow, and not intended to be performant.)</p>
+easy to follow, and not intended to be performant.)
+
+<p>The control flow of algorithms is such that a requirement to "return" or "throw" terminates the
+algorithm the statement was in. "Return" will hand the given value, if any, to its caller. "Throw"
+will make the caller automatically rethrow the given value, if any, and thereby terminate the
+caller's algorithm. Using prose the caller has the ability to "catch" the exception and perform
+another action.
+
 
 <h3 id=terminology>Terminology</h3>
 
@@ -226,8 +235,8 @@ list.
 
 <p>To <dfn export for=list,stack,queue lt="iterate|for each">iterate</dfn> over a <a>list</a>,
 performing a set of steps on each element in order, use phrasing of the form
-"<a for=list>For each</a> |element| of |list|", and then operate on |element| in the subsequent
-prose.
+"<a for=list>For each</a> |element| of <var ignore>list</var>", and then operate on |element| in the
+subsequent prose.
 
 <hr>
 
@@ -310,7 +319,7 @@ set.
 
 <p>To <dfn export for=set lt="iterate|for each">iterate</dfn> over an <a>ordered set</a>, performing
 a set of steps on each element in order, use phrasing of the form "<a for=set>For each</a> |element|
-of |set|", and then operate on |element| in the subsequent prose.
+of <var ignore>set</var>", and then operate on |element| in the subsequent prose.
 
 <hr>
 
