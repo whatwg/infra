@@ -238,7 +238,7 @@ list.
 
 <h4 id=stacks>Stacks</h4>
 
-<p>Some <a>lists</a> are designated as <dfn export lt="stack">stacks</dfn>. A stack is simply a
+<p>Some <a>lists</a> are designated as <dfn export lt=stack>stacks</dfn>. A stack is simply a
 <a>list</a>, but conventionally, the following operations are used to operate on it, instead of
 using <a for=list>append</a>, <a for=list>prepend</a>, or <a for=list>remove</a>.
 
@@ -249,7 +249,7 @@ return it, if the <a>stack</a> <a for=stack>is not empty</a>, or to return nothi
 
 <h4 id=queues>Queues</h4>
 
-<p>Some <a>lists</a> are designated as <dfn export lt="queue">queues</dfn>. A queue is simply a
+<p>Some <a>lists</a> are designated as <dfn export lt=queue>queues</dfn>. A queue is simply a
 <a>list</a>, but conventionally, the following operations are used to operate on it, instead of
 using <a for=list>append</a>, <a for=list>prepend</a>, or <a for=list>remove</a>.
 
