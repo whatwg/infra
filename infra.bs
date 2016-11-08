@@ -71,6 +71,13 @@ introducing the algorithm or step.
 manner, so long as the end result is equivalent. (In particular, the algorithms are intended to be
 easy to follow, and not intended to be performant.)</p>
 
+<h3 id=terminology>Terminology</h3>
+
+<p>The word "or", in cases where both inclusive "or" and exclusive "or" are possible (e.g., "if
+either width or height are zero"), means an inclusive "or" (implying "or both"), unless it is called
+out as being exclusive (with "but not both").
+
+
 <h2 id=primitive-data-types>Primitive data types</h2>
 
 <h3 id=bytes>Bytes</h3>
