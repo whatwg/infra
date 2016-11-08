@@ -13,7 +13,7 @@
    <p data-fill-with="logo"><a class="logo" href="https://whatwg.org/"> <img alt="WHATWG" height="100" src="https://resources.whatwg.org/logo.svg"> </a> </p>
    <hgroup>
     <h1 class="p-name no-ref" id="title">Infra</h1>
-    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard — Last Updated <time class="dt-updated" datetime="2016-11-07">7 November 2016</time></span></h2>
+    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard — Last Updated <time class="dt-updated" datetime="2016-11-08">8 November 2016</time></span></h2>
    </hgroup>
    <div data-fill-with="spec-metadata">
     <dl>
@@ -51,7 +51,12 @@
     <li>
      <a href="#data-structures"><span class="secno">4</span> <span class="content">Data structures</span></a>
      <ol class="toc">
-      <li><a href="#lists"><span class="secno">4.1</span> <span class="content">Lists</span></a>
+      <li>
+       <a href="#lists"><span class="secno">4.1</span> <span class="content">Lists</span></a>
+       <ol class="toc">
+        <li><a href="#stacks"><span class="secno">4.1.1</span> <span class="content">Stacks</span></a>
+        <li><a href="#queues"><span class="secno">4.1.2</span> <span class="content">Queues</span></a>
+       </ol>
       <li><a href="#sets"><span class="secno">4.2</span> <span class="content">Sets</span></a>
       <li><a href="#maps"><span class="secno">4.3</span> <span class="content">Maps</span></a>
      </ol>
@@ -176,16 +181,32 @@ from the list that match a given condition, or do nothing if none do. </p>
  remove the elements "<code>a</code>" and "<code>ab</code>". The list is now equivalent to «
  "<code>b</code>", "<code>ba</code>" ». </p>
    </div>
-   <p>A <a data-link-type="dfn" href="#list">list</a> <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" id="list-contains">contains<a class="self-link" href="#list-contains"></a></dfn> an element if it appears in the list. </p>
-   <p>A <a data-link-type="dfn" href="#list">list</a>’s <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" id="list-size">size<a class="self-link" href="#list-size"></a></dfn> is the number of elements the list <a data-link-type="dfn" href="#list-contains">contains</a>. </p>
-   <p>A <a data-link-type="dfn" href="#list">list</a> <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" id="list-is-empty">is empty<a class="self-link" href="#list-is-empty"></a></dfn> if its <a data-link-type="dfn" href="#list-size">size</a> is zero. </p>
-   <p>To <dfn data-dfn-for="list" data-dfn-type="dfn" data-export="" data-lt="iterate|for each" id="list-iterate">iterate<a class="self-link" href="#list-iterate"></a></dfn> over a <a data-link-type="dfn" href="#list">list</a>, performing a set
-of steps on each element in order, use phrasing of the form "<a data-link-type="dfn" href="#list-iterate">For each</a> <var>element</var> of <var>list</var>", and then operate on <var>element</var> in the subsequent prose. </p>
+   <p>A <a data-link-type="dfn" href="#list">list</a> <dfn data-dfn-for="list,stack,queue" data-dfn-type="dfn" data-export="" id="list-contains">contains<a class="self-link" href="#list-contains"></a></dfn> an element if it appears in the
+list. </p>
+   <p>A <a data-link-type="dfn" href="#list">list</a>’s <dfn data-dfn-for="list,stack,queue" data-dfn-type="dfn" data-export="" id="list-size">size<a class="self-link" href="#list-size"></a></dfn> is the number of elements the list <a data-link-type="dfn" href="#list-contains">contains</a>. </p>
+   <p>A <a data-link-type="dfn" href="#list">list</a> <dfn data-dfn-for="list,stack,queue" data-dfn-type="dfn" data-export="" data-lt="is empty|is not empty" id="list-is-empty">is empty<a class="self-link" href="#list-is-empty"></a></dfn> if its <a data-link-type="dfn" href="#list-size">size</a> is zero. </p>
+   <p>To <dfn data-dfn-for="list,stack,queue" data-dfn-type="dfn" data-export="" data-lt="iterate|for each" id="list-iterate">iterate<a class="self-link" href="#list-iterate"></a></dfn> over a <a data-link-type="dfn" href="#list">list</a>,
+performing a set of steps on each element in order, use phrasing of the form
+"<a data-link-type="dfn" href="#list-iterate">For each</a> <var>element</var> of <var>list</var>", and then operate on <var>element</var> in the subsequent
+prose. </p>
    <hr>
    <p>The <a data-link-type="dfn" href="#list">list</a> type originates from the JavaScript specification (where it is capitalized, as <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-list-and-record-specification-type">List</a>); we repeat some elements of its definition here for ease of reference,
 and provide an expanded vocabulary for manipulating <a data-link-type="dfn" href="#list">lists</a>. Whenever JavaScript expects a <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-list-and-record-specification-type">List</a>, a <a data-link-type="dfn" href="#list">list</a> as defined here can be used; they are the same type. <a data-link-type="biblio" href="#biblio-ecma-262">[ECMA-262]</a> </p>
    <p>A <a data-link-type="dfn" href="#list">list</a> whose elements are all of a particular Web IDL type <var>T</var> can easy be <dfn data-dfn-type="dfn" data-lt="convert list to sequence" data-noexport="" id="convert-list-to-sequence">converted to the corresponding <a data-link-type="dfn" href="https://heycam.github.io/webidl/#sequence-type">sequence type</a><a class="self-link" href="#convert-list-to-sequence"></a></dfn> <code>sequence&lt;<var>T</var>></code> by simply creating a sequence whose elements are the elements of the
 list. <a data-link-type="biblio" href="#biblio-webidl">[WEBIDL]</a> </p>
+   <h4 class="heading settled" data-level="4.1.1" id="stacks"><span class="secno">4.1.1. </span><span class="content">Stacks</span><a class="self-link" href="#stacks"></a></h4>
+   <p>Some <a data-link-type="dfn" href="#list">lists</a> are designated as <dfn data-dfn-type="dfn" data-export="" data-lt="stack" id="stack">stacks<a class="self-link" href="#stack"></a></dfn>. A stack is simply a <a data-link-type="dfn" href="#list">list</a>, but conventionally, the following operations are used to operate on it, instead of
+using <a data-link-type="dfn" href="#list-append">append</a>, <a data-link-type="dfn" href="#list-prepend">prepend</a>, or <a data-link-type="dfn" href="#list-remove">remove</a>. </p>
+   <p>To <dfn data-dfn-for="stack" data-dfn-type="dfn" data-noexport="" id="stack-push">push<a class="self-link" href="#stack-push"></a></dfn> onto a <a data-link-type="dfn" href="#stack">stack</a> is to <a data-link-type="dfn" href="#list-append">append</a> to it. </p>
+   <p>To <dfn data-dfn-for="stack" data-dfn-type="dfn" data-noexport="" id="stack-pop">pop<a class="self-link" href="#stack-pop"></a></dfn> from a <a data-link-type="dfn" href="#stack">stack</a> is to <a data-link-type="dfn" href="#list-remove">remove</a> its last element and
+return it, if the <a data-link-type="dfn" href="#stack">stack</a> <a data-link-type="dfn" href="#list-is-empty">is not empty</a>, or to return nothing otherwise. </p>
+   <h4 class="heading settled" data-level="4.1.2" id="queues"><span class="secno">4.1.2. </span><span class="content">Queues</span><a class="self-link" href="#queues"></a></h4>
+   <p>Some <a data-link-type="dfn" href="#list">lists</a> are designated as <dfn data-dfn-type="dfn" data-export="" data-lt="queue" id="queue">queues<a class="self-link" href="#queue"></a></dfn>. A queue is simply a <a data-link-type="dfn" href="#list">list</a>, but conventionally, the following operations are used to operate on it, instead of
+using <a data-link-type="dfn" href="#list-append">append</a>, <a data-link-type="dfn" href="#list-prepend">prepend</a>, or <a data-link-type="dfn" href="#list-remove">remove</a>. </p>
+   <p>To <dfn data-dfn-for="queue" data-dfn-type="dfn" data-noexport="" id="queue-enqueue">enqueue<a class="self-link" href="#queue-enqueue"></a></dfn> in a <a data-link-type="dfn" href="#queue">queue</a> is to <a data-link-type="dfn" href="#list-append">append</a> to it. </p>
+   <p>To <dfn data-dfn-for="queue" data-dfn-type="dfn" data-noexport="" id="queue-dequeue">dequeue<a class="self-link" href="#queue-dequeue"></a></dfn> from a <a data-link-type="dfn" href="#queue">queue</a> is to <a data-link-type="dfn" href="#list-remove">remove</a> its first
+element and return it, if the <a data-link-type="dfn" href="#queue">queue</a> <a data-link-type="dfn" href="#list-is-empty">is not empty</a>, or to return nothing if it
+is. </p>
    <h3 class="heading settled" data-level="4.2" id="sets"><span class="secno">4.2. </span><span class="content">Sets</span><a class="self-link" href="#sets"></a></h3>
    <p>A <dfn data-dfn-type="dfn" data-export="" data-lt="ordered set|set" id="ordered-set">ordered set<a class="self-link" href="#ordered-set"></a></dfn>, or sometimes just "set", is a specification
 type consisting of a finite ordered sequence of elements, with no element appearing twice. </p>
@@ -208,7 +229,7 @@ all elements from the set that match a given condition, or do nothing if none do
    <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a> <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" id="set-contains">contains<a class="self-link" href="#set-contains"></a></dfn> an element if it appears in the
 set. </p>
    <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a>’s <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" id="set-size">size<a class="self-link" href="#set-size"></a></dfn> is the number of elements the set <a data-link-type="dfn" href="#set-contains">contains</a>. </p>
-   <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a> <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" id="set-is-empty">is empty<a class="self-link" href="#set-is-empty"></a></dfn> if its <a data-link-type="dfn" href="#set-size">size</a> is zero. </p>
+   <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a> <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" data-lt="is empty|is not empty" id="set-is-empty">is empty<a class="self-link" href="#set-is-empty"></a></dfn> if its <a data-link-type="dfn" href="#set-size">size</a> is zero. </p>
    <p>To <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" data-lt="iterate|for each" id="set-iterate">iterate<a class="self-link" href="#set-iterate"></a></dfn> over an <a data-link-type="dfn" href="#ordered-set">ordered set</a>, performing
 a set of steps on each element in order, use phrasing of the form "<a data-link-type="dfn" href="#set-iterate">For each</a> <var>element</var> of <var>set</var>", and then operate on <var>element</var> in the subsequent prose. </p>
    <hr>
@@ -243,7 +264,7 @@ exists a key/value pair with that key. We can also denote this by saying that, f
    <p>To <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-get-the-keys">get the keys<a class="self-link" href="#map-get-the-keys"></a></dfn> of an <a data-link-type="dfn" href="#ordered-map">ordered map</a>, return a new <a data-link-type="dfn" href="#ordered-set">ordered set</a> whose elements are each of the keys in the map’s key/value pairs. </p>
    <p>An <a data-link-type="dfn" href="#ordered-map">ordered map</a>’s <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-size">size<a class="self-link" href="#map-size"></a></dfn> is the <a data-link-type="dfn" href="#set-size">size</a> of the result
 of running <a data-link-type="dfn" href="#map-get-the-keys">get the keys</a> on the map. </p>
-   <p>An <a data-link-type="dfn" href="#ordered-map">ordered map</a> <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" id="map-is-empty">is empty<a class="self-link" href="#map-is-empty"></a></dfn> if its <a data-link-type="dfn" href="#map-size">size</a> is zero. </p>
+   <p>An <a data-link-type="dfn" href="#ordered-map">ordered map</a> <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" data-lt="is empty|is not empty" id="map-is-empty">is empty<a class="self-link" href="#map-is-empty"></a></dfn> if its <a data-link-type="dfn" href="#map-size">size</a> is zero. </p>
    <p>To <dfn data-dfn-for="map" data-dfn-type="dfn" data-export="" data-lt="iterate|for each" id="map-iterate">iterate<a class="self-link" href="#map-iterate"></a></dfn> over an <a data-link-type="dfn" href="#ordered-map">ordered map</a>, performing
 a set of steps on each element in order, use phrasing of the form "<a data-link-type="dfn" href="#list-iterate">For each</a> <var>key</var> → <var>value</var> of <var>map</var>", and then operate on <var>key</var> and <var>value</var> in the subsequent prose. </p>
    <hr>
