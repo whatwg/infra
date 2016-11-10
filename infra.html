@@ -13,7 +13,7 @@
    <p data-fill-with="logo"><a class="logo" href="https://whatwg.org/"> <img alt="WHATWG" height="100" src="https://resources.whatwg.org/logo.svg"> </a> </p>
    <hgroup>
     <h1 class="p-name no-ref" id="title">Infra</h1>
-    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard — Last Updated <time class="dt-updated" datetime="2016-11-08">8 November 2016</time></span></h2>
+    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard — Last Updated <time class="dt-updated" datetime="2016-11-10">10 November 2016</time></span></h2>
    </hgroup>
    <div data-fill-with="spec-metadata">
     <dl>
@@ -39,7 +39,8 @@
      <a href="#conventions"><span class="secno">2</span> <span class="content">Conventions</span></a>
      <ol class="toc">
       <li><a href="#conformance"><span class="secno">2.1</span> <span class="content">Conformance</span></a>
-      <li><a href="#terminology"><span class="secno">2.2</span> <span class="content">Terminology</span></a>
+      <li><a href="#algorithms"><span class="secno">2.2</span> <span class="content">Algorithms</span></a>
+      <li><a href="#terminology"><span class="secno">2.3</span> <span class="content">Terminology</span></a>
      </ol>
     <li>
      <a href="#primitive-data-types"><span class="secno">3</span> <span class="content">Primitive data types</span></a>
@@ -95,14 +96,21 @@ non-normative. Everything else is normative. </p>
 RFC 2119. <a data-link-type="biblio" href="#biblio-rfc2119">[RFC2119]</a> </p>
    <p>These keywords have equivalent meaning when written in lowercase and cannot appear in
 non-normative content. Standards are encouraged to limit themselves to "must", "must not", "should",
-and "may". </p>
-   <p>Requirements phrased in the imperative as part of algorithms (such as "strip any leading spaces"
-or "return false") are to be interpreted with the meaning of the keyword (e.g., "must") used in
-introducing the algorithm or step. </p>
+and "may", and to use these in their lowercase form as that is generally considered to be more
+readable. </p>
+   <h3 class="heading settled" data-level="2.2" id="algorithms"><span class="secno">2.2. </span><span class="content">Algorithms</span><a class="self-link" href="#algorithms"></a></h3>
+   <p>Algorithms, and requirements phrased in the imperative as part of algorithms (such as "strip any
+leading spaces" or "return false") are to be interpreted with the meaning of the keyword (e.g.,
+"must") used in introducing the algorithm or step. If no such keyword is used, must is implied. </p>
    <p>Conformance requirements phrased as algorithms or specific steps may be implemented in any
 manner, so long as the end result is equivalent. (In particular, the algorithms are intended to be
-easy to follow, and not intended to be performant.)</p>
-   <h3 class="heading settled" data-level="2.2" id="terminology"><span class="secno">2.2. </span><span class="content">Terminology</span><a class="self-link" href="#terminology"></a></h3>
+easy to follow, and not intended to be performant.) </p>
+   <p>The control flow of algorithms is such that a requirement to "return" or "throw" terminates the
+algorithm the statement was in. "Return" will hand the given value, if any, to its caller. "Throw"
+will make the caller automatically rethrow the given value, if any, and thereby terminate the
+caller’s algorithm. Using prose the caller has the ability to "catch" the exception and perform
+another action. </p>
+   <h3 class="heading settled" data-level="2.3" id="terminology"><span class="secno">2.3. </span><span class="content">Terminology</span><a class="self-link" href="#terminology"></a></h3>
    <p>The word "or", in cases where both inclusive "or" and exclusive "or" are possible (e.g., "if
 either width or height are zero"), means an inclusive "or" (implying "or both"), unless it is called
 out as being exclusive (with "but not both"). </p>
@@ -192,8 +200,8 @@ list. </p>
    <p>A <a data-link-type="dfn" href="#list">list</a> <dfn data-dfn-for="list,stack,queue" data-dfn-type="dfn" data-export="" data-lt="is empty|is not empty" id="list-is-empty">is empty<a class="self-link" href="#list-is-empty"></a></dfn> if its <a data-link-type="dfn" href="#list-size">size</a> is zero. </p>
    <p>To <dfn data-dfn-for="list,stack,queue" data-dfn-type="dfn" data-export="" data-lt="iterate|for each" id="list-iterate">iterate<a class="self-link" href="#list-iterate"></a></dfn> over a <a data-link-type="dfn" href="#list">list</a>,
 performing a set of steps on each element in order, use phrasing of the form
-"<a data-link-type="dfn" href="#list-iterate">For each</a> <var>element</var> of <var>list</var>", and then operate on <var>element</var> in the subsequent
-prose. </p>
+"<a data-link-type="dfn" href="#list-iterate">For each</a> <var>element</var> of <var data-var-ignore="">list</var>", and then operate on <var>element</var> in the
+subsequent prose. </p>
    <hr>
    <p>The <a data-link-type="dfn" href="#list">list</a> type originates from the JavaScript specification (where it is capitalized, as <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-list-and-record-specification-type">List</a>); we repeat some elements of its definition here for ease of reference,
 and provide an expanded vocabulary for manipulating <a data-link-type="dfn" href="#list">lists</a>. Whenever JavaScript expects a <a data-link-type="dfn" href="https://tc39.github.io/ecma262/#sec-list-and-record-specification-type">List</a>, a <a data-link-type="dfn" href="#list">list</a> as defined here can be used; they are the same type. <a data-link-type="biblio" href="#biblio-ecma-262">[ECMA-262]</a> </p>
@@ -236,7 +244,7 @@ set. </p>
    <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a>’s <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" id="set-size">size<a class="self-link" href="#set-size"></a></dfn> is the number of elements the set <a data-link-type="dfn" href="#set-contains">contains</a>. </p>
    <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a> <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" data-lt="is empty|is not empty" id="set-is-empty">is empty<a class="self-link" href="#set-is-empty"></a></dfn> if its <a data-link-type="dfn" href="#set-size">size</a> is zero. </p>
    <p>To <dfn data-dfn-for="set" data-dfn-type="dfn" data-export="" data-lt="iterate|for each" id="set-iterate">iterate<a class="self-link" href="#set-iterate"></a></dfn> over an <a data-link-type="dfn" href="#ordered-set">ordered set</a>, performing
-a set of steps on each element in order, use phrasing of the form "<a data-link-type="dfn" href="#set-iterate">For each</a> <var>element</var> of <var>set</var>", and then operate on <var>element</var> in the subsequent prose. </p>
+a set of steps on each element in order, use phrasing of the form "<a data-link-type="dfn" href="#set-iterate">For each</a> <var>element</var> of <var data-var-ignore="">set</var>", and then operate on <var>element</var> in the subsequent prose. </p>
    <hr>
    <p>An <a data-link-type="dfn" href="#ordered-set">ordered set</a> can be <dfn data-dfn-type="dfn" data-lt="convert ordered set to list" data-noexport="" id="convert-ordered-set-to-list">converted to a list<a class="self-link" href="#convert-ordered-set-to-list"></a></dfn> by
 simply creating a list whose contents are the same as that of the set. This can be assumed to happen
