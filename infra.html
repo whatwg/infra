@@ -120,11 +120,14 @@ out as being exclusive (with "but not both"). </p>
 number in the range 0x00 to 0xFF, inclusive. </p>
    <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-byte">ASCII byte<a class="self-link" href="#ascii-byte"></a></dfn> is a <a data-link-type="dfn" href="#byte">byte</a> in the range 0x00 to 0x7F, inclusive. </p>
    <h3 class="heading settled" data-level="3.2" id="byte-sequences"><span class="secno">3.2. </span><span class="content">Byte sequences</span><a class="self-link" href="#byte-sequences"></a></h3>
-   <p>A <dfn data-dfn-type="dfn" data-export="" id="byte-sequence">byte sequence<a class="self-link" href="#byte-sequence"></a></dfn> is a sequence of <a data-link-type="dfn" href="#byte">bytes</a>. Byte sequences with bytes in the
-range 0x00 to 0x7F, inclusive, can be marked up with backticks, to avoid confusion with an actual
-string. </p>
-   <p class="example" id="example-byte-sequence-notation"><a class="self-link" href="#example-byte-sequence-notation"></a>Headers, such as `<code>Content-Type</code>`,
-are <a data-link-type="dfn" href="#byte-sequence">byte sequences</a>. </p>
+   <p>A <dfn data-dfn-type="dfn" data-export="" id="byte-sequence">byte sequence<a class="self-link" href="#byte-sequence"></a></dfn> is a sequence of <a data-link-type="dfn" href="#byte">bytes</a>, represented as a space-separated
+sequence of bytes. Byte sequences with bytes in the range 0x00 to 0x7F, inclusive, can be marked up
+as strings with backticks, to avoid confusion with an actual string. </p>
+   <div class="example" id="example-byte-sequence-notation">
+    <a class="self-link" href="#example-byte-sequence-notation"></a> 
+    <p>0x48 0x49 can also be represented as `<code>HI</code>`. </p>
+    <p>Headers, such as `<code>Content-Type</code>`, are <a data-link-type="dfn" href="#byte-sequence">byte sequences</a>. </p>
+   </div>
    <p>To <dfn data-dfn-type="dfn" data-export="" id="byte-lowercase">byte-lowercase<a class="self-link" href="#byte-lowercase"></a></dfn> a <a data-link-type="dfn" href="#byte-sequence">byte sequence</a>, increase each <a data-link-type="dfn" href="#byte">byte</a> it
 contains, in the range 0x41 to 0x5A, inclusive, by 0x20. </p>
    <p>To <dfn data-dfn-type="dfn" data-export="" id="byte-uppercase">byte-uppercase<a class="self-link" href="#byte-uppercase"></a></dfn> a <a data-link-type="dfn" href="#byte-sequence">byte sequence</a>, subtract each <a data-link-type="dfn" href="#byte">byte</a> it
