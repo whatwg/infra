@@ -65,9 +65,9 @@ readable.
 
 <h3 id=algorithms>Algorithms</h3>
 
-<p>Requirements phrased in the imperative as part of algorithms (such as "strip any leading spaces"
-or "return false") are to be interpreted with the meaning of the keyword (e.g., "must") used in
-introducing the algorithm or step.
+<p>Algorithms, and requirements phrased in the imperative as part of algorithms (such as "strip any
+leading spaces" or "return false") are to be interpreted with the meaning of the keyword (e.g.,
+"must") used in introducing the algorithm or step. If no such keyword is used, must is implied.
 
 <p>Conformance requirements phrased as algorithms or specific steps may be implemented in any
 manner, so long as the end result is equivalent. (In particular, the algorithms are intended to be
