@@ -98,12 +98,16 @@ number in the range 0x00 to 0xFF, inclusive.
 
 <h3 id=byte-sequences>Byte sequences</h3>
 
-<p>A <dfn export>byte sequence</dfn> is a sequence of <a>bytes</a>. Byte sequences with bytes in the
-range 0x00 to 0x7F, inclusive, can be marked up with backticks, to avoid confusion with an actual
-string.
+<p>A <dfn export>byte sequence</dfn> is a sequence of <a>bytes</a>, represented as a space-separated
+sequence of bytes. Byte sequences with bytes in the range 0x00 to 0x7F, inclusive, can alternately
+be written as a string, but using backticks instead of quotation marks, to avoid confusion with an
+actual string.
 
-<p class=example id=example-byte-sequence-notation>Headers, such as `<code>Content-Type</code>`,
-are <a>byte sequences</a>.
+<div class=example id=example-byte-sequence-notation>
+ <p>0x48 0x49 can also be represented as `<code>HI</code>`.
+
+ <p>Headers, such as `<code>Content-Type</code>`, are <a>byte sequences</a>.
+</div>
 
 <p>To <dfn export>byte-lowercase</dfn> a <a>byte sequence</a>, increase each <a>byte</a> it
 contains, in the range 0x41 to 0x5A, inclusive, by 0x20.
