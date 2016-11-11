@@ -408,6 +408,30 @@ for each pair of converted key/original value. [[!WEBIDL]]
 
 <p>The <dfn export>XMLNS namespace</dfn> is "<code>http://www.w3.org/2000/xmlns/</code>".
 
+<h2 id=mime-types>MIME types</h2>
+
+<p>The term <dfn export>MIME type</dfn> is used to refer to what is sometimes called an <i>Internet
+media type</i> in protocol literature. This avoids confusion with the use of "media type"  as
+described in the <cite>Media Queries</cite> CSS specification. [[!RFC2046]] [[MEDIAQUERIES-4]]
+
+<p>A <a>string</a> is a <dfn export>valid MIME type</dfn> if it matches the <code>media-type</code>
+rule defined in <a href="https://tools.ietf.org/html/rfc7231#section-3.1.1.1">section 3.1.1.1 "Media
+Type" of RFC 7231</a>. In particular, a <a>valid MIME type</a> may include MIME type parameters.
+[[!RFC7231]]
+
+<p>A <a>string</a> is a <dfn export>valid MIME type with no parameters</dfn> if it matches the
+<code>media-type</code> rule defined in
+<a href="https://tools.ietf.org/html/rfc7231#section-3.1.1.1">section 3.1.1.1 "Media Type" of RFC
+7231</a>, but does not contain any U+003B SEMICOLON (;) <a>code points</a>. In other words, if it
+consists only of a type and subtype, with no MIME Type parameters. [[!RFC7231]]
+
+<p>The <dfn export>HTML MIME type</dfn> is the <a>MIME type</a> "<code>text/html</code>".
+
+<p>An <dfn export>XML MIME type</dfn> is one of the <a>MIME types</a> "<code>text/xml</code>",
+"<code>application/xml</code>", or any <a>MIME type</a> whose subtype ends with the string
+"<code>+xml</code>". [[!RFC7303]]
+
+
 
 <div data-fill-with=references></div>
 

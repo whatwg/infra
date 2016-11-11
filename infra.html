@@ -63,10 +63,12 @@
       <li><a href="#maps"><span class="secno">4.3</span> <span class="content">Maps</span></a>
      </ol>
     <li><a href="#namespaces"><span class="secno">5</span> <span class="content">Namespaces</span></a>
+    <li><a href="#mime-types"><span class="secno">6</span> <span class="content">MIME types</span></a>
     <li>
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
      <ol class="toc">
       <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
+      <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
      </ol>
     <li><a href="#acknowledgments"><span class="secno"></span> <span class="content">Acknowledgments</span></a>
    </ol>
@@ -296,18 +298,42 @@ for each pair of converted key/original value. <a data-link-type="biblio" href="
    <p>The <dfn data-dfn-type="dfn" data-export="" id="xlink-namespace">XLink namespace<a class="self-link" href="#xlink-namespace"></a></dfn> is "<code>http://www.w3.org/1999/xlink</code>". </p>
    <p>The <dfn data-dfn-type="dfn" data-export="" id="xml-namespace">XML namespace<a class="self-link" href="#xml-namespace"></a></dfn> is "<code>http://www.w3.org/XML/1998/namespace</code>". </p>
    <p>The <dfn data-dfn-type="dfn" data-export="" id="xmlns-namespace">XMLNS namespace<a class="self-link" href="#xmlns-namespace"></a></dfn> is "<code>http://www.w3.org/2000/xmlns/</code>". </p>
+   <h2 class="heading settled" data-level="6" id="mime-types"><span class="secno">6. </span><span class="content">MIME types</span><a class="self-link" href="#mime-types"></a></h2>
+   <p>The term <dfn data-dfn-type="dfn" data-export="" id="mime-type">MIME type<a class="self-link" href="#mime-type"></a></dfn> is used to refer to what is sometimes called an <i>Internet
+media type</i> in protocol literature. This avoids confusion with the use of "media type"  as
+described in the <cite>Media Queries</cite> CSS specification. <a data-link-type="biblio" href="#biblio-rfc2046">[RFC2046]</a> <a data-link-type="biblio" href="#biblio-mediaqueries-4">[MEDIAQUERIES-4]</a> </p>
+   <p>A <a data-link-type="dfn" href="#string">string</a> is a <dfn data-dfn-type="dfn" data-export="" id="valid-mime-type">valid MIME type<a class="self-link" href="#valid-mime-type"></a></dfn> if it matches the <code>media-type</code> rule defined in <a href="https://tools.ietf.org/html/rfc7231#section-3.1.1.1">section 3.1.1.1 "Media
+Type" of RFC 7231</a>. In particular, a <a data-link-type="dfn" href="#valid-mime-type">valid MIME type</a> may include MIME type parameters. <a data-link-type="biblio" href="#biblio-rfc7231">[RFC7231]</a> </p>
+   <p>A <a data-link-type="dfn" href="#string">string</a> is a <dfn data-dfn-type="dfn" data-export="" id="valid-mime-type-with-no-parameters">valid MIME type with no parameters<a class="self-link" href="#valid-mime-type-with-no-parameters"></a></dfn> if it matches the <code>media-type</code> rule defined in <a href="https://tools.ietf.org/html/rfc7231#section-3.1.1.1">section 3.1.1.1 "Media Type" of RFC
+7231</a>, but does not contain any U+003B SEMICOLON (;) <a data-link-type="dfn" href="#code-point">code points</a>. In other words, if it
+consists only of a type and subtype, with no MIME Type parameters. <a data-link-type="biblio" href="#biblio-rfc7231">[RFC7231]</a> </p>
+   <p>The <dfn data-dfn-type="dfn" data-export="" id="html-mime-type">HTML MIME type<a class="self-link" href="#html-mime-type"></a></dfn> is the <a data-link-type="dfn" href="#mime-type">MIME type</a> "<code>text/html</code>". </p>
+   <p>An <dfn data-dfn-type="dfn" data-export="" id="xml-mime-type">XML MIME type<a class="self-link" href="#xml-mime-type"></a></dfn> is one of the <a data-link-type="dfn" href="#mime-type">MIME types</a> "<code>text/xml</code>",
+"<code>application/xml</code>", or any <a data-link-type="dfn" href="#mime-type">MIME type</a> whose subtype ends with the string
+"<code>+xml</code>". <a data-link-type="biblio" href="#biblio-rfc7303">[RFC7303]</a> </p>
    <div data-fill-with="references">
     <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
     <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
     <dl>
      <dt id="biblio-ecma-262">[ECMA-262]
      <dd><a href="https://tc39.github.io/ecma262/">ECMAScript Language Specification</a>. URL: <a href="https://tc39.github.io/ecma262/">https://tc39.github.io/ecma262/</a>
+     <dt id="biblio-rfc2046">[RFC2046]
+     <dd>N. Freed; N. Borenstein. <a href="https://tools.ietf.org/html/rfc2046">Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types</a>. November 1996. Draft Standard. URL: <a href="https://tools.ietf.org/html/rfc2046">https://tools.ietf.org/html/rfc2046</a>
      <dt id="biblio-rfc2119">[RFC2119]
      <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
+     <dt id="biblio-rfc7231">[RFC7231]
+     <dd>R. Fielding, Ed.; J. Reschke, Ed.. <a href="https://tools.ietf.org/html/rfc7231">Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</a>. June 2014. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc7231">https://tools.ietf.org/html/rfc7231</a>
+     <dt id="biblio-rfc7303">[RFC7303]
+     <dd>H. Thompson; C. Lilley. <a href="https://tools.ietf.org/html/rfc7303">XML Media Types</a>. July 2014. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc7303">https://tools.ietf.org/html/rfc7303</a>
      <dt id="biblio-unicode">[UNICODE]
      <dd><a href="http://www.unicode.org/versions/latest/">The Unicode Standard</a>. URL: <a href="http://www.unicode.org/versions/latest/">http://www.unicode.org/versions/latest/</a>
      <dt id="biblio-webidl">[WEBIDL]
      <dd>Cameron McCormack; Boris Zbarsky; Tobie Langel. <a href="https://heycam.github.io/webidl/">Web IDL</a>. URL: <a href="https://heycam.github.io/webidl/">https://heycam.github.io/webidl/</a>
+    </dl>
+    <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
+    <dl>
+     <dt id="biblio-mediaqueries-4">[MEDIAQUERIES-4]
+     <dd>Florian Rivoal; Tab Atkins Jr.. <a href="https://drafts.csswg.org/mediaqueries-4/">Media Queries Level 4</a>. URL: <a href="https://drafts.csswg.org/mediaqueries-4/">https://drafts.csswg.org/mediaqueries-4/</a>
     </dl>
    </div>
    <h2 class="no-num heading settled" id="acknowledgments"><span class="content">Acknowledgments</span><a class="self-link" href="#acknowledgments"></a></h2>
