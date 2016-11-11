@@ -118,11 +118,18 @@ contains, in the range 0x61 to 0x7A, inclusive, by 0x20.
 <h3 id=code-points>Code points</h3>
 
 <p>A <dfn export>code point</dfn> is a Unicode code point and is represented as a four-to-six digit
-hexadecimal number, typically prefixed with "U+". In certain contexts <a>code points</a> are
-prefixed with "0x". [[!UNICODE]]
+hexadecimal number, typically prefixed with "U+". Often the name of the <a>code point</a> is also
+included in capital letters afterward, potentially with the rendered form of the <a>code point</a>
+in parentheses. [[!UNICODE]]
 
-<p class=example id=example-code-point-notation>The <a>code point</a> rendered as 🤔 is
-represented as U+1F914.
+<div class=example id=example-code-point-notation>
+ <p>The <a>code point</a> rendered as 🤔 is represented as U+1F914.
+
+ <p>When referring to that <a>code point</a>, we might instead say "U+1F914 THINKING FACE (🤔)",
+ instead of just "U+1F914", to provide extra context.
+</div>
+
+In certain contexts <a>code points</a> are prefixed with "0x" instead of "U+".
 
 <p>A <dfn export>scalar value</dfn> is a <a>code point</a> that is not in the range
 U+D800 to U+DFFF, inclusive.
