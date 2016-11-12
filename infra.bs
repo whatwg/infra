@@ -129,7 +129,7 @@ in parentheses. [[!UNICODE]]
  instead of just "U+1F914", to provide extra context.
 </div>
 
-In certain contexts <a>code points</a> are prefixed with "0x" instead of "U+".
+<p>In certain contexts <a>code points</a> are prefixed with "0x" instead of "U+".
 
 <p>A <dfn export>scalar value</dfn> is a <a>code point</a> that is not in the range
 U+D800 to U+DFFF, inclusive.
