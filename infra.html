@@ -13,7 +13,7 @@
    <p data-fill-with="logo"><a class="logo" href="https://whatwg.org/"> <img alt="WHATWG" height="100" src="https://resources.whatwg.org/logo.svg"> </a> </p>
    <hgroup>
     <h1 class="p-name no-ref" id="title">Infra</h1>
-    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard — Last Updated <time class="dt-updated" datetime="2016-11-11">11 November 2016</time></span></h2>
+    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Living Standard — Last Updated <time class="dt-updated" datetime="2016-11-12">12 November 2016</time></span></h2>
    </hgroup>
    <div data-fill-with="spec-metadata">
     <dl>
@@ -135,10 +135,15 @@ contains, in the range 0x41 to 0x5A, inclusive, by 0x20. </p>
 contains, in the range 0x61 to 0x7A, inclusive, by 0x20. </p>
    <h3 class="heading settled" data-level="3.3" id="code-points"><span class="secno">3.3. </span><span class="content">Code points</span><a class="self-link" href="#code-points"></a></h3>
    <p>A <dfn data-dfn-type="dfn" data-export="" id="code-point">code point<a class="self-link" href="#code-point"></a></dfn> is a Unicode code point and is represented as a four-to-six digit
-hexadecimal number, typically prefixed with "U+". In certain contexts <a data-link-type="dfn" href="#code-point">code points</a> are
-prefixed with "0x". <a data-link-type="biblio" href="#biblio-unicode">[UNICODE]</a> </p>
-   <p class="example" id="example-code-point-notation"><a class="self-link" href="#example-code-point-notation"></a>The <a data-link-type="dfn" href="#code-point">code point</a> rendered as 🤔 is
-represented as U+1F914. </p>
+hexadecimal number, typically prefixed with "U+". Often the name of the <a data-link-type="dfn" href="#code-point">code point</a> is also
+included in capital letters afterward, potentially with the rendered form of the <a data-link-type="dfn" href="#code-point">code point</a> in parentheses. <a data-link-type="biblio" href="#biblio-unicode">[UNICODE]</a> </p>
+   <div class="example" id="example-code-point-notation">
+    <a class="self-link" href="#example-code-point-notation"></a> 
+    <p>The <a data-link-type="dfn" href="#code-point">code point</a> rendered as 🤔 is represented as U+1F914. </p>
+    <p>When referring to that <a data-link-type="dfn" href="#code-point">code point</a>, we might instead say "U+1F914 THINKING FACE (🤔)",
+ instead of just "U+1F914", to provide extra context. </p>
+   </div>
+   <p>In certain contexts <a data-link-type="dfn" href="#code-point">code points</a> are prefixed with "0x" instead of "U+". </p>
    <p>A <dfn data-dfn-type="dfn" data-export="" id="scalar-value">scalar value<a class="self-link" href="#scalar-value"></a></dfn> is a <a data-link-type="dfn" href="#code-point">code point</a> that is not in the range
 U+D800 to U+DFFF, inclusive. </p>
    <p>An <dfn data-dfn-type="dfn" data-export="" id="ascii-code-point">ASCII code point<a class="self-link" href="#ascii-code-point"></a></dfn> is a <a data-link-type="dfn" href="#code-point">code point</a> in the range U+0000 to U+007F,
