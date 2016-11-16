@@ -264,17 +264,16 @@ and provide an expanded vocabulary for manipulating <a>lists</a>. Whenever JavaS
 <a spec=ecma-262>List</a>, a <a>list</a> as defined here can be used; they are the same type.
 [[!ECMA-262]]
 
-<p>A <a>list</a> whose elements are all of a particular Web IDL type |T| can easy be
+<p>A <a>list</a> whose elements are all of a particular Web IDL type |T| can be
 <dfn lt="convert list to sequence">converted to the corresponding <a>sequence type</a></dfn>
-<code>sequence&lt;|T|></code> by simply creating a sequence whose elements are the elements of the
-list.
+<code>sequence&lt;|T|></code> by creating a sequence whose elements are the elements of the list.
 [[!WEBIDL]]
 
 <h4 id=stacks>Stacks</h4>
 
-<p>Some <a>lists</a> are designated as <dfn export lt=stack>stacks</dfn>. A stack is simply a
-<a>list</a>, but conventionally, the following operations are used to operate on it, instead of
-using <a for=list>append</a>, <a for=list>prepend</a>, or <a for=list>remove</a>.
+<p>Some <a>lists</a> are designated as <dfn export lt=stack>stacks</dfn>. A stack is a <a>list</a>,
+but conventionally, the following operations are used to operate on it, instead of using
+<a for=list>append</a>, <a for=list>prepend</a>, or <a for=list>remove</a>.
 
 <p>To <dfn for=stack>push</dfn> onto a <a>stack</a> is to <a for=list>append</a> to it.
 
@@ -283,9 +282,9 @@ return it, if the <a>stack</a> <a for=stack>is not empty</a>, or to return nothi
 
 <h4 id=queues>Queues</h4>
 
-<p>Some <a>lists</a> are designated as <dfn export lt=queue>queues</dfn>. A queue is simply a
-<a>list</a>, but conventionally, the following operations are used to operate on it, instead of
-using <a for=list>append</a>, <a for=list>prepend</a>, or <a for=list>remove</a>.
+<p>Some <a>lists</a> are designated as <dfn export lt=queue>queues</dfn>. A queue is a <a>list</a>,
+but conventionally, the following operations are used to operate on it, instead of using
+<a for=list>append</a>, <a for=list>prepend</a>, or <a for=list>remove</a>.
 
 <p>To <dfn for=queue>enqueue</dfn> in a <a>queue</a> is to <a for=list>append</a> to it.
 
@@ -390,8 +389,9 @@ for each pair of converted key/original value. [[!WEBIDL]]
 <h2 class=no-num id=acknowledgments>Acknowledgments</h2>
 
 <p>Many thanks to
-Philip Jägenstedt
-and Michael™ Smith
+Michael™ Smith,
+Philip Jägenstedt,
+and Simon Pieters
 for being awesome!
 
 <p>This standard is written by <a lang=nl href=https://annevankesteren.nl/>Anne van Kesteren</a>
