@@ -302,7 +302,7 @@ twice.
 <p class=note>Almost all cases on the web platform require an <em>ordered</em> set, instead of an
 unordered one, since interoperability requires that any developer-exposed enumeration of the set's
 contents be consistent between browsers. In those cases where order is not required, we still use
-ordered sets; implementations may optimize based on the fact that the order is not observable.
+ordered sets; implementations can optimize based on the fact that the order is not observable.
 
 <p>To <dfn for=set>append</dfn> to an <a>ordered set</a> is to do nothing if the set already
 <a for=list>contains</a> the given element, or to perform the normal <a>list</a>
@@ -390,8 +390,9 @@ for each pair of converted key/original value. [[!WEBIDL]]
 <h2 class=no-num id=acknowledgments>Acknowledgments</h2>
 
 <p>Many thanks to
-Philip Jägenstedt
-and Michael™ Smith
+Michael™ Smith,
+Philip Jägenstedt,
+and Simon Pieters
 for being awesome!
 
 <p>This standard is written by <a lang=nl href=https://annevankesteren.nl/>Anne van Kesteren</a>
