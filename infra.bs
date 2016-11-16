@@ -10,11 +10,14 @@ Abstract: The Infra Standard aims to define the fundamental concepts upon which 
 !Participate: <a href=https://github.com/whatwg/infra>GitHub whatwg/infra</a> (<a href=https://github.com/whatwg/infra/issues/new>new issue</a>, <a href=https://github.com/whatwg/infra/issues>open issues</a>)
 !Participate: <a href=https://wiki.whatwg.org/wiki/IRC>IRC: #whatwg on Freenode</a>
 !Commits: <a href=https://github.com/whatwg/infra/commits>GitHub whatwg/infra/commits</a>
+!Commits: [SNAPSHOT-LINK]
+!Commits: <a href=https://twitter.com/infrastandard>@infrastandard</a>
 Boilerplate: omit conformance, omit feedback-header, omit index, omit idl-index
 </pre>
 
 <script src=https://resources.whatwg.org/file-issue.js async></script>
-<script id=head src=https://resources.whatwg.org/dfn.js defer></script>
+<script src=https://resources.whatwg.org/commit-snapshot-shortcut-key.js async></script>
+<script src=https://resources.whatwg.org/dfn.js defer></script>
 
 <pre class="link-defaults">
 </pre>
