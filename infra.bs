@@ -5,7 +5,7 @@ Shortname: infra
 Status: LS
 Group: WHATWG
 No Editor: true
-Logo: https://resources.whatwg.org/logo.svg
+Logo: https://resources.whatwg.org/logo-infra.svg
 Abstract: The Infra Standard aims to define the fundamental concepts upon which standards are built.
 !Participate: <a href=https://github.com/whatwg/infra>GitHub whatwg/infra</a> (<a href=https://github.com/whatwg/infra/issues/new>new issue</a>, <a href=https://github.com/whatwg/infra/issues>open issues</a>)
 !Participate: <a href=https://wiki.whatwg.org/wiki/IRC>IRC: #whatwg on Freenode</a>
@@ -390,7 +390,8 @@ for each pair of converted key/original value. [[!WEBIDL]]
 <h2 class=no-num id=acknowledgments>Acknowledgments</h2>
 
 <p>Many thanks to
-<span class=XXX>...</span>
+Philip Jägenstedt
+and Michael™ Smith
 for being awesome!
 
 <p>This standard is written by <a lang=nl href=https://annevankesteren.nl/>Anne van Kesteren</a>
