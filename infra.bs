@@ -333,15 +333,15 @@ An indexing syntax can be used to look up and set values by providing a key insi
 
 <p>To <dfn export for=map lt="get|get the value">get the value of an entry</dfn> in an
 <a>ordered map</a> given a key is to retrieve the value of any existing key/value pair if the map
-<a lt="contains an entry with a given key">contains an entry with the given key</a>, or if to return
-nothing otherwise. We can also use the indexing syntax explained above.
+<a for=map>contains</a> an entry with the given key, or if to return nothing otherwise. We can also
+use the indexing syntax explained above.
 
 <p>To <dfn export for=map lt="set|set the value">set the value of an entry</dfn> in an
 <a>ordered map</a> to a given value is to update the value of any existing key/value pair if the map
-<a lt="contains an entry with a given key">contains an entry with the given key</a>, or if none such
-exists, to add a new entry with the given key/value to the end of the map. We can also denote this
-by saying, for an <a>ordered map</a> |map|, key |key|, and value |value|,
-"<a for=map>set</a> |map|[|key|] to |value|".
+<a for=map>contains</a> an entry with the given key, or if none such exists, to add a new entry with
+the given key/value to the end of the map. We can also denote this by saying, for an
+<a>ordered map</a> |map|, key |key|, and value |value|, "<a for=map>set</a> |map|[|key|] to
+|value|".
 
 <p>To <dfn export for=map lt=remove>remove an entry</dfn> from an <a>ordered map</a> is to remove
 all entries from the map that match a given condition, or do nothing if none do. If the condition is
@@ -350,7 +350,7 @@ key |key|, "<a for=map>remove</a> |map|[|key|]".
 
 <p>An <a>ordered map</a> <dfn export for=map lt=exists|contains>contains an entry with a given
 key</dfn> if there exists a key/value pair with that key. We can also denote this by saying that,
-for an <a>ordered map</a> |map| and key |key|, "|map|[|key|] <a for=map>exists</dfn>".
+for an <a>ordered map</a> |map| and key |key|, "|map|[|key|] <a for=map>exists</a>".
 
 <p>To <dfn export for=map>get the keys</dfn> of an <a>ordered map</a>, return a new
 <a>ordered set</a> whose elements are each of the keys in the map's key/value pairs.
