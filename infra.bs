@@ -72,7 +72,7 @@ readable.
 leading spaces" or "return false") are to be interpreted with the meaning of the keyword (e.g.,
 "must") used in introducing the algorithm or step. If no such keyword is used, must is implied.
 
-<div class=example>
+<div class=example id=example-algorithms>
  <p>For example, were the spec to say:</p>
 
  <blockquote>
@@ -98,10 +98,10 @@ leading spaces" or "return false") are to be interpreted with the meaning of the
  </blockquote>
 
  <p>Here the key word is "must".</p>
-</div>
 
-<p class=example>Modifying the above example, if the algorithm was introduced only with "To eat an
-orange:", it would still have the same meaning, as "must" is implied.
+ <p>Modifying the above example, if the algorithm was introduced only with "To eat an orange:", it
+ would still have the same meaning, as "must" is implied.
+</div>
 
 <p>Conformance requirements phrased as algorithms or specific steps may be implemented in any
 manner, so long as the end result is equivalent. (In particular, the algorithms are intended to be
