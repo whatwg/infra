@@ -117,7 +117,7 @@ another action.
 <h3 id=terminology>Terminology</h3>
 
 <p>The word "or", in cases where both inclusive "or" and exclusive "or" are possible (e.g., "if
-either width or height are zero"), means an inclusive "or" (implying "or both"), unless it is called
+either width or height is zero"), means an inclusive "or" (implying "or both"), unless it is called
 out as being exclusive (with "but not both").
 
 
@@ -425,6 +425,7 @@ for each pair of converted key/original value. [[!WEBIDL]]
 <h2 class=no-num id=acknowledgments>Acknowledgments</h2>
 
 <p>Many thanks to
+Jungkee Song,
 Michael™ Smith,
 Philip Jägenstedt,
 and Simon Pieters
