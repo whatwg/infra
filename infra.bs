@@ -475,6 +475,7 @@ for each pair of converted key/original value. [[!WEBIDL]]
 
 <p>Many thanks to
 Michael™ Smith,
+Mike West,
 Philip Jägenstedt,
 and Simon Pieters
 for being awesome!
