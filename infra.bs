@@ -287,6 +287,53 @@ performing a set of steps on each item in order, use phrasing of the form
 "<a for=list>For each</a> |item| of <var ignore>list</var>", and then operate on |item| in the
 subsequent prose.
 
+<p>Inside a <a for=list>for each</a> construct, individual items may be skipped by writing
+"<dfn for='for each'>continue</dfn>". That restarts the loop using the next item in the list,
+or exits the loop entirely if no further items remain.
+
+<p>The <a for=list>for each</a> construct can exit early by writing
+"<dfn for='for each'>break</dfn>". That exits the loop, skipping any remaining item in the list.
+
+<div class=example id=example-for-each-continue>
+  <p>Let |example| be the <a>list</a> « |1|, |2|, |3|, |4| ». The following prose would perform
+  <code>operation</code> upon |1|, then |2|, then |3|, then |4|:
+
+  <ol>
+    <li>
+      <p><a for=list>For each</a> |item| in |example|:
+      <ol>
+        <li>Perform <code>operation</code> on |item|.                                                                             
+      </ol>
+    </li>
+  </ol>
+
+  <p>The following prose would perform <code>operation</code> upon |1|, then |2|, then |4|. |3|
+  would be skipped.
+
+  <ol>
+    <li>
+      <p><a for=list>For each</a> |item| in |example|:
+      <ol>
+        <li>If |item| is |3|, <a for='for each'>continue</a>.
+        <li>Perform <code>operation</code> on |item|.
+      </ol>
+    </li>
+  </ol>
+
+  <p>The following prose would perform <code>operation</code> upon |1|, then |2|. |3| and |4|
+  would be skipped.
+
+  <ol>
+    <li>
+      <p><a for=list>For each</a> |item| in |example|:
+      <ol>
+        <li>If |item| is |3|, <a for='for each'>break</a>.
+        <li>Perform <code>operation</code> on |item|.
+      </ol>
+    </li>
+  </ol>
+</div>
+
 <hr>
 
 <p>The <a>list</a> type originates from the JavaScript specification (where it is capitalized, as
