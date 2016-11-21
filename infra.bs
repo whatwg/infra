@@ -107,11 +107,58 @@ leading spaces" or "return false") are to be interpreted with the meaning of the
 manner, so long as the end result is equivalent. (In particular, the algorithms are intended to be
 easy to follow, and not intended to be performant.)
 
+<h4 id=algorithm-control-flow>Control flow</h4>
+
 <p>The control flow of algorithms is such that a requirement to "return" or "throw" terminates the
 algorithm the statement was in. "Return" will hand the given value, if any, to its caller. "Throw"
 will make the caller automatically rethrow the given value, if any, and thereby terminate the
 caller's algorithm. Using prose the caller has the ability to "catch" the exception and perform
 another action.
+
+<p>An iteration's flow can be controlled via requirements to
+<dfn export for=iteration>continue</dfn> or <dfn export for=iteration>break</dfn>.
+<a for=iteration>Continue</a> will skip over any remaining steps in an iteration, proceeding to the
+next item. If no further items remain, the iteration will stop. <a for=iteration>Break</a> will skip
+over any remaining steps in an iteration, and skip over any remaining items as well, stopping the
+iteration.
+
+<div class=example id=example-break-continue>
+ <p>Let |example| be the <a>list</a> « 1, 2, 3, 4 ». The following prose would perform |operation|
+ upon 1, then 2, then 3, then 4:
+
+ <ol>
+  <li>
+   <p><a for=list>For each</a> |item| in |example|:
+   <ol>
+    <li>Perform |operation| on |item|.
+   </ol>
+  </li>
+ </ol>
+
+ <p>The following prose would perform |operation| upon 1, then 2, then 4. 3 would be skipped.
+
+ <ol>
+  <li>
+   <p><a for=list>For each</a> |item| in |example|:
+   <ol>
+    <li>If |item| is 3, then <a for=iteration>continue</a>.
+    <li>Perform |operation| on |item|.
+   </ol>
+  </li>
+ </ol>
+
+ <p>The following prose would perform |operation| upon 1, then 2. 3 and 4 would be skipped.
+
+ <ol>
+  <li>
+   <p><a for=list>For each</a> |item| in |example|:
+   <ol>
+    <li>If |item| is 3, then <a for=iteration>break</a>.
+    <li>Perform |operation| on |item|.
+   </ol>
+  </li>
+ </ol>
+</div>
 
 
 <h3 id=terminology>Terminology</h3>
@@ -427,6 +474,7 @@ for each pair of converted key/original value. [[!WEBIDL]]
 <p>Many thanks to
 Jungkee Song,
 Michael™ Smith,
+Mike West,
 Philip Jägenstedt,
 and Simon Pieters
 for being awesome!
