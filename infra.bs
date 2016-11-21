@@ -123,40 +123,38 @@ over any remaining steps in an iteration, and skip over any remaining items as w
 iteration.
 
 <div class=example id=example-break-continue>
- <p>Let |example| be the <a>list</a> « 1, 2, 3, 4 ». The following prose would perform
- <code>operation</code> upon 1, then 2, then 3, then 4:
+ <p>Let |example| be the <a>list</a> « 1, 2, 3, 4 ». The following prose would perform |operation|
+ upon 1, then 2, then 3, then 4:
 
  <ol>
   <li>
    <p><a for=list>For each</a> |item| in |example|:
    <ol>
-    <li>Perform <code>operation</code> on |item|.
+    <li>Perform |operation| on |item|.
    </ol>
   </li>
  </ol>
 
- <p>The following prose would perform <code>operation</code> upon 1, then 2, then 4. 3 would be
- skipped.
+ <p>The following prose would perform |operation| upon 1, then 2, then 4. 3 would be skipped.
 
  <ol>
   <li>
    <p><a for=list>For each</a> |item| in |example|:
    <ol>
-    <li>If |item| is 3, <a for=iteration>continue</a>.
-    <li>Perform <code>operation</code> on |item|.
+    <li>If |item| is 3, then <a for=iteration>continue</a>.
+    <li>Perform |operation| on |item|.
    </ol>
   </li>
  </ol>
 
- <p>The following prose would perform <code>operation</code> upon 1, then 2. 3 and 4 would be
- skipped.
+ <p>The following prose would perform |operation| upon 1, then 2. 3 and 4 would be skipped.
 
  <ol>
   <li>
    <p><a for=list>For each</a> |item| in |example|:
    <ol>
-    <li>If |item| is 3, <a for=iteration>break</a>.
-    <li>Perform <code>operation</code> on |item|.
+    <li>If |item| is 3, then <a for=iteration>break</a>.
+    <li>Perform |operation| on |item|.
    </ol>
   </li>
  </ol>
