@@ -12,6 +12,7 @@ Abstract: The Infra Standard aims to define the fundamental concepts upon which 
 !Commits: <a href=https://github.com/whatwg/infra/commits>GitHub whatwg/infra/commits</a>
 !Commits: [SNAPSHOT-LINK]
 !Commits: <a href=https://twitter.com/infrastandard>@infrastandard</a>
+!Translation (non-normative): <span title=Japanese><a href=https://triple-underscore.github.io/infra-ja.html lang=ja hreflang=ja rel=alternate>日本語</a></span>
 Boilerplate: omit conformance, omit feedback-header, omit index, omit idl-index
 </pre>
 
