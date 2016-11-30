@@ -47,8 +47,13 @@ urlPrefix: https://heycam.github.io/webidl/; spec: WEBIDL; type: dfn
 <h2 id=usage>Usage</h2>
 
 <p>To make use of the Infra Standard in a document titled <var>X</var>, use
-<samp><var>X</var> depends on the Infra Standard.</samp> Additionally, cross-referencing terminology
+<samp><var>X</var> depends on the Infra Standard</samp>. Additionally, cross-referencing terminology
 is encouraged to avoid ambiguity.
+
+<p>Specification authors are also encouraged to add their specification to the
+<a href=https://github.com/whatwg/infra/wiki/Dependent-specs>list of dependent specifications</a> in
+order to help the editors ensure that any future changes to the Infra Standard are correctly
+reflected by any such dependencies.
 
 
 <h2 id=conventions>Conventions</h2>
