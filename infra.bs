@@ -219,35 +219,40 @@ U+D800 to U+DFFF, inclusive.
 <p>An <dfn export>ASCII code point</dfn> is a <a>code point</a> in the range U+0000 to U+007F,
 inclusive.
 
-<p>An <dfn export>ASCII tab or newline</dfn> is U+0009, U+000A, or U+000D.
+<p>An <dfn export lt="ASCII tab or newline|ASCII tabs or newlines">ASCII tab or newline</dfn> is
+U+0009, U+000A, or U+000D.
 
 <p>An <dfn export>ASCII whitespace</dfn> is U+0009, U+000A, U+000C, U+000D, or U+0020.
 
 <p>A <dfn export>C0 control</dfn> is a <a>code point</a> in the range U+0000 to U+001F, inclusive.
 
-<p>A <dfn export>C0 control or space</dfn> is a <a>C0 control</a> or U+0020.
+<p>A <dfn export lt="C0 control or space|C0 controls or spaces">C0 control or space</dfn> is a
+<a>C0 control</a> or U+0020.
 
 <p>An <dfn export>ASCII digit</dfn> is a <a>code point</a> in the range U+0030 to U+0039,
 inclusive.
 
-<p>An <dfn export>ASCII hex digit upper</dfn> is an <a>ASCII digit</a> or a <a>code point</a> in the
+<p>An <dfn export>ASCII upper hex digit</dfn> is an <a>ASCII digit</a> or a <a>code point</a> in the
 range U+0041 to U+0046, inclusive.
 
-<p>An <dfn export>ASCII hex digit lower</dfn> is an <a>ASCII digit</a> or a <a>code point</a> in the
+<p>An <dfn export>ASCII lower hex digit</dfn> is an <a>ASCII digit</a> or a <a>code point</a> in the
 range U+0061 to U+0066, inclusive.
 
-<p>An <dfn export>ASCII hex digit</dfn> is an <a>ASCII hex digit upper</a> or
-<a>ASCII hex digit lower</a>.
+<p>An <dfn export>ASCII hex digit</dfn> is an <a>ASCII upper hex digit</a> or
+<a>ASCII lower hex digit</a>.
 
-<p>An <dfn export>ASCII alpha upper</dfn> is a <a>code point</a> in the range U+0041 to U+005A,
+<p>An <dfn export>ASCII lower alpha</dfn> is a <a>code point</a> in the range U+0041 to U+005A,
 inclusive.
 
-<p>An <dfn export>ASCII alpha lower</dfn> is a <a>code point</a> in the range U+0061 to U+007A,
+<p>An <dfn export>ASCII upper alpha</dfn> is a <a>code point</a> in the range U+0061 to U+007A,
 inclusive.
 
-<p>An <dfn export>ASCII alpha</dfn> is an <a>ASCII alpha upper</a> or <a>ASCII alpha lower</a>.
+<p>An <dfn export>ASCII alpha</dfn> is an <a>ASCII upper alpha</a> or <a>ASCII lower alpha</a>.
 
 <p>An <dfn export>ASCII alphanumeric</dfn> is an <a>ASCII digit</a> or <a>ASCII alpha</a>.
+
+<p class=note>For the purposes of the above definitions, "whitespace", "alpha", and "alphanumeric"
+are mass nouns.
 
 <h3 id=strings>Strings</h3>
 
@@ -259,11 +264,11 @@ quotes and monospace font.
 <p>An <dfn export>ASCII string</dfn> is a <a>string</a> whose <a>code points</a> are all
 <a>ASCII code points</a>.
 
-<p>To <dfn export>ASCII lowercase</dfn> a <a>string</a>, replace all <a>ASCII alpha upper</a> in the
-<a>string</a> with the corresponding <a>code points</a> in <a>ASCII alpha lower</a>.
+<p>To <dfn export>ASCII lowercase</dfn> a <a>string</a>, replace all <a>ASCII upper alpha</a> in the
+<a>string</a> with the corresponding <a>code points</a> in <a>ASCII lower alpha</a>.
 
-<p>To <dfn export>ASCII uppercase</dfn> a <a>string</a>, replace all <a>ASCII alpha lower</a> in the
-<a>string</a> with the corresponding <a>code points</a> in <a>ASCII alpha upper</a>.
+<p>To <dfn export>ASCII uppercase</dfn> a <a>string</a>, replace all <a>ASCII lower alpha</a> in the
+<a>string</a> with the corresponding <a>code points</a> in <a>ASCII upper alpha</a>.
 
 <p>A <a>string</a> <var>A</var> is an <dfn export>ASCII case-insensitive</dfn> match for a
 <a>string</a> <var>B</var>, if the <a>ASCII lowercase</a> of <var>A</var> is the
