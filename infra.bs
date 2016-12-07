@@ -52,8 +52,8 @@ is encouraged to avoid ambiguity.
 
 <p>Specification authors are also encouraged to add their specification to the
 <a href=https://github.com/whatwg/infra/wiki/Dependent-specs>list of dependent specifications</a> in
-order to help the editors ensure that any future changes to the Infra Standard are correctly
-reflected by any such dependencies.
+order to help the editors ensure that any future breaking changes to the Infra Standard are
+correctly reflected by any such dependencies.
 
 
 <h2 id=conventions>Conventions</h2>
