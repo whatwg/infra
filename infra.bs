@@ -440,7 +440,7 @@ key |key|, "<a for=map>remove</a> |map|[|key|]".
 key</dfn> if there exists a key/value pair with that key. We can also denote this by saying that,
 for an <a>ordered map</a> |map| and key |key|, "|map|[|key|] <a for=map>exists</a>".
 
-<p>To <dfn export for=map>get the keys</dfn> of an <a>ordered map</a>, return a new
+<p>To <dfn export for=map lt="getting the keys|get the keys">get the keys</dfn> of an <a>ordered map</a>, return a new
 <a>ordered set</a> whose items are each of the keys in the map's key/value pairs.
 
 <p>An <a>ordered map</a>'s <dfn export for=map>size</dfn> is the <a for=set>size</a> of the result
