@@ -392,11 +392,11 @@ unordered one, since interoperability requires that any developer-exposed enumer
 contents be consistent between browsers. In those cases where order is not required, we still use
 ordered sets; implementations can optimize based on the fact that the order is not observable.
 
-<p>To <dfn for=set>append</dfn> to an <a>ordered set</a> is to do nothing if the set already
+<p>To <dfn export for=set>append</dfn> to an <a>ordered set</a> is to do nothing if the set already
 <a for=list>contains</a> the given item, or to perform the normal <a>list</a> <a for=list>append</a>
 operation otherwise.
 
-<p>To <dfn for=set>prepend</dfn> to an <a>ordered set</a> is to do nothing if the set already
+<p>To <dfn export for=set>prepend</dfn> to an <a>ordered set</a> is to do nothing if the set already
 <a for=list>contains</a> the given item, or to perform the normal <a>list</a>
 <a for=list>prepend</a> operation otherwise.
 
@@ -484,6 +484,7 @@ for each pair of converted key/original value. [[!WEBIDL]]
 
 <p>Many thanks to
 Jungkee Song,
+Malika Aubakirova,
 Michael™ Smith,
 Mike West,
 Philip Jägenstedt,
