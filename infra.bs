@@ -484,11 +484,11 @@ for each pair of converted key/original value. [[!WEBIDL]]
 
 <p>Many thanks to
 Jungkee Song,
+Malika Aubakirova,
 Michael™ Smith,
 Mike West,
 Philip Jägenstedt,
-Simon Pieters,
-and Malika Aubakirova
+and Simon Pieters
 for being awesome!
 
 <p>This standard is written by <a lang=nl href=https://annevankesteren.nl/>Anne van Kesteren</a>
