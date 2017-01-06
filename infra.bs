@@ -13,7 +13,7 @@ Abstract: The Infra Standard aims to define the fundamental concepts upon which 
 !Commits: [SNAPSHOT-LINK]
 !Commits: <a href=https://twitter.com/infrastandard>@infrastandard</a>
 !Translation (non-normative): <span title=Japanese><a href=https://triple-underscore.github.io/infra-ja.html lang=ja hreflang=ja rel=alternate>日本語</a></span>
-Boilerplate: omit conformance, omit feedback-header, omit index, omit idl-index
+Boilerplate: omit conformance, omit feedback-header, omit idl-index
 </pre>
 
 <script src=https://resources.whatwg.org/file-issue.js async></script>
@@ -331,7 +331,7 @@ from the list that match a given condition, or do nothing if none do.
  "<code>b</code>", "<code>ba</code>" ».
 </div>
 
-<p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain>contains</dfn> an item if it 
+<p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain>contains</dfn> an item if it
 appears in the list.
 
 <p>A <a>list</a>'s <dfn export for=list,stack,queue,set>size</dfn> is the number of items the list
@@ -477,9 +477,6 @@ for each pair of converted key/original value. [[!WEBIDL]]
 <p>The <dfn export>XMLNS namespace</dfn> is "<code>http://www.w3.org/2000/xmlns/</code>".
 
 
-<div data-fill-with=references></div>
-
-
 <h2 class=no-num id=acknowledgments>Acknowledgments</h2>
 
 <p>Many thanks to
@@ -488,7 +485,8 @@ Malika Aubakirova,
 Michael™ Smith,
 Mike West,
 Philip Jägenstedt,
-and Simon Pieters
+Simon Pieters,
+and Tab Atkins
 for being awesome!
 
 <p>This standard is written by <a lang=nl href=https://annevankesteren.nl/>Anne van Kesteren</a>
