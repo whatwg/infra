@@ -246,10 +246,10 @@ range U+0061 to U+0066, inclusive.
 <p>An <dfn export>ASCII hex digit</dfn> is an <a>ASCII upper hex digit</a> or
 <a>ASCII lower hex digit</a>.
 
-<p>An <dfn export>ASCII lower alpha</dfn> is a <a>code point</a> in the range U+0041 to U+005A,
+<p>An <dfn export>ASCII upper alpha</dfn> is a <a>code point</a> in the range U+0041 to U+005A,
 inclusive.
 
-<p>An <dfn export>ASCII upper alpha</dfn> is a <a>code point</a> in the range U+0061 to U+007A,
+<p>An <dfn export>ASCII lower alpha</dfn> is a <a>code point</a> in the range U+0061 to U+007A,
 inclusive.
 
 <p>An <dfn export>ASCII alpha</dfn> is an <a>ASCII upper alpha</a> or <a>ASCII lower alpha</a>.
