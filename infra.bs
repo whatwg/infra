@@ -188,7 +188,7 @@ number in the range 0x00 to 0xFF, inclusive.
 <p>A <dfn export>byte sequence</dfn> is a sequence of <a>bytes</a>, represented as a space-separated
 sequence of bytes. Byte sequences with bytes in the range 0x00 to 0x7F, inclusive, can alternately
 be written as a string, but using backticks instead of quotation marks, to avoid confusion with an
-actual string.
+actual <a>string</a>.
 
 <div class=example id=example-byte-sequence-notation>
  <p>0x48 0x49 can also be represented as `<code>HI</code>`.
@@ -325,7 +325,7 @@ from the list that match a given condition, or do nothing if none do.
  <p><a for=list>Removing</a> |x| from the <a>list</a> « |x|, |y|, |z|, |x| » is to remove all
  items from the list that are equal to |x|. The list now is equivalent to « |y|, |z| ».
 
- <p><a for=list>Removing</a> all items that start with the string "<code>a</code>" from the
+ <p><a for=list>Removing</a> all items that start with the <a>string</a> "<code>a</code>" from the
  <a>list</a> « "<code>a</code>", "<code>b</code>", "<code>ab</code>", "<code>ba</code>" » is to
  remove the items "<code>a</code>" and "<code>ab</code>". The list is now equivalent to «
  "<code>b</code>", "<code>ba</code>" ».
@@ -486,7 +486,8 @@ Michael™ Smith,
 Mike West,
 Philip Jägenstedt,
 Simon Pieters,
-and Tab Atkins
+Tab Atkins,
+and Xue Fuqiao
 for being awesome!
 
 <p>This standard is written by <a lang=nl href=https://annevankesteren.nl/>Anne van Kesteren</a>
