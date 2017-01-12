@@ -404,17 +404,18 @@ ordered sets; implementations can optimize based on the fact that the order is n
 
 <h3 id=maps>Maps</h3>
 
-<p>A <dfn export lt="ordered map|map">ordered map</dfn>, or sometimes just "map", is a specification
-type consisting of a finite ordered sequence of key/value pairs, with no key appearing twice. Each
-key/value pair is called an <dfn for=map export>entry</dfn>.
+<p>A <dfn export lt="ordered map|map">ordered map</dfn>, or sometimes just "map", is a
+specification type consisting of a finite ordered sequence of
+<dfn for=map export>key</dfn>/<dfn for=map export>value</dfn> pairs, with no key appearing twice.
+Each key/value pair is called an <dfn for=map export>entry</dfn>.
 
 <p class=note>As with <a>ordered sets</a>, by default we assume that maps must also be ordered for
 interoperability among implementations.
 
 <p>A literal syntax can be used to express <a>ordered maps</a>, by surrounding the contents with «[
 ]» delimiters, denoting each <a for=map>entry</a> as |key| → |value|, and separating entries with
-a comma. An indexing syntax can be used to look up and set values by providing a key inside square
-brackets.
+a comma. An indexing syntax can be used to look up and set <a for=map>values</a> by providing a
+<a for=map>key</a> inside square brackets.
 
 <p class=example id=example-map-notation>Let |example| be the <a>ordered map</a> «[
 "<code>a</code>" → `<code>x</code>`, "<code>b</code>" → `<code>y</code>` ]». Then
@@ -423,28 +424,30 @@ brackets.
 <hr>
 
 <p>To <dfn export for=map lt="get|get the value">get the value of an entry</dfn> in an
-<a>ordered map</a> given a key is to retrieve the value of any existing <a for=map>entry</a> if the
-map <a for=map>contains</a> an entry with the given key, or if to return nothing otherwise. We can
-also use the indexing syntax explained above.
+<a>ordered map</a> given a <a for=map>key</a> is to retrieve the <a for=map>value</a> of any
+existing <a for=map>entry</a> if the map <a for=map>contains</a> an entry with the given key, or if
+to return nothing otherwise. We can also use the indexing syntax explained above.
 
 <p>To <dfn export for=map lt="set|set the value">set the value of an entry</dfn> in an
-<a>ordered map</a> to a given value is to update the value of any existing <a for=map>entry</a> if
-the map <a for=map>contains</a> an entry with the given key, or if none such exists, to add a new
-entry with the given key/value to the end of the map. We can also denote this by saying, for an
-<a>ordered map</a> |map|, key |key|, and value |value|, "<a for=map>set</a> |map|[|key|] to
-|value|".
+<a>ordered map</a> to a given <a for=map>value</a> is to update the value of any existing
+<a for=map>entry</a> if the map <a for=map>contains</a> an entry with the given <a for=map>key</a>,
+or if none such exists, to add a new entry with the given key/value to the end of the map. We can
+also denote this by saying, for an <a>ordered map</a> |map|, key |key|, and value |value|,
+"<a for=map>set</a> |map|[|key|] to |value|".
 
 <p>To <dfn export for=map lt=remove>remove an entry</dfn> from an <a>ordered map</a> is to remove
 all <a for=map>entries</a> from the map that match a given condition, or do nothing if none do. If
-the condition is having a certain key, then we can also denote this by saying, for an
-<a>ordered map</a> |map| and key |key|, "<a for=map>remove</a> |map|[|key|]".
+the condition is having a certain <a for=map>key</a>, then we can also denote this by saying, for
+an <a>ordered map</a> |map| and key |key|, "<a for=map>remove</a> |map|[|key|]".
 
 <p>An <a>ordered map</a> <dfn export for=map lt=exists|contains>contains an <a for=map>entry</a>
-with a given key</dfn> if there exists an entry with that key. We can also denote this by saying
-that, for an <a>ordered map</a> |map| and key |key|, "|map|[|key|] <a for=map>exists</a>".
+with a given key</dfn> if there exists an entry with that <a for=map>key</a>. We can also denote
+this by saying that, for an <a>ordered map</a> |map| and key |key|, "|map|[|key|]
+<a for=map>exists</a>".
 
-<p>To <dfn export for=map lt="getting the keys|get the keys">get the keys</dfn> of an <a>ordered map</a>, return a new
-<a>ordered set</a> whose <a for=set>items</a> are each of the keys in the map's <a for=map>entries</a>.
+<p>To <dfn export for=map lt="getting the keys|get the keys">get the keys</dfn> of an
+<a>ordered map</a>, return a new <a>ordered set</a> whose <a for=set>items</a> are each of the
+<a for=map>keys</a> in the map's <a for=map>entries</a>.
 
 <p>An <a>ordered map</a>'s <dfn export for=map>size</dfn> is the <a for=set>size</a> of the result
 of running <a for=map>get the keys</a> on the map.
@@ -459,11 +462,12 @@ subsequent prose.
 
 <hr>
 
-<p>An <a>ordered map</a> whose keys are all <a>strings</a> and whose values are all of the same Web
-IDL type |TValue| can be <dfn lt="convert ordered map to record">converted to the corresponding
-<a>record type</a></dfn> <code>record&lt;|TKey|, |TValue|></code> by first converting all its keys
-to the appropriate Web IDL <a>string type</a> |TKey|, and then creating corresponding record
-<a for=record>mappings</a> for each pair of converted key/original value. [[!WEBIDL]]
+<p>An <a>ordered map</a> whose <a for=map>keys</a> are all <a>strings</a> and whose
+<a for=map>values</a> are all of the same Web IDL type |TValue| can be
+<dfn lt="convert ordered map to record">converted to the corresponding <a>record type</a></dfn>
+<code>record&lt;|TKey|, |TValue|></code> by first converting all its keys to the appropriate Web
+IDL <a>string type</a> |TKey|, and then creating corresponding record <a for=record>mappings</a>
+for each pair of converted key/original value. [[!WEBIDL]]
 
 
 <h2 id=namespaces>Namespaces</h2>
