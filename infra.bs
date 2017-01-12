@@ -286,7 +286,7 @@ quotes and monospace font.
 <p>Conventionally, specifications have operated on a variety of vague specification-level data
 structures, based on shared understanding of their semantics. This generally works well, but can
 lead to ambiguities around edge cases, such as iteration order or what happens when you
-<a for=set>append</a> an item to an <a>ordered set</a> that the set already
+<a for=set>append</a> an <a for=set>item</a> to an <a>ordered set</a> that the set already
 <a for=set>contains</a>. It has also led to a variety of divergent notation and phrasing, especially
 around more complex data structures such as <a lt="ordered map">maps</a>.
 
@@ -296,11 +296,11 @@ for working with them, in order to create common ground.
 <h3 id=lists>Lists</h3>
 
 <p>A <dfn export>list</dfn> is a specification type consisting of a finite ordered sequence of
-items.
+<dfn for="list,stack,queue,set" lt=item export>items</dfn>.
 
 <p>For notational convenience, a literal syntax can be used to express <a>lists</a>, by surrounding
-the list contents by « » characters and separating list items with a comma. An indexing syntax can
-be used by providing a zero-based index into a list inside square brackets.
+the list contents by « » characters and separating list <a for=list>items</a> with a comma. An
+indexing syntax can be used by providing a zero-based index into a list inside square brackets.
 
 <p class=example id=example-list-notation>Let |example| be the <a>list</a> « "<code>a</code>",
 "<code>b</code>", "<code>c</code>", "<code>a</code>" ». Then |example|[1] is the <a>string</a>
@@ -308,18 +308,18 @@ be used by providing a zero-based index into a list inside square brackets.
 
 <hr>
 
-<p>To <dfn export for=list>append</dfn> to a <a>list</a> that is not an <a>ordered set</a> is to add
-the given item to the end of the list.
+<p>To <dfn export for=list>append</dfn> to a <a>list</a> that is not an <a>ordered set</a> is to
+add the given <a for=list>item</a> to the end of the list.
 
 <p>To <dfn export for=list>prepend</dfn> to a <a>list</a> that is not an <a>ordered set</a> is to
-add the given item to the beginning of the list.
+add the given <a for=list>item</a> to the beginning of the list.
 
 <p class=note>The above definitions are modified when the <a>list</a> is an <a>ordered set</a>; see
 below for <a for=set lt=append>ordered set append</a> and
 <a for=set lt=prepend>ordered set prepend</a>.
 
-<p>To <dfn export for=list,set>remove</dfn> an item from a <a>list</a> is to remove all items
-from the list that match a given condition, or do nothing if none do.
+<p>To <dfn export for=list,set>remove</dfn> an <a for=list>item</a> from a <a>list</a> is to remove
+all items from the list that match a given condition, or do nothing if none do.
 
 <div class=example id=example-list-remove>
  <p><a for=list>Removing</a> |x| from the <a>list</a> « |x|, |y|, |z|, |x| » is to remove all
@@ -331,17 +331,17 @@ from the list that match a given condition, or do nothing if none do.
  "<code>b</code>", "<code>ba</code>" ».
 </div>
 
-<p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain>contains</dfn> an item if it
-appears in the list.
+<p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain>contains</dfn> an
+<a for=list>item</a> if it appears in the list.
 
-<p>A <a>list</a>'s <dfn export for=list,stack,queue,set>size</dfn> is the number of items the list
-<a for=list>contains</a>.
+<p>A <a>list</a>'s <dfn export for=list,stack,queue,set>size</dfn> is the number of
+<a for=list>items</a> the list <a for=list>contains</a>.
 
 <p>A <a>list</a> <dfn export for=list,stack,queue,set lt="is empty|is not empty">is empty</dfn> if
 its <a for=list>size</a> is zero.
 
 <p>To <dfn export for=list,stack,queue,set lt="iterate|for each">iterate</dfn> over a <a>list</a>,
-performing a set of steps on each item in order, use phrasing of the form
+performing a set of steps on each <a for=list>item</a> in order, use phrasing of the form
 "<a for=list>For each</a> |item| of <var ignore>list</var>", and then operate on |item| in the
 subsequent prose.
 
@@ -353,7 +353,7 @@ and provide an expanded vocabulary for manipulating <a>lists</a>. Whenever JavaS
 <a spec=ecma-262>List</a>, a <a>list</a> as defined here can be used; they are the same type.
 [[!ECMA-262]]
 
-<p>A <a>list</a> whose items are all of a particular Web IDL type |T| can be
+<p>A <a>list</a> whose <a for=list>items</a> are all of a particular Web IDL type |T| can be
 <dfn lt="convert list to sequence">converted to the corresponding <a>sequence type</a></dfn>
 <code>sequence&lt;|T|></code> by creating a sequence whose items are the items of the list.
 [[!WEBIDL]]
@@ -366,8 +366,9 @@ but conventionally, the following operations are used to operate on it, instead 
 
 <p>To <dfn for=stack>push</dfn> onto a <a>stack</a> is to <a for=list>append</a> to it.
 
-<p>To <dfn for=stack>pop</dfn> from a <a>stack</a> is to <a for=list>remove</a> its last item and
-return it, if the <a>stack</a> <a for=stack>is not empty</a>, or to return nothing otherwise.
+<p>To <dfn for=stack>pop</dfn> from a <a>stack</a> is to <a for=list>remove</a> its last
+<a for=stack>item</a> and return it, if the <a>stack</a> <a for=stack>is not empty</a>, or to return
+nothing otherwise.
 
 <h4 id=queues>Queues</h4>
 
@@ -378,14 +379,14 @@ but conventionally, the following operations are used to operate on it, instead 
 <p>To <dfn for=queue>enqueue</dfn> in a <a>queue</a> is to <a for=list>append</a> to it.
 
 <p>To <dfn for=queue>dequeue</dfn> from a <a>queue</a> is to <a for=list>remove</a> its first
-item and return it, if the <a>queue</a> <a for=queue>is not empty</a>, or to return nothing if it
-is.
+<a for=queue>item</a> and return it, if the <a>queue</a> <a for=queue>is not empty</a>, or to return
+nothing if it is.
 
 <h4 id=sets>Sets</h4>
 
 <p>Some <a>lists</a> are designated as <dfn export lt="ordered set|set">ordered sets</dfn>. An
-ordered set is a <a>list</a> with the additional semantic that it must not contain the same item
-twice.
+ordered set is a <a>list</a> with the additional semantic that it must not contain the same
+<a for=set>item</a> twice.
 
 <p class=note>Almost all cases on the web platform require an <em>ordered</em> set, instead of an
 unordered one, since interoperability requires that any developer-exposed enumeration of the set's
@@ -393,25 +394,28 @@ contents be consistent between browsers. In those cases where order is not requi
 ordered sets; implementations can optimize based on the fact that the order is not observable.
 
 <p>To <dfn export for=set>append</dfn> to an <a>ordered set</a> is to do nothing if the set already
-<a for=list>contains</a> the given item, or to perform the normal <a>list</a> <a for=list>append</a>
-operation otherwise.
+<a for=list>contains</a> the given <a for=set>item</a>, or to perform the normal <a>list</a>
+<a for=list>append</a> operation otherwise.
 
 <p>To <dfn export for=set>prepend</dfn> to an <a>ordered set</a> is to do nothing if the set already
-<a for=list>contains</a> the given item, or to perform the normal <a>list</a>
+<a for=list>contains</a> the given <a for=set>item</a>, or to perform the normal <a>list</a>
 <a for=list>prepend</a> operation otherwise.
 
 
 <h3 id=maps>Maps</h3>
 
-<p>A <dfn export lt="ordered map|map">ordered map</dfn>, or sometimes just "map", is a specification
-type consisting of a finite ordered sequence of key/value pairs, with no key appearing twice.
+<p>A <dfn export lt="ordered map|map">ordered map</dfn>, or sometimes just "map", is a
+specification type consisting of a finite ordered sequence of
+<dfn for=map export>key</dfn>/<dfn for=map export>value</dfn> pairs, with no key appearing twice.
+Each key/value pair is called an <dfn for=map export>entry</dfn>.
 
 <p class=note>As with <a>ordered sets</a>, by default we assume that maps must also be ordered for
 interoperability among implementations.
 
 <p>A literal syntax can be used to express <a>ordered maps</a>, by surrounding the contents with «[
-]» delimiters, denoting each key/value pair as |key| → |value|, and separating pairs with a comma.
-An indexing syntax can be used to look up and set values by providing a key inside square brackets.
+]» delimiters, denoting each <a for=map>entry</a> as |key| → |value|, and separating entries with
+a comma. An indexing syntax can be used to look up and set <a for=map>values</a> by providing a
+<a for=map>key</a> inside square brackets.
 
 <p class=example id=example-map-notation>Let |example| be the <a>ordered map</a> «[
 "<code>a</code>" → `<code>x</code>`, "<code>b</code>" → `<code>y</code>` ]». Then
@@ -420,28 +424,30 @@ An indexing syntax can be used to look up and set values by providing a key insi
 <hr>
 
 <p>To <dfn export for=map lt="get|get the value">get the value of an entry</dfn> in an
-<a>ordered map</a> given a key is to retrieve the value of any existing key/value pair if the map
-<a for=map>contains</a> an entry with the given key, or if to return nothing otherwise. We can also
-use the indexing syntax explained above.
+<a>ordered map</a> given a <a for=map>key</a> is to retrieve the <a for=map>value</a> of any
+existing <a for=map>entry</a> if the map <a for=map>contains</a> an entry with the given key, or if
+to return nothing otherwise. We can also use the indexing syntax explained above.
 
 <p>To <dfn export for=map lt="set|set the value">set the value of an entry</dfn> in an
-<a>ordered map</a> to a given value is to update the value of any existing key/value pair if the map
-<a for=map>contains</a> an entry with the given key, or if none such exists, to add a new entry with
-the given key/value to the end of the map. We can also denote this by saying, for an
-<a>ordered map</a> |map|, key |key|, and value |value|, "<a for=map>set</a> |map|[|key|] to
-|value|".
+<a>ordered map</a> to a given <a for=map>value</a> is to update the value of any existing
+<a for=map>entry</a> if the map <a for=map>contains</a> an entry with the given <a for=map>key</a>,
+or if none such exists, to add a new entry with the given key/value to the end of the map. We can
+also denote this by saying, for an <a>ordered map</a> |map|, key |key|, and value |value|,
+"<a for=map>set</a> |map|[|key|] to |value|".
 
 <p>To <dfn export for=map lt=remove>remove an entry</dfn> from an <a>ordered map</a> is to remove
-all entries from the map that match a given condition, or do nothing if none do. If the condition is
-having a certain key, then we can also denote this by saying, for an <a>ordered map</a> |map| and
-key |key|, "<a for=map>remove</a> |map|[|key|]".
+all <a for=map>entries</a> from the map that match a given condition, or do nothing if none do. If
+the condition is having a certain <a for=map>key</a>, then we can also denote this by saying, for
+an <a>ordered map</a> |map| and key |key|, "<a for=map>remove</a> |map|[|key|]".
 
-<p>An <a>ordered map</a> <dfn export for=map lt=exists|contains>contains an entry with a given
-key</dfn> if there exists a key/value pair with that key. We can also denote this by saying that,
-for an <a>ordered map</a> |map| and key |key|, "|map|[|key|] <a for=map>exists</a>".
+<p>An <a>ordered map</a> <dfn export for=map lt=exists|contains>contains an <a for=map>entry</a>
+with a given key</dfn> if there exists an entry with that <a for=map>key</a>. We can also denote
+this by saying that, for an <a>ordered map</a> |map| and key |key|, "|map|[|key|]
+<a for=map>exists</a>".
 
-<p>To <dfn export for=map lt="getting the keys|get the keys">get the keys</dfn> of an <a>ordered map</a>, return a new
-<a>ordered set</a> whose items are each of the keys in the map's key/value pairs.
+<p>To <dfn export for=map lt="getting the keys|get the keys">get the keys</dfn> of an
+<a>ordered map</a>, return a new <a>ordered set</a> whose <a for=set>items</a> are each of the
+<a for=map>keys</a> in the map's <a for=map>entries</a>.
 
 <p>An <a>ordered map</a>'s <dfn export for=map>size</dfn> is the <a for=set>size</a> of the result
 of running <a for=map>get the keys</a> on the map.
@@ -450,15 +456,17 @@ of running <a for=map>get the keys</a> on the map.
 <a for=map>size</a> is zero.
 
 <p>To <dfn export for=map lt="iterate|for each">iterate</dfn> over an <a>ordered map</a>, performing
-a set of steps on each item in order, use phrasing of the form "<a for=list>For each</a>
-|key| → |value| of |map|", and then operate on |key| and |value| in the subsequent prose.
+a set of steps on each <a for=map>entry</a> in order, use phrasing of the form
+"<a for=list>For each</a> |key| → |value| of |map|", and then operate on |key| and |value| in the
+subsequent prose.
 
 <hr>
 
-<p>An <a>ordered map</a> whose keys are all <a>strings</a> and whose values are all of the same Web
-IDL type |TValue| can be <dfn lt="convert ordered map to record">converted to the corresponding
-<a>record type</a></dfn> <code>record&lt;|TKey|, |TValue|></code> by first converting all its keys
-to the appropriate Web IDL <a>string type</a> |TKey|, and then creating corresponding record entries
+<p>An <a>ordered map</a> whose <a for=map>keys</a> are all <a>strings</a> and whose
+<a for=map>values</a> are all of the same Web IDL type |TValue| can be
+<dfn lt="convert ordered map to record">converted to the corresponding <a>record type</a></dfn>
+<code>record&lt;|TKey|, |TValue|></code> by first converting all its keys to the appropriate Web
+IDL <a>string type</a> |TKey|, and then creating corresponding record <a for=record>mappings</a>
 for each pair of converted key/original value. [[!WEBIDL]]
 
 
@@ -487,6 +495,7 @@ Mike West,
 Philip Jägenstedt,
 Simon Pieters,
 Tab Atkins,
+Tobie Langel,
 and Xue Fuqiao
 for being awesome!
 
