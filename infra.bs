@@ -463,7 +463,7 @@ subsequent prose.
 IDL type |TValue| can be <dfn lt="convert ordered map to record">converted to the corresponding
 <a>record type</a></dfn> <code>record&lt;|TKey|, |TValue|></code> by first converting all its keys
 to the appropriate Web IDL <a>string type</a> |TKey|, and then creating corresponding record
-<a>mappings</a> for each pair of converted key/original value. [[!WEBIDL]]
+<a for=record>mappings</a> for each pair of converted key/original value. [[!WEBIDL]]
 
 
 <h2 id=namespaces>Namespaces</h2>
