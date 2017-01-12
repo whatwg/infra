@@ -412,7 +412,7 @@ key/value pair is called an <dfn for=map export>entry</dfn>.
 interoperability among implementations.
 
 <p>A literal syntax can be used to express <a>ordered maps</a>, by surrounding the contents with «[
-]» delimiters, denoting each <a for=map>entry</a> as |key| → |value|, and separating pairs with
+]» delimiters, denoting each <a for=map>entry</a> as |key| → |value|, and separating entries with
 a comma. An indexing syntax can be used to look up and set values by providing a key inside square
 brackets.
 
