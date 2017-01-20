@@ -457,7 +457,7 @@ of running <a for=map>get the keys</a> on the map.
 
 <p>To <dfn export for=map lt="iterate|for each">iterate</dfn> over an <a>ordered map</a>, performing
 a set of steps on each <a for=map>entry</a> in order, use phrasing of the form
-"<a for=list>For each</a> |key| → |value| of |map|", and then operate on |key| and |value| in the
+"<a for=map>For each</a> |key| → |value| of |map|", and then operate on |key| and |value| in the
 subsequent prose.
 
 <hr>
