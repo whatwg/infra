@@ -280,6 +280,159 @@ quotes and monospace font.
 <a>ASCII lowercase</a> of <var>B</var>.
 <!-- TODO: define string equals? -->
 
+<hr>
+
+<p>To <dfn export>strip newlines</dfn> from a <a>string</a>, remove any U+000A LINE FEED and
+U+000D CARRIAGE RETURN <a>code points</a> from the <a>string</a>.
+
+<p>To <dfn export>strip leading and trailing ASCII whitespace</dfn> from a <a>string</a>, remove all
+<a>ASCII whitespace</a> that are at the start or the end of the <a>string</a>.
+
+<p>To <dfn export>strip and collapse ASCII whitespace</dfn> in a <a>string</a>, replace any sequence
+of one or more consecutive <a>ASCII whitespace</a> in the <a>string</a> with a single U+0020 SPACE
+<a>code pooint</a>, and then remove any leading and trailing <a>ASCII whitespace</a> from that
+string.
+
+<hr>
+
+<p>To <dfn export lt="collect a sequence of code points|collecting a sequence of code
+points">collect a sequence of <a>code points</a></dfn> meeting a condition <var>condition</var> from
+a <a>string</a> <var>input</var>, given a <dfn export for="string">position variable</dfn>
+<var>position</var> tracking the position of the calling algorithm within <var>input</var>:</p>
+
+<ol>
+ <li><p>Let <var>result</var> be the empty <a>string</a>.
+
+ <li>
+  <p>While <var>position</var> doesn't point past the end of <var>input</var> and the
+  <a>code point</a> at <var>position</var> within <var>input</var> meets the condition
+  <var>condition</var>:
+
+  <ol>
+   <li><p>Append that <a>code point</a> to the end of <var>result</var>.
+
+   <li><p>Advance <var>position</var> by 1.
+  </ol>
+ </li>
+
+ <li><p>Return <var>result</var>.
+</ol>
+
+<p class="note">Note how in addition to returning the collected <a>code points</a>, this algorithm
+updates the <a>position variable</a> in the calling algorithm.
+
+<p>To <dfn export>skip ASCII whitespace</dfn> within a <a>string</a> <var>input</var> given a
+<a>position variable</a> <var>position</var>, <a>collect a sequence of code points</a> that are
+<a>ASCII whitespace</a> from <var>input</var> given <var>position</var>. The collected
+<a>code points</a> are not used, but <var>position</var> is still updated.
+
+<hr>
+
+<p>To <dfn export lt="strictly split|strictly split a string">strictly split a <a>string</a></dfn>
+<var>input</var> on a particular delimiter <a>code point</a> <var>delimiter</var>:</p>
+
+<ol>
+ <li><p>Let <var>position</var> be a <a>position variable</a> for <var>input</var>, initially
+ pointing at the start of <var>input</var>.
+
+ <li><p>Let <var>tokens</var> be a <a>list</a> of <a>strings</a>, initially empty.
+
+ <li><p>Let <var>token</var> be the result of <a>collecting a sequence of code points</a> that are
+ not equal to <var>delimiter</var> from <var>input</var>, given <var>position</var>.
+
+ <li><p><a for="list">Append</a> <var>token</var> to <var>tokens</var>.
+
+ <li>
+  <p>While <var>position</var> is not past the end of <var>input</var>:
+
+  <ol>
+   <li><p>Advance <var>position</var> to the next <a>code point</a> in <var>input</var>. (This
+   skips past the delimiter.)
+
+   <li><p>Let <var>token</var> be the result of <a>collecting a sequence of code points</a> that are
+   not equal to <var>delimiter</var> from <var>input</var>, given <var>position</var>.
+
+   <li><p><a for="list">Append</a> <var>token</var> to <var>tokens</var>.
+  </ol>
+ </li>
+
+ <li><p>Return <var>tokens</var>.
+</ol>
+
+<p class="note">This algorithm is a "strict" split, as opposed to the commonly-used variants
+<a lt="split on ASCII whitespace">for ASCII whitespace</a> and
+<a lt="split on commas">for commas</a> below, which are both more lenient in various ways involving
+interspersed <a>ASCII whitespace</a>.
+
+<p>To <dfn export lt="split on ASCII whitespace|split a string on ASCII whitespace">split a
+<a>string</a> <var>input</var> on ASCII whitespace</dfn>:
+
+<ol>
+ <li><p>Let <var>position</var> be a <a>position variable</a> for <var>input</var>, initially
+ pointing at the start of <var>input</var>.
+
+ <li><p>Let <var>tokens</var> be a <a>list</a> of <a>strings</a>, initially empty.
+
+ <li><p><a>Skip ASCII whitespace</a> within <var>input</var> given <var>position</var>.
+
+ <li><p><a for="list">Append</a> <var>token</var> to <var>tokens</var>.
+
+ <li>
+  <p>While <var>position</var> is not past the end of <var>input</var>:
+
+  <ol>
+   <li><p>Let <var>token</var> be the result of <a>collecting a sequence of code points</a> that are
+   not <a>ASCII whitespace</a> from <var>input</var>, given <var>position</var>.
+
+   <li><p><a for="list">Append</a> <var>token</var> to <var>tokens</var>.
+
+   <li><p><a>Skip ASCII whitespace</a> within <var>input</var> given <var>position</var>.
+  </ol>
+ </li>
+
+ <li><p>Return <var>tokens</var>.
+</ol>
+
+<p>To <dfn export lt="split on commas|split a string on commas">split a <a>string</a>
+<var>input</var> on commas</dfn>:
+
+<ol>
+ <li><p>Let <var>position</var> be a <a>position variable</a> for <var>input</var>, initially
+ pointing at the start of <var>input</var>.
+
+ <li><p>Let <var>tokens</var> be a <a>list</a> of <a>strings</a>, initially empty.
+
+ <li>
+  <p>While <var>position</var> is not past the end of <var>input</var>:
+
+  <ol>
+   <li>
+    <p>Let <var>token</var> be the result of <a>collecting a sequence of code points</a> that are
+    not U+002C COMMA (,) from <var>input</var>, given <var>position</var>.
+
+    <p class="note"><var>token</var> might be the empty string.
+   </li>
+
+   <li><a>Strip leading and trailing ASCII whitespace</a> from <var>token</var>.
+
+   <li><p><a for="list">Append</a> <var>token</var> to <var>tokens</var>.
+
+   <li>
+    <p>If <var>position</var> is not past the end of <var>input</var>, then:
+
+    <ol>
+     <li><p>Assert: the <a>code point</a> at <var>position</var> within <var>input</var> is U+002C
+     COMMA (,).
+
+     <li><p>Advance <var>position</var> by 1.
+    </ol>
+   </li>
+  </ol>
+ </li>
+
+ <li><p>Return <var>tokens</var>.
+</ol>
+
 
 <h2 id=data-structures>Data structures</h2>
 
@@ -493,6 +646,7 @@ Malika Aubakirova,
 Michael™ Smith,
 Mike West,
 Philip Jägenstedt,
+Sergey Shekyan,
 Simon Pieters,
 Tab Atkins,
 Tobie Langel,
