@@ -229,6 +229,8 @@ U+0009, U+000A, or U+000D.
 
 <p>An <dfn export>ASCII whitespace</dfn> is U+0009, U+000A, U+000C, U+000D, or U+0020.
 
+<p class=note>"Whitespace" is a mass noun.
+
 <p>A <dfn export>C0 control</dfn> is a <a>code point</a> in the range U+0000 to U+001F, inclusive.
 
 <p>A <dfn export lt="C0 control or space|C0 controls or spaces">C0 control or space</dfn> is a
@@ -256,9 +258,6 @@ inclusive.
 
 <p>An <dfn export>ASCII alphanumeric</dfn> is an <a>ASCII digit</a> or <a>ASCII alpha</a>.
 
-<p class=note>For the purposes of the above definitions, "whitespace", "alpha", and "alphanumeric"
-are mass nouns.
-
 <h3 id=strings>Strings</h3>
 
 <p>A <dfn export>string</dfn> is a sequence of <a>code points</a>. Strings are denoted by double
@@ -269,11 +268,11 @@ quotes and monospace font.
 <p>An <dfn export>ASCII string</dfn> is a <a>string</a> whose <a>code points</a> are all
 <a>ASCII code points</a>.
 
-<p>To <dfn export>ASCII lowercase</dfn> a <a>string</a>, replace all <a>ASCII upper alpha</a> in the
-<a>string</a> with the corresponding <a>code points</a> in <a>ASCII lower alpha</a>.
+<p>To <dfn export>ASCII lowercase</dfn> a <a>string</a>, replace all <a>ASCII upper alphas</a> in
+the <a>string</a> with their corresponding <a>code point</a> in <a>ASCII lower alpha</a>.
 
-<p>To <dfn export>ASCII uppercase</dfn> a <a>string</a>, replace all <a>ASCII lower alpha</a> in the
-<a>string</a> with the corresponding <a>code points</a> in <a>ASCII upper alpha</a>.
+<p>To <dfn export>ASCII uppercase</dfn> a <a>string</a>, replace all <a>ASCII lower alphas</a> in
+the <a>string</a> with their corresponding <a>code point</a> in <a>ASCII upper alpha</a>.
 
 <p>A <a>string</a> <var>A</var> is an <dfn export>ASCII case-insensitive</dfn> match for a
 <a>string</a> <var>B</var>, if the <a>ASCII lowercase</a> of <var>A</var> is the
@@ -290,7 +289,7 @@ U+000D CARRIAGE RETURN <a>code points</a> from the <a>string</a>.
 
 <p>To <dfn export>strip and collapse ASCII whitespace</dfn> in a <a>string</a>, replace any sequence
 of one or more consecutive <a>ASCII whitespace</a> in the <a>string</a> with a single U+0020 SPACE
-<a>code pooint</a>, and then remove any leading and trailing <a>ASCII whitespace</a> from that
+<a>code point</a>, and then remove any leading and trailing <a>ASCII whitespace</a> from that
 string.
 
 <hr>
