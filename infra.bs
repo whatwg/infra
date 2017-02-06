@@ -556,7 +556,7 @@ ordered sets; implementations can optimize based on the fact that the order is n
 
 <h3 id=maps>Maps</h3>
 
-<p>A <dfn export lt="ordered map|map">ordered map</dfn>, or sometimes just "map", is a
+<p>An <dfn export lt="ordered map|map">ordered map</dfn>, or sometimes just "map", is a
 specification type consisting of a finite ordered sequence of
 <dfn for=map export>key</dfn>/<dfn for=map export>value</dfn> pairs, with no key appearing twice.
 Each key/value pair is called an <dfn for=map export>entry</dfn>.
