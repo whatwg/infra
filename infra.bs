@@ -26,8 +26,6 @@ Boilerplate: omit conformance, omit feedback-header, omit idl-index
 <pre class="anchors">
 urlPrefix: https://tc39.github.io/ecma262/; spec: ECMA-262; type: dfn
     text: List; url: sec-list-and-record-specification-type
-urlPrefix: https://heycam.github.io/webidl/; spec: WEBIDL; type: dfn
-    text: sequence type
 </pre>
 
 
@@ -505,11 +503,6 @@ and provide an expanded vocabulary for manipulating <a>lists</a>. Whenever JavaS
 <a spec=ecma-262>List</a>, a <a>list</a> as defined here can be used; they are the same type.
 [[!ECMA-262]]
 
-<p>A <a>list</a> whose <a for=list>items</a> are all of a particular Web IDL type |T| can be
-<dfn lt="convert list to sequence">converted to the corresponding <a>sequence type</a></dfn>
-<code>sequence&lt;|T|></code> by creating a sequence whose items are the items of the list.
-[[!WEBIDL]]
-
 <h4 id=stacks>Stacks</h4>
 
 <p>Some <a>lists</a> are designated as <dfn export lt=stack>stacks</dfn>. A stack is a <a>list</a>,
@@ -611,15 +604,6 @@ of running <a for=map>get the keys</a> on the map.
 a set of steps on each <a for=map>entry</a> in order, use phrasing of the form
 "<a for=map>For each</a> |key| → |value| of |map|", and then operate on |key| and |value| in the
 subsequent prose.
-
-<hr>
-
-<p>An <a>ordered map</a> whose <a for=map>keys</a> are all <a>strings</a> and whose
-<a for=map>values</a> are all of the same Web IDL type |TValue| can be
-<dfn lt="convert ordered map to record">converted to the corresponding <a>record type</a></dfn>
-<code>record&lt;|TKey|, |TValue|></code> by first converting all its keys to the appropriate Web
-IDL <a>string type</a> |TKey|, and then creating corresponding record <a for=record>mappings</a>
-for each pair of converted key/original value. [[!WEBIDL]]
 
 
 <h2 id=namespaces>Namespaces</h2>
