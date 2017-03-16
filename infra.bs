@@ -624,6 +624,7 @@ subsequent prose.
 <h2 class=no-num id=acknowledgments>Acknowledgments</h2>
 
 <p>Many thanks to
+Dominic Farolino,
 Jungkee Song,
 Malika Aubakirova,
 Michael™ Smith,
