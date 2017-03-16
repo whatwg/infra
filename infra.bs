@@ -570,7 +570,7 @@ a comma. An indexing syntax can be used to look up and set <a for=map>values</a>
 
 <p>To <dfn export for=map lt="get|get the value">get the value of an entry</dfn> in an
 <a>ordered map</a> given a <a for=map>key</a> is to retrieve the <a for=map>value</a> of any
-existing <a for=map>entry</a> if the map <a for=map>contains</a> an entry with the given key, or if
+existing <a for=map>entry</a> if the map <a for=map>contains</a> an entry with the given key, or
 to return nothing otherwise. We can also use the indexing syntax explained above.
 
 <p>To <dfn export for=map lt="set|set the value">set the value of an entry</dfn> in an
@@ -624,6 +624,7 @@ subsequent prose.
 <h2 class=no-num id=acknowledgments>Acknowledgments</h2>
 
 <p>Many thanks to
+Dominic Farolino,
 Jungkee Song,
 Malika Aubakirova,
 Michael™ Smith,
