@@ -200,6 +200,10 @@ contains, in the range 0x41 to 0x5A, inclusive, by 0x20.
 <p>To <dfn export>byte-uppercase</dfn> a <a>byte sequence</a>, subtract each <a>byte</a> it
 contains, in the range 0x61 to 0x7A, inclusive, by 0x20.
 
+<p>A <a>byte sequence</a> <var>A</var> is a <dfn export>byte-case-insensitive</dfn> match for a
+<a>byte sequence</a> <var>B</var>, if the <a>byte-lowercase</a> of <var>A</var> is the
+<a>byte-lowercase</a> of <var>B</var>.
+
 <h3 id=code-points>Code points</h3>
 
 <p>A <dfn export>code point</dfn> is a Unicode code point and is represented as a four-to-six digit
