@@ -481,7 +481,8 @@ all items from the list that match a given condition, or do nothing if none do.
  "<code>b</code>", "<code>ba</code>" ».
 </div>
 
-<p>To <dfn export for=list,stack,queue,set>empty</dfn> a <a>list</a> is to remove all of its items.
+<p>To <dfn export for=list,stack,queue,set>empty</dfn> a <a>list</a> is to <a for=list>remove</a>
+all of its items.
 
 <p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain>contains</dfn> an
 <a for=list>item</a> if it appears in the list.
