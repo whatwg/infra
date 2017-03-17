@@ -446,7 +446,7 @@ for working with them, in order to create common ground.
 <h3 id=lists>Lists</h3>
 
 <p>A <dfn export>list</dfn> is a specification type consisting of a finite ordered sequence of
-<dfn for="list,stack,queue,set" lt=item export>items</dfn>.
+<dfn export for=list,stack,queue,set,tuple lt=item>items</dfn>.
 
 <p>For notational convenience, a literal syntax can be used to express <a>lists</a>, by surrounding
 the list contents by « » characters and separating list <a for=list>items</a> with a comma. An
@@ -545,6 +545,21 @@ ordered sets; implementations can optimize based on the fact that the order is n
 <p>To <dfn export for=set>prepend</dfn> to an <a>ordered set</a> is to do nothing if the set already
 <a for=list>contains</a> the given <a for=set>item</a>, or to perform the normal <a>list</a>
 <a for=list>prepend</a> operation otherwise.
+
+
+<h4 id=tuples>Tuples</h4>
+
+<p>Some lists are designated as <dfn export lt=tuple>tuples</dfn>. A tuple is a <a>list</a> with the
+additional semantic that its <a for=list>size</a> must not change and that its
+<a for=tuple>items</a> can be indexed by name.
+
+<p>For notational convenience, a literal syntax can be used to express <a>tuples</a>, by surrounding
+the tuple with ( ) characters and separating the <a for=tuple>item</a> names by comma. To declare
+initial <a for=tuple>items</a>, follow the names by the : character and an <a for=tuple>item</a>. An
+indexing syntax can be used by providing a zero-based index and named index into a list inside
+square brackets.
+
+<p class=example>Let _status_ be (code, text). Set _status_[code] to <code>200</code>.
 
 
 <h3 id=maps>Maps</h3>
