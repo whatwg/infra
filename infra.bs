@@ -119,6 +119,29 @@ will make the caller automatically rethrow the given value, if any, and thereby 
 caller's algorithm. Using prose the caller has the ability to "catch" the exception and perform
 another action.
 
+<h4 id=algorithm-iteration>Iteration</h4>
+
+<p>There's a variety of ways to repeat a set of steps until a condition is reached. The Infra
+Standard is not (yet) exhaustive on this, but here are some examples:
+
+<ul>
+ <li><p>For each, as demonstrated later in this section.
+
+ <li>
+  <p>While
+
+  <div class=example id=example-while>
+   <ol>
+    <li>
+     <p>While true:
+     <ol>
+      <li>If |condition| is "<code>met</code>", then <a for=iteration>break</a>.
+      <li>&hellip;
+     </ol>
+   </ol>
+  </div>
+</ul>
+
 <p>An iteration's flow can be controlled via requirements to
 <dfn export for=iteration>continue</dfn> or <dfn export for=iteration>break</dfn>.
 <a for=iteration>Continue</a> will skip over any remaining steps in an iteration, proceeding to the
