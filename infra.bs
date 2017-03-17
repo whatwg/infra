@@ -194,6 +194,9 @@ actual <a>string</a>.
  <p>Headers, such as `<code>Content-Type</code>`, are <a>byte sequences</a>.
 </div>
 
+<p class=note>To get a <a>byte sequence</a> out of a <a>string</a>, use an operation such as
+<a>UTF-8 encode</a> from the Encoding Standard. [[ENCODING]]
+
 <p>To <dfn export>byte-lowercase</dfn> a <a>byte sequence</a>, increase each <a>byte</a> it
 contains, in the range 0x41 to 0x5A, inclusive, by 0x20.
 
