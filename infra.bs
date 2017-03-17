@@ -184,7 +184,7 @@ number in the range 0x00 to 0xFF, inclusive.
 <h3 id=byte-sequences>Byte sequences</h3>
 
 <p>A <dfn export>byte sequence</dfn> is a sequence of <a>bytes</a>, represented as a space-separated
-sequence of bytes. Byte sequences with bytes in the range 0x00 to 0x7F, inclusive, can alternately
+sequence of bytes. Byte sequences with bytes in the range 0x20 to 0x7F, inclusive, can alternately
 be written as a string, but using backticks instead of quotation marks, to avoid confusion with an
 actual <a>string</a>.
 
