@@ -551,15 +551,21 @@ ordered sets; implementations can optimize based on the fact that the order is n
 
 <p>Some lists are designated as <dfn export lt=tuple>tuples</dfn>. A tuple is a <a>list</a> with the
 additional semantic that its <a for=list>size</a> must not change and that its
-<a for=tuple>items</a> can be indexed by name.
+<a for=tuple>items</a> can be indexed by <dfn export for=tuple>name</dfn>.
 
 <p>For notational convenience, a literal syntax can be used to express <a>tuples</a>, by surrounding
-the tuple with ( ) characters and separating the <a for=tuple>item</a> names by comma. To declare
-initial <a for=tuple>items</a>, follow the names by the : character and an <a for=tuple>item</a>. An
-indexing syntax can be used by providing a zero-based index and named index into a list inside
-square brackets.
+the tuple with ( ) characters and separating the <a for=tuple>items</a> by comma. The
+<a for=tuple>items</a> can be preceded by <a for=tuple>name</a> and : character if the
+<a for=tuple>names</a> are not clear from context. An indexing syntax can be used by providing a
+zero-based index and named index into a list inside square brackets.
 
-<p class=example>Let _status_ be (code, text). Set _status_[code] to <code>200</code>.
+<div class=example id=example-tuple>
+ <ul>
+  <li>Let |status| be (code: <code>200</code>, text: `<code>OK</code>`).
+  <li>Set |status| to (<code>301</code>, `<code>DOES NOT MATTER</code>`).
+  <li>If |status|[code] is <code>404</code>, then &hellip;
+ </ul>
+</div>
 
 
 <h3 id=maps>Maps</h3>
