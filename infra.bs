@@ -608,6 +608,10 @@ this by saying that, for an <a>ordered map</a> |map| and key |key|, "|map|[|key|
 <a>ordered map</a>, return a new <a>ordered set</a> whose <a for=set>items</a> are each of the
 <a for=map>keys</a> in the map's <a for=map>entries</a>.
 
+<p>To <dfn export for=map lt="getting the values|get the values">get the values</dfn> of an
+<a>ordered map</a>, return a new <a>list</a> whose <a for=list>items</a> are each of the
+<a for=map>values</a> in the map's <a for=map>entries</a>.
+
 <p>An <a>ordered map</a>'s <dfn export for=map>size</dfn> is the <a for=set>size</a> of the result
 of running <a for=map>get the keys</a> on the map.
 
@@ -639,6 +643,7 @@ subsequent prose.
 
 <p>Many thanks to
 Dominic Farolino,
+Jake Archibald,
 Jungkee Song,
 Malika Aubakirova,
 Michael™ Smith,
