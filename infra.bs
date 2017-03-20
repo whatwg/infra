@@ -66,9 +66,13 @@ non-normative. Everything else is normative.
 RFC 2119. [[!RFC2119]]
 
 <p>These keywords have equivalent meaning when written in lowercase and cannot appear in
-non-normative content. Standards are encouraged to limit themselves to "must", "must not", "should",
+non-normative content.
+
+<p>All of the above is applicable to both this standard and any document that uses this standard.
+Documents using this standard are encouraged to limit themselves to "must", "must not", "should",
 and "may", and to use these in their lowercase form as that is generally considered to be more
 readable.
+
 
 <h3 id=algorithms>Algorithms</h3>
 
@@ -322,8 +326,8 @@ a <a>string</a> <var>input</var>, given a <dfn export for="string">position vari
  <li><p>Return <var>result</var>.
 </ol>
 
-<p class="note">Note how in addition to returning the collected <a>code points</a>, this algorithm
-updates the <a>position variable</a> in the calling algorithm.
+<p class=note>In addition to returning the collected <a>code points</a>, this algorithm updates the
+<a>position variable</a> in the calling algorithm.
 
 <p>To <dfn export>skip ASCII whitespace</dfn> within a <a>string</a> <var>input</var> given a
 <a>position variable</a> <var>position</var>, <a>collect a sequence of code points</a> that are
@@ -363,7 +367,7 @@ updates the <a>position variable</a> in the calling algorithm.
  <li><p>Return <var>tokens</var>.
 </ol>
 
-<p class="note">This algorithm is a "strict" split, as opposed to the commonly-used variants
+<p class=note>This algorithm is a "strict" split, as opposed to the commonly-used variants
 <a lt="split on ASCII whitespace">for ASCII whitespace</a> and
 <a lt="split on commas">for commas</a> below, which are both more lenient in various ways involving
 interspersed <a>ASCII whitespace</a>.
@@ -414,7 +418,7 @@ interspersed <a>ASCII whitespace</a>.
     <p>Let <var>token</var> be the result of <a>collecting a sequence of code points</a> that are
     not U+002C COMMA (,) from <var>input</var>, given <var>position</var>.
 
-    <p class="note"><var>token</var> might be the empty string.
+    <p class=note><var>token</var> might be the empty string.
    </li>
 
    <li><a>Strip leading and trailing ASCII whitespace</a> from <var>token</var>.
@@ -545,7 +549,7 @@ ordered set is a <a>list</a> with the additional semantic that it must not conta
 
 <p class=note>Almost all cases on the web platform require an <em>ordered</em> set, instead of an
 unordered one, since interoperability requires that any developer-exposed enumeration of the set's
-contents be consistent between browsers. In those cases where order is not required, we still use
+contents be consistent between browsers. In those cases where order is not important, we still use
 ordered sets; implementations can optimize based on the fact that the order is not observable.
 
 <p>To <dfn export for=set>append</dfn> to an <a>ordered set</a> is to do nothing if the set already
@@ -564,7 +568,7 @@ specification type consisting of a finite ordered sequence of
 <dfn for=map export>key</dfn>/<dfn for=map export>value</dfn> pairs, with no key appearing twice.
 Each key/value pair is called an <dfn for=map export>entry</dfn>.
 
-<p class=note>As with <a>ordered sets</a>, by default we assume that maps must also be ordered for
+<p class=note>As with <a>ordered sets</a>, by default we assume that maps need to be ordered for
 interoperability among implementations.
 
 <p>A literal syntax can be used to express <a>ordered maps</a>, by surrounding the contents with «[
