@@ -121,26 +121,24 @@ another action.
 
 <h4 id=algorithm-iteration>Iteration</h4>
 
-<p>There's a variety of ways to repeat a set of steps until a condition is reached. The Infra
-Standard is not (yet) exhaustive on this, but here are some examples:
+<p>There's a variety of ways to repeat a set of steps until a condition is reached.
 
-<ul>
- <li><p>For each, as demonstrated later in this section.
+<p class=warning>The Infra Standard is not (yet) exhaustive on this, please file an issue if you
+need something.
 
- <li>
-  <p>While
+<p>For each, as defined <a for=list lt="for each">for lists</a> (and derivatives) and
+<a for=map lt="for each">maps</a>.
 
-  <div class=example id=example-while>
-   <ol>
-    <li>
-     <p>While true:
-     <ol>
-      <li>If |condition| is "<code>met</code>", then <a for=iteration>break</a>.
-      <li>&hellip;
-     </ol>
-   </ol>
-  </div>
-</ul>
+<p><dfn export for=iteration lt=while>While</dfn>, an instruction to repeat a set of steps as long
+as a condition is met.
+
+<div class=example id=example-while>
+ <p>While |condition| is "<code>met</code>":
+
+ <ol>
+  <li><p>&hellip;
+ </ol>
+</div>
 
 <p>An iteration's flow can be controlled via requirements to
 <dfn export for=iteration>continue</dfn> or <dfn export for=iteration>break</dfn>.
