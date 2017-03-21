@@ -123,22 +123,26 @@ another action.
 
 <p>There's a variety of ways to repeat a set of steps until a condition is reached.
 
-<p class=warning>The Infra Standard is not (yet) exhaustive on this, please file an issue if you
-need something.
+<p class=note>The Infra Standard is not (yet) exhaustive on this; please file an issue if you need
+something.
 
-<p>For each, as defined <a for=list lt="for each">for lists</a> (and derivatives) and
-<a for=map lt="for each">maps</a>.
+<dl>
+ <dt>For each
+ <dd><p>As defined <a for=list lt="for each">for lists</a> (and derivatives) and
+ <a for=map lt="for each">maps</a>.
 
-<p><dfn export for=iteration lt=while>While</dfn>, an instruction to repeat a set of steps as long
-as a condition is met.
+ <dt><dfn export for=iteration lt=while>While</dfn>
+ <dd>
+  <p>An instruction to repeat a set of steps as long as a condition is met.
 
-<div class=example id=example-while>
- <p>While |condition| is "<code>met</code>":
+  <div class=example id=example-while>
+   <p>While |condition| is "<code>met</code>":
 
- <ol>
-  <li><p>&hellip;
- </ol>
-</div>
+   <ol>
+    <li><p>&hellip;
+   </ol>
+  </div>
+</dl>
 
 <p>An iteration's flow can be controlled via requirements to
 <dfn export for=iteration>continue</dfn> or <dfn export for=iteration>break</dfn>.
