@@ -450,8 +450,8 @@ for working with them, in order to create common ground.
 <dfn export for=list,stack,queue,set,tuple lt=item>items</dfn>.
 
 <p>For notational convenience, a literal syntax can be used to express <a>lists</a>, by surrounding
-the list contents by « » characters and separating list <a for=list>items</a> with a comma. An
-indexing syntax can be used by providing a zero-based index into a list inside square brackets.
+the list by « » characters and separating its <a for=list>items</a> with a comma. An indexing syntax
+can be used by providing a zero-based index into a list inside square brackets.
 
 <p class=example id=example-list-notation>Let |example| be the <a>list</a> « "<code>a</code>",
 "<code>b</code>", "<code>c</code>", "<code>a</code>" ». Then |example|[1] is the <a>string</a>
@@ -558,10 +558,10 @@ Each key/value pair is called an <dfn for=map export>entry</dfn>.
 <p class=note>As with <a>ordered sets</a>, by default we assume that maps must also be ordered for
 interoperability among implementations.
 
-<p>A literal syntax can be used to express <a>ordered maps</a>, by surrounding the contents with «[
-]» delimiters, denoting each <a for=map>entry</a> as |key| → |value|, and separating entries with
-a comma. An indexing syntax can be used to look up and set <a for=map>values</a> by providing a
-<a for=map>key</a> inside square brackets.
+<p>A literal syntax can be used to express <a>ordered maps</a>, by surrounding the ordered map with
+«[ ]» characters, denoting each of its <a for=map>entries</a> as |key| → |value|, and separating its
+entries with a comma. An indexing syntax can be used to look up and set <a for=map>values</a> by
+providing a <a for=map>key</a> inside square brackets.
 
 <p class=example id=example-map-notation>Let |example| be the <a>ordered map</a> «[
 "<code>a</code>" → `<code>x</code>`, "<code>b</code>" → `<code>y</code>` ]». Then
@@ -613,8 +613,8 @@ subsequent prose.
 <dfn for=tuple,pair>items</dfn>, each of which has a <dfn export for=tuple,pair>name</dfn>.
 
 <p>For notational convenience, a literal syntax can be used to express <a>tuples</a>, by surrounding
-the tuple with parnetheses and separating the <a for=tuple>items</a> by commas. The
-<a for=tuple>items</a> can be preceded by their <a for=tuple>name</a> and a colon if the
+the tuple with parenthesis and separating its <a for=tuple>items</a> with a comma. Its
+<a for=tuple>items</a> can be preceded by their <a for=tuple>name</a> and a colon if its
 <a for=tuple>names</a> are not clear from context.
 
 <div class=example id=example-tuple>
@@ -638,9 +638,8 @@ For <a>pairs</a>, a slightly shorter literal syntax can be used, separating the 
 <a for=pair>items</a> with a / character. To use this notation, the <a for=pair>names</a> need to be
 clear from context.
 
-<p class=example id=example-pair>
- Another way of expressing our |statusInstance| tuple above would be as 200/`<code>OK</code>`.
-</p>
+<p class=example id=example-pair>Another way of expressing our |statusInstance| tuple above would be
+as 200/`<code>OK</code>`.
 
 
 <h2 id=namespaces>Namespaces</h2>
