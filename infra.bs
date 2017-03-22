@@ -183,6 +183,8 @@ out as being exclusive (with "but not both").
 <p>A <dfn export>byte</dfn> is a sequence of eight bits, represented as a double-digit hexadecimal
 number in the range 0x00 to 0xFF, inclusive.
 
+<p class=example id=example-byte-notation>0x49 (I) when <a>UTF-8 decoded</a> becomes U+0049 (I).
+
 <p>An <dfn export>ASCII byte</dfn> is a <a>byte</a> in the range 0x00 to 0x7F, inclusive.
 
 <h3 id=byte-sequences>Byte sequences</h3>
@@ -202,10 +204,10 @@ actual <a>string</a>.
 <a>UTF-8 encode</a> from the Encoding Standard. [[ENCODING]]
 
 <p>To <dfn export>byte-lowercase</dfn> a <a>byte sequence</a>, increase each <a>byte</a> it
-contains, in the range 0x41 to 0x5A, inclusive, by 0x20.
+contains, in the range 0x41 (A) to 0x5A (Z), inclusive, by 0x20.
 
 <p>To <dfn export>byte-uppercase</dfn> a <a>byte sequence</a>, subtract each <a>byte</a> it
-contains, in the range 0x61 to 0x7A, inclusive, by 0x20.
+contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
 
 <p>A <a>byte sequence</a> <var>A</var> is a <dfn export>byte-case-insensitive</dfn> match for a
 <a>byte sequence</a> <var>B</var>, if the <a>byte-lowercase</a> of <var>A</var> is the
@@ -221,8 +223,10 @@ in parentheses. [[!UNICODE]]
 <div class=example id=example-code-point-notation>
  <p>The <a>code point</a> rendered as 🤔 is represented as U+1F914.
 
- <p>When referring to that <a>code point</a>, we might instead say "U+1F914 THINKING FACE (🤔)",
- instead of just "U+1F914", to provide extra context.
+ <p>When referring to that <a>code point</a>, we might say "U+1F914 (🤔)", to provide extra context.
+
+ <p><a>Code points</a> that are difficult to render unambigiously, such as U+000A, can be referred
+ to as "U+000A LINE FEED".
 </div>
 
 <p>In certain contexts <a>code points</a> are prefixed with "0x" instead of "U+".
@@ -230,38 +234,40 @@ in parentheses. [[!UNICODE]]
 <p>A <dfn export>scalar value</dfn> is a <a>code point</a> that is not in the range
 U+D800 to U+DFFF, inclusive.
 
-<p>An <dfn export>ASCII code point</dfn> is a <a>code point</a> in the range U+0000 to U+007F,
-inclusive.
+<p>An <dfn export>ASCII code point</dfn> is a <a>code point</a> in the range U+0000 NULL to
+U+007F DELETE, inclusive.
 
 <p>An <dfn export lt="ASCII tab or newline|ASCII tabs or newlines">ASCII tab or newline</dfn> is
-U+0009, U+000A, or U+000D.
+U+0009 CHARACTER TABULATION, U+000A LF, or U+000D CR.
 
-<p>An <dfn export>ASCII whitespace</dfn> is U+0009, U+000A, U+000C, U+000D, or U+0020.
+<p>An <dfn export>ASCII whitespace</dfn> is U+0009 CHARACTER TABULATION, U+000A LF, U+000C FF,
+U+000D CR, or U+0020 SPACE.
 
 <p class=note>"Whitespace" is a mass noun.
 
-<p>A <dfn export>C0 control</dfn> is a <a>code point</a> in the range U+0000 to U+001F, inclusive.
+<p>A <dfn export>C0 control</dfn> is a <a>code point</a> in the range U+0000 NULL to
+U+001F INFORMATION SEPARATOR ONE, inclusive.
 
 <p>A <dfn export lt="C0 control or space|C0 controls or spaces">C0 control or space</dfn> is a
-<a>C0 control</a> or U+0020.
+<a>C0 control</a> or U+0020 SPACE.
 
-<p>An <dfn export>ASCII digit</dfn> is a <a>code point</a> in the range U+0030 to U+0039,
+<p>An <dfn export>ASCII digit</dfn> is a <a>code point</a> in the range U+0030 (0) to U+0039 (9),
 inclusive.
 
 <p>An <dfn export>ASCII upper hex digit</dfn> is an <a>ASCII digit</a> or a <a>code point</a> in the
-range U+0041 to U+0046, inclusive.
+range U+0041 (A) to U+0046 (F), inclusive.
 
 <p>An <dfn export>ASCII lower hex digit</dfn> is an <a>ASCII digit</a> or a <a>code point</a> in the
-range U+0061 to U+0066, inclusive.
+range U+0061 (a) to U+0066 (f), inclusive.
 
 <p>An <dfn export>ASCII hex digit</dfn> is an <a>ASCII upper hex digit</a> or
 <a>ASCII lower hex digit</a>.
 
-<p>An <dfn export>ASCII upper alpha</dfn> is a <a>code point</a> in the range U+0041 to U+005A,
-inclusive.
+<p>An <dfn export>ASCII upper alpha</dfn> is a <a>code point</a> in the range U+0041 (A) to
+U+005A (Z), inclusive.
 
-<p>An <dfn export>ASCII lower alpha</dfn> is a <a>code point</a> in the range U+0061 to U+007A,
-inclusive.
+<p>An <dfn export>ASCII lower alpha</dfn> is a <a>code point</a> in the range U+0061 (a) to
+U+007A (z), inclusive.
 
 <p>An <dfn export>ASCII alpha</dfn> is an <a>ASCII upper alpha</a> or <a>ASCII lower alpha</a>.
 
@@ -290,8 +296,8 @@ the <a>string</a> with their corresponding <a>code point</a> in <a>ASCII upper a
 
 <hr>
 
-<p>To <dfn export>strip newlines</dfn> from a <a>string</a>, remove any U+000A LINE FEED and
-U+000D CARRIAGE RETURN <a>code points</a> from the <a>string</a>.
+<p>To <dfn export>strip newlines</dfn> from a <a>string</a>, remove any U+000A LF and U+000D CR
+<a>code points</a> from the <a>string</a>.
 
 <p>To <dfn export>strip leading and trailing ASCII whitespace</dfn> from a <a>string</a>, remove all
 <a>ASCII whitespace</a> that are at the start or the end of the <a>string</a>.
@@ -416,7 +422,7 @@ interspersed <a>ASCII whitespace</a>.
   <ol>
    <li>
     <p>Let <var>token</var> be the result of <a>collecting a sequence of code points</a> that are
-    not U+002C COMMA (,) from <var>input</var>, given <var>position</var>.
+    not U+002C (,) from <var>input</var>, given <var>position</var>.
 
     <p class=note><var>token</var> might be the empty string.
    </li>
@@ -429,8 +435,8 @@ interspersed <a>ASCII whitespace</a>.
     <p>If <var>position</var> is not past the end of <var>input</var>, then:
 
     <ol>
-     <li><p>Assert: the <a>code point</a> at <var>position</var> within <var>input</var> is U+002C
-     COMMA (,).
+     <li><p>Assert: the <a>code point</a> at <var>position</var> within <var>input</var> is
+     U+002C (,).
 
      <li><p>Advance <var>position</var> by 1.
     </ol>
