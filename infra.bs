@@ -183,16 +183,19 @@ out as being exclusive (with "but not both").
 <p>A <dfn export>byte</dfn> is a sequence of eight bits, represented as a double-digit hexadecimal
 number in the range 0x00 to 0xFF, inclusive.
 
-<p class=example id=example-byte-notation>0x49 (I) when <a>UTF-8 decoded</a> becomes U+0049 (I).
+<p>An <dfn export>ASCII byte</dfn> is a <a>byte</a> in the range 0x00 (NUL) to 0x7F (DEL),
+inclusive. As illustrated, an <a>ASCII byte</a> may be followed by the representation outlined in
+the <a href=https://tools.ietf.org/html/rfc20#section-2>Standard Code</a> section of
+<cite>ASCII format for Network Interchange</cite>, between parenthesis. [[!RFC20]]
 
-<p>An <dfn export>ASCII byte</dfn> is a <a>byte</a> in the range 0x00 to 0x7F, inclusive.
+<p class=example id=example-byte-notation>0x49 (I) when <a>UTF-8 decoded</a> becomes U+0049 (I).
 
 <h3 id=byte-sequences>Byte sequences</h3>
 
 <p>A <dfn export>byte sequence</dfn> is a sequence of <a>bytes</a>, represented as a space-separated
-sequence of bytes. Byte sequences with bytes in the range 0x20 to 0x7F, inclusive, can alternately
-be written as a string, but using backticks instead of quotation marks, to avoid confusion with an
-actual <a>string</a>.
+sequence of bytes. Byte sequences with bytes in the range 0x20 (SP) to 0x7E (~), inclusive, can
+alternately be written as a string, but using backticks instead of quotation marks, to avoid
+confusion with an actual <a>string</a>.
 
 <div class=example id=example-byte-sequence-notation>
  <p>0x48 0x49 can also be represented as `<code>HI</code>`.
@@ -216,17 +219,22 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
 <h3 id=code-points>Code points</h3>
 
 <p>A <dfn export>code point</dfn> is a Unicode code point and is represented as a four-to-six digit
-hexadecimal number, typically prefixed with "U+". Often the name of the <a>code point</a> is also
-included in capital letters afterward, potentially with the rendered form of the <a>code point</a>
-in parentheses. [[!UNICODE]]
+hexadecimal number, typically prefixed with "U+". A <a>code point</a> may be followed by its name,
+rendered form between parenthesis, or its name followed by its rendered form between parenthesis.
+Documents using the Infra Standard are encouraged to follow <a>code points</a> by their name when
+they cannot be rendered, and rendered form between parenthesis otherwise, for legibility.
+
+<p>A <a>code point</a>'s name is defined in the Unicode Standard and represented in
+<a>ASCII uppercase</a>. [[!UNICODE]]
 
 <div class=example id=example-code-point-notation>
  <p>The <a>code point</a> rendered as 🤔 is represented as U+1F914.
 
  <p>When referring to that <a>code point</a>, we might say "U+1F914 (🤔)", to provide extra context.
+ Documents are allowed to use "U+1F914 THINKING FACE (🤔)" as well, though this is somewhat verbose.
 
  <p><a>Code points</a> that are difficult to render unambigiously, such as U+000A, can be referred
- to as "U+000A LINE FEED".
+ to as "U+000A LF".
 </div>
 
 <p>In certain contexts <a>code points</a> are prefixed with "0x" instead of "U+".
