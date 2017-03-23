@@ -186,9 +186,10 @@ number in the range 0x00 to 0xFF, inclusive.
 <p>An <dfn export>ASCII byte</dfn> is a <a>byte</a> in the range 0x00 (NUL) to 0x7F (DEL),
 inclusive. As illustrated, an <a>ASCII byte</a> may be followed by the representation outlined in
 the <a href=https://tools.ietf.org/html/rfc20#section-2>Standard Code</a> section of
-<cite>ASCII format for Network Interchange</cite>, between parenthesis. [[!RFC20]]
+<cite>ASCII format for Network Interchange</cite>, between parentheses. [[!RFC20]]
 
-<p class=example id=example-byte-notation>0x49 (I) when <a>UTF-8 decoded</a> becomes U+0049 (I).
+<p class=example id=example-byte-notation>0x49 (I) when <a>UTF-8 decoded</a> becomes the
+<a>code point</a> U+0049 (I).
 
 <h3 id=byte-sequences>Byte sequences</h3>
 
@@ -220,9 +221,9 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
 
 <p>A <dfn export>code point</dfn> is a Unicode code point and is represented as a four-to-six digit
 hexadecimal number, typically prefixed with "U+". A <a>code point</a> may be followed by its name,
-rendered form between parenthesis, or its name followed by its rendered form between parenthesis.
-Documents using the Infra Standard are encouraged to follow <a>code points</a> by their name when
-they cannot be rendered, and rendered form between parenthesis otherwise, for legibility.
+by its rendered form between parentheses, or both. Documents using the Infra Standard are encouraged
+to follow <a>code points</a> by their name when they cannot be rendered, and rendered form between
+parentheses otherwise, for legibility.
 
 <p>A <a>code point</a>'s name is defined in the Unicode Standard and represented in
 <a>ASCII uppercase</a>. [[!UNICODE]]
@@ -232,10 +233,10 @@ they cannot be rendered, and rendered form between parenthesis otherwise, for le
 
  <p>When referring to that <a>code point</a>, we might say "U+1F914 (🤔)", to provide extra context.
  Documents are allowed to use "U+1F914 THINKING FACE (🤔)" as well, though this is somewhat verbose.
-
- <p><a>Code points</a> that are difficult to render unambigiously, such as U+000A, can be referred
- to as "U+000A LF".
 </div>
+
+<p class=example id=example-code-point-notation-hard-to-render><a>Code points</a> that are difficult
+to render unambigiously, such as U+000A, can be referred to as "U+000A LF".
 
 <p>In certain contexts <a>code points</a> are prefixed with "0x" instead of "U+".
 
@@ -246,10 +247,10 @@ U+D800 to U+DFFF, inclusive.
 U+007F DELETE, inclusive.
 
 <p>An <dfn export lt="ASCII tab or newline|ASCII tabs or newlines">ASCII tab or newline</dfn> is
-U+0009 CHARACTER TABULATION, U+000A LF, or U+000D CR.
+U+0009 TAB, U+000A LF, or U+000D CR.
 
-<p>An <dfn export>ASCII whitespace</dfn> is U+0009 CHARACTER TABULATION, U+000A LF, U+000C FF,
-U+000D CR, or U+0020 SPACE.
+<p>An <dfn export>ASCII whitespace</dfn> is U+0009 TAB, U+000A LF, U+000C FF, U+000D CR, or
+U+0020 SPACE.
 
 <p class=note>"Whitespace" is a mass noun.
 
