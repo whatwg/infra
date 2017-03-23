@@ -610,7 +610,7 @@ subsequent prose.
 <h3 id=structs>Structs</h3>
 
 <p>A <dfn export>struct</dfn> is a specification type consisting of a finite set of
-<dfn for=struct,tuple,pair>items</dfn>, each of which has a unique and immutable
+<dfn for=struct,tuple,pair lt=item>items</dfn>, each of which has a unique and immutable
 <dfn export for=struct,tuple,pair>name</dfn>.
 
 <hr>
@@ -631,21 +631,21 @@ instance with the name given to the <a>tuple</a>.
  usage is then:</p>
 
  <ol>
-  <li>Let |statusInstance| be status (200, `<code>OK</code>`).
+  <li>Let |statusInstance| be the status (200, `<code>OK</code>`).
   <li>Set |statusInstance| to (301, `<code>FOO BAR</code>`).
   <li>If |statusInstance|'s code is 404, then &hellip;
  </ol>
 </div>
 
 <p class=note>It is intentional that not all <a>structs</a> are <a>tuples</a>. Documents using the
-Infra Standard might need the flexibility to add new <a for=struct>names</a> to their <a>struct</a>
-without breaking literal syntax used by their dependencies.
+Infra Standard might need the flexibility to add new <a for=struct>names</a> to their struct
+without breaking literal syntax used by their dependencies. In that case a tuple is not appropriate.
 
 <hr>
 
 <p><a>Tuples</a> with two <a for=tuple>items</a> are also known as <dfn export lt=pair>pairs</dfn>.
 For <a>pairs</a>, a slightly shorter literal syntax can be used, separating the two
-<a for=pair>items</a> with a / character. They are otherwise identical to <a>tuples</a>.
+<a for=pair>items</a> with a / character.
 
 <p class=example id=example-pair>Another way of expressing our |statusInstance| tuple above would be
 as 200/`<code>OK</code>`.
