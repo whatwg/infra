@@ -74,7 +74,14 @@ and "may", and to use these in their lowercase form as that is generally conside
 readable.
 
 
-<h3 id=algorithms>Algorithms</h3>
+<h3 id=terminology>Terminology</h3>
+
+<p>The word "or", in cases where both inclusive "or" and exclusive "or" are possible (e.g., "if
+either width or height is zero"), means an inclusive "or" (implying "or both"), unless it is called
+out as being exclusive (with "but not both").
+
+
+<h2 id=algorithms>Algorithms</h2>
 
 <p>Algorithms, and requirements phrased in the imperative as part of algorithms (such as "strip any
 leading spaces" or "return false") are to be interpreted with the meaning of the keyword (e.g.,
@@ -115,7 +122,8 @@ leading spaces" or "return false") are to be interpreted with the meaning of the
 manner, so long as the end result is equivalent. (In particular, the algorithms are intended to be
 easy to follow, and not intended to be performant.)
 
-<h4 id=algorithm-control-flow>Control flow</h4>
+
+<h3 id=algorithm-control-flow>Control flow</h3>
 
 <p>The control flow of algorithms is such that a requirement to "return" or "throw" terminates the
 algorithm the statement was in. "Return" will hand the given value, if any, to its caller. "Throw"
@@ -123,7 +131,8 @@ will make the caller automatically rethrow the given value, if any, and thereby 
 caller's algorithm. Using prose the caller has the ability to "catch" the exception and perform
 another action.
 
-<h4 id=algorithm-iteration>Iteration</h4>
+
+<h3 id=algorithm-iteration>Iteration</h3>
 
 <p>There's a variety of ways to repeat a set of steps until a condition is reached.
 
@@ -192,13 +201,6 @@ iteration.
   </li>
  </ol>
 </div>
-
-
-<h3 id=terminology>Terminology</h3>
-
-<p>The word "or", in cases where both inclusive "or" and exclusive "or" are possible (e.g., "if
-either width or height is zero"), means an inclusive "or" (implying "or both"), unless it is called
-out as being exclusive (with "but not both").
 
 
 <h2 id=primitive-data-types>Primitive data types</h2>
