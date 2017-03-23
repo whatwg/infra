@@ -131,6 +131,16 @@ as well as the single algorithm would. Therefore performance is best left as a f
 over.
 
 
+<h3 id=variables>Variables</h3>
+
+<p>A variable is declared with "let" and changed with "set".
+
+<p class=example id=example-variable>Let |list| be a new <a>list</a>.</p>
+
+<p>The scope of a variable is the step |s| it's declared in and any further and nested steps of the
+iteration |s| is in.
+
+
 <h3 id=algorithm-control-flow>Control flow</h3>
 
 <p>The control flow of algorithms is such that a requirement to "return" or "throw" terminates the
