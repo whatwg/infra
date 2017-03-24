@@ -203,6 +203,22 @@ iteration.
 </div>
 
 
+<h3 id=assertions>Assertions</h3>
+
+<p>To improve readability, it can sometimes help to add assertions to algorithms, stating
+invariants. To do this, write "Assert:", followed by a statement that must be true. If the statement
+ends up being false that indicates an issue with the document using the Infra Standard that should
+be reported and addressed.
+
+<p class=note>Since the statement can only ever be true, it has no implications for implementations.
+
+<div class=example id=example-assert>
+ <ol>
+  <li><p>Let |x| be "<code>Aperture Science</code>".
+  <li><p>Assert: |x| is "<code>Aperture Science</code>".
+</div>
+
+
 <h2 id=primitive-data-types>Primitive data types</h2>
 
 <h3 id=bytes>Bytes</h3>
