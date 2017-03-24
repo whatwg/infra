@@ -37,6 +37,8 @@ urlPrefix: https://tc39.github.io/ecma262/; spec: ECMA-262; type: dfn
  <li><p>Align standards on conventions, terminology, and data structures.
 
  <li><p>Be a place for concepts used by multiple standards without a good home.
+
+ <li><p>Help write clear and readable algorithmic prose by clarifying otherwise ambiguous concepts.
 </ul>
 
 <p>Suggestions for more goals welcome.</p>
