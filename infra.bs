@@ -125,7 +125,7 @@ easy to follow, and not intended to be performant.)
 <p class=note>Performance is tricky to get correct as it is influenced by user perception, computer
 architectures, and different types of input that can change over time in how common they are. For
 instance, a JavaScript engine likely has many different code paths for what is standardized as a
-single algorithm, in order to optimize for speed on memory consumption. Standardizing all those code
+single algorithm, in order to optimize for speed or memory consumption. Standardizing all those code
 paths would be an insurmountable task and not productive as they would not stand the test of time
 as well as the single algorithm would. Therefore performance is best left as a field to compete
 over.
