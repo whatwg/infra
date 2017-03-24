@@ -541,7 +541,7 @@ all of its items.
 
 <p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain|exists>contains</dfn> an
 <a for=list>item</a> if it appears in the list. We can also denote this by saying that, for a
-<a>list</a> |list| and an <a for=list>item</a> |item|, "|list|[|item|] <a for=list>exists</a>".
+<a>list</a> |list| and an index |index|, "|list|[|index|] <a for=list>exists</a>".
 
 <p>A <a>list</a>'s <dfn export for=list,stack,queue,set>size</dfn> is the number of
 <a for=list>items</a> the list <a for=list>contains</a>.
