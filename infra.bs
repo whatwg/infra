@@ -206,7 +206,11 @@ iteration.
 <h3 id=assertions>Assertions</h3>
 
 <p>To improve readability, it can sometimes help to add assertions to algorithms, stating
-invariants. To do this, write "<code>Assert: </code>", followed by a statement that must be true.
+invariants. To do this, write "Assert:", followed by a statement that must be true. If the statement
+ends up being false that indicates an issue with the document using the Infra Standard that should
+be reported and addressed.
+
+<p class=note>Since the statement can only ever be true, it has no implications for implementations.
 
 <div class=example id=example-assert>
  <ol>
