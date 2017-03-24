@@ -528,7 +528,8 @@ for working with them, in order to create common ground.
 
 <p>For notational convenience, a literal syntax can be used to express <a>lists</a>, by surrounding
 the list by « » characters and separating its <a for=list>items</a> with a comma. An indexing syntax
-can be used by providing a zero-based index into a list inside square brackets.
+can be used by providing a zero-based index into a list inside square brackets. The index cannot be
+out-of-bounds, except when used with <a for=list>exists</a>.
 
 <p class=example id=example-list-notation>Let |example| be the <a>list</a> « "<code>a</code>",
 "<code>b</code>", "<code>c</code>", "<code>a</code>" ». Then |example|[1] is the <a>string</a>
@@ -562,8 +563,9 @@ all items from the list that match a given condition, or do nothing if none do.
 <p>To <dfn export for=list,stack,queue,set>empty</dfn> a <a>list</a> is to <a for=list>remove</a>
 all of its items.
 
-<p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain>contains</dfn> an
-<a for=list>item</a> if it appears in the list.
+<p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain|exists>contains</dfn> an
+<a for=list>item</a> if it appears in the list. We can also denote this by saying that, for a
+<a>list</a> |list| and an index |index|, "|list|[|index|] <a for=list>exists</a>".
 
 <p>A <a>list</a>'s <dfn export for=list,stack,queue,set>size</dfn> is the number of
 <a for=list>items</a> the list <a for=list>contains</a>.
