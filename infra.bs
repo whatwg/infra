@@ -283,6 +283,9 @@ confusion with an actual <a>string</a>.
 <p class=note>To get a <a>byte sequence</a> out of a <a>string</a>, use an operation such as
 <a>UTF-8 encode</a> from the Encoding Standard. [[ENCODING]]
 
+<p>A <a>byte sequence</a>'s <dfn export for="byte sequence">length</dfn> is the number of
+<a>bytes</a> it contains.
+
 <p>To <dfn export>byte-lowercase</dfn> a <a>byte sequence</a>, increase each <a>byte</a> it
 contains, in the range 0x41 (A) to 0x5A (Z), inclusive, by 0x20.
 
@@ -369,6 +372,9 @@ U+007A (z), inclusive.
 <p class=note>This is different from how the Unicode Standard defines "code unit". In particular it
 refers exclusively to how the Unicode Standard defines it for Unicode 16-bit strings. [[UNICODE]]
 
+<p>A <a>JavaScript string</a>'s <dfn export for="JavaScript string">length</dfn> is the number of
+<a>code units</a> it contains.
+
 <p>A <a>JavaScript string</a> can also be interpreted as containing <a>code points</a>, per the
 conversion defined in <a>The String Type</a> section of the JavaScript specification. [[!ECMA-262]]
 
@@ -391,6 +397,9 @@ where <a>UTF-8 encode</a> comes into play.
 is immaterial. <a>Strings</a> are denoted by double quotes and monospace font.
 
 <p class=example id=example-string-notation>"<code>Hello, world!</code>" is a string.
+
+<p>A <a>string</a>'s <dfn export for=string>length</dfn> is the number of <a>code points</a> it
+contains.
 
 <p>To <dfn export for="JavaScript string">convert</dfn> a <a>JavaScript string</a> into a
 <a>scalar value string</a>, replace any <a>surrogates</a> with U+FFFD.
