@@ -26,6 +26,7 @@ Boilerplate: omit conformance, omit feedback-header, omit idl-index
 <pre class="anchors">
 urlPrefix: https://tc39.github.io/ecma262/; spec: ECMA-262; type: dfn
     text: List; url: sec-list-and-record-specification-type
+    text: The String Type; url: sec-ecmascript-language-types-string-type
 </pre>
 
 
@@ -293,8 +294,10 @@ to render unambigiously, such as U+000A, can be referred to as "U+000A LF".
 
 <p>In certain contexts <a>code points</a> are prefixed with "0x" instead of "U+".
 
-<p>A <dfn export>scalar value</dfn> is a <a>code point</a> that is not in the range
-U+D800 to U+DFFF, inclusive.
+<p>A <dfn export>surrogate</dfn> is a <a>code point</a> that is in the range U+D800 to U+DFFF,
+inclusive.
+
+<p>A <dfn export>scalar value</dfn> is a <a>code point</a> that is not a <a>surrogate</a>.
 
 <p>An <dfn export>ASCII code point</dfn> is a <a>code point</a> in the range U+0000 NULL to
 U+007F DELETE, inclusive.
@@ -337,10 +340,54 @@ U+007A (z), inclusive.
 
 <h3 id=strings>Strings</h3>
 
-<p>A <dfn export>string</dfn> is a sequence of <a>code points</a>. Strings are denoted by double
-quotes and monospace font.
+<p>A <dfn export>JavaScript string</dfn> is a sequence of unsigned 16-bit integers, also known as
+<dfn export lt="code unit">code units</dfn>.
+
+<p class=note>This is different from how the Unicode Standard defines "code unit". In particular it
+refers exclusively to how the Unicode Standard defines it for Unicode 16-bit strings. [[UNICODE]]
+
+<p>A <a>JavaScript string</a> can also be interpreted as containing <a>code points</a>, per the
+conversion defined in <a>The String Type</a> section of the JavaScript specification. [[!ECMA-262]]
+
+<p class=note>This conversion process converts surrogate pairs into their corresponding
+<a>scalar value</a> and maps isolated surrogates to their corresponding <a>code point</a>, leaving
+them effectively as-is.
+
+<p class=example id=example-javascript-string-in-code-points>A <a>JavaScript string</a> consisting
+of the <a>code units</a> 0xD83D, 0xDCA9, and 0xD800, when interpreted as containing
+<a>code points</a>, would consist of the <a>code points</a> U+1F4A9 and U+D800.
+
+<p>A <dfn export>scalar value string</dfn> is a sequence of <a>scalar values</a>.
+
+<p class=note>A <a>scalar value string</a> is useful for any kind of I/O or other kind of operation
+where <a>UTF-8 encode</a> comes into play.
+<!-- It's also useful if you can imagine the subsystem to be implemented in Rust -->
+
+<p><dfn export lt=string>String</dfn> can be used to refer to either a <a>JavaScript string</a> or
+<a>scalar value string</a>, when it is clear from the context which is meant or when the distinction
+is immaterial. <a>Strings</a> are denoted by double quotes and monospace font.
 
 <p class=example id=example-string-notation>"<code>Hello, world!</code>" is a string.
+
+<p>To <dfn export for="JavaScript string">convert</dfn> a <a>JavaScript string</a> into a
+<a>scalar value string</a>, replace any <a>surrogates</a> with U+FFFD.
+<!-- Obviates need for https://heycam.github.io/webidl/#dfn-obtain-unicode -->
+
+<p class=note>The replaced surrogates are always isolated surrogates, since the process of
+interpreting the JavaScript string as containing <a>code points</a> will have converted surrogate
+pairs into <a>scalar values</a>.
+
+<p>A <a>scalar value string</a> can always be used as <a>JavaScript string</a> implicitly since it
+is a subset. The reverse is only possible if the <a>JavaScript string</a> is known to not contain
+<a>surrogates</a>; otherwise a <a for="JavaScript string" lt=convert>conversion</a> must be
+performed.
+
+<p class=note>An implementation likely has to perform explicit conversion, depending on how it
+actually ends up representing <a lt="JavaScript string">JavaScript</a> and
+<a>scalar value strings</a>. It is even fairly typical for implementations to have multiple
+implementations of just <a>JavaScript strings</a> for performance and memory reasons.
+
+<hr>
 
 <p>An <dfn export>ASCII string</dfn> is a <a>string</a> whose <a>code points</a> are all
 <a>ASCII code points</a>.
@@ -757,6 +804,7 @@ as 200/`<code>OK</code>`.
 <h2 class=no-num id=acknowledgments>Acknowledgments</h2>
 
 <p>Many thanks to
+Addison Phillips,
 Dominic Farolino,
 Jake Archibald,
 Jungkee Song,
