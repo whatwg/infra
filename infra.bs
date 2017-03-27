@@ -134,6 +134,28 @@ as well as the single algorithm would. Therefore performance is best left as a f
 over.
 
 
+<h3 id=variables>Variables</h3>
+
+<p>A variable is declared with "let" and changed with "set".
+
+<p class=example id=example-variable>Let |list| be a new <a>list</a>.</p>
+
+<div class=example id=example-variable-null>
+ <ol>
+  <li><p>Let |value| be null.
+
+  <li><p>If |input| is a <a>string</a>, then set |value| to |input|.
+
+  <li><p>Otherwise, set |value| to |input|, <a>UTF-8 decoded</a>.
+
+  <li><p>Assert: |value| is a <a>string</a>.
+ </ol>
+</div>
+
+<p>Variables must not be used before they are declared. Variables are
+<a href=https://en.wikipedia.org/wiki/Scope_(computer_science)#Block_scope>block scoped</a>.
+
+
 <h3 id=algorithm-control-flow>Control flow</h3>
 
 <p>The control flow of algorithms is such that a requirement to "return" or "throw" terminates the
