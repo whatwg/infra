@@ -304,7 +304,7 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
 represented as a four-to-six digit hexadecimal number, typically prefixed with "U+".
 
 <p>A <a>code point</a> may be followed by its name, by its rendered form between parentheses when it
-is not U+0028 or U+0029, or both. Documents using the Infra Standard are encouraged to follow
+is not U+0028 or U+0029, or by both. Documents using the Infra Standard are encouraged to follow
 <a>code points</a> by their name when they cannot be rendered or are U+0028 or U+0029, and their
 rendered form between parentheses otherwise, for legibility.
 
@@ -319,7 +319,8 @@ rendered form between parentheses otherwise, for legibility.
 </div>
 
 <p class=example id=example-code-point-notation-hard-to-render><a>Code points</a> that are difficult
-to render unambigiously, such as U+000A, can be referred to as "U+000A LF".
+to render unambigiously, such as U+000A, can be referred to as "U+000A LF". U+0029 can be referred
+to as "U+0029 RIGHT PARENTHESIS", because even though it renders, this avoids unmatched parentheses.
 
 <p><a>Code points</a> are sometimes referred to as <a>characters</a> and in certain contexts are
 prefixed with "0x" rather than "U+".
