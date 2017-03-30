@@ -629,12 +629,16 @@ add the given <a for=list>item</a> to the end of the list.
 <p>To <dfn export for=list>prepend</dfn> to a <a>list</a> that is not an <a>ordered set</a> is to
 add the given <a for=list>item</a> to the beginning of the list.
 
-<p class=note>The above definitions are modified when the <a>list</a> is an <a>ordered set</a>; see
-below for <a for=set lt=append>ordered set append</a> and
-<a for=set lt=prepend>ordered set prepend</a>.
+<p>To <dfn export for=list>replace</dfn> within a <a>list</a> that is not an <a>ordered set</a> is
+to replace all items from the list that match a given condition with the given <a for=list>item</a>,
+or do nothing if none do.
 
-<p>To <dfn export for=list,set>remove</dfn> an <a for=list>item</a> from a <a>list</a> is to remove
-all items from the list that match a given condition, or do nothing if none do.
+<p class=note>The above definitions are modified when the <a>list</a> is an <a>ordered set</a>; see
+below for <a for=set lt=append>ordered set append</a>, <a for=set>prepend</a>, and
+<a for=set>replace</a>.
+
+<p>To <dfn export for=list,set>remove</dfn> zero or more <a for=list>items</a> from a <a>list</a> is
+to remove all items from the list that match a given condition, or do nothing if none do.
 
 <div class=example id=example-list-remove>
  <p><a for=list>Removing</a> |x| from the <a>list</a> « |x|, |y|, |z|, |x| » is to remove all
@@ -714,6 +718,10 @@ ordered sets; implementations can optimize based on the fact that the order is n
 <p>To <dfn export for=set>prepend</dfn> to an <a>ordered set</a> is to do nothing if the set already
 <a for=list>contains</a> the given <a for=set>item</a>, or to perform the normal <a>list</a>
 <a for=list>prepend</a> operation otherwise.
+
+<p>To <dfn export for=set>replace</dfn> within an <a>ordered set</a> is to replace the first item
+from the set that matches a given condition with the given <a for=set>item</a> and remove the other
+matching items, or do nothing if none match.
 
 
 <h3 id=maps>Maps</h3>
