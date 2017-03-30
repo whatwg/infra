@@ -260,9 +260,11 @@ be reported and addressed.
 number in the range 0x00 to 0xFF, inclusive.
 
 <p>An <dfn export>ASCII byte</dfn> is a <a>byte</a> in the range 0x00 (NUL) to 0x7F (DEL),
-inclusive. As illustrated, an <a>ASCII byte</a> may be followed by the representation outlined in
-the <a href=https://tools.ietf.org/html/rfc20#section-2>Standard Code</a> section of
-<cite>ASCII format for Network Interchange</cite>, between parentheses. [[!RFC20]]
+inclusive. As illustrated, an <a>ASCII byte</a>, excluding 0x28 and 0x29, may be followed by the
+representation outlined in the <a href=https://tools.ietf.org/html/rfc20#section-2>Standard Code</a>
+section of <cite>ASCII format for Network Interchange</cite>, between parentheses. [[!RFC20]]
+
+<p>0x28 may be followed by "(left parenthesis)" and 0x29 by "(right parenthesis)".
 
 <p class=example id=example-byte-notation>0x49 (I) when <a>UTF-8 decoded</a> becomes the
 <a>code point</a> U+0049 (I).
@@ -299,10 +301,12 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
 <h3 id=code-points>Code points</h3>
 
 <p>A <dfn export lt="code point|character">code point</dfn> is a Unicode code point and is
-represented as a four-to-six digit hexadecimal number, typically prefixed with "U+". A
-<a>code point</a> may be followed by its name, by its rendered form between parentheses, or both.
-Documents using the Infra Standard are encouraged to follow <a>code points</a> by their name when
-they cannot be rendered, and rendered form between parentheses otherwise, for legibility.
+represented as a four-to-six digit hexadecimal number, typically prefixed with "U+".
+
+<p>A <a>code point</a> may be followed by its name, by its rendered form between parentheses when it
+is not U+0028 or U+0029, or by both. Documents using the Infra Standard are encouraged to follow
+<a>code points</a> by their name when they cannot be rendered or are U+0028 or U+0029, and their
+rendered form between parentheses otherwise, for legibility.
 
 <p>A <a>code point</a>'s name is defined in the Unicode Standard and represented in
 <a>ASCII uppercase</a>. [[!UNICODE]]
@@ -315,7 +319,8 @@ they cannot be rendered, and rendered form between parentheses otherwise, for le
 </div>
 
 <p class=example id=example-code-point-notation-hard-to-render><a>Code points</a> that are difficult
-to render unambigiously, such as U+000A, can be referred to as "U+000A LF".
+to render unambigiously, such as U+000A, can be referred to as "U+000A LF". U+0029 can be referred
+to as "U+0029 RIGHT PARENTHESIS", because even though it renders, this avoids unmatched parentheses.
 
 <p><a>Code points</a> are sometimes referred to as <a>characters</a> and in certain contexts are
 prefixed with "0x" rather than "U+".
