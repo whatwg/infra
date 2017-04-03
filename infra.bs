@@ -330,6 +330,12 @@ inclusive.
 
 <p>A <dfn export>scalar value</dfn> is a <a>code point</a> that is not a <a>surrogate</a>.
 
+<p>A <dfn export>noncharacter</dfn> is a <a>code point</a> that is in the range U+FDD0 to U+FDEF,
+inclusive, or U+FFFE, U+FFFF, U+1FFFE, U+1FFFF, U+2FFFE, U+2FFFF, U+3FFFE, U+3FFFF, U+4FFFE,
+U+4FFFF, U+5FFFE, U+5FFFF, U+6FFFE, U+6FFFF, U+7FFFE, U+7FFFF, U+8FFFE, U+8FFFF, U+9FFFE, U+9FFFF,
+U+AFFFE, U+AFFFF, U+BFFFE, U+BFFFF, U+CFFFE, U+CFFFF, U+DFFFE, U+DFFFF, U+EFFFE, U+EFFFF, U+FFFFE,
+U+FFFFF, U+10FFFE, or U+10FFFF.
+
 <p>An <dfn export>ASCII code point</dfn> is a <a>code point</a> in the range U+0000 NULL to
 U+007F DELETE, inclusive.
 
@@ -346,6 +352,9 @@ U+001F INFORMATION SEPARATOR ONE, inclusive.
 
 <p>A <dfn export lt="C0 control or space|C0 controls or spaces">C0 control or space</dfn> is a
 <a>C0 control</a> or U+0020 SPACE.
+
+<p>A <dfn export>control</dfn> is a <a>C0 control</a> or a <a>code point</a> in the range
+U+007F DELETE to U+009F APPLICATION PROGRAM COMMAND, inclusive.
 
 <p>An <dfn export>ASCII digit</dfn> is a <a>code point</a> in the range U+0030 (0) to U+0039 (9),
 inclusive.
