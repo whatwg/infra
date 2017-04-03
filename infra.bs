@@ -630,6 +630,13 @@ out-of-bounds, except when used with <a for=list>exists</a>.
 "<code>b</code>", "<code>c</code>", "<code>a</code>" ». Then |example|[1] is the <a>string</a>
 "<code>b</code>".
 
+<p>Additionally, a literal syntax can be used to express a <a>list</a> of integers: the range
+<var>n</var> to <var>m</var>, inclusive, creates a new <a>list</a> whose <a for=list>items</a> are
+all integers in the range <var>n</var> to <var>m</var>, inclusive.
+
+<p class=example id=example-list-range><a for=list>For each</a> <var>n</var> in the range 1 to 4,
+inclusive, &hellip;
+
 <hr>
 
 <p>To <dfn export for=list>append</dfn> to a <a>list</a> that is not an <a>ordered set</a> is to
