@@ -638,7 +638,8 @@ below for <a for=set lt=append>ordered set append</a>, <a for=set>prepend</a>, a
 <a for=set>replace</a>.
 
 <p>To <dfn export for=list,set>insert</dfn> an <a for=list>item</a> into a <a>list</a> at index is
-to add the given item to the list at the given index.
+to add the given item to the list between the given index &minus; 1 and the given index. If the
+given index is 0, then <a for=list>prepend</a> the given item to the list.
 
 <p>To <dfn export for=list,set>remove</dfn> zero or more <a for=list>items</a> from a <a>list</a> is
 to remove all items from the list that match a given condition, or do nothing if none do.
