@@ -630,13 +630,6 @@ out-of-bounds, except when used with <a for=list>exists</a>.
 "<code>b</code>", "<code>c</code>", "<code>a</code>" ». Then |example|[1] is the <a>string</a>
 "<code>b</code>".
 
-<p>Additionally, a literal syntax can be used to express a <a>list</a> of integers: the range
-<var>n</var> to <var>m</var>, inclusive, creates a new <a>list</a> whose <a for=list>items</a> are
-all integers in the range <var>n</var> to <var>m</var>, inclusive.
-
-<p class=example id=example-list-range><a for=list>For each</a> <var>n</var> in the range 1 to 4,
-inclusive, &hellip;
-
 <hr>
 
 <p>To <dfn export for=list>append</dfn> to a <a>list</a> that is not an <a>ordered set</a> is to
@@ -738,6 +731,16 @@ ordered sets; implementations can optimize based on the fact that the order is n
 <p>To <dfn export for=set>replace</dfn> within an <a>ordered set</a> is to replace the first item
 from the set that matches a given condition with the given <a for=set>item</a> and remove the other
 matching items, or do nothing if none match.
+
+<hr>
+
+<p><dfn export lt="the range">The range</dfn> <var>n</var> to <var>m</var>, inclusive, creates a new
+<a>ordered set</a> containing all of the integers from <var>n</var> up to and including <var>m</var>
+in consecutively increasing order, as long as <var>m</var> is greather than or equal to
+<var>n</var>.
+
+<p class=example id=example-the-range><a for=set>For each</a> <var>n</var> in <a>the range</a> 1 to
+4, inclusive, &hellip;
 
 
 <h3 id=maps>Maps</h3>
