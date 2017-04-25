@@ -729,15 +729,12 @@ ordered sets; implementations can optimize based on the fact that the order is n
 <a for=list>prepend</a> operation otherwise.
 
 <p>To <dfn export for=set>replace</dfn> within an <a>ordered set</a>, given <var>item</var>,
-<var>set</var>, and <var>replacement</var>, is to run these steps:
+<var>set</var>, and <var>replacement</var> is to: if <var>set</var> <a for=set>contains</a>
+<var>item</var> or <var>replacement</var>, then replace the first instance of either with
+<var>replacement</var> and <a>remove</a> all other instances.
 
-<ol>
- <li><p>If <var>set</var>[<var>replacement</var>] <a for=set>exists</a>, then <a>remove</a>
- <var>item</var> from <var>set</var>.
-
- <li><p>Otherwise, if <var>set</var>[<var>item</var>] <a for=set>exists</a>, replace <var>item</var>
- within <var>set</var> with <var>replacement</var>.
-</ol>
+<p class=example id=example-set-replace>Replacing "a" with "c" within a <a>set</a> « "a", "b", "c" »
+gives « "c", "b" ». Within « "c", "b", "a" » it gives « "c", "b" » as well.
 
 <hr>
 
