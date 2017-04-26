@@ -728,9 +728,14 @@ ordered sets; implementations can optimize based on the fact that the order is n
 <a for=list>contains</a> the given <a for=set>item</a>, or to perform the normal <a>list</a>
 <a for=list>prepend</a> operation otherwise.
 
-<p>To <dfn export for=set>replace</dfn> within an <a>ordered set</a> is to replace the first item
-from the set that matches a given condition with the given <a for=set>item</a> and remove the other
-matching items, or do nothing if none match.
+<p>To <dfn export for=set lt=replace|replacing>replace</dfn> within an <a>ordered set</a>
+<var>set</var>, given <var>item</var> and <var>replacement</var>: if <var>set</var>
+<a for=set>contains</a> <var>item</var> or <var>replacement</var>, then replace the first instance
+of either with <var>replacement</var> and <a for=set>remove</a> all other instances.
+
+<p class=example id=example-set-replace><a for="set">Replacing</a> "a" with "c" within the
+<a>ordered set</a> « "a", "b", "c" » gives « "c", "b" ». Within « "c", "b", "a" » it gives
+« "c", "b" » as well.
 
 <hr>
 
@@ -869,6 +874,7 @@ as 200/`<code>OK</code>`.
 
 <p>Many thanks to
 Addison Phillips,
+Aryeh Gregor,
 Dominic Farolino,
 Jake Archibald,
 Jungkee Song,
