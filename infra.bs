@@ -544,8 +544,6 @@ interspersed <a>ASCII whitespace</a>.
 
  <li><p><a>Skip ASCII whitespace</a> within <var>input</var> given <var>position</var>.
 
- <li><p><a for="list">Append</a> <var>token</var> to <var>tokens</var>.
-
  <li>
   <p>While <var>position</var> is not past the end of <var>input</var>:
 
@@ -891,6 +889,7 @@ Sergey Shekyan,
 Simon Pieters,
 Tab Atkins,
 Tobie Langel,
+triple-underscore,
 and Xue Fuqiao
 for being awesome!
 
