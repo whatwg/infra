@@ -61,8 +61,8 @@ correctly reflected by any such dependencies.
 
 <h3 id=conformance>Conformance</h3>
 
-<p>All diagrams, examples, and notes are non-normative, as are all sections explicitly marked
-non-normative. Everything else is normative.
+<p>All assertions, diagrams, examples, and notes are non-normative, as are all sections explicitly
+marked non-normative. Everything else is normative.
 
 <p>The keywords "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT",
 "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" are to be interpreted as described in
