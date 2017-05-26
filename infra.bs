@@ -664,7 +664,7 @@ to remove all items from the list that match a given condition, or do nothing if
 <p>To <dfn export for=list,stack,queue,set>empty</dfn> a <a>list</a> is to <a for=list>remove</a>
 all of its items.
 
-<p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain|exists>contains</dfn> an
+<p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain|exist>contains</dfn> an
 <a for=list>item</a> if it appears in the list. We can also denote this by saying that, for a
 <a>list</a> |list| and an index |index|, "|list|[|index|] <a for=list>exists</a>".
 
@@ -788,9 +788,9 @@ all <a for=map>entries</a> from the map that match a given condition, or do noth
 the condition is having a certain <a for=map>key</a>, then we can also denote this by saying, for
 an <a>ordered map</a> |map| and key |key|, "<a for=map>remove</a> |map|[|key|]".
 
-<p>An <a>ordered map</a> <dfn export for=map lt=exists|contains>contains an <a for=map>entry</a>
-with a given key</dfn> if there exists an entry with that <a for=map>key</a>. We can also denote
-this by saying that, for an <a>ordered map</a> |map| and key |key|, "|map|[|key|]
+<p>An <a>ordered map</a> <dfn export for=map lt=exist|contain id=map-exists>contains an
+<a for=map>entry</a> with a given key</dfn> if there exists an entry with that <a for=map>key</a>.
+We can also denote this by saying that, for an <a>ordered map</a> |map| and key |key|, "|map|[|key|]
 <a for=map>exists</a>".
 
 <p>To <dfn export for=map lt="getting the keys|get the keys">get the keys</dfn> of an
