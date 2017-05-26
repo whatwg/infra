@@ -71,10 +71,25 @@ RFC 2119. [[!RFC2119]]
 <p>These keywords have equivalent meaning when written in lowercase and cannot appear in
 non-normative content.
 
+<p class=note>This is a <a>willful violation</a> of RFC 8174, motivated by legibility and a desire
+to preserve long-standing practice in many non-IETF-published pre-RFC 8174 documents. [[RFC8174]]
+
 <p>All of the above is applicable to both this standard and any document that uses this standard.
 Documents using this standard are encouraged to limit themselves to "must", "must not", "should",
 and "may", and to use these in their lowercase form as that is generally considered to be more
 readable.
+
+
+<h3 id=other-specs>Compliance with other specifications</h3>
+
+<p>In general, specifications interact with and rely on a wide variety of other specifications. In
+certain circumstances, unfortunately, conflicting needs require a specification to violate the
+requirements of other specifications. When this occurs, a document using the Infra Standard should
+denote such transgressions as a <dfn>willful violation</dfn>, and note the reason for that
+violation.
+
+<p class=example id=example-willful-violation>The previous section, [[#conformance]], documents a
+<a>willful violation</a> of RFC 8174 committed by the Infra Standard.
 
 
 <h3 id=terminology>Terminology</h3>
