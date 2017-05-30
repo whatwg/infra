@@ -342,8 +342,8 @@ U+007F DELETE, inclusive.
 <p>An <dfn export lt="ASCII tab or newline|ASCII tabs or newlines">ASCII tab or newline</dfn> is
 U+0009 TAB, U+000A LF, or U+000D CR.
 
-<p>An <dfn export>ASCII whitespace</dfn> is U+0009 TAB, U+000A LF, U+000C FF, U+000D CR, or
-U+0020 SPACE.
+<p><dfn export>ASCII whitespace</dfn> is U+0009 TAB, U+000A LF, U+000C FF, U+000D CR, or U+0020
+SPACE.
 
 <p class=note>"Whitespace" is a mass noun.
 
@@ -458,9 +458,9 @@ the <a>string</a> with their corresponding <a>code point</a> in <a>ASCII upper a
 <a>ASCII whitespace</a> that are at the start or the end of the <a>string</a>.
 
 <p>To <dfn export>strip and collapse ASCII whitespace</dfn> in a <a>string</a>, replace any sequence
-of one or more consecutive <a>ASCII whitespace</a> in the <a>string</a> with a single U+0020 SPACE
-<a>code point</a>, and then remove any leading and trailing <a>ASCII whitespace</a> from that
-string.
+of one or more consecutive <a>code points</a> that are <a>ASCII whitespace</a> in the <a>string</a>
+with a single U+0020 SPACE <a>code point</a>, and then remove any leading and trailing
+<a>ASCII whitespace</a> from that string.
 
 <hr>
 
