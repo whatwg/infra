@@ -297,8 +297,9 @@ confusion with an actual <a>string</a>.
  <p>Headers, such as `<code>Content-Type</code>`, are <a>byte sequences</a>.
 </div>
 
-<p class=note>To get a <a>byte sequence</a> out of a <a>string</a>, use an operation such as
-<a>UTF-8 encode</a> from the Encoding Standard. [[ENCODING]]
+<p class=note>To get a <a>byte sequence</a> out of a <a>string</a>, using <a>UTF-8 encode</a> from
+the Encoding Standard is encouraged. In rare circumstances <a>isomorphic encode</a> might be needed.
+[[ENCODING]]
 
 <p>A <a>byte sequence</a>'s <dfn export for="byte sequence">length</dfn> is the number of
 <a>bytes</a> it contains.
@@ -312,6 +313,11 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
 <p>A <a>byte sequence</a> <var>A</var> is a <dfn export>byte-case-insensitive</dfn> match for a
 <a>byte sequence</a> <var>B</var>, if the <a>byte-lowercase</a> of <var>A</var> is the
 <a>byte-lowercase</a> of <var>B</var>.
+
+<p>To <dfn export>isomorphic decode</dfn> a <a>byte sequence</a> <var>input</var>, return a
+<a>string</a> whose <a for=string>length</a> is equal to <var>input</var>'s
+<a for="byte sequence">length</a> and whose <a>code points</a> have the same values as
+<var>input</var>'s <a>bytes</a>, in the same order.
 
 <h3 id=code-points>Code points</h3>
 
@@ -447,6 +453,18 @@ performed.
 actually ends up representing <a lt="JavaScript string">JavaScript</a> and
 <a>scalar value strings</a>. It is even fairly typical for implementations to have multiple
 implementations of just <a>JavaScript strings</a> for performance and memory reasons.
+
+<hr>
+
+<p>To <dfn export>isomorphic encode</dfn> a <a>string</a> <var>input</var>, run these steps:</p>
+
+<ol>
+ <li><p>Assert: <var>input</var> contains no <a>code points</a> greater than U+00FF.
+
+ <li><p>Return a <a>byte sequence</a> whose <a for="byte sequence">length</a> is equal to
+ <var>input</var>'s <a for=string>length</a> and whose <a>bytes</a> have the same values as
+ <var>input</var>'s <a>code points</a>, in the same order.
+</ol>
 
 <hr>
 
