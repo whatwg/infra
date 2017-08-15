@@ -313,13 +313,10 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
 <a>byte sequence</a> <var>B</var>, if the <a>byte-lowercase</a> of <var>A</var> is the
 <a>byte-lowercase</a> of <var>B</var>.
 
-<p>To <dfn export for="byte sequence">map</dfn> a <a>byte sequence</a> <var>input</var> to a
-<a>string</a>, return a string whose <a for=string>length</a> is equal to <var>input</var>'s
+<p>To <dfn export>isomorphic decode</dfn> a <a>byte sequence</a> <var>input</var>, return a
+<a>string</a> whose <a for=string>length</a> is equal to <var>input</var>'s
 <a for="byte sequence">length</a> and whose code points have the same values as <var>input</var>'s
 bytes, in the same order.
-
-<p class=note>This matches the behavior of a ISO-8859-1 decoder, except no such decoder is defined
-as the Encoding Standard maps "<code>iso-8859-1</code>" to <a>windows-1252</a>. [[ENCODING]]
 
 <h3 id=code-points>Code points</h3>
 
@@ -458,8 +455,7 @@ implementations of just <a>JavaScript strings</a> for performance and memory rea
 
 <hr>
 
-<p>To <dfn export for=string>map</dfn> a <a>string</a> <var>input</var> to a <a>byte sequence</a>,
-run these steps:</p>
+<p>To <dfn export>isomorphic encode</dfn> a <a>string</a> <var>input</var>, run these steps:</p>
 
 <ol>
  <li><p>Assert: <var>input</var> contains no code points greater than U+00FF.
@@ -468,9 +464,6 @@ run these steps:</p>
  <var>input</var>'s <a for=string>length</a> and whose bytes have the same values as
  <var>input</var>'s code points, in the same order.
 </ol>
-
-<p class=note>This matches the behavior of a ISO-8859-1 encoder, except no such encoder is defined
-as the Encoding Standard maps "<code>iso-8859-1</code>" to <a>windows-1252</a>. [[ENCODING]]
 
 <hr>
 
