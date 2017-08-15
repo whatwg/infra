@@ -899,8 +899,8 @@ certain inputs.
 <p>To <dfn export>forgiving-base64 decode</dfn> given a string <var>data</var>, run these steps:</p>
 
 <ol>
- <li><p>Let <var>position</var> be a pointer into <var>data</var>, initially pointing at the start
- of the string.
+ <li><p>Let <var>position</var> be a <a>position variable</a> for <var>data</var>, initially
+ pointing at the start of <var>data</var>.
 
  <li><p>Remove all <a>ASCII whitespace</a> from <var>data</var>.
 
@@ -1020,7 +1020,6 @@ certain inputs.
    order, and then empty <var>buffer</var>.
 
    <li><p>Advance <var>position</var> by 1.
-
   </ol>
 
  <li>
