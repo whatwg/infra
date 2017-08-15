@@ -894,7 +894,7 @@ certain inputs.
   <ul class="brief">
    <li>U+002B (+)
    <li>U+002F (/)
-   <li><span>ASCII alphanumeric</span>
+   <li><a>ASCII alphanumeric</a>
   </ul>
 
   <p>then return failure.
