@@ -319,7 +319,7 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
 bytes, in the same order.
 
 <p class=note>This matches the behavior of a ISO-8859-1 decoder, except no such decoder is defined
-as the Encoding Standard maps "iso-8859-1" to <a>windows-1252</a>. [[ENCODING]]
+as the Encoding Standard maps "<code>iso-8859-1</code>" to <a>windows-1252</a>. [[ENCODING]]
 
 <h3 id=code-points>Code points</h3>
 
@@ -470,7 +470,7 @@ run these steps:</p>
 </ol>
 
 <p class=note>This matches the behavior of a ISO-8859-1 encoder, except no such encoder is defined
-as the Encoding Standard maps "iso-8859-1" to <a>windows-1252</a>. [[ENCODING]]
+as the Encoding Standard maps "<code>iso-8859-1</code>" to <a>windows-1252</a>. [[ENCODING]]
 
 <hr>
 
