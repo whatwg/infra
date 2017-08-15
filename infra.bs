@@ -297,8 +297,9 @@ confusion with an actual <a>string</a>.
  <p>Headers, such as `<code>Content-Type</code>`, are <a>byte sequences</a>.
 </div>
 
-<p class=note>To get a <a>byte sequence</a> out of a <a>string</a>, use an operation such as
-<a>UTF-8 encode</a> from the Encoding Standard. [[ENCODING]]
+<p class=note>To get a <a>byte sequence</a> out of a <a>string</a>, using <a>UTF-8 encode</a> from
+the Encoding Standard is encouraged. In rare circumstances <a>isomorphic encode</a> might be needed.
+[[ENCODING]]
 
 <p>A <a>byte sequence</a>'s <dfn export for="byte sequence">length</dfn> is the number of
 <a>bytes</a> it contains.
