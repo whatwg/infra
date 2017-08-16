@@ -907,17 +907,6 @@ certain inputs.
  <!-- https://lists.w3.org/Archives/Public/public-whatwg-archive/2011May/0207.html -->
 
  <li>
-  <p>If <var>data</var> contains a <a>code point</a> that is not one of
-
-  <ul class="brief">
-   <li>U+002B (+)
-   <li>U+002F (/)
-   <li><a>ASCII alphanumeric</a>
-  </ul>
-
-  <p>then return failure.
-
- <li>
   <p>If <var>data</var>'s <a for=string>length</a> divides by 4 leaving no remainder, then:
 
   <ol>
@@ -927,6 +916,17 @@ certain inputs.
 
  <li><p>If <var>data</var>'s <a for=string>length</a> divides by 4 leaving a remainder of 1, then
  return failure.
+
+ <li>
+  <p>If <var>data</var> contains a <a>code point</a> that is not one of
+
+  <ul class="brief">
+   <li>U+002B (+)
+   <li>U+002F (/)
+   <li><a>ASCII alphanumeric</a>
+  </ul>
+
+  <p>then return failure.
 
  <li><p>Let <var>output</var> be an empty <a>byte sequence</a>.
 
