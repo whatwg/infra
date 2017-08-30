@@ -1,3 +1,4 @@
+dist: trusty
 language: generic
 
 env:
@@ -6,7 +7,7 @@ env:
     - DEPLOY_USER="annevankesteren"
 
 script:
-  - curl --remote-name --fail https://resources.whatwg.org/build/deploy.sh && bash ./deploy.sh
+  - make deploy
 
 notifications:
   email:
