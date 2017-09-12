@@ -74,13 +74,13 @@ non-normative content.
 <p class=note>This is a <a>willful violation</a> of RFC 8174, motivated by legibility and a desire
 to preserve long-standing practice in many non-IETF-published pre-RFC 8174 documents. [[RFC8174]]
 
-<p class=note>For non-normative content, "could", "might", "can", "encouraged", "discouraged",
-"strongly encouraged", and "strongly discouraged" can be used instead.
-
 <p>All of the above is applicable to both this standard and any document that uses this standard.
 Documents using this standard are encouraged to limit themselves to "must", "must not", "should",
 and "may", and to use these in their lowercase form as that is generally considered to be more
 readable.
+
+<p>For non-normative content "strongly encouraged", "strongly discouraged", "encouraged",
+"discouraged", "can", "cannot", "could", "could not", "might", and "might not" can be used instead.
 
 
 <h3 id=other-specs>Compliance with other specifications</h3>
