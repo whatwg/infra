@@ -79,6 +79,9 @@ Documents using this standard are encouraged to limit themselves to "must", "mus
 and "may", and to use these in their lowercase form as that is generally considered to be more
 readable.
 
+<p>For non-normative content "strongly encouraged", "strongly discouraged", "encouraged",
+"discouraged", "can", "cannot", "could", "could not", "might", and "might not" can be used instead.
+
 
 <h3 id=other-specs>Compliance with other specifications</h3>
 
