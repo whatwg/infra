@@ -780,6 +780,12 @@ of either with <var>replacement</var> and <a for=set>remove</a> all other instan
 <a>ordered set</a> « "a", "b", "c" » gives « "c", "b" ». Within « "c", "b", "a" » it gives
 « "c", "b" » as well.
 
+<p>An <a>ordered set</a> |set| is a  <dfn export for=set>subset</dfn> of another <a>ordered set</a>
+|superset| (and conversely, |superset| is a <dfn export for=set>superset</dfn> of |set|)
+if, <a for=list>for each</a> |item| of |set|, |superset| <a for=set>contains</a> |item|.
+Note that this implies that an <a>ordered set</a> is both a <a for=set>subset</a> and a <a
+for=set>superset</a> of itself.
+
 <hr>
 
 <p><dfn export lt="the range">The range</dfn> <var>n</var> to <var>m</var>, inclusive, creates a new
