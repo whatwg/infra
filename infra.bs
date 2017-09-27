@@ -715,6 +715,11 @@ performing a set of steps on each <a for=list>item</a> in order, use phrasing of
 "<a for=list>For each</a> |item| of <var ignore>list</var>", and then operate on |item| in the
 subsequent prose.
 
+<p>To <dfn export for=list,stack,queue,set>clone</dfn> a <a>list</a> |list| is to create a new
+<a>list</a> |clone| and, <a for=list>for each</a> |item| of |list|, <a for=list>append</a> |item|
+to |clone|, so that |clone| <a for=list>contains</a> the same <a for=list>items</a>, in the same
+order as |list|.
+
 <hr>
 
 <p>The <a>list</a> type originates from the JavaScript specification (where it is capitalized, as
