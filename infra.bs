@@ -790,6 +790,10 @@ for=set>superset</a> of itself.
 of creating a new <a>ordered set</a> |set| and, <a for=list>for each</a> |item| of |A|, if |B|
 <a for=set>contains</a> |item|, <a for=set>appending</a> |item| to |set|.
 
+<p>The <dfn export for=set>union</dfn> of <a>ordered sets</a> |A| and |B|, is the result of
+<a for=list>cloning</a> |A| as |set| and, <a for=list>for each</a> |item| of |B|,
+<a for=set>appending</a> |item| to |set|.
+
 <hr>
 
 <p><dfn export lt="the range">The range</dfn> <var>n</var> to <var>m</var>, inclusive, creates a new
