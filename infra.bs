@@ -716,9 +716,17 @@ performing a set of steps on each <a for=list>item</a> in order, use phrasing of
 subsequent prose.
 
 <p>To <dfn export for=list,stack,queue,set>clone</dfn> a <a>list</a> |list| is to create a new
-<a>list</a> |clone| and, <a for=list>for each</a> |item| of |list|, <a for=list>append</a> |item|
-to |clone|, so that |clone| <a for=list>contains</a> the same <a for=list>items</a>, in the same
-order as |list|.
+<a>list</a> |clone|, of the same designation, and, <a for=list>for each</a> |item| of |list|,
+<a for=list>append</a> |item| to |clone|, so that |clone| <a for=list>contains</a> the same
+<a for=list>items</a>, in the same order as |list|.
+
+Note: This is a "shallow clone", as the <a for=list>items</a> themselves are not cloned in any way.
+
+<p class=example id=example-list-clone>Let |original| be the <a>ordered set</a> «
+"<code>a</code>", "<code>b</code>", "<code>c</code>" ». <a for=set>Cloning</a> |original| creates
+a new <a>ordered set</a> |clone|, so that <a for=set>replacing</a> "<code>a</code>" with
+"<code>foo</code>" in |clone| gives « "<code>foo</code>", "<code>b</code>", "<code>c</code>" »,
+while |original|[0] is still the <a>string</a> "<code>a</code>".
 
 <hr>
 
