@@ -90,7 +90,7 @@ readable.
 <p>In general, specifications interact with and rely on a wide variety of other specifications. In
 certain circumstances, unfortunately, conflicting needs require a specification to violate the
 requirements of other specifications. When this occurs, a document using the Infra Standard should
-denote such transgressions as a <dfn>willful violation</dfn>, and note the reason for that
+denote such transgressions as a <dfn export>willful violation</dfn>, and note the reason for that
 violation.
 
 <p class=example id=example-willful-violation>The previous section, [[#conformance]], documents a
@@ -897,13 +897,13 @@ as 200/`<code>OK</code>`.
 
 <h2 id=json>JSON</h2>
 
-<p>To <dfn>parse JSON from bytes</dfn> given <var>bytes</var>, run these steps:
+<p>To <dfn export>parse JSON from bytes</dfn> given <var>bytes</var>, run these steps:
 
 <ol>
  <li><p>Let <var>jsonText</var> be the result of running <a>UTF-8 decode</a> on <var>bytes</var>.
 
  <li>
-  <p>Return ? <a>Call</a>(<a>%JSONParse</a>, undefined, « <var>jsonText</var> »).
+  <p>Return ? <a>Call</a>(<a>%JSONParse%</a>, undefined, « <var>jsonText</var> »).
 
   <p class=note>The conventions used in this step are those of the JavaScript specification.
   [[ECMA-262]]
