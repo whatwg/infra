@@ -25,6 +25,8 @@ Boilerplate: omit conformance, omit feedback-header, omit idl-index
 
 <pre class="anchors">
 urlPrefix: https://tc39.github.io/ecma262/; spec: ECMA-262; type: dfn
+    text: %JSONParse%; url: sec-json.parse
+    text: Call; url: sec-call
     text: List; url: sec-list-and-record-specification-type
     text: The String Type; url: sec-ecmascript-language-types-string-type
 </pre>
@@ -891,6 +893,21 @@ For <a>pairs</a>, a slightly shorter literal syntax can be used, separating the 
 
 <p class=example id=example-pair>Another way of expressing our |statusInstance| tuple above would be
 as 200/`<code>OK</code>`.
+
+
+<h2 id=json>JSON</h2>
+
+<p>To <dfn>parse JSON from bytes</dfn> given <var>bytes</var>, run these steps:
+
+<ol>
+ <li><p>Let <var>jsonText</var> be the result of running <a>UTF-8 decode</a> on <var>bytes</var>.
+
+ <li>
+  <p>Return ? <a>Call</a>(<a>%JSONParse</a>, undefined, « <var>jsonText</var> »).
+
+  <p class=note>The conventions used in this step are those of the JavaScript specification.
+  [[ECMA-262]]
+</ol>
 
 
 <h2 id=forgiving-base64>Forgiving base64</h2>
