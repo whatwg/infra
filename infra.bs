@@ -24,9 +24,12 @@ Boilerplate: omit conformance, omit feedback-header, omit idl-index
 </pre>
 
 <pre class="anchors">
-urlPrefix: https://tc39.github.io/ecma262/; spec: ECMA-262; type: dfn
-    text: List; url: sec-list-and-record-specification-type
-    text: The String Type; url: sec-ecmascript-language-types-string-type
+urlPrefix: https://tc39.github.io/ecma262/; spec: ECMA-262;
+    type: dfn
+        text: %JSONParse%; url: sec-json.parse
+        text: List; url: sec-list-and-record-specification-type
+        text: The String Type; url: sec-ecmascript-language-types-string-type
+    type: abstract-op; text: Call; url: sec-call
 </pre>
 
 
@@ -88,7 +91,7 @@ readable.
 <p>In general, specifications interact with and rely on a wide variety of other specifications. In
 certain circumstances, unfortunately, conflicting needs require a specification to violate the
 requirements of other specifications. When this occurs, a document using the Infra Standard should
-denote such transgressions as a <dfn>willful violation</dfn>, and note the reason for that
+denote such transgressions as a <dfn export>willful violation</dfn>, and note the reason for that
 violation.
 
 <p class=example id=example-willful-violation>The previous section, [[#conformance]], documents a
@@ -891,6 +894,22 @@ For <a>pairs</a>, a slightly shorter literal syntax can be used, separating the 
 
 <p class=example id=example-pair>Another way of expressing our |statusInstance| tuple above would be
 as 200/`<code>OK</code>`.
+
+
+<h2 id=json>JSON</h2>
+
+<p>To <dfn export>parse JSON from bytes</dfn> given <var>bytes</var>, run these steps:
+
+<ol>
+ <li><p>Let <var>jsonText</var> be the result of running <a>UTF-8 decode</a> on <var>bytes</var>.
+ [[!ENCODING]]
+
+ <li>
+  <p>Return ? <a abstract-op>Call</a>(<a>%JSONParse%</a>, undefined, « <var>jsonText</var> »).
+  [[!ECMA-262]]
+
+  <p class=note>The conventions used in this step are those of the JavaScript specification.
+</ol>
 
 
 <h2 id=forgiving-base64>Forgiving base64</h2>
