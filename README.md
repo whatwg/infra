@@ -85,4 +85,4 @@ double quotes).
 ### Merge policy
 
 If you can commit to this repository, see the
-[html repository's TEAM](https://github.com/whatwg/html/blob/master/TEAM.md) for guidelines.
+[WHATWG team](https://github.com/whatwg/meta/blob/master/TEAM.md) guidelines.
