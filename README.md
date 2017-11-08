@@ -11,7 +11,7 @@ Folks notice minor and larger issues with the Infra Standard all the time and we
 your help fixing those. Pull requests for typographical and grammar errors are also most welcome.
 
 We'd be happy to mentor you through this process. If you're interested and need help getting
-started, review [WHATWG contributing guidelines](https://github.com/whatwg/meta/blob/master/CONTRIBUTING.md),
+started, review the [WHATWG contributing guidelines](https://github.com/whatwg/meta/blob/master/CONTRIBUTING.md),
 and leave a comment on the issue or ask around [on IRC](https://wiki.whatwg.org/wiki/IRC).
 
 ### Pull requests
