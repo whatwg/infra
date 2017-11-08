@@ -11,13 +11,14 @@ Folks notice minor and larger issues with the Infra Standard all the time and we
 your help fixing those. Pull requests for typographical and grammar errors are also most welcome.
 
 We'd be happy to mentor you through this process. If you're interested and need help getting
-started, leave a comment on the issue or ask around [on IRC](https://wiki.whatwg.org/wiki/IRC).
+started, review the [WHATWG contributing guidelines](https://github.com/whatwg/meta/blob/master/CONTRIBUTING.md),
+and leave a comment on the issue or ask around [on IRC](https://wiki.whatwg.org/wiki/IRC).
 
 ### Pull requests
 
-In short, change `infra.bs` and submit your patch, with a
-[good commit message](https://github.com/erlang/otp/wiki/Writing-good-commit-messages). Consider
-reading through the [WHATWG FAQ](https://wiki.whatwg.org/wiki/FAQ) if you are new here.
+In short, change `infra.bs` and submit your patch after reading through
+[WHATWG committing best practices](https://github.com/whatwg/meta/blob/master/COMMITTING.md).
+Lastly, please review the [WHATWG FAQ](https://wiki.whatwg.org/wiki/FAQ).
 
 Please add your name to the Acknowledgments section in your first pull request, even for trivial
 fixes. The names are sorted lexicographically.
@@ -84,4 +85,4 @@ double quotes).
 ### Merge policy
 
 If you can commit to this repository, see the
-[html repository's TEAM](https://github.com/whatwg/html/blob/master/TEAM.md) for guidelines.
+[WHATWG team](https://github.com/whatwg/meta/blob/master/TEAM.md) guidelines.
