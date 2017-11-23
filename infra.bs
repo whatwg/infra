@@ -157,7 +157,8 @@ over.
 
 <h3 id=variables>Variables</h3>
 
-<p>A variable is declared with "let" and changed with "set".
+<p>A variable must be declared with "let" and must be changed with "set". A variable must not be
+declared more than once per algorithm.
 
 <p class=example id=example-variable>Let |list| be a new <a>list</a>.</p>
 
