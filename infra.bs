@@ -701,7 +701,7 @@ to remove all items from the list that match a given condition, or do nothing if
 </div>
 
 <p>To <dfn export for=list,stack,queue,set>empty</dfn> a <a>list</a> is to <a for=list>remove</a>
-all of its items.
+all of its <a for=list>items</a>.
 
 <p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain|exist>contains</dfn> an
 <a for=list>item</a> if it appears in the list. We can also denote this by saying that, for a
@@ -1037,6 +1037,7 @@ certain inputs.
 <p>Many thanks to
 Addison Phillips,
 Aryeh Gregor,
+Chris Rebert,
 Dominic Farolino,
 Jake Archibald,
 Jungkee Song,
