@@ -275,6 +275,20 @@ be reported and addressed.
 
 <h2 id=primitive-data-types>Primitive data types</h2>
 
+<h3 id=nulls>Nulls</h3>
+
+<p>The value null is identical to the JavaScript <b>null</b> value. [[!ECMA-262]]
+
+<p class=example id=example-null>Let <var>element</var> be null.
+
+
+<h3 id=booleans>Booleans</h3>
+
+<p>A <dfn export>boolean</dfn> is either true or false.
+
+<p class=example id=example-boolean>Let <var>elementSeen</var> be false.
+
+
 <h3 id=bytes>Bytes</h3>
 
 <p>A <dfn export>byte</dfn> is a sequence of eight bits, represented as a double-digit hexadecimal
@@ -289,6 +303,7 @@ section of <cite>ASCII format for Network Interchange</cite>, between parenthese
 
 <p class=example id=example-byte-notation>0x49 (I) when <a>UTF-8 decoded</a> becomes the
 <a>code point</a> U+0049 (I).
+
 
 <h3 id=byte-sequences>Byte sequences</h3>
 
@@ -324,6 +339,7 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
 <a>string</a> whose <a for=string>length</a> is equal to <var>input</var>'s
 <a for="byte sequence">length</a> and whose <a>code points</a> have the same values as
 <var>input</var>'s <a>bytes</a>, in the same order.
+
 
 <h3 id=code-points>Code points</h3>
 
@@ -404,6 +420,7 @@ U+007A (z), inclusive.
 <p>An <dfn export>ASCII alpha</dfn> is an <a>ASCII upper alpha</a> or <a>ASCII lower alpha</a>.
 
 <p>An <dfn export>ASCII alphanumeric</dfn> is an <a>ASCII digit</a> or <a>ASCII alpha</a>.
+
 
 <h3 id=strings>Strings</h3>
 
