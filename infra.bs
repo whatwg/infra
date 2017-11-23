@@ -174,6 +174,20 @@ caller's algorithm. Using prose the caller has the ability to "catch" the except
 another action.
 
 
+<h3 id=algorithm-conditional-abort>Conditional abort</h3>
+
+<p><dfn export>Abort when</dfn> followed by a <var>condition</var> is an instruction that when used
+in a step indicates that all subsequent nested steps are preceded and followed by evaluating
+<var>condition</var>. When <var>condition</var> evaluates to true any of these subsequent nested
+steps that have not yet run are to be skipped. If the next (non-nested) step starts with
+<dfn export>If aborted</dfn>, it is only to be run if the <var>condition</var> of the preceding
+<a>abort when</a> step evaluated to true.
+
+<p class=note>Whenever this construct is used user agents are allowed to evaluate
+<var>condition</var> during the subsequent nested steps rather than before and after each step; as
+long as the end result is indistinguishable from not doing that.
+
+
 <h3 id=algorithm-iteration>Iteration</h3>
 
 <p>There's a variety of ways to repeat a set of steps until a condition is reached.
