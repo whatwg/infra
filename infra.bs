@@ -277,9 +277,12 @@ be reported and addressed.
 
 <h3 id=nulls>Nulls</h3>
 
-<p>The value null is identical to the JavaScript <b>null</b> value. [[!ECMA-262]]
+<p>The value null is used to indicate the lack of a value. It can be used interchangeably with the
+JavaScript <b>null</b> value. [[!ECMA-262]]
 
 <p class=example id=example-null>Let <var>element</var> be null.
+
+<p class=example id=example-null-return>If <var>input</var> is the empty string, then return null.
 
 
 <h3 id=booleans>Booleans</h3>
