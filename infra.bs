@@ -737,8 +737,8 @@ all of its <a for=list>items</a>.
 <p>A <a>list</a> <dfn export for=list,stack,queue,set lt="is empty|is not empty">is empty</dfn> if
 its <a for=list>size</a> is zero.
 
-<p>To <dfn export for=list,stack,queue,set lt="iterate|for each">iterate</dfn> over a <a>list</a>,
-performing a set of steps on each <a for=list>item</a> in order, use phrasing of the form
+<p>To <dfn export for=list,set lt="iterate|for each">iterate</dfn> over a <a>list</a>, performing a
+set of steps on each <a for=list>item</a> in order, use phrasing of the form
 "<a for=list>For each</a> |item| of <var ignore>list</var>", and then operate on |item| in the
 subsequent prose.
 
@@ -775,6 +775,9 @@ but conventionally, the following operations are used to operate on it, instead 
 <a for=stack>item</a> and return it, if the <a>stack</a> <a for=stack>is not empty</a>, or to return
 nothing otherwise.
 
+<p>Although <a>stacks</a> are <a>lists</a>, <a>for each</a> must not be used with them; instead, a
+combination of <a>while</a> and <a for=stack>pop</a> is more appropriate.
+
 <h4 id=queues>Queues</h4>
 
 <p>Some <a>lists</a> are designated as <dfn export lt=queue>queues</dfn>. A queue is a <a>list</a>,
@@ -786,6 +789,9 @@ but conventionally, the following operations are used to operate on it, instead 
 <p>To <dfn export for=queue>dequeue</dfn> from a <a>queue</a> is to <a for=list>remove</a> its first
 <a for=queue>item</a> and return it, if the <a>queue</a> <a for=queue>is not empty</a>, or to return
 nothing if it is.
+
+<p>Although <a>queues</a> are <a>lists</a>, <a>for each</a> must not be used with them; instead, a
+combination of <a>while</a> and <a for=queue>dequeue</a> is more appropriate.
 
 <h4 id=sets>Sets</h4>
 
