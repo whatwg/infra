@@ -178,6 +178,7 @@ over.
 
 <p>Variables must not be used before they are declared. Variables are
 <a href=https://en.wikipedia.org/wiki/Scope_(computer_science)#Block_scope>block scoped</a>.
+Variables must not be declared more than once per algorithm.
 
 
 <h3 id=algorithm-control-flow>Control flow</h3>
