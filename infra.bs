@@ -176,16 +176,75 @@ another action.
 
 <h3 id=algorithm-conditional-abort>Conditional abort</h3>
 
-<p><dfn export>Abort when</dfn> followed by a <var>condition</var> is an instruction that when used
-in a step indicates that all subsequent nested steps are preceded and followed by evaluating
-<var>condition</var>. When <var>condition</var> evaluates to true any of these subsequent nested
-steps that have not yet run are to be skipped. If the next (non-nested) step starts with
-<dfn export>If aborted</dfn>, it is only to be run if the <var>condition</var> of the preceding
-<a>abort when</a> step evaluated to true.
+<p>Sometimes it is useful to stop performing a series of steps once some condition becomes true.
 
-<p class=note>Whenever this construct is used user agents are allowed to evaluate
-<var>condition</var> during the subsequent nested steps rather than before and after each step; as
-long as the end result is indistinguishable from not doing that.
+<p>To do this, state that a given series of steps will <dfn export>abort when</dfn> a
+specific <var>condition</var> is reached. This indicates that the specified steps should be
+evaluated, not as-written, but by additionally inserting a step before each of them and after each
+of them except the last, that evaluates <var>condition</var>, and if <var>condition</var> evaluates
+to true, skips the remaining steps.
+
+<p>In such algorithms, the subsequent step can be annotated to run <dfn export>if aborted</dfn>, in
+which case it must run if the <var>condition</var> of the preceding <a>abort when</a> step evaluated
+to true.
+
+<div class=example>
+ <p>The following algorithm
+
+ <ol>
+  <li><p>Let |result| be an empty <a>list</a>.
+
+  <li>
+   <p>Run these steps, but <a>abort when</a> the user clicks the "Cancel" button:
+
+   <ol>
+    <li><p>Compute the first million digits of <var>π</var>, and <a for=list>append</a> the result
+    to |result|.
+
+    <li><p>Compute the first million digits of |e|, and <a for=list>append</a> the result to
+    |result|.
+
+    <li><p>Compute the first million digits of <var>φ</var>, and <a for=list>append</a> the result
+    to |result|.
+   </ol>
+  </li>
+
+  <li><p><a>If aborted</a>, <a for=list>append</a> "<code>Didn't finish!</code>" to |result|.
+ </ol>
+
+ <p>is equivalent to the more verbose formulation</p>
+
+ <ol>
+  <li><p>Let |result| be an empty <a>list</a>.
+
+  <li><p>Let |aborted| be false.
+
+  <li><p>If the user clicked the "Cancel" button, set |aborted| to true and jump to the step
+  labeled <i>Done</i>.
+
+  <li><p>Compute the first million digits of <var>π</var>, and <a for=list>append</a> the result to
+  |result|.
+
+  <li><p>If the user clicked the "Cancel" button, set |aborted| to true and jump to the step
+  labeled <i>Done</i>.
+
+  <li><p>Compute the first million digits of |e|, and <a for=list>append</a> the result to
+  |result|.
+
+  <li><p>If the user clicked the "Cancel" button, set |aborted| to true and jump to the step
+  labeled <i>Done</i>.
+
+  <li><p>Compute the first million digits of <var>φ</var>, and <a for=list>append</a> the result to
+  |result|.
+
+  <li><p><i>Done</i>: If |aborted| is true, then <a for=list>append</a> "<code>Didn't
+  finish!</code>" to |result|.
+ </ol>
+</div>
+
+<p class=note>Whenever this construct is used, implementations are allowed to evaluate
+<var>condition</var> during the specified steps rather than before and after each step, as long as
+the end result is indistinguishable from not doing that.
 
 
 <h3 id=algorithm-iteration>Iteration</h3>
