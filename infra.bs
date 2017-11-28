@@ -754,6 +754,9 @@ but conventionally, the following operations are used to operate on it, instead 
 <a for=stack>item</a> and return it, if the <a>stack</a> <a for=stack>is not empty</a>, or to return
 nothing otherwise.
 
+<p>Although <a>stacks</a> are <a>lists</a>, <a>for each</a> should not be used with them; instead,
+a combination of <a>while</a> and <a for=stack>pop</a> are more appropriate.
+
 <h4 id=queues>Queues</h4>
 
 <p>Some <a>lists</a> are designated as <dfn export lt=queue>queues</dfn>. A queue is a <a>list</a>,
@@ -765,6 +768,9 @@ but conventionally, the following operations are used to operate on it, instead 
 <p>To <dfn export for=queue>dequeue</dfn> from a <a>queue</a> is to <a for=list>remove</a> its first
 <a for=queue>item</a> and return it, if the <a>queue</a> <a for=queue>is not empty</a>, or to return
 nothing if it is.
+
+<p>Although <a>queues</a> are <a>lists</a>, <a>for each</a> should not be used with them; instead,
+a combination of <a>while</a> and <a for=queue>dequeue</a> are more appropriate.
 
 <h4 id=sets>Sets</h4>
 
