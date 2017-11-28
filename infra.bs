@@ -180,9 +180,8 @@ another action.
 
 <p>To do this, state that a given series of steps will <dfn export>abort when</dfn> a
 specific <var>condition</var> is reached. This indicates that the specified steps should be
-evaluated, not as-written, but by additionally inserting a step before each of them and after each
-of them except the last, that evaluates <var>condition</var>, and if <var>condition</var> evaluates
-to true, skips the remaining steps.
+evaluated, not as-written, but by additionally inserting a step before each of them that evaluates
+<var>condition</var>, and if <var>condition</var> evaluates to true, skips the remaining steps.
 
 <p>In such algorithms, the subsequent step can be annotated to run <dfn export>if aborted</dfn>, in
 which case it must run if the <var>condition</var> of the preceding <a>abort when</a> step evaluated
