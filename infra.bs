@@ -1,26 +1,10 @@
 <pre class='metadata'>
-Title: Infra Standard
+Group: WHATWG
 H1: Infra
 Shortname: infra
-Status: LS
-Group: WHATWG
-No Editor: true
-Logo: https://resources.whatwg.org/logo-infra.svg
+Text Macro: TWITTER infrastandard
 Abstract: The Infra Standard aims to define the fundamental concepts upon which standards are built.
-!Participate: <a href=https://github.com/whatwg/infra>GitHub whatwg/infra</a> (<a href=https://github.com/whatwg/infra/issues/new>new issue</a>, <a href=https://github.com/whatwg/infra/issues>open issues</a>)
-!Participate: <a href=https://wiki.whatwg.org/wiki/IRC>IRC: #whatwg on Freenode</a>
-!Commits: <a href=https://github.com/whatwg/infra/commits>GitHub whatwg/infra/commits</a>
-!Commits: [SNAPSHOT-LINK]
-!Commits: <a href=https://twitter.com/infrastandard>@infrastandard</a>
-!Translation (non-normative): <span title=Japanese><a href=https://triple-underscore.github.io/infra-ja.html lang=ja hreflang=ja rel=alternate>日本語</a></span>
-Boilerplate: omit conformance, omit feedback-header, omit idl-index
-</pre>
-
-<script src=https://resources.whatwg.org/file-issue.js async></script>
-<script src=https://resources.whatwg.org/commit-snapshot-shortcut-key.js async></script>
-<script src=https://resources.whatwg.org/dfn.js defer></script>
-
-<pre class="link-defaults">
+Translation: ja https://triple-underscore.github.io/infra-ja.html
 </pre>
 
 <pre class="anchors">
@@ -791,8 +775,8 @@ but conventionally, the following operations are used to operate on it, instead 
 <a for=stack>item</a> and return it, if the <a>stack</a> <a for=stack>is not empty</a>, or to return
 nothing otherwise.
 
-<p>Although <a>stacks</a> are <a>lists</a>, <a>for each</a> must not be used with them; instead, a
-combination of <a>while</a> and <a for=stack>pop</a> is more appropriate.
+<p>Although <a>stacks</a> are <a>lists</a>, <a for=list>for each</a> must not be used with them;
+instead, a combination of <a>while</a> and <a for=stack>pop</a> is more appropriate.
 
 <h4 id=queues>Queues</h4>
 
@@ -806,8 +790,8 @@ but conventionally, the following operations are used to operate on it, instead 
 <a for=queue>item</a> and return it, if the <a>queue</a> <a for=queue>is not empty</a>, or to return
 nothing if it is.
 
-<p>Although <a>queues</a> are <a>lists</a>, <a>for each</a> must not be used with them; instead, a
-combination of <a>while</a> and <a for=queue>dequeue</a> is more appropriate.
+<p>Although <a>queues</a> are <a>lists</a>, <a for=list>for each</a> must not be used with them;
+instead, a combination of <a>while</a> and <a for=queue>dequeue</a> is more appropriate.
 
 <h4 id=sets>Sets</h4>
 
@@ -1108,7 +1092,3 @@ for being awesome!
 <a href=mailto:annevk@annevk.nl>annevk@annevk.nl</a>) and
 <a href=https://domenic.me/>Domenic Denicola</a> (<a href=https://www.google.com/>Google</a>,
 <a href=mailto:d@domenic.me>d@domenic.me</a>).
-
-<p>Per <a rel=license href=https://creativecommons.org/publicdomain/zero/1.0/>CC0</a>, to the extent
-possible under law, the editors have waived all copyright and related or neighboring rights to this
-work.
