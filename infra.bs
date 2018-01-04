@@ -663,6 +663,22 @@ interspersed <a>ASCII whitespace</a>.
  <li><p>Return <var>tokens</var>.
 </ol>
 
+<p>To <dfn export for=string lt=concatenate|concatenation>concatenate</dfn> a <a for=/>list</a> of
+<a for=/>strings</a> <var>list</var>, using an optional separator string <var>separator</var>, run
+these steps:
+
+<ol>
+ <li><p>If <var>list</var> <a for=list>is empty</a>, then return the empty string.
+
+ <li><p>If <var>separator</var> is not given, then set <var>separator</var> to the empty string.
+
+ <li><p>Return a <a for=/>string</a> whose contents are <var>list</var>'s <a for=list>items</a>, in
+ order, separated from each other by <var>separator</var>.
+</ol>
+
+<p class=example id=example-string-concatenate>To serialize a set <var>set</var>, return the
+<a for=string>concatenation</a> of <var>set</var> using U+0020 SPACE.
+
 
 <h2 id=data-structures>Data structures</h2>
 
@@ -1076,6 +1092,7 @@ Leonid Vasilyev,
 Malika Aubakirova,
 Michael™ Smith,
 Mike West,
+Ms2ger,
 Philip Jägenstedt,
 Rashaun "Snuggs" Stovall,
 Sergey Shekyan,
