@@ -157,8 +157,9 @@ over.
  </ol>
 </div>
 
-<p class=example id=example-variable-ternary>Let |activationTarget| be |target|, if
-|isActivationEvent| is true and target has activation behavior, and null otherwise.
+<p class=example id=example-variable-ternary>Let <var ignore>activationTarget</var> be
+<var ignore>target</var>, if <var ignore>isActivationEvent</var> is true and target has activation
+behavior, and null otherwise.
 
 <p>Variables must not be used before they are declared. Variables are
 <a href=https://en.wikipedia.org/wiki/Scope_(computer_science)#Block_scope>block scoped</a>.
@@ -268,7 +269,7 @@ Standard that should be reported and addressed.
 <p>The value null is used to indicate the lack of a value. It can be used interchangeably with the
 JavaScript <b>null</b> value. [[!ECMA-262]]
 
-<p class=example id=example-null>Let <var>element</var> be null.
+<p class=example id=example-null>Let <var ignore>element</var> be null.
 
 <p class=example id=example-null-return>If <var>input</var> is the empty string, then return null.
 
@@ -277,7 +278,7 @@ JavaScript <b>null</b> value. [[!ECMA-262]]
 
 <p>A <dfn export>boolean</dfn> is either true or false.
 
-<p class=example id=example-boolean>Let <var>elementSeen</var> be false.
+<p class=example id=example-boolean>Let <var ignore>elementSeen</var> be false.
 
 
 <h3 id=bytes>Bytes</h3>
@@ -1023,7 +1024,7 @@ certain inputs.
    Table 1: The Base 64 Alphabet of RFC 4648. Let <var>n</var> be the number given in the first cell
    of the same row. [[!RFC4648]]
 
-   <li><p>Append the six bits corresponding to <var>number</var>, most significant bit first, to
+   <li><p>Append the six bits corresponding to <var>n</var>, most significant bit first, to
    <var>buffer</var>.
 
    <li><p>If <var>buffer</var> has accumulated 24 bits, interpret them as three 8-bit big-endian
