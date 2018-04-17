@@ -216,28 +216,27 @@ to true.
  <ol>
   <li><p>Let |result| be an empty <a>list</a>.
 
-  <li><p>Let |aborted| be false.
+  <li>
+   <p>If the user has not clicked the "Cancel" button, then:
 
-  <li><p>If the user clicked the "Cancel" button, set |aborted| to true and jump to the step
-  labeled <i>Done</i>.
+   <ol>
+    <li><p>Compute the first million digits of <var>π</var>, and <a for=list>append</a> the result
+    to |result|.
 
-  <li><p>Compute the first million digits of <var>π</var>, and <a for=list>append</a> the result to
-  |result|.
+    <li>
+     <p>If the user has not clicked the "Cancel" button, then:
 
-  <li><p>If the user clicked the "Cancel" button, set |aborted| to true and jump to the step
-  labeled <i>Done</i>.
+     <ol>
+      <li><p>Compute the first million digits of |e|, and <a for=list>append</a> the result to
+      |result|.
 
-  <li><p>Compute the first million digits of |e|, and <a for=list>append</a> the result to
-  |result|.
+      <li><p>If the user has not clicked the "Cancel" button, then compute the first million digits
+      of <var>φ</var>, and <a for=list>append</a> the result to |result|.
+     </ol>
+   </ol>
 
-  <li><p>If the user clicked the "Cancel" button, set |aborted| to true and jump to the step
-  labeled <i>Done</i>.
-
-  <li><p>Compute the first million digits of <var>φ</var>, and <a for=list>append</a> the result to
-  |result|.
-
-  <li><p><i>Done</i>: If |aborted| is true, then <a for=list>append</a> "<code>Didn't
-  finish!</code>" to |result|.
+  <li><p>If the user clicked the "Cancel" button, then <a for=list>append</a>
+  "<code>Didn't finish!</code>" to |result|.
  </ol>
 </div>
 
