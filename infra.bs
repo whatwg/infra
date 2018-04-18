@@ -176,7 +176,7 @@ another action.
 
 <h3 id=algorithm-conditional-abort>Conditional abort</h3>
 
-<p>Sometimes it is useful to stop performing a series of steps once some condition becomes true.
+<p>Sometimes it is useful to stop performing a series of steps once a condition becomes true.
 
 <p>To do this, state that a given series of steps will <dfn export>abort when</dfn> a specific
 <var>condition</var> is reached. This indicates that the specified steps must be evaluated, not
@@ -184,8 +184,8 @@ as-written, but by additionally inserting a step before each of them that evalua
 <var>condition</var>, and if <var>condition</var> evaluates to true, skips the remaining steps.
 
 <p>In such algorithms, the subsequent step can be annotated to run <dfn export>if aborted</dfn>, in
-which case it must run if the <var>condition</var> of the preceding <a>abort when</a> step evaluated
-to true.
+which case it must run if any of the preceding steps were skipped due to the <var>condition</var>
+of the preceding <a>abort when</a> step evaluated to true.
 
 <div class=example id=example-conditional-abort>
  <p>The following algorithm
@@ -242,8 +242,8 @@ to true.
 
 <p class=note>Whenever this construct is used, implementations are allowed to evaluate
 <var>condition</var> during the specified steps rather than before and after each step, as long as
-the end result is indistinguishable from not doing that. For instance, as long as |result| in the
-above example is not mutated during a compute operation, the user agent could stop the computation.
+the end result is indistinguishable. For instance, as long as |result| in the above example is not
+mutated during a compute operation, the user agent could stop the computation.
 
 
 <h3 id=algorithm-iteration>Iteration</h3>
