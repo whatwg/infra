@@ -922,13 +922,20 @@ in consecutively increasing order, as long as <var>m</var> is greather than or e
 
 <h3 id=maps>Maps</h3>
 
-<p>An <dfn export lt="ordered map|map">ordered map</dfn>, or sometimes just "map", is a
+<p>An <dfn export lt="ordered multimap|multimap">ordered multimap</dfn>, or sometimes just "multimap", is a
 specification type consisting of a finite ordered sequence of
-<dfn for=map export>key</dfn>/<dfn for=map export>value</dfn> pairs, with no key appearing twice.
+<dfn for=map export>key</dfn>/<dfn for=map export>value</dfn> pairs, with no requirement for key uniqueness, 
+nore that all equal keys appear together in the sequence.
 Each key/value pair is called an <dfn for=map export>entry</dfn>.
 
-<p class=note>As with <a>ordered sets</a>, by default we assume that maps need to be ordered for
-interoperability among implementations.
+<p>An <dfn export lt="ordered map|map">ordered map</dfn>, or sometimes just "map", is a
+specification type consisting of a finite ordered sequence of
+<a>key</a>/<a>value</a> pairs, with no key appearing twice.
+Each key/value pair is called an <a>entry</a>.  Conceptually, an <a>ordered map</a> is a 
+subtype of <a>ordered multimap</a> with an added uniqueness constraint.
+
+<p class=note>As with <a>ordered sets</a>, by default we assume that multimaps and maps need
+to be ordered for interoperability among implementations.
 
 <p>A literal syntax can be used to express <a>ordered maps</a>, by surrounding the ordered map with
 «[ ]» characters, denoting each of its <a for=map>entries</a> as |key| → |value|, and separating its
