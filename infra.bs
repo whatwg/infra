@@ -922,12 +922,6 @@ in consecutively increasing order, as long as <var>m</var> is greather than or e
 
 <h3 id=maps>Maps</h3>
 
-<p>An <dfn export lt="ordered multimap|multimap">ordered multimap</dfn>, or sometimes just "multimap", is a
-specification type consisting of a finite ordered sequence of
-<dfn for=map export>key</dfn>/<dfn for=map export>value</dfn> pairs, with no requirement for key uniqueness, 
-nore that all equal keys appear together in the sequence.
-Each key/value pair is called an <dfn for=map export>entry</dfn>.
-
 <p>An <dfn export lt="ordered map|map">ordered map</dfn>, or sometimes just "map", is a
 specification type consisting of a finite ordered sequence of
 <a>key</a>/<a>value</a> pairs, with no key appearing twice.
@@ -989,6 +983,14 @@ a set of steps on each <a for=map>entry</a> in order, use phrasing of the form
 "<a for=map>For each</a> |key| → |value| of |map|", and then operate on |key| and |value| in the
 subsequent prose.
 
+<h4 id=structs>Multimaps</h3>
+
+<p>An <dfn export lt="ordered multimap|multimap">ordered multimap</dfn>, or sometimes just "multimap", is a
+specification type consisting of a finite ordered sequence of
+<dfn for=map export>key</dfn>/<dfn for=map export>value</dfn> pairs, with no requirement for key uniqueness, 
+nor that all equal keys appear together in the sequence.
+Each key/value pair is called an <dfn for=map export>entry</dfn>.   This specification does not currently 
+define generic operations on a multimap.
 
 <h3 id=structs>Structs</h3>
 
