@@ -2,7 +2,7 @@ This repository hosts the [Infra Standard](https://infra.spec.whatwg.org/).
 
 ### Code of conduct
 
-We are committed to providing a friendly, safe and welcoming environment for all. Please read and
+We are committed to providing a friendly, safe, and welcoming environment for all. Please read and
 respect the [WHATWG Code of Conduct](https://whatwg.org/code-of-conduct).
 
 ### Contribution opportunities
@@ -12,7 +12,7 @@ your help fixing those. Pull requests for typographical and grammar errors are a
 
 We'd be happy to mentor you through this process. If you're interested and need help getting
 started, review the [WHATWG contributing guidelines](https://github.com/whatwg/meta/blob/master/CONTRIBUTING.md),
-and leave a comment on the issue or ask around [on IRC](https://wiki.whatwg.org/wiki/IRC).
+and leave a comment on the issue or ask around [on IRC](https://whatwg.org/irc).
 
 ### Pull requests
 
@@ -23,12 +23,11 @@ Lastly, please review the [WHATWG FAQ](https://wiki.whatwg.org/wiki/FAQ).
 Please add your name to the Acknowledgments section in your first pull request, even for trivial
 fixes. The names are sorted lexicographically.
 
-If you want to preview the spec locally, you can either use a locally installed copy of
-[Bikeshed](https://github.com/tabatkins/bikeshed) by running `make` or use the HTTP API version by
-running `make remote`.
+### Building "locally"
 
-If you want to do a complete "local deploy" including commit and/or branch snapshots, run
-`make deploy`.
+For quick local iteration, run `make`. To verify your changes locally, run `make deploy`. See more
+in the
+[WHATWG Contributor Guidelines](https://github.com/whatwg/meta/blob/master/CONTRIBUTING.md#building).
 
 #### Formatting
 
