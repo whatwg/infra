@@ -1,5 +1,6 @@
 /infra.spec.whatwg.org/
-deploy_key
-deploy_key.pub
-deploy.sh
-infra.html
+/deploy_key
+/deploy_key.pub
+/deploy.sh
+/infra.html
+/review.sh
