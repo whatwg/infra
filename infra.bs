@@ -1042,6 +1042,19 @@ as 200/`<code>OK</code>`.
   <p class=note>The conventions used in this step are those of the JavaScript specification.
 </ol>
 
+<p>To <dfn export>JSON stringify and UTF-8 encode to bytes</dfn> a given JavaScript value
+<var>value</var>, run these steps:
+
+<ol>
+ <li>
+  <p>Let <var>jsonString</var> be the result of
+  <a abstract-op>Call</a>(<a>%JSONStringify%</a>, undefined, « <var>value</var> »).
+  [[!ECMA-262]]
+  <p class=note>The conventions used in this step are those of the JavaScript specification.
+
+ <li><p>Return the result of running <a>UTF-8 encode</a> on <var>jsonString</var>. [[!ENCODING]]
+</ol>
+
 
 <h2 id=forgiving-base64>Forgiving base64</h2>
 
