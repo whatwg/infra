@@ -11,6 +11,7 @@ Translation: ja https://triple-underscore.github.io/infra-ja.html
 urlPrefix: https://tc39.github.io/ecma262/; spec: ECMA-262;
     type: dfn
         text: %JSONParse%; url: sec-json.parse
+        text: %JSONStringify%; url: #sec-json.stringify
         text: List; url: sec-list-and-record-specification-type
         text: The String Type; url: sec-ecmascript-language-types-string-type
     type: abstract-op; text: Call; url: sec-call
@@ -1040,6 +1041,8 @@ as 200/`<code>OK</code>`.
   [[!ECMA-262]]
 
   <p class=note>The conventions used in this step are those of the JavaScript specification.
+    Also, since no additional arguments are passed to <a>%JSONStringify%</a>, the resulting string
+    will have no whitespace inserted.
 </ol>
 
 <p>To <dfn export>JSON stringify and UTF-8 encode to bytes</dfn> a given JavaScript value
