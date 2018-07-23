@@ -1041,8 +1041,7 @@ as 200/`<code>OK</code>`.
   [[!ECMA-262]]
 
   <p class=note>The conventions used in this step are those of the JavaScript specification.
-    Also, since no additional arguments are passed to <a>%JSONStringify%</a>, the resulting string
-    will have no whitespace inserted.
+
 </ol>
 
 <p>To <dfn export>JSON stringify and UTF-8 encode to bytes</dfn> a given JavaScript value
@@ -1054,6 +1053,8 @@ as 200/`<code>OK</code>`.
   <a abstract-op>Call</a>(<a>%JSONStringify%</a>, undefined, « <var>value</var> »).
   [[!ECMA-262]]
   <p class=note>The conventions used in this step are those of the JavaScript specification.
+    Also, since no additional arguments are passed to <a>%JSONStringify%</a>, the resulting string
+    will have no whitespace inserted.
 
  <li><p>Return the result of running <a>UTF-8 encode</a> on <var>jsonString</var>. [[!ENCODING]]
 </ol>
