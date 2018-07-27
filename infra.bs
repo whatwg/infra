@@ -569,6 +569,18 @@ the <a>string</a> with their corresponding <a>code point</a> in <a>ASCII upper a
 <a>ASCII lowercase</a> of <var>B</var>.
 <!-- TODO: define string equals? -->
 
+<p>To <dfn export>ASCII encode</dfn> a <a>string</a> <var>input</var>, run these steps:</p>
+
+<ol>
+ <li><p><a>Assert</a>: <var>input</var> is an <a>ASCII string</a>.
+
+ <p class=note>Note: This precondition ensures that <a>isomorphic encode</a> and
+ <a>utf-8 encode</a> return the same <a>byte sequence</a> for this input.
+
+ <li><p>Return the <a>isomorphic encoding</a> of <var>input</var>.
+</ol>
+
+
 <hr>
 
 <p>To <dfn export>strip newlines</dfn> from a <a>string</a>, remove any U+000A LF and U+000D CR
