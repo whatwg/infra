@@ -1044,13 +1044,13 @@ as 200/`<code>OK</code>`.
 
 </ol>
 
-<p>To <dfn export>JSON stringify and UTF-8 encode to bytes</dfn> a given JavaScript value
-<var>value</var>, run these steps:
+<p>To <dfn export>serialize JSON to bytes</dfn> a given JavaScript value <var>value</var>, run these
+steps:
 
 <ol>
  <li>
   <p>Let <var>jsonString</var> be the result of
-  <a abstract-op>Call</a>(<a>%JSONStringify%</a>, undefined, « <var>value</var> »).
+  ? <a abstract-op>Call</a>(<a>%JSONStringify%</a>, undefined, « <var>value</var> »).
   [[!ECMA-262]]
   <p class=note>The conventions used in this step are those of the JavaScript specification.
     Also, since no additional arguments are passed to <a>%JSONStringify%</a>, the resulting string
