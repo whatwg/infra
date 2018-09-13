@@ -937,8 +937,7 @@ of creating a new <a>ordered set</a> |set| and, <a for=list>for each</a> |item| 
 
 <p><dfn export lt="the range">The range</dfn> <var>n</var> to <var>m</var>, inclusive, creates a new
 <a>ordered set</a> containing all of the integers from <var>n</var> up to and including <var>m</var>
-in consecutively increasing order, as long as <var>m</var> is greather than or equal to
-<var>n</var>.
+in consecutively increasing order, as long as <var>m</var> is greater than or equal to <var>n</var>.
 
 <p class=example id=example-the-range><a for=set>For each</a> <var>n</var> of <a>the range</a> 1 to
 4, inclusive, &hellip;
