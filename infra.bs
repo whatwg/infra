@@ -598,6 +598,10 @@ the <a>string</a> with their corresponding <a>code point</a> in <a>ASCII upper a
 <p>To <dfn export>strip newlines</dfn> from a <a>string</a>, remove any U+000A LF and U+000D CR
 <a>code points</a> from the <a>string</a>.
 
+<p>To <dfn export>normalize newlines</dfn> in a <a>string</a>, replace every U+000D CR U+000A LF
+<a>code point</a> pair with a single U+000A LF <a>code point</a>, and then replace every remaining
+U+000D CR <a>code point</a> with a U+000A LF <a>code point</a>.
+
 <p>To <dfn export>strip leading and trailing ASCII whitespace</dfn> from a <a>string</a>, remove all
 <a>ASCII whitespace</a> that are at the start or the end of the <a>string</a>.
 
