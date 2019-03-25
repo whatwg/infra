@@ -799,6 +799,9 @@ out-of-bounds, except when used with <a for=list>exists</a>.
 <p>To <dfn export for=list>append</dfn> to a <a>list</a> that is not an <a>ordered set</a> is to
 add the given <a for=list>item</a> to the end of the list.
 
+<p>To <dfn export for=list>flat append</dfn> a <a>list</a> |A| to a <a>list</a> |B|,
+<a for=list>for each</a> |item| of |A|, <a for=list>append</a> |item| to |B|.
+
 <p>To <dfn export for=list>prepend</dfn> to a <a>list</a> that is not an <a>ordered set</a> is to
 add the given <a for=list>item</a> to the beginning of the list.
 
