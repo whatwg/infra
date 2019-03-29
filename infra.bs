@@ -802,10 +802,18 @@ add the given <a for=list>item</a> to the end of the list.
 <p>To <dfn export for=list>extend</dfn> a <a>list</a> |A| with a <a>list</a> |B|,
 <a for=list>for each</a> |item| of |B|, <a for=list>append</a> |item| to |A|.
 
-<p class=example id=example-list-extend>To <a for=list>extend</a> « "<code>Erin Gilbert</code>",
-"<code>Abby Yates</code>" » with « "<code>Jillian Holtzmann</code>", "<code>Patty Tolan</code>" »
-gives « "<code>Erin Gilbert</code>", "<code>Abby Yates</code>", "<code>Jillian Holtzmann</code>",
-"<code>Patty Tolan</code>" ».
+<div class=example id=example-list-extend>
+ <ol>
+  <li><p>Let |ghostbusters| be « "<code>Erin Gilbert</code>", "<code>Abby Yates</code>" ».
+
+  <li><p><a for=list>Extend</a> |ghostbusters| with « "<code>Jillian Holtzmann</code>",
+  "<code>Patty Tolan</code>" ».
+
+  <li><p><a>Assert</a>: |ghostbusters|'s <a for=list>size</a> is 4.
+
+  <li><p><a>Assert</a>: |ghostbusters|[2] is "<code>Jillian Holtzmann</code>".
+ </ol>
+</div>
 
 <p>To <dfn export for=list>prepend</dfn> to a <a>list</a> that is not an <a>ordered set</a> is to
 add the given <a for=list>item</a> to the beginning of the list.
