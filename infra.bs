@@ -556,11 +556,11 @@ if the following steps return true:
   <p><a>While</a> true:
 
   <ol>
-   <li><p>Let <var>aCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>a</var>, or null
-   if <var>i</var> is greater than or equal to <var>a</var>'s <a for=string>length</a>.
+   <li><p>Let <var>aCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>a</var> if
+   <var>i</var> is less than <var>a</var>'s <a for=string>length</a>, otherwise null.
 
-   <li><p>Let <var>bCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>b</var>, or null
-   if <var>i</var> is greater than or equal to <var>b</var>'s <a for=string>length</a>.
+   <li><p>Let <var>aCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>b</var> if
+   <var>i</var> is less than <var>b</var>'s <a for=string>length</a>, otherwise null.
 
    <li><p>If both <var>aCodeUnit</var> and <var>bCodeUnit</var> are null, then return true.
 
@@ -595,8 +595,8 @@ literal, we can use plainer language: <var>userInput</var> starts with "<code>!<
  <li><p>If <var>a</var> is a <a>code unit prefix</a> of <var>b</var>, then return true.
 
  <li><p>Let <var>n</var> be the smallest index such that the <var>n</var>th <a>code unit</a> of
- <var>a</var> is different from the <var>n</var>th code unit of <var>b</var>. (There must be such an
- index, since neither string is a prefix of the other.)
+ <var>a</var> is different from the <var>n</var>th code unit of <var>b</var>. (There has to be such
+ an index, since neither string is a prefix of the other.)
 
  <li><p>If the <var>n</var>th code unit of <var>a</var> is less than the <var>n</var>th code unit of
  <var>b</var>, then return true.
@@ -607,9 +607,8 @@ literal, we can use plainer language: <var>userInput</var> starts with "<code>!<
 <p class="note">This matches the ordering used by JavaScript's <code>&lt;</code> operator, and its
 {{Array/sort()}} method on an array of strings. This ordering compares the 16-bit code units in each
 string, producing a highly efficient, consistent, and deterministic sort order. The resulting
-ordering will not match any particular alphabet or lexoicographic order, particular for
+ordering will not match any particular alphabet or lexicographic order, particularly for
 <a>code points</a> represented by a surrogate pair. [[!ECMA-262]]
-
 
 <hr>
 
