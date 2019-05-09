@@ -1216,8 +1216,7 @@ the involved objects or arrays are tied to a particular <a lt="realm">JavaScript
 standards, it is often more convenient to parse JSON into realm-independent <a>maps</a>,
 <a>lists</a>, <a>strings</a>, <a>booleans</a>, numbers, and nulls.
 
-<p>To <dfn export>parse JSON into maps and lists</dfn>, given a <a>string</a>
-<var>jsonText</var>:
+<p>To <dfn export>parse JSON into Infra values</dfn>, given a <a>string</a> <var>jsonText</var>:
 
 <ol>
  <li><p>Let |jsValue| be ? [$Call$](<a>%JSONParse%</a>, undefined, « |jsonText| »).
@@ -1276,6 +1275,7 @@ given a JavaScript value <var>jsValue</var>:
 
  <li><p>Return |result|.
 </ol>
+
 
 <h2 id=forgiving-base64>Forgiving base64</h2>
 
