@@ -14,8 +14,8 @@ urlPrefix: https://tc39.github.io/ecma262/#; spec: ECMA-262;
         text: %JSONStringify%; url: sec-json.stringify
         text: List; url: sec-list-and-record-specification-type
         text: The String Type; url: sec-ecmascript-language-types-string-type
-    type: method; for: Array; text: sort(); url: sec-array.prototype.sort
         text: realm; url: realm
+    type: method; for: Array; text: sort(); url: sec-array.prototype.sort
     type: abstract-op;
         text: Call; url: sec-call
         text: Get; url: sec-get-o-p
