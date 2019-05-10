@@ -14,8 +14,15 @@ urlPrefix: https://tc39.github.io/ecma262/#; spec: ECMA-262;
         text: %JSONStringify%; url: sec-json.stringify
         text: List; url: sec-list-and-record-specification-type
         text: The String Type; url: sec-ecmascript-language-types-string-type
-    type: abstract-op; text: Call; url: sec-call
+        text: realm; url: realm
     type: method; for: Array; text: sort(); url: sec-array.prototype.sort
+    type: abstract-op;
+        text: Call; url: sec-call
+        text: Get; url: sec-get-o-p
+        text: IsArray; url: sec-isarray
+        text: ToLength; url: sec-tolength
+        text: ToString; url: sec-tostring
+        text: Type; url: sec-ecmascript-data-types-and-values
 </pre>
 
 
@@ -1176,18 +1183,16 @@ as 200/`<code>OK</code>`.
 
 <h2 id=json>JSON</h2>
 
+<p class=note>The conventions used in the algorithms in this section are those of the JavaScript
+specification. [[!ECMA-262]]
+
 <p>To <dfn export>parse JSON from bytes</dfn> given <var>bytes</var>, run these steps:
 
 <ol>
  <li><p>Let <var>jsonText</var> be the result of running <a>UTF-8 decode</a> on <var>bytes</var>.
  [[!ENCODING]]
 
- <li>
-  <p>Return ? <a abstract-op>Call</a>(<a>%JSONParse%</a>, undefined, « <var>jsonText</var> »).
-  [[!ECMA-262]]
-
-  <p class=note>The conventions used in this step are those of the JavaScript specification.
-
+ <li><p>Return ? <a abstract-op>Call</a>(<a>%JSONParse%</a>, undefined, « <var>jsonText</var> »).
 </ol>
 
 <p>To <dfn export>serialize JSON to bytes</dfn> a given JavaScript value <var>value</var>, run these
@@ -1195,14 +1200,80 @@ steps:
 
 <ol>
  <li>
-  <p>Let <var>jsonString</var> be the result of
+  <p>Let <var>jsonString</var> be
   ? <a abstract-op>Call</a>(<a>%JSONStringify%</a>, undefined, « <var>value</var> »).
-  [[!ECMA-262]]
-  <p class=note>The conventions used in this step are those of the JavaScript specification.
-    Also, since no additional arguments are passed to <a>%JSONStringify%</a>, the resulting string
-    will have no whitespace inserted.
+
+  <p class=note>Since no additional arguments are passed to <a>%JSONStringify%</a>, the resulting
+  string will have no whitespace inserted.
 
  <li><p>Return the result of running <a>UTF-8 encode</a> on <var>jsonString</var>. [[!ENCODING]]
+</ol>
+
+<hr>
+
+<p>The above two operations operate on JavaScript values directly; in particular, this means that
+the involved objects or arrays are tied to a particular <a lt="realm">JavaScript realm</a>. In
+standards, it is often more convenient to parse JSON into realm-independent <a>maps</a>,
+<a>lists</a>, <a>strings</a>, <a>booleans</a>, numbers, and nulls.
+
+<p>To <dfn export>parse JSON into Infra values</dfn>, given a <a>string</a> <var>jsonText</var>:
+
+<ol>
+ <li><p>Let |jsValue| be ? [$Call$](<a>%JSONParse%</a>, undefined, « |jsonText| »).
+
+ <li><p>Return the result of [=converting a JSON-derived JavaScript value to an Infra value=], given
+ |jsValue|.
+</ol>
+
+<p>To <dfn lt="convert a JSON-derived JavaScript value to an Infra value|converting a JSON-derived JavaScript value to an Infra value">convert a JSON-derived JavaScript value to an Infra value</dfn>,
+given a JavaScript value <var>jsValue</var>:
+
+<ol>
+ <li><p>If [$Type$](|jsValue|) is Null, String, or Number, then return |jsValue|.
+
+ <li>
+  <p>If [$IsArray$](|jsValue|) is true, then:
+
+   <ol>
+    <li><p>Let |result| be an empty [=list=].
+
+    <li><p>Let |length| be ! [$ToLength$](! [$Get$](|jsValue|, "<code>length</code>")).
+
+    <li>
+      <p>[=list/For each=] |index| of [=the range=] 0 to |length| &minus; 1, inclusive:
+
+      <ol>
+       <li><p>Let |indexName| be ! [$ToString$](|index|).
+
+       <li><p>Let |jsValueAtIndex| be ! [$Get$](|jsValue|, |indexName|).
+
+       <li><p>Let |infraValueAtIndex| be the result of [=converting a JSON-derived JavaScript value to an Infra value=],
+       given |jsValueAtIndex|.
+
+       <li><p>[=list/Append=] |infraValueAtIndex| to |result|.
+      </ol>
+    </li>
+
+    <li><p>Return |result|.
+   </ol>
+ </li>
+
+ <li><p>Let |result| be an empty [=ordered map=].
+
+ <li>
+  <p>[=list/For each=] |key| of ! |jsValue|.\[[OwnPropertyKeys]]():
+
+   <ol>
+    <li><p>Let |jsValueAtKey| be ! [$Get$](|jsValue|, |key|).
+
+    <li><p>Let |infraValueAtKey| be the result of [=converting a JSON-derived JavaScript value to an Infra value=],
+    given |jsValueAtKey|.
+
+    <li><p>[=map/Set=] |result|[|key|] to |infraValueAtKey|.
+   </ol>
+ </li>
+
+ <li><p>Return |result|.
 </ol>
 
 
