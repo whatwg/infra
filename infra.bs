@@ -1073,7 +1073,8 @@ interoperability among implementations.
 <p>A literal syntax can be used to express <a>ordered maps</a>, by surrounding the ordered map with
 «[ ]» characters, denoting each of its <a for=map>entries</a> as |key| → |value|, and separating its
 entries with a comma. An indexing syntax can be used to look up and set <a for=map>values</a> by
-providing a <a for=map>key</a> inside square brackets.
+providing a <a for=map>key</a> inside square brackets. The index cannot be out-of-bounds, except
+when used with <a for=map>exists</a>.
 
 <p class=example id=example-map-notation>Let |example| be the <a>ordered map</a> «[
 "<code>a</code>" → `<code>x</code>`, "<code>b</code>" → `<code>y</code>` ]». Then
@@ -1082,9 +1083,9 @@ providing a <a for=map>key</a> inside square brackets.
 <hr>
 
 <p>To <dfn export for=map lt="get|get the value">get the value of an entry</dfn> in an
-<a>ordered map</a> given a <a for=map>key</a>: if the map <a for=map>contains</a> an entry with the
-given key, then return the <a for=map>value</a> of the matching <a for=map>entry</a>; otherwise,
-return nothing. We can also use the indexing syntax explained above.
+<a>ordered map</a> given a <a for=map>key</a>, return the <a for=map>value</a> of the
+<a for=map>entry</a> whose <a for=map>key</a> is the given key. We can also use the indexing syntax
+explained above.
 
 <p>To <dfn export for=map lt="set|set the value">set the value of an entry</dfn> in an
 <a>ordered map</a> to a given <a for=map>value</a> is to update the value of any existing
