@@ -168,7 +168,7 @@ over.
 
 <p class=example id=example-variable-ternary>Let <var ignore>activationTarget</var> be
 <var ignore>target</var> if <var ignore>isActivationEvent</var> is true and target has activation
-behavior, otherwise null.
+behavior; otherwise null.
 
 <p>Variables must not be used before they are declared. Variables are
 <a href=https://en.wikipedia.org/wiki/Scope_(computer_science)#Block_scope>block scoped</a>.
@@ -564,10 +564,10 @@ if the following steps return true:
 
   <ol>
    <li><p>Let <var>aCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>a</var> if
-   <var>i</var> is less than <var>a</var>'s <a for=string>length</a>, otherwise null.
+   <var>i</var> is less than <var>a</var>'s <a for=string>length</a>; otherwise null.
 
    <li><p>Let <var>aCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>b</var> if
-   <var>i</var> is less than <var>b</var>'s <a for=string>length</a>, otherwise null.
+   <var>i</var> is less than <var>b</var>'s <a for=string>length</a>; otherwise null.
 
    <li><p>If both <var>aCodeUnit</var> and <var>bCodeUnit</var> are null, then return true.
 
