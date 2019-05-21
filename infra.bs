@@ -167,8 +167,8 @@ over.
 </div>
 
 <p class=example id=example-variable-ternary>Let <var ignore>activationTarget</var> be
-<var ignore>target</var>, if <var ignore>isActivationEvent</var> is true and target has activation
-behavior, and null otherwise.
+<var ignore>target</var> if <var ignore>isActivationEvent</var> is true and target has activation
+behavior; otherwise null.
 
 <p>Variables must not be used before they are declared. Variables are
 <a href=https://en.wikipedia.org/wiki/Scope_(computer_science)#Block_scope>block scoped</a>.
@@ -421,8 +421,8 @@ represented as a four-to-six digit hexadecimal number, typically prefixed with "
 
 <p>A <a>code point</a> may be followed by its name, by its rendered form between parentheses when it
 is not U+0028 or U+0029, or by both. Documents using the Infra Standard are encouraged to follow
-<a>code points</a> by their name when they cannot be rendered or are U+0028 or U+0029, and their
-rendered form between parentheses otherwise, for legibility.
+<a>code points</a> by their name when they cannot be rendered or are U+0028 or U+0029; otherwise,
+follow them by their rendered form between parentheses, for legibility.
 
 <p>A <a>code point</a>'s name is defined in the Unicode Standard and represented in
 <a>ASCII uppercase</a>. [[!UNICODE]]
@@ -564,10 +564,10 @@ if the following steps return true:
 
   <ol>
    <li><p>Let <var>aCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>a</var> if
-   <var>i</var> is less than <var>a</var>'s <a for=string>length</a>, otherwise null.
+   <var>i</var> is less than <var>a</var>'s <a for=string>length</a>; otherwise null.
 
    <li><p>Let <var>aCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>b</var> if
-   <var>i</var> is less than <var>b</var>'s <a for=string>length</a>, otherwise null.
+   <var>i</var> is less than <var>b</var>'s <a for=string>length</a>; otherwise null.
 
    <li><p>If both <var>aCodeUnit</var> and <var>bCodeUnit</var> are null, then return true.
 
@@ -985,9 +985,9 @@ but conventionally, the following operations are used to operate on it, instead 
 
 <p>To <dfn export for=stack>push</dfn> onto a <a>stack</a> is to <a for=list>append</a> to it.
 
-<p>To <dfn export for=stack>pop</dfn> from a <a>stack</a> is to <a for=list>remove</a> its last
-<a for=stack>item</a> and return it, if the <a>stack</a> <a for=stack>is not empty</a>, or to return
-nothing otherwise.
+<p>To <dfn export for=stack>pop</dfn> from a <a>stack</a>: if the <a>stack</a>
+<a for=stack>is not empty</a>, then <a for=list>remove</a> its last <a for=stack>item</a> and return
+it; otherwise, return nothing.
 
 <p>Although <a>stacks</a> are <a>lists</a>, <a for=list>for each</a> must not be used with them;
 instead, a combination of <a>while</a> and <a for=stack>pop</a> is more appropriate.
@@ -1018,13 +1018,13 @@ unordered one, since interoperability requires that any developer-exposed enumer
 contents be consistent between browsers. In those cases where order is not important, we still use
 ordered sets; implementations can optimize based on the fact that the order is not observable.
 
-<p>To <dfn export for=set>append</dfn> to an <a>ordered set</a> is to do nothing if the set already
-<a for=list>contains</a> the given <a for=set>item</a>, or to perform the normal <a>list</a>
-<a for=list>append</a> operation otherwise.
+<p>To <dfn export for=set>append</dfn> to an <a>ordered set</a>: if the set <a for=list>contains</a>
+the given <a for=set>item</a>, then do nothing; otherwise, perform the normal <a>list</a>
+<a for=list>append</a> operation.
 
-<p>To <dfn export for=set>prepend</dfn> to an <a>ordered set</a> is to do nothing if the set already
-<a for=list>contains</a> the given <a for=set>item</a>, or to perform the normal <a>list</a>
-<a for=list>prepend</a> operation otherwise.
+<p>To <dfn export for=set>prepend</dfn> to an <a>ordered set</a>: if the set
+<a for=list>contains</a> the given <a for=set>item</a>, then do nothing; otherwise, perform the
+normal <a>list</a> <a for=list>prepend</a> operation.
 
 <p>To <dfn export for=set lt=replace|replacing>replace</dfn> within an <a>ordered set</a>
 <var>set</var>, given <var>item</var> and <var>replacement</var>: if <var>set</var>
@@ -1073,7 +1073,8 @@ interoperability among implementations.
 <p>A literal syntax can be used to express <a>ordered maps</a>, by surrounding the ordered map with
 «[ ]» characters, denoting each of its <a for=map>entries</a> as |key| → |value|, and separating its
 entries with a comma. An indexing syntax can be used to look up and set <a for=map>values</a> by
-providing a <a for=map>key</a> inside square brackets.
+providing a <a for=map>key</a> inside square brackets. The index cannot be out-of-bounds, except
+when used with <a for=map>exists</a>.
 
 <p class=example id=example-map-notation>Let |example| be the <a>ordered map</a> «[
 "<code>a</code>" → `<code>x</code>`, "<code>b</code>" → `<code>y</code>` ]». Then
@@ -1082,9 +1083,9 @@ providing a <a for=map>key</a> inside square brackets.
 <hr>
 
 <p>To <dfn export for=map lt="get|get the value">get the value of an entry</dfn> in an
-<a>ordered map</a> given a <a for=map>key</a> is to retrieve the <a for=map>value</a> of any
-existing <a for=map>entry</a> if the map <a for=map>contains</a> an entry with the given key, or
-to return nothing otherwise. We can also use the indexing syntax explained above.
+<a>ordered map</a> given a <a for=map>key</a>, return the <a for=map>value</a> of the
+<a for=map>entry</a> whose <a for=map>key</a> is the given key. We can also use the indexing syntax
+explained above.
 
 <p>To <dfn export for=map lt="set|set the value">set the value of an entry</dfn> in an
 <a>ordered map</a> to a given <a for=map>value</a> is to update the value of any existing
@@ -1381,6 +1382,7 @@ Jake Archibald,
 Jeff Hodges,
 Jungkee Song,
 Leonid Vasilyev,
+Maciej Stachowiak,
 Malika Aubakirova,
 Michael™ Smith,
 Mike West,
