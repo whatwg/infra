@@ -408,6 +408,55 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
 <a>byte sequence</a> <var>B</var>, if the <a>byte-lowercase</a> of <var>A</var> is the
 <a>byte-lowercase</a> of <var>B</var>.
 
+<hr>
+
+<p>A <a>byte sequence</a> <var>a</var> <dfn export for="byte sequence">starts with</dfn> a
+<a>byte sequence</a> <var>b</var> if the following steps return true:
+
+<ol>
+ <li><p>Let <var>i</var> be 0.
+
+ <li>
+  <p><a>While</a> true:
+
+  <ol>
+   <li><p>Let <var>aByte</var> be the <var>i</var>th <a>byte</a> of <var>a</var> if <var>i</var> is
+   less than <var>a</var>'s <a for="byte sequence">length</a>; otherwise null.
+
+   <li><p>Let <var>bByte</var> be the <var>i</var>th <a>byte</a> of <var>b</var> if <var>i</var> is
+   less than <var>b</var>'s <a for="byte sequence">length</a>; otherwise null.
+
+   <li><p>If <var>aByte</var> is null, then return true.
+
+   <li><p>If <var>bByte</var> is null, then return false.
+
+   <li><p>Return false if <var>aByte</var> is not <var>bByte</var>.
+
+   <li><p>Set <var>i</var> to <var>i</var> + 1.
+  </ol>
+ </li>
+</ol>
+
+<p>A <a>byte sequence</a> <var>a</var> is <dfn export>byte less than</dfn> a <a>byte sequence</a>
+<var>b</var> if the following steps return true:
+
+<ol>
+ <li><p>If <var>b</var> <a for="byte sequence">starts with</a> <var>a</var>, then return false.
+
+ <li><p>If <var>a</var> <a for="byte sequence">starts with</a> <var>b</var>, then return true.
+
+ <li><p>Let <var>n</var> be the smallest index such that the <var>n</var>th <a>byte</a> of
+ <var>a</var> is different from the <var>n</var>th byte of <var>b</var>. (There has to be such an
+ index, since neither byte sequence starts with the other.)
+
+ <li><p>If the <var>n</var>th byte of <var>a</var> is less than the <var>n</var>th byte of
+ <var>b</var>, then return true.
+
+ <li><p>Return false.
+</ol>
+
+<hr>
+
 <p>To <dfn export>isomorphic decode</dfn> a <a>byte sequence</a> <var>input</var>, return a
 <a>string</a> whose <a for=string>length</a> is equal to <var>input</var>'s
 <a for="byte sequence">length</a> and whose <a>code points</a> have the same values as
