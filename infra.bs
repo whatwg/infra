@@ -566,16 +566,12 @@ if the following steps return true:
    <li><p>Let <var>aCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>a</var> if
    <var>i</var> is less than <var>a</var>'s <a for=string>length</a>; otherwise null.
 
-   <li><p>Let <var>aCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>b</var> if
+   <li><p>Let <var>bCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>b</var> if
    <var>i</var> is less than <var>b</var>'s <a for=string>length</a>; otherwise null.
 
-   <li><p>If both <var>aCodeUnit</var> and <var>bCodeUnit</var> are null, then return true.
+   <li><p>If <var>aCodeUnit</var> is null, then return true.
 
-   <li><p>If <var>aCodeUnit</var> is null and <var>bCodeUnit</var> is non-null, then return
-   true.
-
-   <li><p>If <var>aCodeUnit</var> is non-null and <var>bCodeUnit</var> is null, then return
-   false.
+   <li><p>If <var>bCodeUnit</var> is null, then return false.
 
    <li><p>Return false if <var>aCodeUnit</var> is different from <var>bCodeUnit</var>.
 
