@@ -183,6 +183,33 @@ will make the caller automatically rethrow the given value, if any, and thereby 
 caller's algorithm. Using prose the caller has the ability to "catch" the exception and perform
 another action.
 
+<p>Algorithms often involve passing a set of steps as an argument to some other algorithm. In
+these cases, use "abort these steps" to indicate that the passed set of steps should terminate,
+without affecting the larger algorithm. Do not use "return" for this, as "return" is only used for
+terminating the larger algorithm.
+
+<div class=example id=example-abort-these-steps>
+  <p>To bake a cake:
+
+  <ol>
+   <li><p>Gather the ingredients.
+   <li><p>If you are missing crucial ingredients, then return.
+   <li><p>Preheat the oven.
+   <li>
+    <p>Ask your partner to complete the following steps:
+    <ol>
+     <li><p>Cream the butter and sugar.
+     <li><p>Add the eggs and flour.
+     <li><p>If there is no vanilla, then abort these steps.
+     <li><p>Add vanilla.
+    </ol>
+   </li>
+   <li><p>Stir in the flour.
+   <li><p>Pour the batter into the pan.
+   <li><p>Put the cake in the oven for an hour.
+  </ol>
+</div>
+
 
 <h3 id=algorithm-conditional-abort>Conditional abort</h3>
 
@@ -1425,6 +1452,7 @@ Daniel Ehrenberg,
 Dominic Farolino,
 Jake Archibald,
 Jeff Hodges,
+Jeremy Roman,
 Jungkee Song,
 Leonid Vasilyev,
 Maciej Stachowiak,
