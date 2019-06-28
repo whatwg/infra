@@ -426,9 +426,7 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
    <li><p>Let <var>bByte</var> be the <var>i</var>th <a>byte</a> of <var>b</var> if <var>i</var> is
    less than <var>b</var>'s <a for="byte sequence">length</a>; otherwise null.
 
-   <li><p>If <var>aByte</var> is null, then return true.
-
-   <li><p>If <var>bByte</var> is null, then return false.
+   <li><p>If <var>bByte</var> is null, then return true.
 
    <li><p>Return false if <var>aByte</var> is not <var>bByte</var>.
 
@@ -618,9 +616,7 @@ if the following steps return true:
    <li><p>Let <var>bCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>b</var> if
    <var>i</var> is less than <var>b</var>'s <a for=string>length</a>; otherwise null.
 
-   <li><p>If <var>aCodeUnit</var> is null, then return true.
-
-   <li><p>If <var>bCodeUnit</var> is null, then return false.
+   <li><p>If <var>bCodeUnit</var> is null, then return true.
 
    <li><p>Return false if <var>aCodeUnit</var> is different from <var>bCodeUnit</var>.
 
@@ -1432,6 +1428,7 @@ Malika Aubakirova,
 Michael™ Smith,
 Mike West,
 Ms2ger,
+Pavel "Al Arz" Kurochkin,
 Philip Jägenstedt,
 Rashaun "Snuggs" Stovall,
 Sergey Shekyan,
