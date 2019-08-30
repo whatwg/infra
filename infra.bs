@@ -982,7 +982,8 @@ subsequent prose.
 <a for=list>append</a> |item| to |clone|, so that |clone| <a for=list>contains</a> the same
 <a for=list>items</a>, in the same order as |list|.
 
-<p class=note>This is a "shallow clone", as the <a for=list>items</a> themselves are not cloned in any way.
+<p class=note>This is a "shallow clone", as the <a for=list>items</a> themselves are not cloned in
+any way.
 
 <p class=example id=example-list-clone>Let |original| be the <a>ordered set</a> «
 "<code>a</code>", "<code>b</code>", "<code>c</code>" ». <a for=set>Cloning</a> |original| creates
@@ -1164,9 +1165,9 @@ a set of steps on each <a for=map>entry</a> in order, use phrasing of the form
 "<a for=map>For each</a> |key| → |value| of |map|", and then operate on |key| and |value| in the
 subsequent prose.
 
-<p>To <dfn export for=map>clone</dfn> an <a>ordered map</a> |map| is to create a new <a>ordered
- map</a> |clone|, and, <a for=map>for each</a> |key| → |value| of |map|, <a for=map>set</a>
- |clone|[|key|] to |value|.
+<p>To <dfn export for=map>clone</dfn> an <a>ordered map</a> |map| is to create a new
+<a>ordered map</a> |clone|, and, <a for=map>for each</a> |key| → |value| of |map|,
+<a for=map>set</a> |clone|[|key|] to |value|.
 
 <p class=note>This is a "shallow clone", as the <a for=map>keys</a> and <a for=map>values</a>
 themselves are not cloned in any way.
