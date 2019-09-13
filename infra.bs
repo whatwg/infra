@@ -98,7 +98,7 @@ either width or height is zero"), means an inclusive "or" (implying "or both"), 
 out as being exclusive (with "but not both").
 
 <p>A <dfn export>user agent</dfn> is any software that acts on behalf of a user, for example by
-retrieving and rendering Web content and facilitating end user interaction with it. In
+retrieving and rendering web content and facilitating end user interaction with it. In
 specifications using the Infra Standard, the user agent is generally the client software that
 implements the specification.
 
