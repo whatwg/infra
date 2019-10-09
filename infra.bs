@@ -1292,7 +1292,7 @@ standards, it is often more convenient to parse JSON into realm-independent <a>m
 given a JavaScript value <var>jsValue</var>:
 
 <ol>
- <li><p>If [$Type$](|jsValue|) is Null, String, or Number, then return |jsValue|.
+ <li><p>If [$Type$](|jsValue|) is Null, Boolean, String, or Number, then return |jsValue|.
 
  <li>
   <p>If [$IsArray$](|jsValue|) is true, then:
