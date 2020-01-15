@@ -151,6 +151,7 @@ user has installed, information which can vary considerably from user to user.)
 <p tracking-vector>Features that are defined in documents using the Infra Standard that can be used
 as a <dfn export>tracking vector</dfn> are marked as this paragraph is.
 
+
 <p>Other features in the platform can be used for the same purpose, including, but not limited to:
 
 <ul>
