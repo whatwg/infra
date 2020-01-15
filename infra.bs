@@ -103,6 +103,65 @@ specifications using the Infra Standard, the user agent is generally the client 
 implements the specification.
 
 
+<h3 id=privacy>Privacy concerns</h3>
+
+<p>Some features that are defined in documents using the Infra Standard might trade user convenience
+for a measure of user privacy.
+
+<p>In general, due to the internet's architecture, a user can be distinguished from another by the
+user's IP address. IP addresses do not perfectly match to a user; as a user moves from device to
+device, or from network to network, their IP address will change; similarly, NAT routing, proxy
+servers, and shared computers enable packets that appear to all come from a single IP address to
+actually map to multiple users. Technologies such as onion routing can be used to further anonymize
+requests so that requests from a single user at one node on the internet appear to come from many
+disparate parts of the network. [[RFC791]]
+
+<p>However, the IP address used for a user's requests is not the only mechanism by which a user's
+requests could be related to each other. Cookies, for example, are designed specifically to enable
+this, and are the basis of most of the web's session features that enable you to log into a site
+with which you have an account. More generally, any kind of cache mechanism or shared state,
+including but not limited to HSTS, the HTTP cache, grouping of connections, storage APIs, can and
+ought to be expected to be abused. [[COOKIES]] [[RFC6797]] [[STORAGE]]
+
+<p>There are other mechanisms that are more subtle. Certain characteristics of a user's system can
+be used to distinguish groups of users from each other. By collecting enough such information, an
+individual user's browser's "digital fingerprint" can be computed, which can be better than an IP
+address in ascertaining which requests are from the same user.
+
+<p>Grouping requests in this manner, especially across multiple sites, can be used for malevolent
+purposes, e.g., governments combining information such as the person's home address (determined from
+the addresses they use when getting driving directions on one site) with their apparent political
+affiliations (determined by examining the forum sites that they participate in) to determine whether
+the person should be prevented from voting in an election.
+
+<p>Since the malevolent purposes can be remarkably evil, user agent implementors and specification
+authors are strongly encouraged to minimize leaking information that could be used to fingerprint or
+track a user.
+
+<p>Unfortunately, as the first paragraph in this section implies, sometimes there is great benefit
+to be derived from exposing APIs that can also be abused for fingerprinting and tracking purposes,
+so it's not as easy as blocking all possible leaks. For instance, the ability to log into a site to
+post under a specific identity requires that the user's requests be identifiable as all being from
+the same user, more or less by definition. More subtly, though, information such as how wide text
+is, which is necessary for many effects that involve drawing text onto a canvas (e.g., any effect
+that involves drawing a border around the text) also leaks information that can be used to group a
+user's requests. (In this case, by potentially exposing, via a brute force search, which fonts a
+user has installed, information which can vary considerably from user to user.)
+
+<p tracking-vector>Features that are defined in documents using the Infra Standard that can be used
+as a <dfn export>tracking vector</dfn> are marked as this paragraph is.
+
+<p>Other features in the platform can be used for the same purpose, including, but not limited to:
+
+<ul>
+ <li>The exact list of which features a user agents supports.
+ <li>The maximum allowed stack depth for recursion in script.
+ <li>Features that describe the user's environment.
+ <li>The user's time zone.
+ <li>HTTP request headers.
+</ul>
+
+
 <h2 id=algorithms>Algorithms</h2>
 
 <p>Algorithms, and requirements phrased in the imperative as part of algorithms (such as "strip any
