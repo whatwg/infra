@@ -663,9 +663,9 @@ implementations of just <a>JavaScript strings</a> for performance and memory rea
 
 <hr>
 
-<p>A <a>string</a> <var>a</var> is a
-<dfn export lt="code unit prefix|starts with">code unit prefix</dfn> of a <a>string</a> <var>b</var>
-if the following steps return true:
+<p>A <a>JavaScript string</a> <var>a</var> is a
+<dfn export lt="code unit prefix|starts with">code unit prefix</dfn> of a <a>JavaScript string</a>
+<var>b</var> if the following steps return true:
 
 <ol>
  <li><p>Let <var>i</var> be 0.
@@ -675,10 +675,10 @@ if the following steps return true:
 
   <ol>
    <li><p>Let <var>aCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>a</var> if
-   <var>i</var> is less than <var>a</var>'s <a for=string>length</a>; otherwise null.
+   <var>i</var> is less than <var>a</var>'s <a for="JavaScript string">length</a>; otherwise null.
 
    <li><p>Let <var>bCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>b</var> if
-   <var>i</var> is less than <var>b</var>'s <a for=string>length</a>; otherwise null.
+   <var>i</var> is less than <var>b</var>'s <a for="JavaScript string">length</a>; otherwise null.
 
    <li><p>If <var>bCodeUnit</var> is null, then return true.
 
@@ -698,8 +698,8 @@ strings is a literal containing only characters that are in the range U+0020 SPA
 <var ignore>targetString</var> is a <a>code unit prefix</a> of <var>userInput</var>. But with a
 literal, we can use plainer language: <var>userInput</var> starts with "<code>!</code>".
 
-<p>A <a>string</a> <var>a</var> is <dfn export>code unit less than</dfn> a <a>string</a>
-<var>b</var> if the following steps return true:
+<p>A <a>JavaScript string</a> <var>a</var> is <dfn export>code unit less than</dfn> a
+<a>JavaScript string</a> <var>b</var> if the following steps return true:
 
 <ol>
  <li><p>If <var>b</var> is a <a>code unit prefix</a> of <var>a</var>, then return false.
