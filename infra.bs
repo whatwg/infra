@@ -643,7 +643,7 @@ of the <a>code units</a> 0xD83D, 0xDCA9, and 0xD800, when interpreted as contain
 where <a>UTF-8 encode</a> comes into play.
 <!-- It's also useful if you can imagine the subsystem to be implemented in Rust -->
 
-<p>To <dfn export for="JavaScript string">convert</dfn> a <a>string</a> into a
+<p>To <dfn export for="string,JavaScript string">convert</dfn> a <a>string</a> into a
 <a>scalar value string</a>, replace any <a>surrogates</a> with U+FFFD.
 <!-- Obviates need for https://heycam.github.io/webidl/#dfn-obtain-unicode -->
 
