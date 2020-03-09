@@ -629,7 +629,7 @@ them effectively as-is.
 would consist of the <a>code points</a> U+1F4A9 and U+D800.
 
 <p>A <a>string</a>'s
-<dfn export for="string,JavaScript string,scalar value string" id="javascript-string-length">length</dfn>
+<dfn export for="string,JavaScript string,scalar value string" id=javascript-string-length>length</dfn>
 is the number of <a>code units</a> it contains.
 
 <p>A <a>string</a>'s
@@ -643,9 +643,8 @@ of <a>code points</a> it contains.
 where <a>UTF-8 encode</a> comes into play.
 <!-- It's also useful if you can imagine the subsystem to be implemented in Rust -->
 
-<p>To <dfn export for="string,JavaScript string">convert</dfn> a <a>string</a> into a
-<a>scalar value string</a>, replace any <a>surrogates</a> with U+FFFD.
-<!-- Obviates need for https://heycam.github.io/webidl/#dfn-obtain-unicode -->
+<p>To <dfn export for="string,JavaScript string" id=javascript-string-convert>convert</dfn> a
+<a>string</a> into a <a>scalar value string</a>, replace any <a>surrogates</a> with U+FFFD.
 
 <div class=note>
  <p>The replaced surrogates are always isolated surrogates, since the process of interpreting the
