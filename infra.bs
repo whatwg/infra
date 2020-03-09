@@ -629,8 +629,8 @@ them effectively as-is.
 would consist of the <a>code points</a> U+1F4A9 and U+D800.
 
 <p>A <a>string</a>'s
-<dfn export for="string,JavaScript string,scalar value string">length</dfn> is the number of
-<a>code units</a> it contains.
+<dfn export for="string,JavaScript string,scalar value string" id="javascript-string-length">length</dfn>
+is the number of <a>code units</a> it contains.
 
 <p>A <a>string</a>'s
 <dfn export for="string,JavaScript string,scalar value string">code point length</dfn> is the number
