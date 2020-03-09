@@ -608,9 +608,10 @@ U+007A (z), inclusive.
 
 <h3 id=strings>Strings</h3>
 
-<p>A <dfn export>string</dfn> is a sequence of unsigned 16-bit integers, also known as
-<dfn export lt="code unit">code units</dfn>. A <a>string</a> is also known as a
-<dfn export>JavaScript string</dfn>. <a>Strings</a> are denoted by double quotes and monospace font.
+<p>A <dfn export lt="string,JavaScript string">string</dfn> is a sequence of unsigned 16-bit
+integers, also known as <dfn export lt="code unit">code units</dfn>. A <a>string</a> is also known
+as a <a id="javascript-string">JavaScript string</a>. <a>Strings</a> are denoted by double quotes
+and monospace font.
 
 <p class=example id=example-string-notation>"<code>Hello, world!</code>" is a string.
 
@@ -651,9 +652,10 @@ where <a>UTF-8 encode</a> comes into play.
  string as containing <a>code points</a> will have converted surrogate pairs into
  <a>scalar values</a>.
 
- <p>A <a>scalar value string</a> can always be used as a <a>string</a> implicitly since it is a
- subset. The reverse is only possible if the <a>string</a> is known to not contain
- <a>surrogates</a>; otherwise a <a for=string lt=convert>conversion</a> is to be performed.
+ <p>A <a>scalar value string</a> can always be used as a <a>string</a> implicitly since every
+ <a>scalar value string</a> is a <a>string</a>. The reverse is only possible if the <a>string</a> is
+ known to not contain <a>surrogates</a>; otherwise a <a for=string lt=convert>conversion</a> is to
+ be performed.
 
  <p>An implementation likely has to perform explicit conversion, depending on how it actually ends
  up representing <a>strings</a> and <a>scalar value strings</a>. It is fairly typical for
