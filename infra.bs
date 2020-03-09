@@ -617,16 +617,16 @@ U+007A (z), inclusive.
 <p class=note>This is different from how the Unicode Standard defines "code unit". In particular it
 refers exclusively to how the Unicode Standard defines it for Unicode 16-bit strings. [[UNICODE]]
 
-<p>A <a>JavaScript string</a> can also be interpreted as containing <a>code points</a>, per the
-conversion defined in <a>The String Type</a> section of the JavaScript specification. [[!ECMA-262]]
+<p>A <a>string</a> can also be interpreted as containing <a>code points</a>, per the conversion
+defined in <a>The String Type</a> section of the JavaScript specification. [[!ECMA-262]]
 
 <p class=note>This conversion process converts surrogate pairs into their corresponding
 <a>scalar value</a> and maps isolated surrogates to their corresponding <a>code point</a>, leaving
 them effectively as-is.
 
-<p class=example id=example-javascript-string-in-code-points>A <a>JavaScript string</a> consisting
-of the <a>code units</a> 0xD83D, 0xDCA9, and 0xD800, when interpreted as containing
-<a>code points</a>, would consist of the <a>code points</a> U+1F4A9 and U+D800.
+<p class=example id=example-javascript-string-in-code-points>A <a>string</a> consisting of the
+<a>code units</a> 0xD83D, 0xDCA9, and 0xD800, when interpreted as containing <a>code points</a>,
+would consist of the <a>code points</a> U+1F4A9 and U+D800.
 
 <p>A <a>string</a>'s <dfn export for=string>code unit length</dfn> is the number of
 <a>code units</a> it contains. For now, this can also be referred to as a <a>JavaScript string</a>'s
@@ -636,7 +636,7 @@ of the <a>code units</a> 0xD83D, 0xDCA9, and 0xD800, when interpreted as contain
 <a>code points</a> it contains. For now, this can also be referred to as a <a>string</a>'s
 <dfn export for=string>length</dfn>.
 
-<p>A <dfn export>scalar value string</dfn> is <a>string</a> whose <a>code points</a> are all
+<p>A <dfn export>scalar value string</dfn> is a <a>string</a> whose <a>code points</a> are all
 <a>scalar values</a>.
 
 <p class=note>A <a>scalar value string</a> is useful for any kind of I/O or other kind of operation
@@ -649,18 +649,17 @@ where <a>UTF-8 encode</a> comes into play.
 
 <div class=note>
  <p>The replaced surrogates are always isolated surrogates, since the process of interpreting the
- JavaScript string as containing <a>code points</a> will have converted surrogate pairs into
+ string as containing <a>code points</a> will have converted surrogate pairs into
  <a>scalar values</a>.
 
- <p>A <a>scalar value string</a> can always be used as <a>string</a> implicitly since it is a
- subset. The reverse is only possible if the <a>JavaScript string</a> is known to not contain
- <a>surrogates</a>; otherwise a <a for="JavaScript string" lt=convert>conversion</a> is to be
- performed.
+ <p>A <a>scalar value string</a> can always be used as a <a>string</a> implicitly since it is a
+ subset. The reverse is only possible if the <a>string</a> is known to not contain
+ <a>surrogates</a>; otherwise a <a for=string lt=convert>conversion</a> is to be performed.
 
  <p>An implementation likely has to perform explicit conversion, depending on how it actually ends
- up representing <a lt="JavaScript string">JavaScript</a> and <a>scalar value strings</a>. It is
- fairly typical for implementations to have multiple implementations of <a>JavaScript strings</a>
- alone for performance and memory reasons.
+ up representing <a>strings</a> and <a>scalar value strings</a>. It is fairly typical for
+ implementations to have multiple implementations of <a>strings</a> alone for performance and memory
+ reasons.
 </div>
 
 <hr>
