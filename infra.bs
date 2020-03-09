@@ -628,13 +628,13 @@ them effectively as-is.
 <a>code units</a> 0xD83D, 0xDCA9, and 0xD800, when interpreted as containing <a>code points</a>,
 would consist of the <a>code points</a> U+1F4A9 and U+D800.
 
-<p>A <a>string</a>'s <dfn export for=string>code unit length</dfn> is the number of
-<a>code units</a> it contains. For now, this can also be referred to as a <a>JavaScript string</a>'s
-<dfn export for="JavaScript string">length</dfn>.
+<p>A <a>string</a>'s
+<dfn export for="string,JavaScript string,scalar value string">length</dfn> is the number of
+<a>code units</a> it contains.
 
-<p>A <a>string</a>'s <dfn export for=string>code point length</dfn> is the number of
-<a>code points</a> it contains. For now, this can also be referred to as a <a>string</a>'s
-<dfn export for=string>length</dfn>.
+<p>A <a>string</a>'s
+<dfn export for="string,JavaScript string,scalar value string">code point length</dfn> is the number
+of <a>code points</a> it contains.
 
 <p>A <dfn export>scalar value string</dfn> is a <a>string</a> whose <a>code points</a> are all
 <a>scalar values</a>.
@@ -676,10 +676,10 @@ if the following steps return true:
 
   <ol>
    <li><p>Let <var>aCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>a</var> if
-   <var>i</var> is less than <var>a</var>'s <a for=string>code unit length</a>; otherwise null.
+   <var>i</var> is less than <var>a</var>'s <a for=string>length</a>; otherwise null.
 
    <li><p>Let <var>bCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>b</var> if
-   <var>i</var> is less than <var>b</var>'s <a for=string>code unit length</a>; otherwise null.
+   <var>i</var> is less than <var>b</var>'s <a for=string>length</a>; otherwise null.
 
    <li><p>If <var>bCodeUnit</var> is null, then return true.
 
