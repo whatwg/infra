@@ -657,9 +657,9 @@ where <a>UTF-8 encode</a> comes into play.
  <a>scalar values</a>.
 
  <p>A <a>scalar value string</a> can always be used as a <a>string</a> implicitly since every
- <a>scalar value string</a> is a <a>string</a>. The reverse is only possible if the <a>string</a> is
- known to not contain <a>surrogates</a>; otherwise a <a for=string lt=convert>conversion</a> is to
- be performed.
+ <a>scalar value string</a> is a <a>string</a>. On the other hand, a <a>string</a> can only be
+ implicitly used as a <a>scalar value string</a> if it is known to not contain <a>surrogates</a>;
+ otherwise a <a for=string lt=convert>conversion</a> is to be performed.
 
  <p>An implementation likely has to perform explicit conversion, depending on how it actually ends
  up representing <a>strings</a> and <a>scalar value strings</a>. It is fairly typical for
