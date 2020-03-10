@@ -633,8 +633,8 @@ them effectively as-is.
 <a>code units</a> 0xD83D, 0xDCA9, and 0xD800, when interpreted as containing <a>code points</a>,
 would consist of the <a>code points</a> U+1F4A9 and U+D800.
 
-<p id=javascript-string-length>A <a>string</a>'s
-<dfn export for="string,JavaScript string,scalar value string" id=string-length>length</dfn>
+<p>A <a>string</a>'s
+<dfn export for="string,JavaScript string,scalar value string" id=string-length oldids=javascript-string-length>length</dfn>
 is the number of <a>code units</a> it contains.
 
 <p>A <a>string</a>'s
