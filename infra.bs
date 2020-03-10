@@ -7,10 +7,6 @@ Abstract: The Infra Standard aims to define the fundamental concepts upon which 
 Translation: ja https://triple-underscore.github.io/infra-ja.html
 </pre>
 
-<pre class=link-defaults>
-spec:infra; type:dfn; text:string
-</pre>
-
 <pre class=anchors>
 urlPrefix: https://tc39.github.io/ecma262/#; spec: ECMA-262;
     type: dfn
