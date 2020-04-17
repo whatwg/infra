@@ -108,7 +108,7 @@ language, the reverse holds. I.e., <a>user agents</a> have to follow the rules l
 using this standard.
 
 <p class="example" id=example-implementation-defined>Insert U+000A (LF) code points into
-<var ignore>input</var> in an <a>implementation-defined manner</a> such that each resulting line has
+<var ignore>input</var> in an <a>implementation-defined</a> manner such that each resulting line has
 no more than <var ignore>width</var> code points. For the purposes of this requirement, lines are
 delimited by the start of <var ignore>input</var>, the end of <var ignore>input</var>, and
 U+000A (LF).
