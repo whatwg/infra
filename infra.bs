@@ -679,21 +679,18 @@ where <a>UTF-8 encode</a> comes into play.
 
 <hr>
 
-<p>A <a>string</a> <var>a</var> <dfn export for=string lt="is|identical to">is</dfn> or is 
-<a for=string>identical to</a> a <a>string</a> <var>b</var> if it consists of the same sequence of 
+<p>A <a>string</a> <var>a</var> <dfn export for=string lt="is|identical to">is</dfn> or is
+<a for=string>identical to</a> a <a>string</a> <var>b</var> if it consists of the same sequence of
 <a>code units</a>.
 
 <p>Except where otherwise stated, all string comparisons use <a for=string>is</a>.
 
-<div class=note>
-
- <p>This type of <a>string</a> comparison was formerly known as a "case-sensitive"
- comparison in HTML. Strings that compare as <a>identical to</a> one another are not only
- sensitive to case variation (such as UPPER and lower case), but also to other code point encoding 
- choices, such as normalization form or the order of combining marks. Two strings that are visually or
- even canonically equivalent according to Unicode might still not be <a>identical to</a>
- each other.
-</div>
+<p class=note>This type of <a>string</a> comparison was formerly known as a "case-sensitive"
+comparison in <cite>HTML</cite>. Strings that compare as <a>identical to</a> one another are not
+only sensitive to case variation (such as UPPER and lower case), but also to other code point
+encoding  choices, such as normalization form or the order of combining marks. Two strings that are
+visually or even canonically equivalent according to Unicode might still not be
+<a for=string>identical to</a> each other. [[HTML]] [[UNICODE]]</p>
 
 <p>A <a>string</a> <var>a</var> is a
 <dfn export lt="code unit prefix|starts with">code unit prefix</dfn> of a <a>string</a> <var>b</var>
