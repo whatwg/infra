@@ -682,7 +682,7 @@ where <a>UTF-8 encode</a> comes into play.
 <p>A <a>string</a> <var>a</var> <dfn export>is</dfn> or is <dfn export>identical to</dfn> a 
 <a>string</a> <var>b</var> if it consists of the same sequence of <a>code units</a>.
 
-<p>Except where otherwise stated, all string comparisons use this definition of string equality.
+<p>Except where otherwise stated, all string comparisons use <a for=string>is</a>.
 
 <div class=note>
  <p>This type of <a>string</a> comparison was formerly known as a "case-sensitive" 
