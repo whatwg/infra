@@ -690,7 +690,7 @@ comparison in <cite>HTML</cite>. Strings that compare as <a>identical to</a> one
 only sensitive to case variation (such as UPPER and lower case), but also to other code point
 encoding  choices, such as normalization form or the order of combining marks. Two strings that are
 visually or even canonically equivalent according to Unicode might still not be
-<a for=string>identical to</a> each other. [[HTML]] [[UNICODE]]</p>
+<a for=string>identical to</a> each other. [[HTML]] [[UNICODE]]
 
 <p>A <a>string</a> <var>a</var> is a
 <dfn export lt="code unit prefix|starts with">code unit prefix</dfn> of a <a>string</a> <var>b</var>
