@@ -686,7 +686,8 @@ where <a>UTF-8 encode</a> comes into play.
 <p>Except where otherwise stated, all string comparisons use <a for=string>is</a>.
 
 <div class=note>
- <p>This type of <a>string</a> comparison was formerly known as "case-sensitive" 
+
+ <p>This type of <a>string</a> comparison was formerly known as a "case-sensitive"
  comparison in HTML. Strings that compare as <a>identical to</a> one another are not only
  sensitive to case variation (such as UPPER and lower case), but also to other code point encoding 
  choices, such as normalization form or the order of combining marks. Two strings that are visually or
