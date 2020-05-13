@@ -1357,6 +1357,12 @@ steps:
   <p class=note>Since no additional arguments are passed to <a>%JSONStringify%</a>, the resulting
   string will have no whitespace inserted.
 
+ <li>
+  <p>If <var>jsonString</var> is undefined, then throw a {{TypeError}}.
+
+  <p class="note">This can happen if <var>value</var> does not have a JSON representation, e.g., if
+  it is undefined or a function.
+
  <li><p>Return the result of running <a>UTF-8 encode</a> on <var>jsonString</var>. [[!ENCODING]]
 </ol>
 
