@@ -1351,13 +1351,21 @@ steps:
 
 <ol>
  <li>
-  <p>Let <var>jsonString</var> be
+  <p>Let <var>result</var> be
   ? <a abstract-op>Call</a>(<a>%JSONStringify%</a>, undefined, « <var>value</var> »).
 
   <p class=note>Since no additional arguments are passed to <a>%JSONStringify%</a>, the resulting
   string will have no whitespace inserted.
 
- <li><p>Return the result of running <a>UTF-8 encode</a> on <var>jsonString</var>. [[!ENCODING]]
+ <li>
+  <p>If <var>result</var> is undefined, then throw a {{TypeError}}.
+
+  <p class="note">This can happen if <var>value</var> does not have a JSON representation, e.g., if
+  it is undefined or a function.
+
+ <li><p><a>Assert</a>: <var>result</var> is a <a>string</a>.
+
+ <li><p>Return the result of running <a>UTF-8 encode</a> on <var>result</var>. [[!ENCODING]]
 </ol>
 
 <hr>
