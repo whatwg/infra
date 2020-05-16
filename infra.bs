@@ -442,9 +442,9 @@ JavaScript <b>null</b> value. [[!ECMA-262]]
 
 <h3 id=bytes>Bytes</h3>
 
-<p>A <dfn export>byte</dfn> is a sequence of eight bits, represented as a double-digit hexadecimal
-number in the range 0x00 to 0xFF, inclusive. A <a>byte</a>'s <dfn for=byte>value</dfn> is its
-underlying number.
+<p>A <dfn export>byte</dfn> is a sequence of eight bits, represented as two
+<a>ASCII upper hex digits</a>, in the range 0x00 to 0xFF, inclusive. A <a>byte</a>'s
+<dfn for=byte>value</dfn> is its underlying number.
 
 <p class=example id=example-byte-value>0x40 is a <a>byte</a> whose <a for=byte>value</a> is 64.
 
@@ -546,9 +546,9 @@ the same order.
 <h3 id=code-points>Code points</h3>
 
 <p>A <dfn export lt="code point|character">code point</dfn> is a Unicode code point and is
-represented as a four-to-six digit hexadecimal number, in the range U+0000 to U+10FFFF, inclusive.
-It is typically prefixed with "U+". A <a>code point</a>'s <dfn for="code point">value</dfn> is its
-underlying number.
+represented as "U+" followed by four-to-six <a>ASCII upper hex digits</a>, in the range U+0000 to
+U+10FFFF, inclusive. A <a>code point</a>'s <dfn for="code point">value</dfn> is its underlying
+number.
 
 <p>A <a>code point</a> may be followed by its name, by its rendered form between parentheses when it
 is not U+0028 or U+0029, or by both. Documents using the Infra Standard are encouraged to follow
