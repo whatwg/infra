@@ -442,8 +442,11 @@ JavaScript <b>null</b> value. [[!ECMA-262]]
 
 <h3 id=bytes>Bytes</h3>
 
-<p>A <dfn export>byte</dfn> is a sequence of eight bits, represented as a double-digit hexadecimal
-number in the range 0x00 to 0xFF, inclusive.
+<p>A <dfn export>byte</dfn> is a sequence of eight bits and is represented as "<code>0x</code>"
+followed by two <a>ASCII upper hex digits</a>, in the range 0x00 to 0xFF, inclusive. A <a>byte</a>'s
+<dfn for=byte>value</dfn> is its underlying number.
+
+<p class=example id=example-byte-value>0x40 is a <a>byte</a> whose <a for=byte>value</a> is 64.
 
 <p>An <dfn export>ASCII byte</dfn> is a <a>byte</a> in the range 0x00 (NUL) to 0x7F (DEL),
 inclusive. As illustrated, an <a>ASCII byte</a>, excluding 0x28 and 0x29, may be followed by the
@@ -535,14 +538,17 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
 
 <p>To <dfn export>isomorphic decode</dfn> a <a>byte sequence</a> <var>input</var>, return a
 <a>string</a> whose <a for=string>code point length</a> is equal to <var>input</var>'s
-<a for="byte sequence">length</a> and whose <a>code points</a> have the same values as
-<var>input</var>'s <a>bytes</a>, in the same order.
+<a for="byte sequence">length</a> and whose <a>code points</a> have the same
+<a for="code point">values</a> as the <a for=byte>values</a> of <var>input</var>'s <a>bytes</a>, in
+the same order.
 
 
 <h3 id=code-points>Code points</h3>
 
 <p>A <dfn export lt="code point|character">code point</dfn> is a Unicode code point and is
-represented as a four-to-six digit hexadecimal number, typically prefixed with "U+".
+represented as "U+" followed by four-to-six <a>ASCII upper hex digits</a>, in the range U+0000 to
+U+10FFFF, inclusive. A <a>code point</a>'s <dfn for="code point">value</dfn> is its underlying
+number.
 
 <p>A <a>code point</a> may be followed by its name, by its rendered form between parentheses when it
 is not U+0028 or U+0029, or by both. Documents using the Infra Standard are encouraged to follow
@@ -759,8 +765,9 @@ ordering will not match any particular alphabet or lexicographic order, particul
  <li><p><a>Assert</a>: <var>input</var> contains no <a>code points</a> greater than U+00FF.
 
  <li><p>Return a <a>byte sequence</a> whose <a for="byte sequence">length</a> is equal to
- <var>input</var>'s <a for=string>code point length</a> and whose <a>bytes</a> have the same values
- as <var>input</var>'s <a>code points</a>, in the same order.
+ <var>input</var>'s <a for=string>code point length</a> and whose <a>bytes</a> have the same
+ <a for=byte>values</a> as the <a for="code point">values</a> of <var>input</var>'s
+ <a>code points</a>, in the same order.
 </ol>
 
 <hr>
