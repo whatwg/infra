@@ -1241,6 +1241,9 @@ all <a for=map>entries</a> from the map that match a given condition, or do noth
 the condition is having a certain <a for=map>key</a>, then we can also denote this by saying, for
 an <a>ordered map</a> |map| and key |key|, "<a for=map>remove</a> |map|[|key|]".
 
+<p>To <dfn export for=map>clear</dfn> an <a>ordered map</a> is to remove all <a for=map>entries</a>
+from the map.
+
 <p>An <a>ordered map</a> <dfn export for=map lt=exist|contain id=map-exists>contains an
 <a for=map>entry</a> with a given key</dfn> if there exists an entry with that <a for=map>key</a>.
 We can also denote this by saying that, for an <a>ordered map</a> |map| and key |key|, "|map|[|key|]
