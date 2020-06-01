@@ -491,7 +491,7 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
 
 <hr>
 
-<p>A <a>byte sequence</a> <var>a</var> <dfn export for="byte sequence">starts with</dfn> a
+<p>A <a>byte sequence</a> <var>a</var> is a <dfn export for="byte sequence">prefix</dfn> of a
 <a>byte sequence</a> <var>b</var> if the following steps return true:
 
 <ol>
@@ -507,7 +507,7 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
    <li><p>Let <var>bByte</var> be the <var>i</var>th <a>byte</a> of <var>b</var> if <var>i</var> is
    less than <var>b</var>'s <a for="byte sequence">length</a>; otherwise null.
 
-   <li><p>If <var>bByte</var> is null, then return true.
+   <li><p>If <var>aByte</var> is null, then return true.
 
    <li><p>Return false if <var>aByte</var> is not <var>bByte</var>.
 
@@ -516,17 +516,20 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
  </li>
 </ol>
 
+<p>"<var>a</var> <dfn export for="byte sequence">starts with</dfn> <var>b</var> can be used as a
+synonym for "<var>b</var> is a <a for="byte sequence">prefix</a> of <var>a</var>".
+
 <p>A <a>byte sequence</a> <var>a</var> is <dfn export>byte less than</dfn> a <a>byte sequence</a>
 <var>b</var> if the following steps return true:
 
 <ol>
- <li><p>If <var>b</var> <a for="byte sequence">starts with</a> <var>a</var>, then return false.
+ <li><p>If <var>b</var> is a <a for="byte sequence">prefix</a> of <var>a</var>, then return false.
 
- <li><p>If <var>a</var> <a for="byte sequence">starts with</a> <var>b</var>, then return true.
+ <li><p>If <var>a</var> is a <a for="byte sequence">prefix</a> of <var>b</var>, then return true.
 
  <li><p>Let <var>n</var> be the smallest index such that the <var>n</var>th <a>byte</a> of
  <var>a</var> is different from the <var>n</var>th byte of <var>b</var>. (There has to be such an
- index, since neither byte sequence starts with the other.)
+ index, since neither byte sequence is a prefix of the other.)
 
  <li><p>If the <var>n</var>th byte of <var>a</var> is less than the <var>n</var>th byte of
  <var>b</var>, then return true.
@@ -698,9 +701,8 @@ point encoding choices, such as normalization form or the order of combining mar
 are visually or even canonically equivalent according to Unicode might still not be
 <a for=string>identical to</a> each other. [[HTML]] [[UNICODE]]
 
-<p>A <a>string</a> <var>a</var> is a
-<dfn export lt="code unit prefix|starts with">code unit prefix</dfn> of a <a>string</a> <var>b</var>
-if the following steps return true:
+<p>A <a>string</a> <var>a</var> is a <dfn export>code unit prefix</dfn> of a <a>string</a>
+<var>b</var> if the following steps return true:
 
 <ol>
  <li><p>Let <var>i</var> be 0.
@@ -715,9 +717,9 @@ if the following steps return true:
    <li><p>Let <var>bCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>b</var> if
    <var>i</var> is less than <var>b</var>'s <a for=string>length</a>; otherwise null.
 
-   <li><p>If <var>bCodeUnit</var> is null, then return true.
+   <li><p>If <var>aCodeUnit</var> is null, then return true.
 
-   <li><p>Return false if <var>aCodeUnit</var> is different from <var>bCodeUnit</var>.
+   <li><p>Return false if <var>aCodeUnit</var> is not <var>bCodeUnit</var>.
 
    <li><p>Set <var>i</var> to <var>i</var> + 1.
   </ol>
@@ -726,12 +728,13 @@ if the following steps return true:
 
 <p>When it is clear from context that <a>code units</a> are in play, e.g., because one of the
 strings is a literal containing only characters that are in the range U+0020 SPACE to U+007E (~),
-"<var>a</var> starts with <var>b</var>" can be used as a synonym for "<var>b</var> is a
-<a>code unit prefix</a> of <var>a</var>".
+"<var>a</var> <dfn export for="string">starts with</dfn> <var>b</var>" can be used as a synonym for
+"<var>b</var> is a <a>code unit prefix</a> of <var>a</var>".
 
 <p class=example id=code-unit-prefix-example>With unknown values, it is good to be explicit:
 <var ignore>targetString</var> is a <a>code unit prefix</a> of <var>userInput</var>. But with a
-literal, we can use plainer language: <var>userInput</var> starts with "<code>!</code>".
+literal, we can use plainer language: <var>userInput</var> <a for="string">starts with</a>
+"<code>!</code>".
 
 <p>A <a>string</a> <var>a</var> is <dfn export>code unit less than</dfn> a <a>string</a>
 <var>b</var> if the following steps return true:
@@ -1548,6 +1551,7 @@ Aryeh Gregor,
 Chris Rebert,
 Daniel Ehrenberg,
 Dominic Farolino,
+gabpiv,
 Jake Archibald,
 Jeff Hodges,
 Jungkee Song,
