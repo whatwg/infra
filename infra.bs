@@ -10,8 +10,8 @@ Translation: ja https://triple-underscore.github.io/infra-ja.html
 <pre class=anchors>
 urlPrefix: https://tc39.github.io/ecma262/#; spec: ECMA-262;
     type: dfn
-        text: %JSONParse%; url: sec-json.parse
-        text: %JSONStringify%; url: sec-json.stringify
+        text: %JSON.parse%; url: sec-json.parse
+        text: %JSON.stringify%; url: sec-json.stringify
         text: List; url: sec-list-and-record-specification-type
         text: The String Type; url: sec-ecmascript-language-types-string-type
         text: realm; url: realm
@@ -1360,7 +1360,7 @@ specification. [[!ECMA-262]]
  <li><p>Let <var>jsonText</var> be the result of running <a>UTF-8 decode</a> on <var>bytes</var>.
  [[!ENCODING]]
 
- <li><p>Return ? <a abstract-op>Call</a>(<a>%JSONParse%</a>, undefined, « <var>jsonText</var> »).
+ <li><p>Return ? <a abstract-op>Call</a>(<a>%JSON.parse%</a>, undefined, « <var>jsonText</var> »).
 </ol>
 
 <p>To <dfn export>serialize JSON to bytes</dfn> a given JavaScript value <var>value</var>, run these
@@ -1369,9 +1369,9 @@ steps:
 <ol>
  <li>
   <p>Let <var>result</var> be
-  ? <a abstract-op>Call</a>(<a>%JSONStringify%</a>, undefined, « <var>value</var> »).
+  ? <a abstract-op>Call</a>(<a>%JSON.stringify%</a>, undefined, « <var>value</var> »).
 
-  <p class=note>Since no additional arguments are passed to <a>%JSONStringify%</a>, the resulting
+  <p class=note>Since no additional arguments are passed to <a>%JSON.stringify%</a>, the resulting
   string will have no whitespace inserted.
 
  <li>
@@ -1395,7 +1395,7 @@ standards, it is often more convenient to parse JSON into realm-independent <a>m
 <p>To <dfn export>parse JSON into Infra values</dfn>, given a <a>string</a> <var>jsonText</var>:
 
 <ol>
- <li><p>Let |jsValue| be ? [$Call$](<a>%JSONParse%</a>, undefined, « |jsonText| »).
+ <li><p>Let |jsValue| be ? [$Call$](<a>%JSON.parse%</a>, undefined, « |jsonText| »).
 
  <li><p>Return the result of [=converting a JSON-derived JavaScript value to an Infra value=], given
  |jsValue|.
