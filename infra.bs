@@ -188,7 +188,7 @@ leading spaces" or "return false") are to be interpreted with the meaning of the
  <p>For example, were the spec to say:</p>
 
  <blockquote>
-  <p class=allow-2119>To eat an orange, the user must:
+  <p class=allow-2119>To <dfn ignore>eat an orange</dfn>, the user must:
 
   <ol class=brief>
    <li>Peel the orange.
@@ -200,7 +200,7 @@ leading spaces" or "return false") are to be interpreted with the meaning of the
  <p>it would be equivalent to the following:</p>
 
  <blockquote>
-  <p>To eat an orange:
+  <p>To <dfn ignore>eat an orange</dfn>:
 
   <ol class=brief>
    <li class=allow-2119>The user must peel the orange.
@@ -230,7 +230,7 @@ over.
 
 <h3 id=declaration>Declaration</h3>
 
-Algorithm names are usually verb phrases, but sometimes are given names that emphasize their
+<p>Algorithm names are usually verb phrases, but sometimes are given names that emphasize their
 standalone existence, so that standards and readers can refer to the algorithm more idiomatically.
 
 <p class=example id=example-algorithm-declaration-names>Some algorithm names in the latter category
@@ -239,46 +239,46 @@ resolution algorithm".
 
 Declare algorithms by stating their name, parameters, and return type, in the following form:
 
-<!-- TODO: b to dfn when https://github.com/tabatkins/bikeshed/issues/960 is fixed -->
-
 <blockquote>
-To <b>[algorithm name]</b>, given a [type1] <var ignore>[parameter1]</var>, a [type2]
+To <dfn ignore>[algorithm name]</dfn>, given a [type1] <var ignore>[parameter1]</var>, a [type2]
 <var ignore>[parameter2]</var>, &hellip;, perform the following steps. They return a [return type].
 </blockquote>
 
-(For non-verb phrase algorithm names, use "To perform the <b>[algorithm name]</b>&hellip;".)
+<p>(For non-verb phrase algorithm names, use "To perform the
+<dfn ignore>[algorithm name]</dfn>&hellip;".)
 
-<p class=example id=example-algorithm-declaration>To <b>parse an awesome format</b> given a
-[=byte sequence=] <var ignore>bytes</var>, perform the following steps. They return a
+<p class=example id=example-algorithm-declaration>To <dfn ignore>parse an awesome format</dfn> given
+a [=byte sequence=] <var ignore>bytes</var>, perform the following steps. They return a
 [=string=] or null.
 
-Algorithms which do not return a value use a shorter form. This same shorter form can be used even
+<p>Algorithms which do not return a value use a shorter form. This same shorter form can be used even
 for algorithms that do return a value, since the return type is relatively easy to infer from the
 algorithm steps and call sites:
 
 <blockquote>
-To <b>[algorithm name]</b>, given a [type1] <var ignore>[parameter1]</var>, a [type2]
+To <dfn ignore>[algorithm name]</dfn>, given a [type1] <var ignore>[parameter1]</var>, a [type2]
 <var ignore>[parameter2]</var>, &hellip;:
 </blockquote>
 
-<p class=example id=example-algorithm-declaration-no-return>To <b>parse an awesome format</b>
-given a [=byte sequence=] <var ignore>bytes</var>:
+<p class=example id=example-algorithm-declaration-no-return>To
+<dfn ignore>parse an awesome format</dfn> given a [=byte sequence=] <var ignore>bytes</var>:
 
 Very short algorithms can be declared and specified using a single sentence:
 
-<p class=example id=example-algorithm-declaration-short>To <b>parse an awesome format</b> given
-a [=byte sequence=] <var ignore>bytes</var>, return the result of <a lt="ASCII uppercase">ASCII
-uppercasing</a> the <a lt="isomorphic decode">ismorphic decoding</a> of <var ignore>bytes</var>.
+<p class=example id=example-algorithm-declaration-short>To <dfn ignore>parse an awesome format</dfn>
+given a [=byte sequence=] <var ignore>bytes</var>, return the result of
+<a lt="ASCII uppercase">ASCII uppercasing</a> the <a lt="isomorphic decode">ismorphic decoding</a>
+of <var ignore>bytes</var>.
 
 Types should be included in algorithm declarations, but may be omitted if the parameter name is
 clear enough, or if they are otherwise clear from context. (For example, because the algorithm is
 a simple wrapper around another one.)
 
-<p class=example id=example-algorithm-declaration-no-types>To <b>load a classic script</b> given
-<var>url</var>, return the result of performing the internal script-loading algorithm given
-<var>url</var> and "<code>classic</code>".
+<p class=example id=example-algorithm-declaration-no-types>To
+<dfn ignore>load a classic script</dfn> given <var>url</var>, return the result of performing the
+internal script-loading algorithm given <var>url</var> and "<code>classic</code>".
 
-<p class="XXX">We would also like to give guidance on named and optional arguments; see
+<p class="XXX">We would also like to give guidance on named and optional parameters; see
 <a href="https://github.com/whatwg/infra/issues/320">issue #320</a> for ongoing discussion.
 
 
