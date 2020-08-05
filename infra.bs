@@ -25,6 +25,13 @@ urlPrefix: https://tc39.github.io/ecma262/#; spec: ECMA-262;
         text: Type; url: sec-ecmascript-data-types-and-values
 </pre>
 
+<style>
+/* Used for normative exemplars of how to write algorithms, as distinct from .example */
+.exemplary-prose {
+  margin-left: 2em;
+}
+</style>
+
 
 <h2 id=goals class=no-num>Goals</h2>
 
@@ -239,10 +246,9 @@ resolution algorithm".
 
 <p>Declare algorithms by stating their name, parameters, and return type, in the following form:
 
-<blockquote>
-To <dfn ignore>[algorithm name]</dfn>, given a [type1] <var ignore>[parameter1]</var>, a [type2]
-<var ignore>[parameter2]</var>, &hellip;, perform the following steps. They return a [return type].
-</blockquote>
+<p class=exemplary-prose>To <dfn ignore>[algorithm name]</dfn>, given a [type1]
+<var ignore>[parameter1]</var>, a [type2] <var ignore>[parameter2]</var>, &hellip;, perform the
+following steps. They return a [return type].</p>
 
 <p>(For non-verb phrase algorithm names, use "To perform the
 <dfn ignore>[algorithm name]</dfn>&hellip;".)
@@ -255,10 +261,8 @@ a [=byte sequence=] <var ignore>bytes</var>, perform the following steps. They r
 for algorithms that do return a value, since the return type is relatively easy to infer from the
 algorithm steps and call sites:
 
-<blockquote>
-To <dfn ignore>[algorithm name]</dfn>, given a [type1] <var ignore>[parameter1]</var>, a [type2]
-<var ignore>[parameter2]</var>, &hellip;:
-</blockquote>
+<p class=exemplary-prose>To <dfn ignore>[algorithm name]</dfn>, given a [type1]
+<var ignore>[parameter1]</var>, a [type2] <var ignore>[parameter2]</var>, &hellip;:</p>
 
 <p class=example id=example-algorithm-declaration-no-return>To
 <dfn ignore>parse an awesome format</dfn> given a [=byte sequence=] <var ignore>bytes</var>:
