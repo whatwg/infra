@@ -237,7 +237,7 @@ standalone existence, so that standards and readers can refer to the algorithm m
 include "attribute change steps", "internal module script graph fetching procedure", and "overload
 resolution algorithm".
 
-Declare algorithms by stating their name, parameters, and return type, in the following form:
+<p>Declare algorithms by stating their name, parameters, and return type, in the following form:
 
 <blockquote>
 To <dfn ignore>[algorithm name]</dfn>, given a [type1] <var ignore>[parameter1]</var>, a [type2]
@@ -263,14 +263,14 @@ To <dfn ignore>[algorithm name]</dfn>, given a [type1] <var ignore>[parameter1]<
 <p class=example id=example-algorithm-declaration-no-return>To
 <dfn ignore>parse an awesome format</dfn> given a [=byte sequence=] <var ignore>bytes</var>:
 
-Very short algorithms can be declared and specified using a single sentence:
+<p>Very short algorithms can be declared and specified using a single sentence:
 
 <p class=example id=example-algorithm-declaration-short>To <dfn ignore>parse an awesome format</dfn>
 given a [=byte sequence=] <var ignore>bytes</var>, return the result of
 <a lt="ASCII uppercase">ASCII uppercasing</a> the <a lt="isomorphic decode">ismorphic decoding</a>
 of <var ignore>bytes</var>.
 
-Types should be included in algorithm declarations, but may be omitted if the parameter name is
+<p>Types should be included in algorithm declarations, but may be omitted if the parameter name is
 clear enough, or if they are otherwise clear from context. (For example, because the algorithm is
 a simple wrapper around another one.)
 
