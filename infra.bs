@@ -25,6 +25,13 @@ urlPrefix: https://tc39.github.io/ecma262/#; spec: ECMA-262;
         text: Type; url: sec-ecmascript-data-types-and-values
 </pre>
 
+<style>
+/* Used for normative exemplars of how to write algorithms, as distinct from .example */
+.exemplary-prose {
+  margin-left: 2em;
+}
+</style>
+
 
 <h2 id=goals class=no-num>Goals</h2>
 
@@ -178,6 +185,8 @@ as a <dfn export>tracking vector</dfn> are marked as this paragraph is.
 
 <h2 id=algorithms>Algorithms</h2>
 
+<h3 id=algorithm-conformance>Conformance</h3>
+
 <p>Algorithms, and requirements phrased in the imperative as part of algorithms (such as "strip any
 leading spaces" or "return false") are to be interpreted with the meaning of the keyword (e.g.,
 "must") used in introducing the algorithm or step. If no such keyword is used, must is implied.
@@ -185,27 +194,27 @@ leading spaces" or "return false") are to be interpreted with the meaning of the
 <div class=example id=example-algorithms>
  <p>For example, were the spec to say:</p>
 
- <blockquote>
-  <p class=allow-2119>To eat an orange, the user must:
+ <div class=exemplary-prose>
+  <p class=allow-2119>To <dfn ignore>eat an orange</dfn>, the user must:
 
   <ol class=brief>
    <li>Peel the orange.
    <li>Separate each slice of the orange.
    <li>Eat the orange slices.
   </ol>
- </blockquote>
+ </div>
 
  <p>it would be equivalent to the following:</p>
 
- <blockquote>
-  <p>To eat an orange:
+ <div class=exemplary-prose>
+  <p>To <dfn ignore>eat an orange</dfn>:
 
   <ol class=brief>
    <li class=allow-2119>The user must peel the orange.
    <li class=allow-2119>The user must separate each slice of the orange.
    <li class=allow-2119>The user must eat the orange slices.
   </ol>
- </blockquote>
+ </div>
 
  <p class=allow-2119>Here the key word is "must".</p>
 
@@ -224,6 +233,57 @@ single algorithm, in order to optimize for speed or memory consumption. Standard
 paths would be an insurmountable task and not productive as they would not stand the test of time
 as well as the single algorithm would. Therefore performance is best left as a field to compete
 over.
+
+
+<h3 id=declaration>Declaration</h3>
+
+<p>Algorithm names are usually verb phrases, but sometimes are given names that emphasize their
+standalone existence, so that standards and readers can refer to the algorithm more idiomatically.
+
+<p class=example id=example-algorithm-declaration-names>Some algorithm names in the latter category
+include "attribute change steps", "internal module script graph fetching procedure", and "overload
+resolution algorithm".
+
+<p>Declare algorithms by stating their name, parameters, and return type, in the following form:
+
+<p class=exemplary-prose>To <dfn ignore>[algorithm name]</dfn>, given a [type1]
+<var ignore>[parameter1]</var>, a [type2] <var ignore>[parameter2]</var>, &hellip;, perform the
+following steps. They return a [return type].</p>
+
+<p>(For non-verb phrase algorithm names, use "To perform the
+<dfn ignore>[algorithm name]</dfn>&hellip;".)
+
+<p class=example id=example-algorithm-declaration>To <dfn ignore>parse an awesome format</dfn> given
+a [=byte sequence=] <var ignore>bytes</var>, perform the following steps. They return a
+[=string=] or null.
+
+<p>Algorithms which do not return a value use a shorter form. This same shorter form can be used even
+for algorithms that do return a value, since the return type is relatively easy to infer from the
+algorithm steps and call sites:
+
+<p class=exemplary-prose>To <dfn ignore>[algorithm name]</dfn>, given a [type1]
+<var ignore>[parameter1]</var>, a [type2] <var ignore>[parameter2]</var>, &hellip;:</p>
+
+<p class=example id=example-algorithm-declaration-no-return>To
+<dfn ignore>parse an awesome format</dfn> given a [=byte sequence=] <var ignore>bytes</var>:
+
+<p>Very short algorithms can be declared and specified using a single sentence:
+
+<p class=example id=example-algorithm-declaration-short>To <dfn ignore>parse an awesome format</dfn>
+given a [=byte sequence=] <var ignore>bytes</var>, return the result of
+<a lt="ASCII uppercase">ASCII uppercasing</a> the <a lt="isomorphic decode">ismorphic decoding</a>
+of <var ignore>bytes</var>.
+
+<p>Types should be included in algorithm declarations, but may be omitted if the parameter name is
+clear enough, or if they are otherwise clear from context. (For example, because the algorithm is
+a simple wrapper around another one.)
+
+<p class=example id=example-algorithm-declaration-no-types>To
+<dfn ignore>load a classic script</dfn> given <var>url</var>, return the result of performing the
+internal script-loading algorithm given <var>url</var> and "<code>classic</code>".
+
+<p class="XXX">We would also like to give guidance on named and optional parameters; see
+<a href="https://github.com/whatwg/infra/issues/320">issue #320</a> for ongoing discussion.
 
 
 <h3 id=variables>Variables</h3>
