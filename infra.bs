@@ -194,7 +194,7 @@ leading spaces" or "return false") are to be interpreted with the meaning of the
 <div class=example id=example-algorithms>
  <p>For example, were the spec to say:</p>
 
- <blockquote>
+ <div class=exemplary-prose>
   <p class=allow-2119>To <dfn ignore>eat an orange</dfn>, the user must:
 
   <ol class=brief>
@@ -202,11 +202,11 @@ leading spaces" or "return false") are to be interpreted with the meaning of the
    <li>Separate each slice of the orange.
    <li>Eat the orange slices.
   </ol>
- </blockquote>
+ </div>
 
  <p>it would be equivalent to the following:</p>
 
- <blockquote>
+ <div class=exemplary-prose>
   <p>To <dfn ignore>eat an orange</dfn>:
 
   <ol class=brief>
@@ -214,7 +214,7 @@ leading spaces" or "return false") are to be interpreted with the meaning of the
    <li class=allow-2119>The user must separate each slice of the orange.
    <li class=allow-2119>The user must eat the orange slices.
   </ol>
- </blockquote>
+ </div>
 
  <p class=allow-2119>Here the key word is "must".</p>
 
