@@ -239,7 +239,7 @@ as well as the single algorithm would. Therefore performance is best left as a f
 over.
 
 
-<h3 id=declaration>Declaration</h3>
+<h3 id=algorithm-declaration>Declaration</h3>
 
 <p>Algorithm names are usually verb phrases, but sometimes are given names that emphasize their
 standalone existence, so that standards and readers can refer to the algorithm more idiomatically.
@@ -255,7 +255,8 @@ resolution algorithm".
 following steps. They return a [return type].</p>
 
 <p>(For non-verb phrase algorithm names, use "To perform the
-<dfn ignore>[algorithm name]</dfn>&hellip;".)
+<dfn ignore>[algorithm name]</dfn>&hellip;". See also [[#algorithm-params]] for more complicated
+parameter-declaration forms.)
 
 <p class=example id=example-algorithm-declaration>To <dfn ignore>parse an awesome format</dfn> given
 a [=byte sequence=] <var ignore>bytes</var>, perform the following steps. They return a
@@ -286,8 +287,105 @@ a simple wrapper around another one.)
 <dfn ignore>load a classic script</dfn> given <var>url</var>, return the result of performing the
 internal script-loading algorithm given <var>url</var> and "<code>classic</code>".
 
-<p class="XXX">We would also like to give guidance on named and optional parameters; see
-<a href="https://github.com/whatwg/infra/issues/320">issue #320</a> for ongoing discussion.
+<h3 id=algorithm-params>Parameters</h3>
+
+<p>Algorithm parameters are usually listed sequentially, in the fashion described in
+[[#algorithm-declaration]]. However, there are some more complicated cases.</p>
+
+<p>Algorithm parameters can be optional, in which case the algorithm declaration must list them as
+such, and list them after any non-optional parameters. They can either be given a default value, or
+the algorithm body can check whether or not the argument was given. Concretely, use the following
+forms:
+
+<p class=exemplary-prose>&hellip; an optional [type] <var ignore>[parameter]</var> &hellip;
+
+<p class=exemplary-prose>&hellip; an optional [type] <var ignore>[parameter]</var> (default [default
+value]) &hellip;
+
+<div class=example id=example-algorithm-optional-positional-params>
+ <p class=allow-2119>To <dfn ignore id=example-navigate-algo-positional>navigate</dfn> given a
+ resource <var ignore>resource</var>, an optional string <var ignore>navigationType</var>, and an
+ optional boolean <var ignore>exceptionsEnabled</var> (default false):
+
+ <ol class=brief>
+  <li>&hellip;
+  <li>If <var ignore>navigationType</var> was given, then do something with
+  <var ignore>navigationType</var>.
+  <li>&hellip;
+ </ol>
+</div>
+
+<p>To call algorithms with such optional positional parameters, the optional argument values can be
+omitted, but only the trailing ones.
+
+<div class=example id=example-algorithm-optional-positional-params-calling>
+ <p>Call sites to the previous example's algorithm would look like one of:
+
+ <ul class=brief>
+  <li><a href=#example-navigate-algo-positional>Navigate</a> to <var ignore>resource</var>.
+
+  <li><a href=#example-navigate-algo-positional>Navigate</a> to <var ignore>resource</var> with
+  "<code>form submission</code>".
+
+  <li><a href=#example-navigate-algo-positional>Navigate</a> to <var ignore>resource</var> with
+  "<code>form submission</code>" and true.
+ </ul>
+
+ <p>But, there would be no way to supply a non-default value for the third
+ (<var ignore>exceptionsEnabled</var>) argument, while leaving the second
+ (<var ignore>navigationType</var>) argument as not-given.
+</div>
+
+<p>Optional named parameters, instead of positional ones, can be used to increase clarity and
+flexibility at the call site. Such parameters are marked up as both variables and definitions, and
+linked to from their call sites.
+
+<div class=example id=example-algorithm-optional-named-params>
+ <p class=allow-2119>To <dfn ignore id=example-navigate-algo-named>navigate</dfn> given a
+ resource <var ignore>resource</var>, an optional string
+ <dfn ignore id=example-navigate-algo-navigationType><var ignore>navigationType</var></dfn>, and an
+ optional boolean
+ <dfn ignore id=example-navigate-algo-exceptionsEnabled><var ignore>exceptionsEnabled</var></dfn>
+ (default false):
+
+ <ol class=brief>
+  <li>&hellip;
+  <li>If <var ignore>navigationType</var> was given, then do something with
+  <var ignore>navigationType</var>.
+  <li>&hellip;
+ </ol>
+
+ <p>Call sites would then look like one of:
+
+ <ul class=brief>
+  <li><a href=#example-navigate-algo-named>Navigate</a> to <var ignore>resource</var>.
+
+  <li><a href=#example-navigate-algo-named>Navigate</a> to <var ignore>resource</var> with
+  <a href=#example-navigate-algo-navigationType><var ignore>navigationType</var></a> set to
+  "<code>form submission</code>".
+
+  <li><a href=#example-navigate-algo-named>Navigate</a> to <var ignore>resource</var> with
+  <a href=#example-navigate-algo-exceptionsEnabled><var ignore>exceptionsEnabled</var></a> set to
+  true.
+
+  <li><a href=#example-navigate-algo-named>Navigate</a> to <var ignore>resource</var> with
+  <a href=#example-navigate-algo-navigationType><var ignore>navigationType</var></a> set to
+  "<code>form submission</code>" and
+  <a href=#example-navigate-algo-exceptionsEnabled><var ignore>exceptionsEnabled</var></a> set to
+  true.
+ </ul>
+</div>
+
+<p class=note>Note how within the algorithm steps, the argument value is not linked to the parameter
+declaration; it remains just a variable reference. Linking to the parameter declaration is done only
+at the call sites.
+
+<p>Non-optional named parameters may also be used, using the same convention of marking them up as
+both variables and definitions, and linking to them from call sites. However, one should default to
+making non-optional parameters positional, for simplicity and uniformity. Non-optional named
+parameters should only be used when they significantly improve clarity, and even then it might be
+worth considering whether the algorithm would benefit from packaging up the related values into a
+<a>struct</a> instead.
 
 
 <h3 id=variables>Variables</h3>
