@@ -287,6 +287,7 @@ a simple wrapper around another one.)
 <dfn ignore>load a classic script</dfn> given <var>url</var>, return the result of performing the
 internal script-loading algorithm given <var>url</var> and "<code>classic</code>".
 
+
 <h3 id=algorithm-params>Parameters</h3>
 
 <p>Algorithm parameters are usually listed sequentially, in the fashion described in
