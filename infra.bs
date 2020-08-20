@@ -337,7 +337,9 @@ omitted, but only the trailing ones.
 
  <p>But, there would be no way to supply a non-default value for the third
  (<var ignore>exceptionsEnabled</var>) argument, while leaving the second
- (<var ignore>navigationType</var>) argument as not-given.
+ (<var ignore>navigationType</var>) argument as not-given. Additionally, the last of these calls is
+ fairly unclear for readers, as the fact that "true" means "exceptions enabled" requires going back
+ to the algorithm's declaration and counting parameters. Read on for how to fix these issues!
 </div>
 
 <p>Optional named parameters, instead of positional ones, can be used to increase clarity and
@@ -366,7 +368,7 @@ linked to from their call sites.
 
   <li><a href=#example-navigate-algo-named>Navigate</a> to <var ignore>resource</var> with
   <a href=#example-navigate-algo-navigationType><var ignore>navigationType</var></a> set to
-  "<code>form submission</code>".
+  "<code>form-submission</code>".
 
   <li><a href=#example-navigate-algo-named>Navigate</a> to <var ignore>resource</var> with
   <a href=#example-navigate-algo-exceptionsEnabled><var ignore>exceptionsEnabled</var></a> set to
@@ -374,7 +376,7 @@ linked to from their call sites.
 
   <li><a href=#example-navigate-algo-named>Navigate</a> to <var ignore>resource</var> with
   <a href=#example-navigate-algo-navigationType><var ignore>navigationType</var></a> set to
-  "<code>form submission</code>" and
+  "<code>form-submission</code>" and
   <a href=#example-navigate-algo-exceptionsEnabled><var ignore>exceptionsEnabled</var></a> set to
   true.
  </ul>
@@ -391,11 +393,11 @@ parameters should only be used when they significantly improve clarity, and even
 worth considering whether the algorithm would benefit from packaging up the related values into a
 <a>struct</a> instead.
 
-<p class="example allow-2119" id=example-algorithm-non-optional-named-params>Non-optional
-<a>boolean</a> parameters are a case where naming the parameter can be significantly clearer than
-leaving it as positional. See
+<p class="example allow-2119" id=example-algorithm-non-optional-named-params><a>Boolean</a>
+parameters are a case where naming the parameter can be significantly clearer than leaving it as
+positional, regardless of optionality. See
 <a href="https://ariya.io/2011/08/hall-of-api-shame-boolean-trap"><cite>The Pitfalls of Boolean
-Trap</a> for discussion of this in the context of programming languages.
+Trap</cite></a> for discussion of this in the context of programming languages.
 
 
 <h3 id=variables>Variables</h3>
