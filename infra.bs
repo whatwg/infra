@@ -1299,8 +1299,8 @@ entries with a comma.
  <a for=map>key</a> is <var>key</var>.
 </ol>
 
-<p>We can also denote <a for=map>get the value of an entry</a> using an indexing syntax by providing
-a <a for=map>key</a> inside square brackets directly following a <a for=/>map</a>.
+<p>We can also denote <a for=map lt=get>get the value of an entry</a> using an indexing syntax by
+providing a <a for=map>key</a> inside square brackets directly following a <a for=/>map</a>.
 
 <p class=example id=example-map-get>If <var ignore>map</var>["<code>test</code>"]
 <a for=map>exists</a>, then return <var ignore>map</var>["<code>test</code>"].
