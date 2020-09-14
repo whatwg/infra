@@ -1281,9 +1281,7 @@ interoperability among implementations.
 
 <p>A literal syntax can be used to express <a>ordered maps</a>, by surrounding the ordered map with
 «[ ]» characters, denoting each of its <a for=map>entries</a> as |key| → |value|, and separating its
-entries with a comma. An indexing syntax can be used to look up and set <a for=map>values</a> by
-providing a <a for=map>key</a> inside square brackets. The index cannot be out-of-bounds, except
-when used with <a for=map>exists</a>.
+entries with a comma.
 
 <p class=example id=example-map-notation>Let |example| be the <a>ordered map</a> «[
 "<code>a</code>" → `<code>x</code>`, "<code>b</code>" → `<code>y</code>` ]». Then
@@ -1292,9 +1290,20 @@ when used with <a for=map>exists</a>.
 <hr>
 
 <p>To <dfn export for=map lt="get|get the value">get the value of an entry</dfn> in an
-<a>ordered map</a> given a <a for=map>key</a>, return the <a for=map>value</a> of the
-<a for=map>entry</a> whose <a for=map>key</a> is the given key. We can also use the indexing syntax
-explained above.
+<a>ordered map</a> <var>map</var> given a <a for=map>key</a> <var>key</var>:
+
+<ol>
+ <li><p>Assert: <var>map</var> <a for=map>contains</a> <var>key</var>.
+
+ <li><p>Return the <a for=map>value</a> of the <a for=map>entry</a> in <var>map</var> whose
+ <a for=map>key</a> is <var>key</var>.
+</ol>
+
+<p>We can also denote <a for=map lt=get>getting the value of an entry</a> using an indexing syntax,
+by providing a <a for=map>key</a> inside square brackets directly following a <a for=/>map</a>.
+
+<p class=example id=example-map-get>If <var ignore>map</var>["<code>test</code>"]
+<a for=map>exists</a>, then return <var ignore>map</var>["<code>test</code>"].
 
 <p>To <dfn export for=map lt="set|set the value">set the value of an entry</dfn> in an
 <a>ordered map</a> to a given <a for=map>value</a> is to update the value of any existing
