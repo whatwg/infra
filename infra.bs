@@ -18,9 +18,12 @@ urlPrefix: https://tc39.github.io/ecma262/#; spec: ECMA-262;
         text: realm; url: realm
     type: method; for: Array; text: sort(); url: sec-array.prototype.sort
     type: abstract-op;
+        text: ArrayCreate; url: sec-arraycreate
         text: Call; url: sec-call
+        text: CreateDataPropertyOrThrow; url: sec-createdatapropertyorthrow
         text: Get; url: sec-get-o-p
         text: IsArray; url: sec-isarray
+        text: OrdinaryObjectCreate; url: sec-ordinaryobjectcreate
         text: ToLength; url: sec-tolength
         text: ToString; url: sec-tostring
         text: Type; url: sec-ecmascript-data-types-and-values
@@ -1520,6 +1523,82 @@ given a JavaScript value <var>jsValue</var>:
  </li>
 
  <li><p>Return |result|.
+</ol>
+
+<p>To <dfn export lt="serialize an Infra value to a JSON string|serializing an Infra value to a JSON string">serialize an Infra value to a JSON string</dfn>,
+given a <a>string</a>, <a>boolean</a>, number, null, <a>list</a>, or <a>string</a>-keyed <a>map</a>
+|value|:
+
+<ol>
+ <li><p>Let |jsValue| be the result of
+ <a>converting an Infra value to a JSON-compatible JavaScript value</a>, given |value|.
+
+ <li>
+  <p>Return ! [$Call$](<a>%JSON.stringify%</a>, undefined, « |jsValue| »).
+
+  <p class=note>Since no additional arguments are passed to <a>%JSON.stringify%</a>, the resulting
+  string will have no whitespace inserted.
+</ol>
+
+<p>To <dfn export lt="serialize an Infra value to JSON bytes|serializing an Infra value to JSON bytes">serialize an Infra value to JSON bytes</dfn>,
+given a <a>string</a>, <a>boolean</a>, number, null, <a>list</a>, or <a>string</a>-keyed <a>map</a>
+|value|:
+
+<ol>
+ <li><p>Let |string| be the result of <a>serializing an Infra value to a JSON string</a>, given
+ |value|.
+
+ <li><p>Return the result of running <a>UTF-8 encode</a> on |string|. [[!ENCODING]]
+</ol>
+
+<p>To <dfn lt="convert an Infra value to a JSON-compatible JavaScript value|converting an Infra value to a JSON-compatible JavaScript value">convert an Infra value to a JSON-compatible JavaScript value</dfn>,
+given |value|:
+
+<ol>
+ <li><p>If |value| is a <a>string</a>, <a>boolean</a>, number, or null, then return |value|.
+
+ <li>
+  <p>If |value| is a <a>list</a>, then:
+
+  <ol>
+   <li><p>Let |jsValue| be ! [$ArrayCreate$](0).
+
+   <li><p>Let |i| be 0.
+
+   <li>
+    <p><a for=list>For each</a> |listItem| of |value|:
+
+    <ol>
+     <li><p>Let |listItemJSValue| be the result of
+     <a>converting an Infra value to a JSON-compatible JavaScript value</a>, given |listItem|.
+
+     <li><p>Perform ! [$CreateDataPropertyOrThrow$](|jsValue|, ! [$ToString$](|i|),
+     |listItemJSValue|).
+
+     <li><p>Set |i| to |i| + 1.
+    </ol>
+
+   <li><p>Return |jsValue|.
+  </ol>
+
+ <li><p>Assert: |value| is a <a>map</a>.
+
+ <li><p>Let |jsValue| be ! [$OrdinaryObjectCreate$](null).
+
+  <li>
+   <p><a for=list>For each</a> |mapKey| → |mapValue| of |value|:
+
+   <ol>
+    <li><p>Assert: |mapKey| is a <a>string</a>.
+
+    <li><p>Let |mapValueJSValue| be the result of
+    <a>converting an Infra value to a JSON-compatible JavaScript value</a>, given |mapValue|.
+
+    <li><p>Perform ! [$CreateDataPropertyOrThrow$](|jsValue|, |mapKey|, |mapValueJSValue|).
+   </ol>
+
+  <li><p>Return |jsValue|.
+ </ol>
 </ol>
 
 
