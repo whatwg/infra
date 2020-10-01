@@ -1427,55 +1427,81 @@ as 200/`<code>OK</code>`.
 <p class=note>The conventions used in the algorithms in this section are those of the JavaScript
 specification. [[!ECMA-262]]
 
-<p>To <dfn export>parse JSON from bytes</dfn> given <var>bytes</var>, run these steps:
+<p>To <dfn export lt="parse a JSON string to a JavaScript value|parsing a JSON string to a JavaScript value">parse a JSON string to a JavaScript value</dfn>,
+given a <a>string</a> |string|:
 
 <ol>
- <li><p>Let <var>jsonText</var> be the result of running <a>UTF-8 decode</a> on <var>bytes</var>.
- [[!ENCODING]]
-
- <li><p>Return ? <a abstract-op>Call</a>(<a>%JSON.parse%</a>, undefined, « <var>jsonText</var> »).
+ <li><p>Return ? [$Call$](<a>%JSON.parse%</a>, undefined, « |string| »).
 </ol>
 
-<p>To <dfn export>serialize JSON to bytes</dfn> a given JavaScript value <var>value</var>, run these
-steps:
+<p>To <dfn export lt="parse JSON bytes to a JavaScript value|parsing JSON bytes to a JavaScript value|parse JSON from bytes">parse JSON bytes to a JavaScript value</dfn>,
+given a <a>byte sequence</a> |bytes|:
+
+<ol>
+ <li><p>Let |string| be the result of running <a>UTF-8 decode</a> on |bytes|. [[!ENCODING]]
+
+ <li><p>Return the result of <a>parsing a JSON string to a JavaScript value</a> given |string|.
+</ol>
+
+<p>To <dfn export lt="serialize a JavaScript value to a JSON string|serializing a JavaScript value to a JSON string">serialize a JavaScript value to a JSON string</dfn>,
+given a JavaScript value |value|:
 
 <ol>
  <li>
-  <p>Let <var>result</var> be
-  ? <a abstract-op>Call</a>(<a>%JSON.stringify%</a>, undefined, « <var>value</var> »).
+  <p>Let |result| be ? [$Call$](<a>%JSON.stringify%</a>, undefined, « |value| »).
 
   <p class=note>Since no additional arguments are passed to <a>%JSON.stringify%</a>, the resulting
   string will have no whitespace inserted.
 
  <li>
-  <p>If <var>result</var> is undefined, then throw a {{TypeError}}.
+  <p>If |result| is undefined, then throw a {{TypeError}}.
 
-  <p class="note">This can happen if <var>value</var> does not have a JSON representation, e.g., if
+  <p class="note">This can happen if |value| does not have a JSON representation, e.g., if
   it is undefined or a function.
 
- <li><p><a>Assert</a>: <var>result</var> is a <a>string</a>.
+ <li><p><a>Assert</a>: |result| is a <a>string</a>.
 
- <li><p>Return the result of running <a>UTF-8 encode</a> on <var>result</var>. [[!ENCODING]]
+ <li><p>Return |result|.
+</ol>
+
+<p>To <dfn export lt="serialize a JavaScript value to JSON bytes|serializing a JavaScript value to JSON bytes|serialize JSON to bytes">serialize a JavaScript value to JSON bytes</dfn>,
+given a JavaScript value |value|:
+
+<ol>
+ <li><p>Let |string| be the result of <a>serializing a JavaScript value to a JSON string</a> given
+ |value|.
+
+ <li><p>Return the result of running <a>UTF-8 encode</a> on |string|. [[!ENCODING]]
 </ol>
 
 <hr>
 
-<p>The above two operations operate on JavaScript values directly; in particular, this means that
+<p>The above operations operate on JavaScript values directly; in particular, this means that
 the involved objects or arrays are tied to a particular <a lt="realm">JavaScript realm</a>. In
-standards, it is often more convenient to parse JSON into realm-independent <a>maps</a>,
+standards, it is often more convenient to convert between JSON and realm-independent <a>maps</a>,
 <a>lists</a>, <a>strings</a>, <a>booleans</a>, numbers, and nulls.
 
-<p>To <dfn export>parse JSON into Infra values</dfn>, given a <a>string</a> <var>jsonText</var>:
+<p>To <dfn export lt="parse a JSON string to an Infra value|parsing a JSON string to an Infra value|parse JSON into Infra values">parse a JSON string to an Infra value</dfn>,
+given a <a>string</a> |string|:
 
 <ol>
- <li><p>Let |jsValue| be ? [$Call$](<a>%JSON.parse%</a>, undefined, « |jsonText| »).
+ <li><p>Let |jsValue| be ? [$Call$](<a>%JSON.parse%</a>, undefined, « |string| »).
 
  <li><p>Return the result of [=converting a JSON-derived JavaScript value to an Infra value=], given
  |jsValue|.
 </ol>
 
+<p>To <dfn export lt="parse JSON bytes to an Infra value|parsing JSON bytes to an Infra value">parse JSON bytes to an Infra value</dfn>,
+given a <a>byte sequence</a> |bytes|:
+
+<ol>
+ <li><p>Let |string| be the result of running <a>UTF-8 decode</a> on |bytes|. [[!ENCODING]]
+
+ <li><p>Return the result of <a>parsing a JSON string to an Infra value</a> given |string|.
+</ol>
+
 <p>To <dfn lt="convert a JSON-derived JavaScript value to an Infra value|converting a JSON-derived JavaScript value to an Infra value">convert a JSON-derived JavaScript value to an Infra value</dfn>,
-given a JavaScript value <var>jsValue</var>:
+given a JavaScript value |jsValue|:
 
 <ol>
  <li><p>If [$Type$](|jsValue|) is Null, Boolean, String, or Number, then return |jsValue|.
