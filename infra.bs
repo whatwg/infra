@@ -308,8 +308,8 @@ false.
 
 <div class=example id=example-algorithm-optional-positional-params>
  <p class=allow-2119>To <dfn ignore id=example-navigate-algo-positional>navigate</dfn> to a
- resource <var ignore>resource</var>, with an optional string <var ignore>navigationType</var> and an
- optional boolean <var ignore>exceptionsEnabled</var> (default false):
+ resource <var ignore>resource</var>, with an optional string <var ignore>navigationType</var> and
+ an optional boolean <var ignore>exceptionsEnabled</var> (default false):
 
  <ol class=brief>
   <li>&hellip;
@@ -349,7 +349,7 @@ linked to from their call sites.
 <div class=example id=example-algorithm-optional-named-params>
  <p class=allow-2119>To <dfn ignore id=example-navigate-algo-named>navigate</dfn> to a
  resource <var ignore>resource</var>, with an optional string
- <dfn ignore id=example-navigate-algo-navigationType><var ignore>navigationType</var></dfn>, and an
+ <dfn ignore id=example-navigate-algo-navigationType><var ignore>navigationType</var></dfn> and an
  optional boolean
  <dfn ignore id=example-navigate-algo-exceptionsEnabled><var ignore>exceptionsEnabled</var></dfn>
  (default false):
