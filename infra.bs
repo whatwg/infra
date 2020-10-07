@@ -367,17 +367,16 @@ linked to from their call sites.
   <li><a href=#example-navigate-algo-named>Navigate</a> to <var ignore>resource</var>.
 
   <li><a href=#example-navigate-algo-named>Navigate</a> to <var ignore>resource</var> with
-  <a href=#example-navigate-algo-navigationType><var ignore>navigationType</var></a> set to
+  <a href=#example-navigate-algo-navigationType><i>navigationType</i></a> set to
   "<code>form-submission</code>".
 
   <li><a href=#example-navigate-algo-named>Navigate</a> to <var ignore>resource</var> with
-  <a href=#example-navigate-algo-exceptionsEnabled><var ignore>exceptionsEnabled</var></a> set to
-  true.
+  <a href=#example-navigate-algo-exceptionsEnabled><i>exceptionsEnabled</i></a> set to true.
 
   <li><a href=#example-navigate-algo-named>Navigate</a> to <var ignore>resource</var> with
-  <a href=#example-navigate-algo-navigationType><var ignore>navigationType</var></a> set to
+  <a href=#example-navigate-algo-navigationType><i>navigationType</i></a> set to
   "<code>form-submission</code>" and
-  <a href=#example-navigate-algo-exceptionsEnabled><var ignore>exceptionsEnabled</var></a> set to
+  <a href=#example-navigate-algo-exceptionsEnabled><i>exceptionsEnabled</i></a> set to
   true.
  </ul>
 </div>
