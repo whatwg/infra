@@ -307,8 +307,8 @@ value]) &hellip;
 false.
 
 <div class=example id=example-algorithm-optional-positional-params>
- <p class=allow-2119>To <dfn ignore id=example-navigate-algo-positional>navigate</dfn> given a
- resource <var ignore>resource</var>, an optional string <var ignore>navigationType</var>, and an
+ <p class=allow-2119>To <dfn ignore id=example-navigate-algo-positional>navigate</dfn> to a
+ resource <var ignore>resource</var>, with an optional string <var ignore>navigationType</var> and an
  optional boolean <var ignore>exceptionsEnabled</var> (default false):
 
  <ol class=brief>
@@ -347,8 +347,8 @@ flexibility at the call site. Such parameters are marked up as both variables an
 linked to from their call sites.
 
 <div class=example id=example-algorithm-optional-named-params>
- <p class=allow-2119>To <dfn ignore id=example-navigate-algo-named>navigate</dfn> given a
- resource <var ignore>resource</var>, an optional string
+ <p class=allow-2119>To <dfn ignore id=example-navigate-algo-named>navigate</dfn> to a
+ resource <var ignore>resource</var>, with an optional string
  <dfn ignore id=example-navigate-algo-navigationType><var ignore>navigationType</var></dfn>, and an
  optional boolean
  <dfn ignore id=example-navigate-algo-exceptionsEnabled><var ignore>exceptionsEnabled</var></dfn>
