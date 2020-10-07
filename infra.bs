@@ -823,8 +823,8 @@ refers exclusively to how the Unicode Standard defines it for Unicode 16-bit str
 defined in <a>The String Type</a> section of the JavaScript specification. [[!ECMA-262]]
 
 <p class=note>This conversion process converts surrogate pairs into their corresponding
-<a>scalar value</a> and maps isolated surrogates to their corresponding <a>code point</a>, leaving
-them effectively as-is.
+<a>scalar value</a> and maps any remaining surrogates to their corresponding <a>code point</a>,
+leaving them effectively as-is.
 
 <p class=example id=example-javascript-string-in-code-points>A <a>string</a> consisting of the
 <a>code units</a> 0xD83D, 0xDCA9, and 0xD800, when interpreted as containing <a>code points</a>,
@@ -849,7 +849,7 @@ where <a>UTF-8 encode</a> comes into play.
 <a>string</a> into a <a>scalar value string</a>, replace any <a>surrogates</a> with U+FFFD.
 
 <div class=note>
- <p>The replaced surrogates are always isolated surrogates, since the process of interpreting the
+ <p>The replaced surrogates are never part of surrogate pairs, since the process of interpreting the
  string as containing <a>code points</a> will have converted surrogate pairs into
  <a>scalar values</a>.
 
@@ -1859,6 +1859,7 @@ Simon Pieters,
 Tab Atkins,
 Tobie Langel,
 triple-underscore,
+Wolf Lammen,
 and Xue Fuqiao
 for being awesome!
 
