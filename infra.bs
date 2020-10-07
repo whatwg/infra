@@ -387,14 +387,17 @@ at the call sites.
 
 <p>Non-optional named parameters may also be used, using the same convention of marking them up as
 both variables and definitions, and linking to them from call sites. This can improve clarity at the
-call sites. It is also worth considering whether the algorithm would benefit from packaging up the
-related values into a <a>struct</a> instead.
+call sites.
 
 <p class="example allow-2119" id=example-algorithm-non-optional-named-params><a>Boolean</a>
 parameters are a case where naming the parameter can be significantly clearer than leaving it as
 positional, regardless of optionality. See
 <a href="https://ariya.io/2011/08/hall-of-api-shame-boolean-trap"><cite>The Pitfalls of Boolean
 Trap</cite></a> for discussion of this in the context of programming languages.
+
+<p>Another complementary technique for improving clarity is to package up related values into a
+<a>struct</a>, and pass that struct as a parameter. This is especially applicable when the same set
+of related values is used as the input to multiple algorithms.
 
 
 <h3 id=variables>Variables</h3>
