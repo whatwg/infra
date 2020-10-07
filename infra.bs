@@ -387,11 +387,9 @@ declaration; it remains just a variable reference. Linking to the parameter decl
 at the call sites.
 
 <p>Non-optional named parameters may also be used, using the same convention of marking them up as
-both variables and definitions, and linking to them from call sites. However, one should default to
-making non-optional parameters positional, for simplicity and uniformity. Non-optional named
-parameters should only be used when they significantly improve clarity, and even then it might be
-worth considering whether the algorithm would benefit from packaging up the related values into a
-<a>struct</a> instead.
+both variables and definitions, and linking to them from call sites. This can improve clarity at the
+call sites. It is also worth considering whether the algorithm would benefit from packaging up the
+related values into a <a>struct</a> instead.
 
 <p class="example allow-2119" id=example-algorithm-non-optional-named-params><a>Boolean</a>
 parameters are a case where naming the parameter can be significantly clearer than leaving it as
