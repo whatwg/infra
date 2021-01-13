@@ -11,13 +11,13 @@ Folks notice minor and larger issues with the Infra Standard all the time and we
 your help fixing those. Pull requests for typographical and grammar errors are also most welcome.
 
 We'd be happy to mentor you through this process. If you're interested and need help getting
-started, review the [WHATWG contributing guidelines](https://github.com/whatwg/meta/blob/master/CONTRIBUTING.md),
+started, review the [WHATWG contributing guidelines](https://github.com/whatwg/meta/blob/main/CONTRIBUTING.md),
 and leave a comment on the issue or ask around [on IRC](https://whatwg.org/irc).
 
 ## Pull requests
 
 In short, change `infra.bs` and submit your patch after reading through
-[WHATWG committing best practices](https://github.com/whatwg/meta/blob/master/COMMITTING.md).
+[WHATWG committing best practices](https://github.com/whatwg/meta/blob/main/COMMITTING.md).
 Lastly, please review the [WHATWG FAQ](https://wiki.whatwg.org/wiki/FAQ).
 
 Please add your name to the Acknowledgments section in your first pull request, even for trivial
@@ -27,7 +27,7 @@ fixes. The names are sorted lexicographically.
 
 For quick local iteration, run `make`. To verify your changes locally, run `make deploy`. See more
 in the
-[WHATWG Contributor Guidelines](https://github.com/whatwg/meta/blob/master/CONTRIBUTING.md#building).
+[WHATWG Contributor Guidelines](https://github.com/whatwg/meta/blob/main/CONTRIBUTING.md#building).
 
 ## Formatting
 
@@ -84,4 +84,4 @@ double quotes).
 ## Merge policy
 
 If you can commit to this repository, see the
-[WHATWG maintainer guidelines](https://github.com/whatwg/meta/blob/master/MAINTAINERS.md).
+[WHATWG maintainer guidelines](https://github.com/whatwg/meta/blob/main/MAINTAINERS.md).
