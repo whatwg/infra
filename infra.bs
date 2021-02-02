@@ -277,7 +277,7 @@ algorithm steps and call sites:
 
 <p class=example id=example-algorithm-declaration-short>To <dfn ignore>parse an awesome format</dfn>
 given a [=byte sequence=] <var ignore>bytes</var>, return the result of
-<a lt="ASCII uppercase">ASCII uppercasing</a> the <a lt="isomorphic decode">ismorphic decoding</a>
+<a lt="ASCII uppercase">ASCII uppercasing</a> the <a lt="isomorphic decode">isomorphic decoding</a>
 of <var ignore>bytes</var>.
 
 <p>Types should be included in algorithm declarations, but may be omitted if the parameter name is
