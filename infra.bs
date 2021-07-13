@@ -1254,6 +1254,10 @@ all of its <a for=list>items</a>.
 <p>A <a>list</a> <dfn export for=list,stack,queue,set lt="is empty|is not empty">is empty</dfn> if
 its <a for=list>size</a> is zero.
 
+<p>To <dfn export for=list,stack,queue,set lt="get the indices|indices">get the indices</dfn> of a
+<a>list</a>, return <a lt="the exclusive range">the range</a> from 0 to the list's
+<a for=list>size</a>, exclusive.
+
 <p>To <dfn export for=list,set lt="iterate|for each">iterate</dfn> over a <a>list</a>, performing a
 set of steps on each <a for=list>item</a> in order, use phrasing of the form
 "<a for=list>For each</a> |item| of <var ignore>list</var>", and then operate on |item| in the
@@ -1376,9 +1380,15 @@ of creating a new <a>ordered set</a> |set| and, <a for=list>for each</a> |item| 
 
 <hr>
 
-<p><dfn export lt="the range">The range</dfn> <var>n</var> to <var>m</var>, inclusive, creates a new
-<a>ordered set</a> containing all of the integers from <var>n</var> up to and including <var>m</var>
-in consecutively increasing order, as long as <var>m</var> is greater than or equal to <var>n</var>.
+<p><dfn export lt="the range|the inclusive range">The range</dfn> <var>n</var> to <var>m</var>,
+inclusive, creates a new <a>ordered set</a> containing all of the integers from <var>n</var> up to
+and including <var>m</var> in consecutively increasing order, as long as <var>m</var> is greater
+than or equal to <var>n</var>.
+
+<p><dfn export lt="the exclusive range">The range</dfn> <var>n</var> to <var>m</var>, exclusive,
+creates a new <a>ordered set</a> containing all of the integers from <var>n</var> up to and including
+<var>m</var> &minus; 1 in consecutively increasing order, as long as <var>m</var> is greater than
+<var>n</var>. If <var>m</var> equals <var>n</var>, then it creates an empty <a>ordered set</a>.
 
 <p class=example id=example-the-range><a for=set>For each</a> <var>n</var> of <a>the range</a> 1 to
 4, inclusive, &hellip;
@@ -1440,11 +1450,11 @@ from the map.
 We can also denote this by saying that, for an <a>ordered map</a> |map| and key |key|, "|map|[|key|]
 <a for=map>exists</a>".
 
-<p>To <dfn export for=map lt="getting the keys|get the keys">get the keys</dfn> of an
+<p>To <dfn export for=map lt="getting the keys|get the keys|keys">get the keys</dfn> of an
 <a>ordered map</a>, return a new <a>ordered set</a> whose <a for=set>items</a> are each of the
 <a for=map>keys</a> in the map's <a for=map>entries</a>.
 
-<p>To <dfn export for=map lt="getting the values|get the values">get the values</dfn> of an
+<p>To <dfn export for=map lt="getting the values|get the values|values">get the values</dfn> of an
 <a>ordered map</a>, return a new <a>list</a> whose <a for=list>items</a> are each of the
 <a for=map>values</a> in the map's <a for=map>entries</a>.
 
