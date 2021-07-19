@@ -1,5 +1,6 @@
 <pre class=metadata>
 Group: WHATWG
+Date: 2021-07-19
 H1: Infra
 Shortname: infra
 Text Macro: TWITTER infrastandard
