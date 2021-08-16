@@ -945,7 +945,7 @@ ordering will not match any particular alphabet or lexicographic order, particul
 <var>length</var> within a <a>string</a> <var>string</var> is determined as follows:
 
 <ol>
- <li><p><a>Assert</a>: <var>start</var> and <var>length</var> are greater than 0.</p></li>
+ <li><p><a>Assert</a>: <var>start</var> and <var>length</var> are nonnegative.</p></li>
 
  <li><p><a>Assert</a>: <var>start</var> + <var>length</var> is less than or equal to
  <var>string</var>'s <a for=string>length</a>.</p></li>
@@ -972,7 +972,7 @@ length 3 within "<code>Hello world</code>" is "<code>ell</code>". This can also 
 <var>start</var> with length <var>length</var> is determined as follows:
 
 <ol>
- <li><p><a>Assert</a>: <var>start</var> and <var>length</var> are greater than 0.</p></li>
+ <li><p><a>Assert</a>: <var>start</var> and <var>length</var> are nonnegative.</p></li>
 
  <li><p><a>Assert</a>: <var>start</var> + <var>length</var> is less than or equal to
  <var>string</var>'s <a for=string>code point length</a>.</p></li>
