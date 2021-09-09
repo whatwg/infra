@@ -964,6 +964,11 @@ ordering will not match any particular alphabet or lexicographic order, particul
 unit substring</a> from <var>start</var> with length <var>end</var> &minus; <var>start</var> within
 <var>string</var>.
 
+<p>The <dfn export lt="code unit substring to the end of the string">code unit substring</dfn> from
+index <var>start</var> to the end of a <a>string</a> <var>string</var> is the
+<a lt="code unit substring by indices">code unit substring</a> from <var>start</var> to
+<var>string</var>'s <a for=string>length</a> &minus; 1 inclusive within <var>string</var>.
+
 <p class="example" id="example-code-unit-substring">The <a>code unit substring</a> from index 1 with
 length 3 within "<code>Hello world</code>" is "<code>ell</code>". This can also be expressed as the
 <a lt="code unit substring by indices">code unit substring</a> from indices 1 to 4 inclusive.
@@ -990,6 +995,12 @@ length 3 within "<code>Hello world</code>" is "<code>ell</code>". This can also 
 <var>start</var> to <var>end</var> inclusive within a <a>string</a> <var>string</var> is the <a>code
 point substring</a> within <var>string</var> from <var>start</var> with length <var>end</var>
 &minus; <var>start</var>.
+
+<p>The <dfn export lt="code point substring to the end of the string">code point substring</dfn>
+from index <var>start</var> to the end of a <a>string</a> <var>string</var> is the
+<a lt="code point substring by indices">code point substring</a> from <var>start</var> to
+<var>string</var>'s <a for=string>code point length</a> &minus; 1 inclusive within
+<var>string</var>.
 
 <div class="example" id="example-code-unit-vs-point-substring">
  <p>Generally, <a>code unit substring</a> is used when given developer-supplied indices or lengths,
@@ -1911,6 +1922,7 @@ certain inputs.
 Addison Phillips,
 Andreu Botella,
 Aryeh Gregor,
+Ben Kelly,
 Chris Rebert,
 Daniel Ehrenberg,
 Dominic Farolino,
