@@ -941,8 +941,8 @@ ordering will not match any particular alphabet or lexicographic order, particul
 
 <hr>
 
-<p>The <dfn export>code unit substring</dfn> from index <var>start</var> with length
-<var>length</var> within a <a>string</a> <var>string</var> is determined as follows:
+<p>The <dfn export>code unit substring</dfn> from <var>start</var> with length <var>length</var>
+within a <a>string</a> <var>string</var> is determined as follows:
 
 <ol>
  <li><p><a>Assert</a>: <var>start</var> and <var>length</var> are nonnegative.</p></li>
@@ -959,21 +959,27 @@ ordering will not match any particular alphabet or lexicographic order, particul
  <li><p>Return <var>result</var>.</li>
 </ol>
 
-<p>The <dfn export lt="code unit substring by indices">code unit substring</dfn> from indices
-<var>start</var> to <var>end</var> inclusive within a <a>string</a> <var>string</var> is the <a>code
+<p>The <dfn export lt="code unit substring by positions">code unit substring</dfn> from
+<var>start</var> to <var>end</var> within a <a>string</a> <var>string</var> is the <a>code
 unit substring</a> from <var>start</var> with length <var>end</var> &minus; <var>start</var> within
 <var>string</var>.
 
 <p>The <dfn export lt="code unit substring to the end of the string">code unit substring</dfn> from
-index <var>start</var> to the end of a <a>string</a> <var>string</var> is the
-<a lt="code unit substring by indices">code unit substring</a> from <var>start</var> to
-<var>string</var>'s <a for=string>length</a> &minus; 1 inclusive within <var>string</var>.
+<var>start</var> to the end of a <a>string</a> <var>string</var> is the
+<a lt="code unit substring by positions">code unit substring</a> from <var>start</var> to
+<var>string</var>'s <a for=string>length</a> within <var>string</var>.
 
-<p class="example" id="example-code-unit-substring">The <a>code unit substring</a> from index 1 with
+<p class="example" id="example-code-unit-substring">The <a>code unit substring</a> from 1 with
 length 3 within "<code>Hello world</code>" is "<code>ell</code>". This can also be expressed as the
-<a lt="code unit substring by indices">code unit substring</a> from indices 1 to 4 inclusive.
+<a lt="code unit substring by indices">code unit substring</a> from 1 to 4.
 
-<p>The <dfn export>code point substring</dfn> within a <a>string</a> <var>string</var> from index
+<p class="note">The numbers given to these algorithms are best thought of as positions
+<em>between</em> <a>code units</a>, not indices of the code units themselves. The substring returned
+is then formed by the code units between these positions. That explains why, for example, the
+<a lt="code unit substring by positions">code unit substring</a> from 0 to 0 within the empty string
+is the empty string, even though there is no code unit at index 0 within the empty string.
+
+<p>The <dfn export>code point substring</dfn> within a <a>string</a> <var>string</var> from
 <var>start</var> with length <var>length</var> is determined as follows:
 
 <ol>
@@ -991,26 +997,25 @@ length 3 within "<code>Hello world</code>" is "<code>ell</code>". This can also 
  <li><p>Return <var>result</var>.</li>
 </ol>
 
-<p>The <dfn export lt="code point substring by indices">code point substring</dfn> from indices
-<var>start</var> to <var>end</var> inclusive within a <a>string</a> <var>string</var> is the <a>code
-point substring</a> within <var>string</var> from <var>start</var> with length <var>end</var>
-&minus; <var>start</var>.
+<p>The <dfn export lt="code point substring by positions">code point substring</dfn> from
+<var>start</var> to <var>end</var> within a <a>string</a> <var>string</var> is the
+<a>code point substring</a> within <var>string</var> from <var>start</var> with length
+<var>end</var> &minus; <var>start</var>.
 
 <p>The <dfn export lt="code point substring to the end of the string">code point substring</dfn>
-from index <var>start</var> to the end of a <a>string</a> <var>string</var> is the
+from <var>start</var> to the end of a <a>string</a> <var>string</var> is the
 <a lt="code point substring by indices">code point substring</a> from <var>start</var> to
-<var>string</var>'s <a for=string>code point length</a> &minus; 1 inclusive within
-<var>string</var>.
+<var>string</var>'s <a for=string>code point length</a> within <var>string</var>.
 
 <div class="example" id="example-code-unit-vs-point-substring">
- <p>Generally, <a>code unit substring</a> is used when given developer-supplied indices or lengths,
- since that is how string indexing works in JavaScript. See, for example, the methods of the
- {{CharacterData}} class. [[DOM]]
+ <p>Generally, <a>code unit substring</a> is used when given developer-supplied positions or
+ lengths, since that is how string indexing works in JavaScript. See, for example, the methods of
+ the {{CharacterData}} class. [[DOM]]
 
- <p>Otherwise, <a>code point substring</a> is likely to be better. For example, the <a>code point
- substring</a> from index 0 with length 1 within "<code>👽</code>" is "<code>👽</code>", whereas the
- <a>code unit substring</a> from index 0 with length 1 within "<code>👽</code>" is the <a>string</a>
- containing the single <a>surrogate</a> U+D83B.
+ <p>Otherwise, <a>code point substring</a> is likely to be better. For example, the
+ <a>code point substring</a> from 0 with length 1 within "<code>👽</code>" is "<code>👽</code>",
+ whereas the <a>code unit substring</a> from 0 with length 1 within "<code>👽</code>" is the
+ <a>string</a> containing the single <a>surrogate</a> U+D83B.
 </div>
 
 <hr>
