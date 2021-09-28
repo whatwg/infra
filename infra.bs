@@ -693,7 +693,7 @@ following steps return true:
  </li>
 </ol>
 
-<p>"<var>input</var> <dfn export for="byte sequence" lt="start with|starts with">starts with</dfn>
+<p>"<var>input</var> <dfn export for="byte sequence" lt="starts with|start with">starts with</dfn>
 <var>potentialPrefix</var> can be used as a synonym for "<var>potentialPrefix</var> is a
 <a for="byte sequence">prefix</a> of <var>input</var>".
 
