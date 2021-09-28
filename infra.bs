@@ -971,7 +971,7 @@ unit substring</a> from <var>start</var> with length <var>end</var> &minus; <var
 
 <p class="example" id="example-code-unit-substring">The <a>code unit substring</a> from 1 with
 length 3 within "<code>Hello world</code>" is "<code>ell</code>". This can also be expressed as the
-<a lt="code unit substring by indices">code unit substring</a> from 1 to 4.
+<a lt="code unit substring by positions">code unit substring</a> from 1 to 4.
 
 <p class="note">The numbers given to these algorithms are best thought of as positions
 <em>between</em> <a>code units</a>, not indices of the code units themselves. The substring returned
@@ -1004,7 +1004,7 @@ is the empty string, even though there is no code unit at index 0 within the emp
 
 <p>The <dfn export lt="code point substring to the end of the string">code point substring</dfn>
 from <var>start</var> to the end of a <a>string</a> <var>string</var> is the
-<a lt="code point substring by indices">code point substring</a> from <var>start</var> to
+<a lt="code point substring by positions">code point substring</a> from <var>start</var> to
 <var>string</var>'s <a for=string>code point length</a> within <var>string</var>.
 
 <div class="example" id="example-code-unit-vs-point-substring">
