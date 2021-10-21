@@ -1584,19 +1584,19 @@ a <a>map</a> |map|, with a less than algorithm |lessThanAlgo|, is to create a ne
 <dfn export for=struct,tuple,pair lt=item>items</dfn>, each of which has a unique and immutable
 <dfn export for=struct,tuple,pair>name</dfn>.
 
-<hr>
 
-<p><a>Structs</a> with a defined order are also known as <dfn export lt=tuple>tuples</dfn>. For
-notational convenience, a literal syntax can be used to express <a>tuples</a>, by surrounding the
-tuple with parenthesis and separating its <a for=tuple>items</a> with a comma. To use this notation,
-the <a for=tuple>names</a> need to be clear from context. This can be done by preceding the first
-instance with the name given to the <a>tuple</a>.
+<h4 id=tuples>Tuples</h4>
+
+<p>A <dfn export>tuple</dfn> is a <a>struct</a> with a defined order. For notational convenience, a
+literal syntax can be used to express <a>tuples</a>, by surrounding the tuple with parenthesis and
+separating its <a for=tuple>items</a> with a comma. To use this notation, the <a for=tuple>names</a>
+need to be clear from context. This can be done by preceding the first instance with the name given
+to the <a>tuple</a>. An indexing syntax can be used by providing a zero-based index into a
+<a>tuple</a> inside square brackets. The index cannot be out-of-bounds.
 
 <div class=example id=example-tuple>
- <!-- If https://github.com/tabatkins/bikeshed/issues/960 gets fixed we can show how to use <dfn>
- and <a> on these -->
- <p>A status is an example <a>tuple</a> consisting of a code (a three-digit number) and text (a byte
- sequence).
+ <p>A <dfn ignore>status</dfn> is an example <a>tuple</a> consisting of a <dfn ignore>code</dfn> (a
+ number) and <dfn ignore>text</dfn> (a byte sequence).
 
  <p>A nonsense algorithm that manipulates status tuples for the purpose of demonstrating their
  usage is then:</p>
@@ -1606,6 +1606,9 @@ instance with the name given to the <a>tuple</a>.
   <li>Set |statusInstance| to (301, `<code>FOO BAR</code>`).
   <li>If |statusInstance|'s code is 404, then &hellip;
  </ol>
+
+ <p>The last step could also be written as "If |statusInstance|[0] is 404, then &hellip;". This
+ might be preferable if the <a>tuple</a> <a for=tuple>names</a> do not have explicit definitions.
 </div>
 
 <p class=note>It is intentional that not all <a>structs</a> are <a>tuples</a>. Documents using the
