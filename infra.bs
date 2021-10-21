@@ -1595,8 +1595,8 @@ to the <a>tuple</a>. An indexing syntax can be used by providing a zero-based in
 <a>tuple</a> inside square brackets. The index cannot be out-of-bounds.
 
 <div class=example id=example-tuple>
- <p>A status is an example <a>tuple</a> consisting of a <dfn ignore>code</dfn> (a number) and
- <dfn ignore>text</dfn> (a byte sequence).
+ <p>A <dfn ignore>status</dfn> is an example <a>tuple</a> consisting of a <dfn ignore>code</dfn> (a
+ number) and <dfn ignore>text</dfn> (a byte sequence).
 
  <p>A nonsense algorithm that manipulates status tuples for the purpose of demonstrating their
  usage is then:</p>
