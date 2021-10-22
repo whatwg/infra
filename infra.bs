@@ -1581,8 +1581,8 @@ a <a>map</a> |map|, with a less than algorithm |lessThanAlgo|, is to create a ne
 <h3 id=structs>Structs</h3>
 
 <p>A <dfn export>struct</dfn> is a specification type consisting of a finite set of
-<dfn export for=struct,tuple,pair lt=item>items</dfn>, each of which has a unique and immutable
-<dfn export for=struct,tuple,pair>name</dfn>.
+<dfn export for=struct,tuple lt=item>items</dfn>, each of which has a unique and immutable
+<dfn export for=struct,tuple>name</dfn>.
 
 
 <h4 id=tuples>Tuples</h4>
@@ -1614,15 +1614,6 @@ to the <a>tuple</a>. An indexing syntax can be used by providing a zero-based in
 <p class=note>It is intentional that not all <a>structs</a> are <a>tuples</a>. Documents using the
 Infra Standard might need the flexibility to add new <a for=struct>names</a> to their struct
 without breaking literal syntax used by their dependencies. In that case a tuple is not appropriate.
-
-<hr>
-
-<p><a>Tuples</a> with two <a for=tuple>items</a> are also known as <dfn export lt=pair>pairs</dfn>.
-For <a>pairs</a>, a slightly shorter literal syntax can be used, separating the two
-<a for=pair>items</a> with a / character.
-
-<p class=example id=example-pair>Another way of expressing our |statusInstance| tuple above would be
-as 200/`<code>OK</code>`.
 
 
 <h2 id=json>JSON</h2>
