@@ -518,7 +518,7 @@ something.
 
 <dl>
  <dt>For each
- <dd><p>As defined <a for=list lt="for each">for lists</a> (and derivatives) and
+ <dd><p>As defined for <a for=list lt="for each">lists</a> (and derivatives) and
  <a for=map lt="for each">maps</a>.
 
  <dt><dfn export for=iteration lt=while>While</dfn>
