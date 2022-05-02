@@ -928,16 +928,18 @@ literal, we can use plainer language: <var>userInput</var> <a for="string">start
    <li><p>Let <var>potentialSuffixIndex</var> be <var>potentialSuffix</var>'s
    <a for=string>length</a> &minus; <var>i</var>.
 
+   <li><p>Let <var>inputIndex</var> be <var>input</var>'s <a for=string>length</a> &minus;
+   <var>i</var>.
+
    <li><p>If <var>potentialSuffixIndex</var> is less than 0, then return true.
+
+   <li><p>If <var>inputIndex</var> is less than 0, then return false.
 
    <li><p>Let <var>potentialSuffixCodeUnit</var> be the <var>potentialSuffixIndex</var>th
    <a>code unit</a> of <var>potentialSuffix</var>.
 
-   <li><p>Let <var>inputIndex</var> be <var>input</var>'s <a for=string>length</a> &minus;
-   <var>i</var>.
-
    <li><p>Let <var>inputCodeUnit</var> be the <var>inputIndex</var>th <a>code unit</a> of
-   <var>input</var> if <var>i</var> is greater than or equal to 0; otherwise null.
+   <var>input</var>.
 
    <li><p>Return false if <var>potentialSuffixCodeUnit</var> is not <var>inputCodeUnit</var>.
 
