@@ -696,7 +696,7 @@ following steps return true:
 </ol>
 
 <p>"<var>input</var> <dfn export for="byte sequence" lt="starts with|start with">starts with</dfn>
-<var>potentialPrefix</var> can be used as a synonym for "<var>potentialPrefix</var> is a
+<var>potentialPrefix</var>" can be used as a synonym for "<var>potentialPrefix</var> is a
 <a for="byte sequence">prefix</a> of <var>input</var>".
 
 <p>A <a>byte sequence</a> <var>a</var> is <dfn export>byte less than</dfn> a <a>byte sequence</a>
