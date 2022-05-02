@@ -915,6 +915,50 @@ as a synonym for "<var>potentialPrefix</var> is a <a>code unit prefix</a> of <va
 literal, we can use plainer language: <var>userInput</var> <a for="string">starts with</a>
 "<code>!</code>".
 
+<p>A <a>string</a> <var>potentialSuffix</var> is a <dfn export>code unit suffix</dfn> of a
+<a>string</a> <var>input</var> if the following steps return true:
+
+<ol>
+ <li><p>Let <var>i</var> be 1.
+
+ <li>
+  <p><a>While</a> true:
+
+  <ol>
+   <li><p>Let <var>potentialSuffixIndex</var> be <var>potentialSuffix</var>'s
+   <a for=string>length</a> &minus; <var>i</var>.
+
+   <li><p>Let <var>inputIndex</var> be <var>input</var>'s <a for=string>length</a> &minus;
+   <var>i</var>.
+
+   <li><p>If <var>potentialSuffixIndex</var> is less than 0, then return true.
+
+   <li><p>If <var>inputIndex</var> is less than 0, then return false.
+
+   <li><p>Let <var>potentialSuffixCodeUnit</var> be the <var>potentialSuffixIndex</var>th
+   <a>code unit</a> of <var>potentialSuffix</var>.
+
+   <li><p>Let <var>inputCodeUnit</var> be the <var>inputIndex</var>th <a>code unit</a> of
+   <var>input</var>.
+
+   <li><p>Return false if <var>potentialSuffixCodeUnit</var> is not <var>inputCodeUnit</var>.
+
+   <li><p>Set <var>i</var> to <var>i</var> + 1.
+  </ol>
+</ol>
+
+<p>When it is clear from context that <a>code units</a> are in play, e.g., because one of the
+strings is a literal containing only characters that are in the range U+0020 SPACE to U+007E (~),
+"<var>input</var> <dfn export for=string>ends with</dfn> <var>potentialSuffix</var>" can be used as
+a synonym for "<var>potentialSuffix</var> is a <a>code unit suffix</a> of <var>input</var>".
+
+<p class=example id=code-unit-suffix-example>With unknown values, it is good to be explicit:
+<var ignore>targetString</var> is a <a>code unit suffix</a> of <var>domain</var>. But with a
+literal, we can use plainer language: <var>domain</var> <a for=string>ends with</a>
+"<code>.</code>".
+
+<hr>
+
 <p>A <a>string</a> <var>a</var> is <dfn export>code unit less than</dfn> a <a>string</a>
 <var>b</var> if the following steps return true:
 
