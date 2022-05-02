@@ -677,14 +677,16 @@ following steps return true:
   <p><a>While</a> true:
 
   <ol>
+   <li><p>If <var>i</var> is greater than or equal to <var>potentialPrefix</var>'s
+   <a for="byte sequence">length</a>, then return true.
+
+   <li><p>If <var>i</var> is greater than or equal to <var>input</var>'s
+   <a for="byte sequence">length</a>, then return false.
+
    <li><p>Let <var>potentialPrefixByte</var> be the <var>i</var>th <a>byte</a> of
-   <var>potentialPrefix</var> if <var>i</var> is less than <var>potentialPrefix</var>'s
-   <a for="byte sequence">length</a>; otherwise null.
+   <var>potentialPrefix</var>.
 
-   <li><p>Let <var>inputByte</var> be the <var>i</var>th <a>byte</a> of <var>input</var> if
-   <var>i</var> is less than <var>input</var>'s <a for="byte sequence">length</a>; otherwise null.
-
-   <li><p>If <var>potentialPrefixByte</var> is null, then return true.
+   <li><p>Let <var>inputByte</var> be the <var>i</var>th <a>byte</a> of <var>input</var>.
 
    <li><p>Return false if <var>potentialPrefixByte</var> is not <var>inputByte</var>.
 
@@ -694,7 +696,7 @@ following steps return true:
 </ol>
 
 <p>"<var>input</var> <dfn export for="byte sequence" lt="starts with|start with">starts with</dfn>
-<var>potentialPrefix</var> can be used as a synonym for "<var>potentialPrefix</var> is a
+<var>potentialPrefix</var>" can be used as a synonym for "<var>potentialPrefix</var> is a
 <a for="byte sequence">prefix</a> of <var>input</var>".
 
 <p>A <a>byte sequence</a> <var>a</var> is <dfn export>byte less than</dfn> a <a>byte sequence</a>
@@ -889,14 +891,16 @@ are visually or even canonically equivalent according to Unicode might still not
   <p><a>While</a> true:
 
   <ol>
+   <li><p>If <var>i</var> is greater than or equal to <var>potentialPrefix</var>'s
+   <a for=string>length</a>, then return true.
+
+   <li><p>If <var>i</var> is greater than or equal to <var>input</var>'s <a for=string>length</a>,
+   then return false.
+
    <li><p>Let <var>potentialPrefixCodeUnit</var> be the <var>i</var>th <a>code unit</a> of
-   <var>potentialPrefix</var> if <var>i</var> is less than <var>potentialPrefix</var>'s
-   <a for=string>length</a>; otherwise null.
+   <var>potentialPrefix</var>.
 
-   <li><p>Let <var>inputCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>input</var> if
-   <var>i</var> is less than <var>input</var>'s <a for=string>length</a>; otherwise null.
-
-   <li><p>If <var>potentialPrefixCodeUnit</var> is null, then return true.
+   <li><p>Let <var>inputCodeUnit</var> be the <var>i</var>th <a>code unit</a> of <var>input</var>.
 
    <li><p>Return false if <var>potentialPrefixCodeUnit</var> is not <var>inputCodeUnit</var>.
 
