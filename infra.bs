@@ -1604,11 +1604,6 @@ of running <a for=map>get the keys</a> on the map.
 <p>An <a>ordered map</a> <dfn export for=map lt="is empty|is not empty">is empty</dfn> if its
 <a for=map>size</a> is zero.
 
-<p>To <dfn export for=map lt="iterate|for each">iterate</dfn> over an <a>ordered map</a>, performing
-a set of steps on each <a for=map>entry</a> in order, use phrasing of the form
-"<a for=map>For each</a> |key| → |value| of |map|", and then operate on |key| and |value| in the
-subsequent prose.
-
 <p>To <dfn export for=map lt="iterate|for each">iterate</dfn> over an <a>ordered map</a> |map|,
 performing a set of steps |steps| on each [=map/entry=] in order, perform [=map iteration=]
 using |map| and |steps|. This can also be (and usually is) written as "[=map/For each=]
