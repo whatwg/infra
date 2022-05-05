@@ -988,8 +988,7 @@ ordering will not match any particular alphabet or lexicographic order, particul
 <a>code points</a> represented by a surrogate pair. For example, the codepoint U+FF5E
 (～ FULLWIDTH TILDE) is obviously less than the codepoint U+1F600 (😀), but the tilde is
 composed of a single code unit 0xFF5E, while the smiley is composed of two code units
-0xD83D and 0XDE00, so the smiley is [=code unit less than=] the tilde.
-[[!ECMA-262]]
+0xD83D and 0XDE00, so the smiley is [=code unit less than=] the tilde. [[!ECMA-262]]
 
 <hr>
 
