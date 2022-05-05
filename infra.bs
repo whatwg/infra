@@ -1389,6 +1389,7 @@ its <a for=list>size</a> is zero.
 set of steps on each <a for=list>item</a> in order, use phrasing of the form
 "<a for=list>For each</a> |item| of <var ignore>list</var>", and then operate on |item| in the
 subsequent prose.
+The subsequent prose constitutes the |steps| of [=sequence iteration=] over the [=list=].
 
 <p>To <dfn export for=list,stack,queue,set>clone</dfn> a <a>list</a> |list| is to create a new
 <a>list</a> |clone|, of the same designation, and, <a for=list>for each</a> |item| of |list|,
@@ -1423,6 +1424,23 @@ a <a>list</a> |list|, with a less than algorithm |lessThanAlgo|, is to create a 
 ascending order, with |a| being less than |b| if |a|'s second <a for=struct>item</a> is
 <a>code unit less than</a> |b|'s second <a for=struct>item</a>, gives the result « (404,
 "<code>Not Found</code>"), (200, "<code>OK</code>"), (null, "<code>OK</code>") ».</p>
+
+<div algorithm>
+    <dfn>Sequence iteration</dfn> over an ordered sequence |seq|,
+    given some per-item |steps|,
+    means to:
+
+    1. Let |length| be the number of entries in |seq|.
+    1. Let |index| initially be 0.
+    1. While |index| < |length|:
+        1. Let |entry| be the |index|th entry in |seq|.
+        1. Invoke |steps| with |entry|.
+        1. Increment |index| by 1.
+        1. Set |length| to the number of entries in |seq|.
+
+    Note: Both the number of entries in |seq|, and their order,
+    can potentialy change while invoking |steps|.
+</div>
 
 <hr>
 
@@ -1595,6 +1613,7 @@ of running <a for=map>get the keys</a> on the map.
 a set of steps on each <a for=map>entry</a> in order, use phrasing of the form
 "<a for=map>For each</a> |key| → |value| of |map|", and then operate on |key| and |value| in the
 subsequent prose.
+The subsequent prose constitutes the |steps| of [=sequence iteration=] over the [=map=].
 
 <p>To <dfn export for=map>clone</dfn> an <a>ordered map</a> |map| is to create a new
 <a>ordered map</a> |clone|, and, <a for=map>for each</a> |key| → |value| of |map|,
