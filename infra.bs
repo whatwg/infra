@@ -728,7 +728,7 @@ the same order.
 
 <h3 id=code-points>Code points</h3>
 
-<p>A <dfn export lt="code point|character">code point</dfn> is a Unicode code point and is
+<p>A <dfn export>code point</dfn> is a Unicode code point and is
 represented as "U+" followed by four-to-six <a>ASCII upper hex digits</a>, in the range U+0000 to
 U+10FFFF, inclusive. A <a>code point</a>'s <dfn export for="code point">value</dfn> is its
 underlying number.
