@@ -987,6 +987,11 @@ string, producing a highly efficient, consistent, and deterministic sort order. 
 ordering will not match any particular alphabet or lexicographic order, particularly for
 <a>code points</a> represented by a surrogate pair. [[!ECMA-262]]
 
+<p class="example" id="example-code-unit-less-than">For example, the code point U+FF5E FULLWIDTH
+TILDE (～) is obviously less than the code point U+1F600 (😀), but the tilde is composed of a single
+code unit 0xFF5E, while the smiley is composed of two code units 0xD83D and 0XDE00, so the smiley is
+[=code unit less than=] the tilde.
+
 <hr>
 
 <p>The <dfn export>code unit substring</dfn> from <var>start</var> with length <var>length</var>
