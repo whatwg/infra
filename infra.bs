@@ -985,10 +985,11 @@ literal, we can use plainer language: <var>domain</var> <a for=string>ends with<
 {{Array/sort()}} method on an array of strings. This ordering compares the 16-bit code units in each
 string, producing a highly efficient, consistent, and deterministic sort order. The resulting
 ordering will not match any particular alphabet or lexicographic order, particularly for
-<a>code points</a> represented by a surrogate pair. For example, the codepoint U+FF5E
-(～ FULLWIDTH TILDE) is obviously less than the codepoint U+1F600 (😀), but the tilde is
-composed of a single code unit 0xFF5E, while the smiley is composed of two code units
-0xD83D and 0XDE00, so the smiley is [=code unit less than=] the tilde. [[!ECMA-262]]
+<a>code points</a> represented by a surrogate pair. [[!ECMA-262]]
+
+<p class="example">For example, the code point U+FF5E FULLWIDTH TILDE (～) is obviously less than the
+code point U+1F600 (😀), but the tilde is composed of a single code unit 0xFF5E, while the smiley is
+composed of two code units 0xD83D and 0XDE00, so the smiley is [=code unit less than=] the tilde.
 
 <hr>
 
