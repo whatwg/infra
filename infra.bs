@@ -2003,7 +2003,7 @@ and Xue Fuqiao
 for being awesome!
 
 <p>This standard is written by <a lang=nl href=https://annevankesteren.nl/>Anne van Kesteren</a>
-(<a href=https://www.mozilla.org/>Mozilla</a>,
+(<a href=https://www.apple.com/>Apple Inc.</a>,
 <a href=mailto:annevk@annevk.nl>annevk@annevk.nl</a>) and
 <a href=https://domenic.me/>Domenic Denicola</a> (<a href=https://www.google.com/>Google</a>,
 <a href=mailto:d@domenic.me>d@domenic.me</a>).
