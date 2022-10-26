@@ -72,14 +72,13 @@ marked non-normative. Everything else is normative.
 
 <p>The keywords "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT",
 "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" are to be interpreted as described in
-<cite>RFC 2119</cite>. [[!RFC2119]]
+RFC 2119. [[!RFC2119]]
 
 <p>These keywords have equivalent meaning when written in lowercase and cannot appear in
 non-normative content.
 
-<p class=note>This is a <a>willful violation</a> of <cite>RFC 8174</cite>, motivated by legibility
-and a desire to preserve long-standing practice in many non-IETF-published pre-<cite>RFC 8174</cite>
-documents. [[RFC8174]]
+<p class=note>This is a <a>willful violation</a> of RFC 8174, motivated by legibility and a desire
+to preserve long-standing practice in many non-IETF-published pre-RFC 8174 documents. [[RFC8174]]
 
 <p>All of the above is applicable to both this standard and any document that uses this standard.
 Documents using this standard are encouraged to limit themselves to "must", "must not", "should",
@@ -99,7 +98,7 @@ denote such transgressions as a <dfn export>willful violation</dfn>, and note th
 violation.
 
 <p class=example id=example-willful-violation>The previous section, [[#conformance]], documents a
-<a>willful violation</a> of <cite>RFC 8174</cite> committed by <cite>Infra</cite>.
+<a>willful violation</a> of RFC 8174 committed by <cite>Infra</cite>.
 
 
 <h3 id=terminology>Terminology</h3>
@@ -823,7 +822,7 @@ and monospace font.
 refers exclusively to how <cite>Unicode</cite> defines it for Unicode 16-bit strings. [[UNICODE]]
 
 <p>A <a>string</a> can also be interpreted as containing <a>code points</a>, per the conversion
-defined in <a>The String Type</a> section of <cite>JavaScript</cite>. [[!ECMA-262]]
+defined in <a>The String Type</a> section of the JavaScript specification. [[!ECMA-262]]
 
 <p class=note>This conversion process converts surrogate pairs into their corresponding
 <a>scalar value</a> and maps any remaining surrogates to their corresponding <a>code point</a>,
@@ -982,11 +981,11 @@ literal, we can use plainer language: <var>domain</var> <a for=string>ends with<
  <li><p>Return false.
 </ol>
 
-<p class="note">This matches the ordering used by <cite>JavaScript</cite>'s <code>&lt;</code>
-operator, and its {{Array/sort()}} method on an array of strings. This ordering compares the 16-bit
-code units in each string, producing a highly efficient, consistent, and deterministic sort order.
-The resulting ordering will not match any particular alphabet or lexicographic order, particularly
-for <a>code points</a> represented by a surrogate pair. [[!ECMA-262]]
+<p class="note">This matches the ordering used by JavaScript's <code>&lt;</code> operator, and its
+{{Array/sort()}} method on an array of strings. This ordering compares the 16-bit code units in each
+string, producing a highly efficient, consistent, and deterministic sort order. The resulting
+ordering will not match any particular alphabet or lexicographic order, particularly for
+<a>code points</a> represented by a surrogate pair. [[!ECMA-262]]
 
 <p class="example" id="example-code-unit-less-than">For example, the code point U+FF5E FULLWIDTH
 TILDE (～) is obviously less than the code point U+1F600 (😀), but the tilde is composed of a single
@@ -1432,11 +1431,11 @@ ascending order, with |a| being less than |b| if |a|'s second <a for=struct>item
 
 <hr>
 
-<p>The <a>list</a> type originates from <cite>JavaScript</cite> (where it is capitalized, as
+<p>The <a>list</a> type originates from the JavaScript specification (where it is capitalized, as
 <a spec=ecma-262>List</a>); we repeat some elements of its definition here for ease of reference,
-and provide an expanded vocabulary for manipulating <a>lists</a>. Whenever <cite>JavaScript</cite>
-expects a <a spec=ecma-262>List</a>, a <a>list</a> as defined here can be used; they are the same
-type. [[!ECMA-262]]
+and provide an expanded vocabulary for manipulating <a>lists</a>. Whenever JavaScript expects a
+<a spec=ecma-262>List</a>, a <a>list</a> as defined here can be used; they are the same type.
+[[!ECMA-262]]
 
 <h4 id=stacks>Stacks</h4>
 
@@ -1672,8 +1671,8 @@ without breaking literal syntax used by their dependencies. In that case a tuple
 
 <h2 id=json>JSON</h2>
 
-<p class=note>The conventions used in the algorithms in this section are those of
-<cite>JavaScript</cite>. [[!ECMA-262]]
+<p class=note>The conventions used in the algorithms in this section are those of the JavaScript
+specification. [[!ECMA-262]]
 
 <p>To <dfn export lt="parse a JSON string to a JavaScript value|parsing a JSON string to a JavaScript value">parse a JSON string to a JavaScript value</dfn>,
 given a <a>string</a> |string|:
@@ -1879,8 +1878,8 @@ given |value|:
 <h2 id=forgiving-base64>Forgiving base64</h2>
 
 <p>To <dfn export>forgiving-base64 encode</dfn> given a <a>byte sequence</a> <var>data</var>, apply
-the base64 algorithm defined in section 4 of <cite>RFC 4648</cite> to <var>data</var> and return the
-result. [[!RFC4648]]
+the base64 algorithm defined in section 4 of RFC 4648 to <var>data</var> and return the result.
+[[!RFC4648]]
 
 <p class="note no-backref">This is named <a>forgiving-base64 encode</a> for symmetry with
 <a>forgiving-base64 decode</a>, which is different from the RFC as it defines error handling for
@@ -1927,8 +1926,8 @@ certain inputs.
 
   <ol>
    <li><p>Find the <a>code point</a> pointed to by <var>position</var> in the second column of
-   Table 1: The Base 64 Alphabet of <cite>RFC 4648</cite>. Let <var>n</var> be the number given in
-   the first cell of the same row. [[!RFC4648]]
+   Table 1: The Base 64 Alphabet of RFC 4648. Let <var>n</var> be the number given in the first cell
+   of the same row. [[!RFC4648]]
 
    <li><p>Append the six bits corresponding to <var>n</var>, most significant bit first, to
    <var>buffer</var>.
