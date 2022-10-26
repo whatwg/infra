@@ -111,15 +111,17 @@ out as being exclusive (with "but not both").
 
 <hr>
 
-<p>A <dfn export lt="user agent|implementation">user agent</dfn> is any software that acts on behalf
+<p>A <dfn export>user agent</dfn> is any software entity that acts on behalf
 of a user, for example by retrieving and rendering web content and facilitating end user interaction
-with it. In specifications using the Infra Standard, the user agent is generally the client software
-that implements the specification. <a>Implementation</a> can be used as a synonym for
-<a>user agent</a>.
+with it. In specifications using the Infra Standard, the user agent is generally an instance of the client software
+that implements the specification. The client software itself is known as an <dfn export>implementation</dfn>.
+A person can use many different [=user agents=] in their day-to-day life, including by configuring an
+[=implementation=] to act as several [=user agents=] at once, for example by using multiple profiles
+or the implementation's private browsing mode.
 
 <p>If something is said to be <dfn export>implementation-defined</dfn>, the particulars of what is
-said to be <a>implementation-defined</a> are up to the <a>user agent</a>. In the absence of such
-language, the reverse holds: <a>user agents</a> have to follow the rules laid out in documents using
+said to be <a>implementation-defined</a> are up to the <a>implementation</a>. In the absence of such
+language, the reverse holds: <a>implementations</a> have to follow the rules laid out in documents using
 this standard.
 
 <p class="example" id=example-implementation-defined>Insert U+000A (LF) code points into
