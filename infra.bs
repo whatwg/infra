@@ -55,14 +55,12 @@ urlPrefix: https://tc39.github.io/ecma262/#; spec: ECMA-262;
 
 <h2 id=usage>Usage</h2>
 
-<p>To make use of the Infra Standard in a document titled <var>X</var>, use
-<samp><var>X</var> depends on the Infra Standard</samp>. Additionally, cross-referencing terminology
-is encouraged to avoid ambiguity.
+<p>To make use of this standard in a document titled <var>X</var>, use:
 
-<p>Specification authors are also encouraged to add their specification to the
-<a href=https://github.com/whatwg/infra/wiki/Dependent-specs>list of dependent specifications</a> in
-order to help the editors ensure that any future breaking changes to the Infra Standard are
-correctly reflected by any such dependencies.
+<p><samp><var>X</var> depends on <cite>Infra</cite>. [[!Infra]]</samp>
+<!--                                                 Yo Dawg -->
+
+<p>Additionally, cross-referencing all terminology is strongly encouraged to avoid ambiguity.
 
 
 <h2 id=conventions>Conventions</h2>
@@ -100,7 +98,7 @@ denote such transgressions as a <dfn export>willful violation</dfn>, and note th
 violation.
 
 <p class=example id=example-willful-violation>The previous section, [[#conformance]], documents a
-<a>willful violation</a> of RFC 8174 committed by the Infra Standard.
+<a>willful violation</a> of RFC 8174 committed by <cite>Infra</cite>.
 
 
 <h3 id=terminology>Terminology</h3>
@@ -650,7 +648,7 @@ confusion with an actual <a>string</a>.
 </div>
 
 <p class=note>To get a <a>byte sequence</a> out of a <a>string</a>, using <a>UTF-8 encode</a> from
-the Encoding Standard is encouraged. In rare circumstances <a>isomorphic encode</a> might be needed.
+<cite>Encoding</cite> is encouraged. In rare circumstances <a>isomorphic encode</a> might be needed.
 [[ENCODING]]
 
 <p>A <a>byte sequence</a>'s <dfn export for="byte sequence">length</dfn> is the number of
@@ -740,7 +738,7 @@ is not U+0028 or U+0029, or by both. Documents using the Infra Standard are enco
 <a>code points</a> by their name when they cannot be rendered or are U+0028 or U+0029; otherwise,
 follow them by their rendered form between parentheses, for legibility.
 
-<p>A <a>code point</a>'s name is defined in the Unicode Standard and represented in
+<p>A <a>code point</a>'s name is defined in <cite>Unicode</cite> and represented in
 <a>ASCII uppercase</a>. [[!UNICODE]]
 
 <div class=example id=example-code-point-notation>
@@ -820,8 +818,8 @@ and monospace font.
 
 <p class=example id=example-string-notation>"<code>Hello, world!</code>" is a string.
 
-<p class=note>This is different from how the Unicode Standard defines "code unit". In particular it
-refers exclusively to how the Unicode Standard defines it for Unicode 16-bit strings. [[UNICODE]]
+<p class=note>This is different from how <cite>Unicode</cite> defines "code unit". In particular it
+refers exclusively to how <cite>Unicode</cite> defines it for Unicode 16-bit strings. [[UNICODE]]
 
 <p>A <a>string</a> can also be interpreted as containing <a>code points</a>, per the conversion
 defined in <a>The String Type</a> section of the JavaScript specification. [[!ECMA-262]]
@@ -880,7 +878,7 @@ where <a>UTF-8 encode</a> comes into play.
 comparison in <cite>HTML</cite>. Strings that compare as <a for=string>identical to</a> one another
 are not only sensitive to case variation (such as UPPER and lower case), but also to other code
 point encoding choices, such as normalization form or the order of combining marks. Two strings that
-are visually or even canonically equivalent according to Unicode might still not be
+are visually or even canonically equivalent according to <cite>Unicode</cite> might still not be
 <a for=string>identical to</a> each other. [[HTML]] [[UNICODE]]
 
 <p>A <a>string</a> <var>potentialPrefix</var> is a <dfn export>code unit prefix</dfn> of a
