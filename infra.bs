@@ -1529,9 +1529,10 @@ creates a new <a>ordered set</a> containing all of the integers from <var>n</var
 <h3 id=maps>Maps</h3>
 
 <p>An <dfn export lt="ordered map|map">ordered map</dfn>, or sometimes just "map", is a
-specification type consisting of a finite ordered sequence of
-<dfn for=map export>key</dfn>/<dfn for=map export>value</dfn> pairs, with no key appearing twice.
-Each key/value pair is called an <dfn for=map export>entry</dfn>.
+specification type consisting of a finite ordered sequence of <a for=/>tuples</a>, each consisting
+of a <dfn for=map export>key</dfn> and a <dfn for=map export>value</dfn>, with no key appearing
+twice. Each such tuple is called an <dfn for=map export>entry</dfn>.
+<!-- TODO: we have to define key equality for this to be truly sound. -->
 
 <p class=note>As with <a>ordered sets</a>, by default we assume that maps need to be ordered for
 interoperability among implementations.
