@@ -1319,6 +1319,12 @@ out-of-bounds, except when used with <a for=list>exists</a>.
 "<code>b</code>", "<code>c</code>", "<code>a</code>" ». Then |example|[1] is the <a>string</a>
 "<code>b</code>".
 
+<p>Lists can also have <dfn export for=list,stack,queue,set lt=hole>holes</dfn>, which mark the location of a deleted value. Holes are not exposed to <em>any</em> algorithm unless explicitly called out; in all other cases, holes are treated as if they did not exist and are automatically skipped over. There is no literal syntax for holes.
+
+<p class=example id=example-hole-skipping>For example, if the list « <code>0</code>, <code>1</code>, <code>2</code> » has the item at index 1 [=list/removed=], it leaves behind a hole in its position. Subsequent requests for the item at index 1 will now return <code>2</code>, as index counting skips over holes unless otherwise specified; similarly, the list will report its [=list/size=] as 2 rather than 3.
+
+Note: Holes exist to make [=list/iteration=] stable and predictable when the list can be mutated during the iteration, matching ECMAScript behavior. If the [=list=] is read-only or not currently being iterated by anything, [=list/holes=] can be omitted or removed.
+
 <hr>
 
 <p>To <dfn export for=list>append</dfn> to a <a>list</a> that is not an <a>ordered set</a> is to
@@ -1356,7 +1362,7 @@ index is to add the given item to the list between the given index &minus; 1 and
 the given index is 0, then <a for=list>prepend</a> the given item to the list.
 
 <p>To <dfn export for=list,set>remove</dfn> zero or more <a for=list>items</a> from a <a>list</a> is
-to remove all items from the list that match a given condition, or do nothing if none do.
+to remove all items from the list that match a given condition, replacing each with a [=list/hole=], or do nothing if none do.
 
 <div class=example id=example-list-remove>
  <p><a for=list>Removing</a> |x| from the <a>list</a> « |x|, |y|, |z|, |x| » is to remove all
@@ -1369,7 +1375,7 @@ to remove all items from the list that match a given condition, or do nothing if
 </div>
 
 <p>To <dfn export for=list,stack,queue,set>empty</dfn> a <a>list</a> is to <a for=list>remove</a>
-all of its <a for=list>items</a>.
+all of its <a for=list>items</a>, replacing all of them with [=list/holes=].
 
 <p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain|exist>contains</dfn> an
 <a for=list>item</a> if it appears in the list. We can also denote this by saying that, for a
@@ -1395,18 +1401,20 @@ using |list| and |steps|. This can also be (and usually is) written as "[=list/F
     <dfn>List iteration</dfn> over a [=list=] |list|, given some per-item |steps|, means to:
 
     1. Let |index| initially be 0.
-    1. While |index| < |list|'s [=list/size=]:
-        1. Invoke |steps| with |list|[|index|].
+    1. While |index| < |list|'s [=list/size=] (including [=list/holes=]):
+        1. Let |item| be |list|[|index|] (including [=list/holes=]).
         1. Increment |index| by 1.
+        1. If |item| is a [=list/hole=], [=iteration/continue=].
+        1. Invoke |steps| with |item|.
 
-    Note: Both the [=list/size=] of |list|, and the order of its items, can potentialy change while
-    invoking |steps|.
+    Note: Entries deleted from the list before being visited will not be processed.
+    Otherwise, every entry in a list is visited exactly once, including any entries added after iteration has begun.
 </div>
 
 <p>To <dfn export for=list,stack,queue,set>clone</dfn> a <a>list</a> |list| is to create a new
 <a>list</a> |clone|, of the same designation, and, <a for=list>for each</a> |item| of |list|,
 <a for=list>append</a> |item| to |clone|, so that |clone| <a for=list>contains</a> the same
-<a for=list>items</a>, in the same order as |list|.
+<a for=list>items</a>, in the same order as |list|, omitting any [=list/holes=] that |list| contains.
 
 <p class=note>This is a "shallow clone", as the <a for=list>items</a> themselves are not cloned in
 any way.
@@ -1552,6 +1560,10 @@ entries with a comma.
 "<code>a</code>" → `<code>x</code>`, "<code>b</code>" → `<code>y</code>` ]». Then
 |example|["<code>a</code>"] is the <a>byte sequence</a> `<code>x</code>`.
 
+<p>[=Maps=] can have <dfn export for=map lt=hole>holes</dfn>, which mark the location of a deleted value. A hole is considered to have a key and value which are also holes. Holes are not exposed to <em>any</em> algorithm unless explicitly called out; in all other cases, holes are treated as if they did not exist and are automatically skipped over. There is no literal syntax for holes.
+
+Note: As with [=list=] [=list/holes=], these exist solely to make [=map/iteration=] stable and predictable, and to match ECMAScript Map iteration. If the [=map=] is read-only, or nothing is iterating the map, [=map/holes=] can be omitted or removed.
+
 <hr>
 
 <p>To <dfn export for=map lt="get|get the value">get the value of an entry</dfn> in an
@@ -1578,12 +1590,12 @@ also denote this by saying, for an <a>ordered map</a> |map|, key |key|, and valu
 "<a for=map>set</a> |map|[|key|] to |value|".
 
 <p>To <dfn export for=map lt=remove>remove an entry</dfn> from an <a>ordered map</a> is to remove
-all <a for=map>entries</a> from the map that match a given condition, or do nothing if none do. If
+all <a for=map>entries</a> from the map that match a given condition, replacing them with [=map/holes=], or do nothing if none do. If
 the condition is having a certain <a for=map>key</a>, then we can also denote this by saying, for
 an <a>ordered map</a> |map| and key |key|, "<a for=map>remove</a> |map|[|key|]".
 
 <p>To <dfn export for=map>clear</dfn> an <a>ordered map</a> is to remove all <a for=map>entries</a>
-from the map.
+from the map, leaving [=map/holes=] in their places.
 
 <p>An <a>ordered map</a> <dfn export for=map lt=exist|contain id=map-exists>contains an
 <a for=map>entry</a> with a given key</dfn> if there exists an entry with that <a for=map>key</a>.
@@ -1613,14 +1625,15 @@ using |map| and |steps|. This can also be (and usually is) written as "[=map/For
     <dfn>Map iteration</dfn> over a [=map=] |map|, given some per-item |steps|, means to:
 
     1. Let |index| initially be 0.
-    1. While |index| < |map|'s [=map/size=]:
-        1. Let |entry| be the |index|th entry in [=map=].
+    1. While |index| < |map|'s [=map/size=] (including [=map/holes=]):
+        1. Let |entry| be the |index|th entry in [=map=] (including [=map/holes=]).
+        1. Increment |index| by 1.
+        1. If |entry| is a [=map/hole=], [=iteration/continue=].
         1. Let |key| and |value| be the [=map/key=] and [=map/value=] of |entry|.
         1. Invoke |steps| with |key| and |value|.
-        1. Increment |index| by 1.
 
-    Note: Both the [=map/size=] of |map|, and the order of its entries, can potentialy change while
-    invoking |steps|.
+    Note: Entries deleted from the map before being visited will not be processed.
+    Otherwise, every entry in a map is visited exactly once, including any entries added after iteration has begun.
 </div>
 
 <p>To <dfn export for=map>clone</dfn> an <a>ordered map</a> |map| is to create a new
