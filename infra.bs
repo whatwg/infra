@@ -427,6 +427,21 @@ behavior; otherwise null.
 <a href=https://en.wikipedia.org/wiki/Scope_(computer_science)#Block_scope>block scoped</a>.
 Variables must not be declared more than once per algorithm.
 
+<p>A multiple assignment syntax can be used to assign multiple variables to the <a>tuple</a>'s
+<a for=tuple>items</a>, by surrounding the variable names with parenthesis and separating each
+variable name by a comma. The number of variables assigned cannot differ from the number of
+<a for=tuple>items</a> in the <a>tuple</a>.
+
+<div class=example id=example-tuple-multiple-assignment>
+ <ol>
+  <li><p>Let |statusInstance| be the status (200, `<code>OK</code>`).
+  <li><p>Let (|status|, |statusMessage|) be |statusInstance|.
+ </ol>
+
+ <p>Assigning |status| and |statusMessage| could be written as two separate steps that use an index
+ or <a for=tuple>name</a> to access the <a>tuple</a>'s <a for=tuple>items</a>.
+</div>
+
 
 <h3 id=algorithm-control-flow>Control flow</h3>
 
