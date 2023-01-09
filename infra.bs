@@ -239,12 +239,12 @@ paths would be an insurmountable task and not productive as they would not stand
 as well as the single algorithm would. Therefore performance is best left as a field to compete
 over.
 
-<p>A document using the Infra Standard should not enforce specific limits on unconstrained inputs to
-allow for competition among user agents and foster ever greater data structures over time. I.e.,
-avoid constraining the computing needs of the future. Nevertheless, user agents may impose
-<a>implementation-defined</a> limits on otherwise unconstrained inputs. E.g., to prevent denial of
-service attacks, to guard against running out of memory, or to work around platform-specific
-limitations.
+<p tracking-vector>A document using the Infra Standard should not enforce specific limits on
+unconstrained inputs to allow for competition among user agents and foster ever greater data
+structures over time. I.e., avoid constraining the computing needs of the future. Nevertheless, user
+agents may impose <a>implementation-defined</a> limits on otherwise unconstrained inputs. E.g., to
+prevent denial of service attacks, to guard against running out of memory, or to work around
+platform-specific limitations.
 
 
 <h3 id=algorithm-declaration>Declaration</h3>
