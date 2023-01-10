@@ -239,12 +239,38 @@ paths would be an insurmountable task and not productive as they would not stand
 as well as the single algorithm would. Therefore performance is best left as a field to compete
 over.
 
-<p tracking-vector>A document using the Infra Standard should not enforce specific limits on
-unconstrained inputs to allow for competition among user agents and foster ever greater data
-structures over time. I.e., avoid constraining the computing needs of the future. Nevertheless, user
-agents may impose <a>implementation-defined</a> limits on otherwise unconstrained inputs. E.g., to
-prevent denial of service attacks, to guard against running out of memory, or to work around
-platform-specific limitations.
+<h4 id=algorithm-conformance-limits>Avoid limits on algorithm inputs</h4>
+
+<p>A document using the Infra Standard generally should not enforce specific limits
+on algorithm inputs with regards to their size, resource usage, or equivalent. This allows for
+competition among user agents and avoids constraining the potential computing needs of the future.
+
+<p tracking-vector>Nevertheless, user agents may impose <a>implementation-defined</a> limits on
+otherwise unconstrained inputs. E.g., to prevent denial of service attacks, to guard against running
+out of memory, or to work around platform-specific limitations.
+
+<p class=note>Global resource limits can used as side channels through a variant on a resource
+exhaustion attack whereby the attacker can observe whether a victim application reaches the global
+limit. Limits could also be used to fingerprint the user agent, but only if they make the user agent
+more unique in some manner, e.g., if they are specific to the underlying hardware.
+
+<p class=example id=example-algorithm-conformance-limits>An API that allows creating an in-memory
+bitmap might be specified to allow any dimensions, or any dimensions up to some large limit like
+JavaScript's <code>Number.MAX_SAFE_INTEGER</code>. However, implementations can choose to impose
+some <a>implementation-defined</a> (and thus not specified) limit on the dimensions, instead of
+attempting to allocate huge amounts of memory.
+
+<p class=example id=example-algorithm-conformance-limits-language>A programming language might not
+have any maximum call stack size specified. However, implementations could choose to impose one for
+practical reasons.
+
+<p>There are at least two cases where a limit can be useful to define:
+
+<ul class=brief>
+ <li>Ensuring all implementations can handle inputs of a given minimum size, i.e., a lower limit.
+ <li>Interoperability: code can end up depending on particular limits and sometimes embracing that
+ is not problematic for the future and can make the code run in more user agents.
+</ul>
 
 
 <h3 id=algorithm-declaration>Declaration</h3>
