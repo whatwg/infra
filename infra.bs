@@ -268,8 +268,8 @@ practical reasons.
 
 <ul class=brief>
  <li>Ensuring all implementations can handle inputs of a given minimum size, i.e., a lower limit.
- <li>Interoperability: code can end up depending on particular limits and sometimes embracing that
- is not problematic for the future and can make the code run in more user agents.
+ <li>Interoperability: code can end up depending on particular limits. Sometimes, embracing that
+ is not problematic for the future, and can make the code run in more user agents.
 </ul>
 
 
