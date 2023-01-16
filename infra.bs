@@ -265,13 +265,12 @@ attempting to allocate huge amounts of memory.
 maximum call stack size specified. However, implementations could choose to impose one for practical
 reasons.
 
-<p>There are at least two cases where a limit can be useful to define:
+<p>As code can end up depending on a particular limit, it can be useful to define a limit for
+interoperability. Sometimes, embracing that is not problematic for the future, and can make the code
+run in more user agents.
 
-<ul class=brief>
- <li>Ensuring all implementations can handle inputs of a given minimum size, i.e., a lower limit.
- <li>Interoperability: code can end up depending on particular limits. Sometimes, embracing that is
- not problematic for the future, and can make the code run in more user agents.
-</ul>
+<p>It can also be useful to constrain an <a>implementation-defined</a> limit with a lower limit.
+I.e., ensuring all implementations can handle inputs of a given minimum size.
 
 
 <h3 id=algorithm-declaration>Declaration</h3>
