@@ -240,6 +240,39 @@ as well as the single algorithm would. Therefore performance is best left as a f
 over.
 
 
+<h3 id=algorithm-limits>Avoid limits on algorithm inputs</h3>
+
+<p>A document using the Infra Standard generally should not enforce specific limits on algorithm
+inputs with regards to their size, resource usage, or equivalent. This allows for competition among
+user agents and avoids constraining the potential computing needs of the future.
+
+<p tracking-vector>Nevertheless, user agents may impose <a>implementation-defined</a> limits on
+otherwise unconstrained inputs. E.g., to prevent denial of service attacks, to guard against running
+out of memory, or to work around platform-specific limitations.
+
+<p class=note>Global resource limits can be used as side channels through a variant on a resource
+exhaustion attack, whereby the attacker can observe whether a victim application reaches the global
+limit. Limits could also be used to fingerprint the user agent, but only if they make the user agent
+more unique in some manner, e.g., if they are specific to the underlying hardware.
+
+<p class=example id=example-algorithm-limits>An API that allows creating an in-memory bitmap might
+be specified to allow any dimensions, or any dimensions up to some large limit like JavaScript's
+<code>Number.MAX_SAFE_INTEGER</code>. However, implementations can choose to impose some
+<a>implementation-defined</a> (and thus not specified) limit on the dimensions, instead of
+attempting to allocate huge amounts of memory.
+
+<p class=example id=example-algorithm-limits-language>A programming language might not have a
+maximum call stack size specified. However, implementations could choose to impose one for practical
+reasons.
+
+<p>As code can end up depending on a particular limit, it can be useful to define a limit for
+interoperability. Sometimes, embracing that is not problematic for the future, and can make the code
+run in more user agents.
+
+<p>It can also be useful to constrain an <a>implementation-defined</a> limit with a lower limit.
+I.e., ensuring all implementations can handle inputs of a given minimum size.
+
+
 <h3 id=algorithm-declaration>Declaration</h3>
 
 <p>Algorithm names are usually verb phrases, but sometimes are given names that emphasize their
@@ -1995,12 +2028,16 @@ Chris Rebert,
 Daniel Ehrenberg,
 Dominic Farolino,
 Gabriel Pivovarov,
+Ian Hickson,
+Jakob Ackermann<!-- das7pad; GitHub -->,
 Jake Archibald,
 Jeff Hodges,
+Jeffrey Yasskin,
 Jungkee Song,
 Leonid Vasilyev,
 Maciej Stachowiak,
 Malika Aubakirova,
+Martin Thomson,
 Michael™ Smith,
 Mike West,
 Ms2ger,
