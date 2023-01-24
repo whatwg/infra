@@ -14,8 +14,10 @@ urlPrefix: https://tc39.github.io/ecma262/#; spec: ECMA-262;
     type: dfn
         text: %JSON.parse%; url: sec-json.parse
         text: %JSON.stringify%; url: sec-json.stringify
+        text: Completion Record; url: sec-completion-record-specification-type
         text: List; url: sec-list-and-record-specification-type
         text: The String Type; url: sec-ecmascript-language-types-string-type
+        text: abrupt completion; url: sec-completion-record-specification-type
         text: realm; url: realm
     type: method; for: Array; text: sort(); url: sec-array.prototype.sort
     type: abstract-op;
@@ -641,6 +643,35 @@ Standard that should be reported and addressed.
  <ol>
   <li><p>Let |x| be "<code>Aperture Science</code>".
   <li><p><a>Assert</a>: |x| is "<code>Aperture Science</code>".
+</div>
+
+
+<h3 id=ecma-262-abstract-operations>ECMA-262 Abstract Operations</h3>
+
+<p>ECMA-262 uses a specification type named [=Completion Record=] to model exception-based control
+flow. Because <a href=#algorithm-control-flow>web specifications have first-class support for exception handling</a>,
+special care must be taken when interpreting the results of ECMA-262 abstract operations.
+[[!ECMA-262]]
+
+<p>This specification defines a shorthand named <dfn export lt=throw-if-abrupt>?</dfn> to interpret
+ECMA-262 completion records in terms of web specifications' "throw" semantics. Algorithm steps that
+say or are otherwise equivalent to:
+
+<div class=example id=example-throw-if-abrupt>
+  <ol>
+    <li><p>Let |result| be <a lt=throw-if-abrupt>?</a> AbstractOperation().
+  </ol>
+</div>
+
+<p>mean the same thing as:
+
+<div class=example id=example-throw-if-abrupt-expanded>
+  <ol>
+    <li><p>Let |hygienicTemp| be AbstractOperation().
+    <li><p><a>Assert</a>: |hygienicTemp| is a [=Completion Record=].
+    <li><p>If |hygienicTemp| is an [=abrupt completion=], throw |hygienicTemp|.\[[Value]].
+    <li><p>Let |result| be |hygienicTemp|.\[[Value]].
+  </ol>
 </div>
 
 
