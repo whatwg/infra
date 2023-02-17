@@ -18,6 +18,7 @@ urlPrefix: https://tc39.github.io/ecma262/#; spec: ECMA-262;
         text: List; url: sec-list-and-record-specification-type
         text: The String Type; url: sec-ecmascript-language-types-string-type
         text: abrupt completion; url: sec-completion-record-specification-type
+        text: abstract operation; url: sec-algorithm-conventions-abstract-operations
         text: realm; url: realm
     type: method; for: Array; text: sort(); url: sec-array.prototype.sort
     type: abstract-op;
@@ -648,14 +649,20 @@ Standard that should be reported and addressed.
 
 <h3 id=ecma-262-abstract-operations>ECMA-262 Abstract Operations</h3>
 
-<p>ECMA-262 uses a specification type named [=Completion Record=] to model exception-based control
-flow. Because <a href=#algorithm-control-flow>web specifications have first-class support for exception handling</a>,
-special care must be taken when interpreting the results of ECMA-262 abstract operations.
-[[!ECMA-262]]
+<p>ECMA-262 defines some algorithms as [=abstract operations=] which may be invoked from algorithms
+in other specifications. Some of these [=abstract operations=] return a type of value named
+[=Completion Record=], and ECMA262's calling conventions use this type to model control flow
+interruptions such as thrown exceptions. Because web specifications do not observe the same
+conventions (e.g. <a href=#algorithm-control-flow>exception handling is built in to the processing
+model</a>), preserving the operations' semantics necessarily involves interpreting [=Completion
+Records=]. [[!ECMA-262]]
 
-<p>This specification defines a shorthand named <dfn export lt=throw-if-abrupt>?</dfn> to interpret
-ECMA-262 completion records in terms of web specifications' "throw" semantics. Algorithm steps that
-say or are otherwise equivalent to:
+<p>This specification defines a shorthand named <dfn export lt=throw-if-abrupt>?</dfn> as a
+convenience for web specifications wishing to faithfully interpret ECMA-262 [=abstract operations=]
+which return [=Completion Records=]. Algorithms which invoke such operations are encouraged to
+integrate them them concisely and consistently using this shorthand.
+
+<p>Algorithm steps that say or are otherwise equivalent to:
 
 <div class=example id=example-throw-if-abrupt>
   <ol>
@@ -673,6 +680,11 @@ say or are otherwise equivalent to:
     <li><p>Let |result| be |hygienicTemp|.\[[Value]].
   </ol>
 </div>
+
+
+<p class=XXX>This shorthand is intended to be suitable for use with any invocation, but the first
+of the two preceding examples does not match all common calling conventions. See <a href=https://github.com/tc39/ecma262/pull/1573>tc39/ecma262 issue #1573</a>
+for details.
 
 
 <h2 id=primitive-data-types>Primitive data types</h2>
@@ -1758,7 +1770,7 @@ specification. [[!ECMA-262]]
 given a <a>string</a> |string|:
 
 <ol>
- <li><p>Return ? [$Call$](<a>%JSON.parse%</a>, undefined, « |string| »).
+ <li><p>Return <a lt=throw-if-abrupt>?</a> [$Call$](<a>%JSON.parse%</a>, undefined, « |string| »).
 </ol>
 
 <p>To <dfn export lt="parse JSON bytes to a JavaScript value|parsing JSON bytes to a JavaScript value|parse JSON from bytes">parse JSON bytes to a JavaScript value</dfn>,
@@ -1775,7 +1787,7 @@ given a JavaScript value |value|:
 
 <ol>
  <li>
-  <p>Let |result| be ? [$Call$](<a>%JSON.stringify%</a>, undefined, « |value| »).
+  <p>Let |result| be <a lt=throw-if-abrupt>?</a> [$Call$](<a>%JSON.stringify%</a>, undefined, « |value| »).
 
   <p class=note>Since no additional arguments are passed to <a>%JSON.stringify%</a>, the resulting
   string will have no whitespace inserted.
@@ -1812,7 +1824,7 @@ standards, it is often more convenient to convert between JSON and realm-indepen
 given a <a>string</a> |string|:
 
 <ol>
- <li><p>Let |jsValue| be ? [$Call$](<a>%JSON.parse%</a>, undefined, « |string| »).
+ <li><p>Let |jsValue| be <a lt=throw-if-abrupt>?</a> [$Call$](<a>%JSON.parse%</a>, undefined, « |string| »).
 
  <li><p>Return the result of [=converting a JSON-derived JavaScript value to an Infra value=], given
  |jsValue|.
