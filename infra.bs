@@ -1311,10 +1311,12 @@ these steps:
 <p class=example id=example-string-concatenate>To serialize a set <var>set</var>, return the
 <a for=string>concatenation</a> of <var>set</var> using U+0020 SPACE.
 
+
 <h3 id=time>Time</h3>
 
-Represent time using the [=moment=] and [=duration=] types. Follow the advice in
-[[HR-TIME-3#sec-tools]] when creating these and exchanging them with JavaScript.
+<p>Represent time using the [=moment=] and [=duration=] specification types. Follow the advice in
+[[HR-TIME-3#sec-tools]] when creating these and exchanging them with JavaScript. [[HR-TIME]]
+
 
 <h2 id=data-structures>Data structures</h2>
 
