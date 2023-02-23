@@ -651,16 +651,16 @@ Standard that should be reported and addressed.
 
 <p>ECMA-262 defines some algorithms as [=abstract operations=] which may be invoked from algorithms
 in other specifications. Some of these [=abstract operations=] return a type of value named
-[=Completion Record=], and ECMA262's calling conventions use this type to model control flow
-interruptions such as thrown exceptions. Because web specifications do not observe the same
-conventions (e.g. <a href=#algorithm-control-flow>exception handling is built in to the processing
-model</a>), preserving the operations' semantics necessarily involves interpreting [=Completion
-Records=]. [[!ECMA-262]]
+[=Completion Record=] which ECMA262 uses to model control flow interruptions such as thrown
+exceptions. Because web specifications do not observe the same conventions (e.g.
+<a href=#algorithm-control-flow>exception handling is built in to the processing model</a>),
+preserving the operations' semantics necessarily involves handling [=Completion Records=].
+[[!ECMA-262]]
 
 <p>This specification defines a shorthand named <dfn export lt=throw-if-abrupt>?</dfn> as a
 convenience for web specifications wishing to faithfully interpret ECMA-262 [=abstract operations=]
 which return [=Completion Records=]. Algorithms which invoke such operations are encouraged to
-integrate them them concisely and consistently using this shorthand.
+integrate them concisely and consistently using this shorthand.
 
 <p>Algorithm steps that say or are otherwise equivalent to:
 
