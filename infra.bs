@@ -1345,6 +1345,12 @@ these steps:
 <a for=string>concatenation</a> of <var>set</var> using U+0020 SPACE.
 
 
+<h3 id=time>Time</h3>
+
+<p>Represent time using the [=moment=] and [=duration=] specification types. Follow the advice in
+[[HR-TIME-3#sec-tools]] when creating these and exchanging them with JavaScript. [[HR-TIME]]
+
+
 <h2 id=data-structures>Data structures</h2>
 
 <p>Conventionally, specifications have operated on a variety of vague specification-level data
