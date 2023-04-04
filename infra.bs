@@ -803,8 +803,13 @@ to as "U+0029 RIGHT PARENTHESIS", because even though it renders, this avoids un
 <p><a>Code points</a> are sometimes referred to as <a>characters</a> and in certain contexts are
 prefixed with "0x" rather than "U+".
 
-<p>A <dfn export>surrogate</dfn> is a <a>code point</a> that is in the range U+D800 to U+DFFF,
+<p>A <dfn export>lead surrogate</dfn> is a <a>code point</a> that is in the range U+D800 to U+DBFF,
 inclusive.
+
+<p>A <dfn export>trail surrogate</dfn> is a <a>code point</a> that is in the range U+DC00 to U+DFFF,
+inclusive.
+
+<p>A <dfn export>surrogate</dfn> is a <a>lead surrogate</a> or a <a>trail surrogate</a>.
 
 <p>A <dfn export>scalar value</dfn> is a <a>code point</a> that is not a <a>surrogate</a>.
 
@@ -896,7 +901,7 @@ where <a>UTF-8 encode</a> comes into play.
 <!-- It's also useful if you can imagine the subsystem to be implemented in Rust -->
 
 <p>To <dfn export for="string,JavaScript string" id=javascript-string-convert>convert</dfn> a
-<a>string</a> into a <a>scalar value string</a>, replace any <a>surrogates</a> with U+FFFD.
+<a>string</a> into a <a>scalar value string</a>, replace any <a>surrogates</a> with U+FFFD (�).
 
 <div class=note>
  <p>The replaced surrogates are never part of surrogate pairs, since the process of interpreting the
