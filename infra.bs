@@ -803,13 +803,13 @@ to as "U+0029 RIGHT PARENTHESIS", because even though it renders, this avoids un
 <p><a>Code points</a> are sometimes referred to as <a>characters</a> and in certain contexts are
 prefixed with "0x" rather than "U+".
 
-<p>A <dfn export>lead surrogate</dfn> is a <a>code point</a> that is in the range U+D800 to U+DBFF,
-inclusive.
+<p>A <dfn export>leading surrogate</dfn> is a <a>code point</a> that is in the range U+D800 to
+U+DBFF, inclusive.
 
-<p>A <dfn export>trail surrogate</dfn> is a <a>code point</a> that is in the range U+DC00 to U+DFFF,
-inclusive.
+<p>A <dfn export>trailing surrogate</dfn> is a <a>code point</a> that is in the range U+DC00 to
+U+DFFF, inclusive.
 
-<p>A <dfn export>surrogate</dfn> is a <a>lead surrogate</a> or a <a>trail surrogate</a>.
+<p>A <dfn export>surrogate</dfn> is a <a>leading surrogate</a> or a <a>trailing surrogate</a>.
 
 <p>A <dfn export>scalar value</dfn> is a <a>code point</a> that is not a <a>surrogate</a>.
 
