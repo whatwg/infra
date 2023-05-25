@@ -297,8 +297,8 @@ a [=byte sequence=] <var ignore>bytes</var>, perform the following steps. They r
 [=string=] or null.
 
 <p>Algorithms which do not return a value use a shorter form. This same shorter form can be used even
-for algorithms that do return a value, since the return type is relatively easy to infer from the
-algorithm steps and call sites:
+for algorithms that do return a value if the return type is relatively easy to infer from the
+algorithm steps:
 
 <p class=exemplary-prose>To <dfn ignore>[algorithm name]</dfn>, given a [type1]
 <var ignore>[parameter1]</var>, a [type2] <var ignore>[parameter2]</var>, &hellip;:</p>
