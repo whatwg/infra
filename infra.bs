@@ -825,7 +825,7 @@ U+007F DELETE, inclusive.
 <p>An <dfn export lt="ASCII tab or newline|ASCII tabs or newlines">ASCII tab or newline</dfn> is
 U+0009 TAB, U+000A LF, or U+000D CR.
 
-<p><dfn export>ASCII whitespace</dfn> is U+0009 TAB, U+000A LF, U+000C FF, U+000D CR, or U+0020
+<p>An <dfn export>ASCII whitespace</dfn> is U+0009 TAB, U+000A LF, U+000C FF, U+000D CR, or U+0020
 SPACE.
 
 <p class=note>"Whitespace" is a mass noun.
@@ -860,6 +860,8 @@ U+007A (z), inclusive.
 <p>An <dfn export>ASCII alpha</dfn> is an <a>ASCII upper alpha</a> or <a>ASCII lower alpha</a>.
 
 <p>An <dfn export>ASCII alphanumeric</dfn> is an <a>ASCII digit</a> or <a>ASCII alpha</a>.
+
+<p>A <dfn export>less-than sign</dfn> is U+003C LESS-THAN SIGN (&lt;).
 
 
 <h3 id=strings>Strings</h3>
@@ -2044,6 +2046,7 @@ Jakob Ackermann<!-- das7pad; GitHub -->,
 Jake Archibald,
 Jeff Hodges,
 Jeffrey Yasskin,
+Jun Kokatsu,
 Jungkee Song,
 Leonid Vasilyev,
 Maciej Stachowiak,
