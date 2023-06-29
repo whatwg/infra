@@ -557,6 +557,49 @@ the end result is indistinguishable. For instance, as long as |result| in the ab
 mutated during a compute operation, the user agent could stop the computation.
 
 
+<h3 id=algorithm-conditional-statements>Conditional statements</h3>
+
+<p>Algorithms with with conditional statements use the keywords "if", "then", and "otherwise".
+
+<div class=example id=example-conditional-statement>
+ <ol>
+  <li><p>Let |value| be null.
+
+  <li><p>If |input| is a <a>string</a>, then set |value| to |input|.
+
+  <li><p>Return |value|.
+ </ol>
+</div>
+
+Once the keyword "otherwise" is used, the keyword "then" is no longer needed.
+
+<div class=example id=example-conditional-statement-no-then-1>
+ <ol>
+  <li><p>Let |value| be null.
+
+  <li><p>If |input| is a <a>string</a>, then set |value| to |input|.
+
+  <li><p>Otherwise, set |value| to failure.
+
+  <li><p>Return |value|.
+ </ol>
+</div>
+
+<div class=example id=example-conditional-statement-no-then-2>
+ <ol>
+  <li><p>Let |value| be null.
+
+  <li><p>If |input| is a <a>string</a>, then set |value| to |input|.
+
+  <li><p>Otherwise, if |input| is a <a>list</a> of <a>strings</a>, set |value| to |input|[0].
+
+  <li><p>Otherwise, throw a {{TypeError}}.
+
+  <li><p>Return |value|.
+ </ol>
+</div>
+
+
 <h3 id=algorithm-iteration>Iteration</h3>
 
 <p>There's a variety of ways to repeat a set of steps until a condition is reached.
@@ -2051,6 +2094,7 @@ Malika Aubakirova,
 Martin Thomson,
 Michael™ Smith,
 Mike West,
+Mike Taylor,
 Ms2ger,
 Pavel "Al Arz" Kurochkin,
 Philip Jägenstedt,
