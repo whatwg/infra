@@ -559,7 +559,7 @@ mutated during a compute operation, the user agent could stop the computation.
 
 <h3 id=algorithm-conditional-statements>Conditional statements</h3>
 
-<p>Algorithms with with conditional statements use the keywords "if", "then", and "otherwise".
+<p>Algorithms with conditional statements should use the keywords "if", "then", and "otherwise".
 
 <div class=example id=example-conditional-statement>
  <ol>
@@ -571,7 +571,7 @@ mutated during a compute operation, the user agent could stop the computation.
  </ol>
 </div>
 
-Once the keyword "otherwise" is used, the keyword "then" is no longer needed.
+Once the keyword "otherwise" is used, the keyword "then" is omitted.
 
 <div class=example id=example-conditional-statement-no-then-1>
  <ol>
