@@ -1551,6 +1551,10 @@ but conventionally, the following operations are used to operate on it, instead 
 <a for=stack>is not empty</a>, then <a for=list>remove</a> its last <a for=stack>item</a> and return
 it; otherwise, return nothing.
 
+<p>To <dfn export for=stack>peek</dfn> into a <a>stack</a>: if the <a>stack</a>
+<a for=stack>is not empty</a>, then return its last <a for=stack>item</a>; otherwise, return
+nothing.
+
 <p>Although <a>stacks</a> are <a>lists</a>, <a for=list>for each</a> must not be used with them;
 instead, a combination of <a>while</a> and <a for=stack>pop</a> is more appropriate.
 
