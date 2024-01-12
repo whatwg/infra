@@ -453,7 +453,7 @@ of related values is used as the input to multiple algorithms.
 </div>
 
 <p class=example id=example-variable-ternary>Let <var ignore>activationTarget</var> be
-<var ignore>target</var> if <var ignore>isActivationEvent</var> is true and target has activation
+<var ignore>target</var> if <var ignore>isActivationEvent</var> is true and <var ignore>target</var> has activation
 behavior; otherwise null.
 
 <p>Variables must not be used before they are declared. Variables are
