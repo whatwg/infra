@@ -16,7 +16,7 @@ remote: infra.bs
 	);
 
 local: infra.bs
-	bikeshed spec infra.bs infra.html --md-Text-Macro="COMMIT-SHA LOCAL COPY"
+	bikeshed spec infra.bs infra.html --md-Text-Macro="COMMIT-SHA LOCAL-COPY"
 
 deploy: infra.bs
 	curl --remote-name --fail https://resources.whatwg.org/build/deploy.sh
