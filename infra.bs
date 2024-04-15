@@ -827,11 +827,13 @@ following steps return true:
 
 <hr>
 
+<div algorithm>
 <p>To <dfn export>isomorphic decode</dfn> a <a>byte sequence</a> <var>input</var>, return a
 <a>string</a> whose <a for=string>code point length</a> is equal to <var>input</var>'s
 <a for="byte sequence">length</a> and whose <a>code points</a> have the same
 <a for="code point">values</a> as the <a for=byte>values</a> of <var>input</var>'s <a>bytes</a>, in
 the same order.
+</div>
 
 
 <h3 id=code-points>Code points</h3>
@@ -946,12 +948,24 @@ leaving them effectively as-is.
 would consist of the <a>code points</a> U+1F4A9 and U+D800.
 
 <p>A <a>string</a>'s
-<dfn export for="string,JavaScript string,scalar value string" id=string-length oldids=javascript-string-length>length</dfn>
+<dfn export for="string,JavaScript string,ASCII string,isomorphic string,scalar value string" id=string-length oldids=javascript-string-length>length</dfn>
 is the number of <a>code units</a> it contains.
 
 <p>A <a>string</a>'s
-<dfn export for="string,JavaScript string,scalar value string">code point length</dfn> is the number
+<dfn export for="string,JavaScript string,ASCII string,isomorphic string,scalar value string">code point length</dfn> is the number
 of <a>code points</a> it contains.
+
+<hr>
+
+<p>To signify <a>strings</a> with additional restrictions on the <a>code points</a> they can contain
+this specification defines <a>ASCII strings</a>, <a>isomorphic strings</a>, and
+<a>scalar value strings</a>. Using these improves clarity in specifications.
+
+<p>An <dfn export>ASCII string</dfn> is a <a>string</a> whose <a>code points</a> are all
+<a>ASCII code points</a>.
+
+<p>An <dfn export>isomorphic string</dfn> is a <a>string</a> whose <a>code points</a> are all in the
+range U+0000 NULL to U+00FF (ÿ), inclusive.
 
 <p>A <dfn export>scalar value string</dfn> is a <a>string</a> whose <a>code points</a> are all
 <a>scalar values</a>.
@@ -959,6 +973,8 @@ of <a>code points</a> it contains.
 <p class=note>A <a>scalar value string</a> is useful for any kind of I/O or other kind of operation
 where <a>UTF-8 encode</a> comes into play.
 <!-- It's also useful if you can imagine the subsystem to be implemented in Rust -->
+
+<hr>
 
 <p>To <dfn export for="string,JavaScript string" id=javascript-string-convert>convert</dfn> a
 <a>string</a> into a <a>scalar value string</a>, replace any <a>surrogates</a> with U+FFFD (�).
@@ -1186,21 +1202,14 @@ from <var>start</var> to the end of a <a>string</a> <var>string</var> is the
 
 <hr>
 
-<p>To <dfn export>isomorphic encode</dfn> a <a>string</a> <var>input</var>, run these steps:</p>
-
-<ol>
- <li><p><a>Assert</a>: <var>input</var> contains no <a>code points</a> greater than U+00FF.
-
- <li><p>Return a <a>byte sequence</a> whose <a for="byte sequence">length</a> is equal to
- <var>input</var>'s <a for=string>code point length</a> and whose <a>bytes</a> have the same
- <a for=byte>values</a> as the <a for="code point">values</a> of <var>input</var>'s
- <a>code points</a>, in the same order.
-</ol>
+<div algorithm>
+<p>To <dfn export>isomorphic encode</dfn> an <a>isomorphic string</a> <var>input</var>: return a
+<a>byte sequence</a> whose <a for="byte sequence">length</a> is equal to <var>input</var>'s
+<a for=string>code point length</a> and whose <a>bytes</a> have the same <a for=byte>values</a> as
+the <a for="code point">values</a> of <var>input</var>'s <a>code points</a>, in the same order.
+</div>
 
 <hr>
-
-<p>An <dfn export>ASCII string</dfn> is a <a>string</a> whose <a>code points</a> are all
-<a>ASCII code points</a>.
 
 <p>To <dfn export>ASCII lowercase</dfn> a <a>string</a>, replace all <a>ASCII upper alphas</a> in
 the <a>string</a> with their corresponding <a>code point</a> in <a>ASCII lower alpha</a>.
@@ -1213,28 +1222,26 @@ the <a>string</a> with their corresponding <a>code point</a> in <a>ASCII upper a
 <a>ASCII lowercase</a> of <var>B</var>.
 <!-- TODO: define string equals? -->
 
-<p>To <dfn export>ASCII encode</dfn> a <a>string</a> <var>input</var>, run these steps:
+<div algorithm>
+<p>To <dfn export>ASCII encode</dfn> an <a>ASCII string</a> <var>input</var>: return the
+<a>isomorphic encoding</a> of <var>input</var>.
 
-<ol>
- <li><p><a>Assert</a>: <var>input</var> is an <a>ASCII string</a>.
+<p class=note><a>Isomorphic encode</a> and <a>UTF-8 encode</a> return the same <a>byte sequence</a>
+for <var>input</var>.
+</div>
 
- <p class=note>Note: This precondition ensures that <a>isomorphic encode</a> and
- <a>UTF-8 encode</a> return the same <a>byte sequence</a> for this input.
-
- <li><p>Return the <a>isomorphic encoding</a> of <var>input</var>.
-</ol>
-
+<div algorithm>
 <p>To <dfn export>ASCII decode</dfn> a <a>byte sequence</a> <var>input</var>, run these steps:
 
 <ol>
- <li><p><a>Assert</a>: All bytes in <var>input</var> are <a>ASCII bytes</a>.
+ <li><p><a>Assert</a>: all bytes in <var>input</var> are <a>ASCII bytes</a>.
 
  <p class=note>Note: This precondition ensures that <a>isomorphic decode</a> and
  <a>UTF-8 decode</a> return the same <a>string</a> for this input.
 
  <li><p>Return the <a>isomorphic decoding</a> of <var>input</var>.
 </ol>
-
+</div>
 
 <hr>
 
