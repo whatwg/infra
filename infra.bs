@@ -1426,6 +1426,37 @@ out-of-bounds, except when used with <a for=list>exists</a>.
 "<code>b</code>", "<code>c</code>", "<code>a</code>" ». Then |example|[1] is the <a>string</a>
 "<code>b</code>".
 
+<p>For notational convenience, a multiple assignment syntax may be used to assign multiple variables
+to the <a>list</a>'s <a for=list>items</a>, by surrounding the variables to be assigned by « »
+characters and separating each variable name with a comma. The <a>list</a>'s <a for=list>size</a>
+must be the same as the number of variables to be assigned. Each variable given is then set to the
+value of the <a>list</a>'s <a for=list>item</a> at the corresponding index.
+
+<div class=example id=example-list-multiple-assignment>
+ <ol>
+  <li><p>Let |value| be the <a>list</a> « "<code>a</code>", "<code>b</code>", "<code>c</code>" ».
+
+  <li><p>Let « |a|, |b|, |c| » be |value|.
+
+  <li><p><a>Assert</a>: |a| is "<code>a</code>"
+
+  <li><p><a>Assert</a>: |b| is "<code>b</code>"
+
+  <li><p><a>Assert</a>: |c| is "<code>c</code>"
+ </ol>
+</div>
+
+<p>When a <a>list</a>'s contents are not fully controlled, as is the case for lists from user input,
+the <a>list</a>'s <a for=list>size</a> should be checked to ensure it is the expected size before
+list multiple assignment syntax is used.
+
+<div class=example id=example-list-multiple-assignment-size>
+ <ol>
+  <li><p>If |list|'s <a for=list>size</a> is not <code>3</code>, then return failure.
+  <li><p>Let « |a|, |b|, |c| » be |list|.
+ </ol>
+</div>
+
 <hr>
 
 <p>To <dfn export for=list>append</dfn> to a <a>list</a> that is not an <a>ordered set</a> is to
