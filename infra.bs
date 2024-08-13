@@ -1742,17 +1742,29 @@ a <a>map</a> |map|, with a less than algorithm |lessThanAlgo|, is to create a ne
 
 <p>A <dfn export>struct</dfn> is a specification type consisting of a finite set of
 <dfn export for=struct,tuple lt=item>items</dfn>, each of which has a unique and immutable
-<dfn export for=struct,tuple>name</dfn>.
+<dfn export for=struct,tuple>name</dfn>. An <a for=struct>item</a> holds a value of a defined type.
 
+<div class=example id=example-struct>
+ <p>An <dfn ignore>email</dfn> is an example <a>struct</a> consisting of a
+ <dfn ignore>local part</dfn> (a string) and a <dfn ignore>host</dfn> (a <a for=/>host</a>).
+
+ <p>A nonsense algorithm might use this definition as follows:
+
+ <ol>
+  <li>Let <var>email</var> be an email whose local part is "<code>hostmaster</code>" and host is
+  <code>infra.example</code>.
+  <li>&hellip;
+ </ol>
+</div>
 
 <h4 id=tuples>Tuples</h4>
 
-<p>A <dfn export>tuple</dfn> is a <a>struct</a> with a defined order. For notational convenience, a
-literal syntax can be used to express <a>tuples</a>, by surrounding the tuple with parenthesis and
-separating its <a for=tuple>items</a> with a comma. To use this notation, the <a for=tuple>names</a>
-need to be clear from context. This can be done by preceding the first instance with the name given
-to the <a>tuple</a>. An indexing syntax can be used by providing a zero-based index into a
-<a>tuple</a> inside square brackets. The index cannot be out-of-bounds.
+<p>A <dfn export>tuple</dfn> is a <a>struct</a> whose <a for=struct>items</a> are ordered. For
+notational convenience, a literal syntax can be used to express <a>tuples</a>, by surrounding the
+tuple with parenthesis and separating its <a for=tuple>items</a> with a comma. To use this notation,
+the <a for=tuple>names</a> need to be clear from context. This can be done by preceding the first
+instance with the name given to the <a>tuple</a>. An indexing syntax can be used by providing a
+zero-based index into a <a>tuple</a> inside square brackets. The index cannot be out-of-bounds.
 
 <div class=example id=example-tuple>
  <p>A <dfn ignore>status</dfn> is an example <a>tuple</a> consisting of a <dfn ignore>code</dfn> (a
