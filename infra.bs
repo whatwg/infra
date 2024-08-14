@@ -1438,11 +1438,11 @@ value of the <a>list</a>'s <a for=list>item</a> at the corresponding index.
 
   <li><p>Let « |a|, |b|, |c| » be |value|.
 
-  <li><p><a>Assert</a>: |a| is "<code>a</code>"
+  <li><p><a>Assert</a>: |a| is "<code>a</code>".
 
-  <li><p><a>Assert</a>: |b| is "<code>b</code>"
+  <li><p><a>Assert</a>: |b| is "<code>b</code>".
 
-  <li><p><a>Assert</a>: |c| is "<code>c</code>"
+  <li><p><a>Assert</a>: |c| is "<code>c</code>".
  </ol>
 </div>
 
