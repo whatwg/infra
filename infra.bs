@@ -1751,8 +1751,8 @@ a <a>map</a> |map|, with a less than algorithm |lessThanAlgo|, is to create a ne
  <p>A nonsense algorithm might use this definition as follows:
 
  <ol>
-  <li>Let <var>email</var> be an email whose local part is "<code>hostmaster</code>" and host is
-  <code>infra.example</code>.
+  <li>Let <var ignore>email</var> be an email whose local part is "<code>hostmaster</code>" and host
+  is <code>infra.example</code>.
   <li>&hellip;
  </ol>
 </div>
