@@ -929,12 +929,24 @@ leaving them effectively as-is.
 would consist of the <a>code points</a> U+1F4A9 and U+D800.
 
 <p>A <a>string</a>'s
-<dfn export for="string,JavaScript string,scalar value string" id=string-length oldids=javascript-string-length>length</dfn>
+<dfn export for="string,JavaScript string,ASCII string,isomorphic string,scalar value string" id=string-length oldids=javascript-string-length>length</dfn>
 is the number of <a>code units</a> it contains.
 
 <p>A <a>string</a>'s
-<dfn export for="string,JavaScript string,scalar value string">code point length</dfn> is the number
+<dfn export for="string,JavaScript string,ASCII string,isomorphic string,scalar value string">code point length</dfn> is the number
 of <a>code points</a> it contains.
+
+<hr>
+
+<p>To signify <a>strings</a> with additional restrictions on the <a>code points</a> they can contain
+this specification defines <a>ASCII strings</a>, <a>isomorphic strings</a>, and
+<a>scalar value strings</a>. Using these improves clarity in specifications.
+
+<p>An <dfn export>ASCII string</dfn> is a <a>string</a> whose <a>code points</a> are all
+<a>ASCII code points</a>.
+
+<p>An <dfn export>isomorphic string</dfn> is a <a>string</a> whose <a>code points</a> are all in the
+range U+0000 NULL to U+00FF (ÿ), inclusive.
 
 <p>A <dfn export>scalar value string</dfn> is a <a>string</a> whose <a>code points</a> are all
 <a>scalar values</a>.
@@ -942,6 +954,8 @@ of <a>code points</a> it contains.
 <p class=note>A <a>scalar value string</a> is useful for any kind of I/O or other kind of operation
 where <a>UTF-8 encode</a> comes into play.
 <!-- It's also useful if you can imagine the subsystem to be implemented in Rust -->
+
+<hr>
 
 <p>To <dfn export for="string,JavaScript string" id=javascript-string-convert>convert</dfn> a
 <a>string</a> into a <a>scalar value string</a>, replace any <a>surrogates</a> with U+FFFD (�).
@@ -1172,7 +1186,7 @@ from <var>start</var> to the end of a <a>string</a> <var>string</var> is the
 <p>To <dfn export>isomorphic encode</dfn> a <a>string</a> <var>input</var>, run these steps:</p>
 
 <ol>
- <li><p><a>Assert</a>: <var>input</var> contains no <a>code points</a> greater than U+00FF.
+ <li><p><a>Assert</a>: <var>input</var> contains no <a>code points</a> greater than U+00FF (ÿ).
 
  <li><p>Return a <a>byte sequence</a> whose <a for="byte sequence">length</a> is equal to
  <var>input</var>'s <a for=string>code point length</a> and whose <a>bytes</a> have the same
@@ -1181,9 +1195,6 @@ from <var>start</var> to the end of a <a>string</a> <var>string</var> is the
 </ol>
 
 <hr>
-
-<p>An <dfn export>ASCII string</dfn> is a <a>string</a> whose <a>code points</a> are all
-<a>ASCII code points</a>.
 
 <p>To <dfn export>ASCII lowercase</dfn> a <a>string</a>, replace all <a>ASCII upper alphas</a> in
 the <a>string</a> with their corresponding <a>code point</a> in <a>ASCII lower alpha</a>.
