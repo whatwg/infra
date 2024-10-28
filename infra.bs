@@ -17,6 +17,24 @@ urlPrefix: https://tc39.github.io/ecma262/#; spec: ECMA-262;
         text: List; url: sec-list-and-record-specification-type
         text: The String Type; url: sec-ecmascript-language-types-string-type
         text: realm; url: realm
+        url: sec-ecmascript-language-types-bigint-type
+            text: is a BigInt
+            text: is not a BigInt
+        url: sec-ecmascript-language-types-boolean-type
+            text: is a Boolean
+            text: is not a Boolean
+        url: sec-ecmascript-language-types-number-type
+            text: is a Number
+            text: is not a Number
+        url: sec-ecmascript-language-types-string-type
+            text: is a String
+            text: is not a String
+        url: sec-ecmascript-language-types-symbol-type
+            text: is a Symbol
+            text: is not a Symbol
+        url: sec-object-type
+            text: is an Object
+            text: is not an Object
     type: method; for: Array; text: sort(); url: sec-array.prototype.sort
     type: abstract-op;
         text: ArrayCreate; url: sec-arraycreate
@@ -27,7 +45,6 @@ urlPrefix: https://tc39.github.io/ecma262/#; spec: ECMA-262;
         text: OrdinaryObjectCreate; url: sec-ordinaryobjectcreate
         text: ToLength; url: sec-tolength
         text: ToString; url: sec-tostring
-        text: Type; url: sec-ecmascript-data-types-and-values
 </pre>
 
 <style>
@@ -1901,7 +1918,8 @@ given a <a>byte sequence</a> |bytes|:
 given a JavaScript value |jsValue|:
 
 <ol>
- <li><p>If [$Type$](|jsValue|) is Null, Boolean, String, or Number, then return |jsValue|.
+ <li><p>If |jsValue| is <emu-val>null</emu-val>, |jsValue| [=is a Boolean=], |jsValue|
+  [=is a String=], or |jsValue| [=is a Number=], then return |jsValue|.
 
  <li>
   <p>If [$IsArray$](|jsValue|) is true, then:
