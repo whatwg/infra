@@ -1841,14 +1841,19 @@ without breaking literal syntax used by their dependencies. In that case a tuple
 <p class=note>The conventions used in the algorithms in this section are those of the JavaScript
 specification. [[!ECMA-262]]
 
-<p>To <dfn export lt="parse a JSON string to a JavaScript value|parsing a JSON string to a JavaScript value">parse a JSON string to a JavaScript value</dfn>,
+<div algorithm>
+<p>To
+<dfn export lt="parse a JSON string to a JavaScript value|parsing a JSON string to a JavaScript value">parse a JSON string to a JavaScript value</dfn>,
 given a <a>string</a> |string|:
 
 <ol>
  <li><p>Return ? [$Call$](<a>%JSON.parse%</a>, undefined, « |string| »).
 </ol>
+</div>
 
-<p>To <dfn export lt="parse JSON bytes to a JavaScript value|parsing JSON bytes to a JavaScript value|parse JSON from bytes">parse JSON bytes to a JavaScript value</dfn>,
+<div algorithm>
+<p>To
+<dfn export lt="parse JSON bytes to a JavaScript value|parsing JSON bytes to a JavaScript value|parse JSON from bytes">parse JSON bytes to a JavaScript value</dfn>,
 given a <a>byte sequence</a> |bytes|:
 
 <ol>
@@ -1856,8 +1861,11 @@ given a <a>byte sequence</a> |bytes|:
 
  <li><p>Return the result of <a>parsing a JSON string to a JavaScript value</a> given |string|.
 </ol>
+</div>
 
-<p>To <dfn export lt="serialize a JavaScript value to a JSON string|serializing a JavaScript value to a JSON string">serialize a JavaScript value to a JSON string</dfn>,
+<div algorithm>
+<p>To
+<dfn export lt="serialize a JavaScript value to a JSON string|serializing a JavaScript value to a JSON string">serialize a JavaScript value to a JSON string</dfn>,
 given a JavaScript value |value|:
 
 <ol>
@@ -1877,8 +1885,11 @@ given a JavaScript value |value|:
 
  <li><p>Return |result|.
 </ol>
+</div>
 
-<p>To <dfn export lt="serialize a JavaScript value to JSON bytes|serializing a JavaScript value to JSON bytes|serialize JSON to bytes">serialize a JavaScript value to JSON bytes</dfn>,
+<div algorithm>
+<p>To
+<dfn export lt="serialize a JavaScript value to JSON bytes|serializing a JavaScript value to JSON bytes|serialize JSON to bytes">serialize a JavaScript value to JSON bytes</dfn>,
 given a JavaScript value |value|:
 
 <ol>
@@ -1887,6 +1898,7 @@ given a JavaScript value |value|:
 
  <li><p>Return the result of running <a>UTF-8 encode</a> on |string|. [[!ENCODING]]
 </ol>
+</div>
 
 <hr>
 
@@ -1895,7 +1907,9 @@ the involved objects or arrays are tied to a particular <a lt="realm">JavaScript
 standards, it is often more convenient to convert between JSON and realm-independent <a>maps</a>,
 <a>lists</a>, <a>strings</a>, <a>booleans</a>, numbers, and nulls.
 
-<p>To <dfn export lt="parse a JSON string to an Infra value|parsing a JSON string to an Infra value|parse JSON into Infra values">parse a JSON string to an Infra value</dfn>,
+<div algorithm>
+<p>To
+<dfn export lt="parse a JSON string to an Infra value|parsing a JSON string to an Infra value|parse JSON into Infra values">parse a JSON string to an Infra value</dfn>,
 given a <a>string</a> |string|:
 
 <ol>
@@ -1904,8 +1918,11 @@ given a <a>string</a> |string|:
  <li><p>Return the result of [=converting a JSON-derived JavaScript value to an Infra value=], given
  |jsValue|.
 </ol>
+</div>
 
-<p>To <dfn export lt="parse JSON bytes to an Infra value|parsing JSON bytes to an Infra value">parse JSON bytes to an Infra value</dfn>,
+<div algorithm>
+<p>To
+<dfn export lt="parse JSON bytes to an Infra value|parsing JSON bytes to an Infra value">parse JSON bytes to an Infra value</dfn>,
 given a <a>byte sequence</a> |bytes|:
 
 <ol>
@@ -1913,8 +1930,11 @@ given a <a>byte sequence</a> |bytes|:
 
  <li><p>Return the result of <a>parsing a JSON string to an Infra value</a> given |string|.
 </ol>
+</div>
 
-<p>To <dfn lt="convert a JSON-derived JavaScript value to an Infra value|converting a JSON-derived JavaScript value to an Infra value">convert a JSON-derived JavaScript value to an Infra value</dfn>,
+<div algorithm>
+<p>To
+<dfn lt="convert a JSON-derived JavaScript value to an Infra value|converting a JSON-derived JavaScript value to an Infra value">convert a JSON-derived JavaScript value to an Infra value</dfn>,
 given a JavaScript value |jsValue|:
 
 <ol>
@@ -1965,8 +1985,11 @@ given a JavaScript value |jsValue|:
 
  <li><p>Return |result|.
 </ol>
+</div>
 
-<p>To <dfn export lt="serialize an Infra value to a JSON string|serializing an Infra value to a JSON string">serialize an Infra value to a JSON string</dfn>,
+<div algorithm>
+<p>To
+<dfn export lt="serialize an Infra value to a JSON string|serializing an Infra value to a JSON string">serialize an Infra value to a JSON string</dfn>,
 given a <a>string</a>, <a>boolean</a>, number, null, <a>list</a>, or <a>string</a>-keyed <a>map</a>
 |value|:
 
@@ -1980,8 +2003,11 @@ given a <a>string</a>, <a>boolean</a>, number, null, <a>list</a>, or <a>string</
   <p class=note>Since no additional arguments are passed to <a>%JSON.stringify%</a>, the resulting
   string will have no whitespace inserted.
 </ol>
+</div>
 
-<p>To <dfn export lt="serialize an Infra value to JSON bytes|serializing an Infra value to JSON bytes">serialize an Infra value to JSON bytes</dfn>,
+<div algorithm>
+<p>To
+<dfn export lt="serialize an Infra value to JSON bytes|serializing an Infra value to JSON bytes">serialize an Infra value to JSON bytes</dfn>,
 given a <a>string</a>, <a>boolean</a>, number, null, <a>list</a>, or <a>string</a>-keyed <a>map</a>
 |value|:
 
@@ -1991,7 +2017,9 @@ given a <a>string</a>, <a>boolean</a>, number, null, <a>list</a>, or <a>string</
 
  <li><p>Return the result of running <a>UTF-8 encode</a> on |string|. [[!ENCODING]]
 </ol>
+</div>
 
+<div algorithm>
 <p>To
 <dfn export lt="convert an Infra value to a JSON-compatible JavaScript value|converting an Infra value to a JSON-compatible JavaScript value">convert an Infra value to a JSON-compatible JavaScript value</dfn>,
 given |value|:
@@ -2042,6 +2070,11 @@ given |value|:
   <li><p>Return |jsValue|.
  </ol>
 </ol>
+
+<p class=warning>As this is a rather nuanced algorithm, please
+<a href="https://github.com/whatwg/infra/issues/new">file an issue</a> before using
+<a>convert an Infra value to a JSON-compatible JavaScript value</a>.
+</div>
 
 
 <h2 id=forgiving-base64>Forgiving base64</h2>
