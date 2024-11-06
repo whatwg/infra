@@ -1992,7 +1992,8 @@ given a <a>string</a>, <a>boolean</a>, number, null, <a>list</a>, or <a>string</
  <li><p>Return the result of running <a>UTF-8 encode</a> on |string|. [[!ENCODING]]
 </ol>
 
-<p>To <dfn lt="convert an Infra value to a JSON-compatible JavaScript value|converting an Infra value to a JSON-compatible JavaScript value">convert an Infra value to a JSON-compatible JavaScript value</dfn>,
+<p>To
+<dfn export lt="convert an Infra value to a JSON-compatible JavaScript value|converting an Infra value to a JSON-compatible JavaScript value">convert an Infra value to a JSON-compatible JavaScript value</dfn>,
 given |value|:
 
 <ol>
