@@ -2060,7 +2060,8 @@ given a <a>string</a> |string|:
 <p class=warning>Because it is rarely appropriate to manipulate JavaScript values directly in
 specifications, prefer using <a>serialize an Infra value to a JSON string</a> or
 <a>serialize an Infra value to JSON bytes</a> instead of using this algorithm. Please
-<a href="https://github.com/whatwg/infra/issues/new">file an issue</a> to discuss your use case if you believe you need to use <a>convert an Infra value to a JSON-compatible JavaScript value</a>.
+<a href="https://github.com/whatwg/infra/issues/new">file an issue</a> to discuss your use case if
+you believe you need to use <a>convert an Infra value to a JSON-compatible JavaScript value</a>.
 </div>
 
 
