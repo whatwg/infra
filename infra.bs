@@ -723,6 +723,47 @@ JavaScript <b>null</b> value. [[!ECMA-262]]
 <p class=example id=example-boolean>Let <var ignore>elementSeen</var> be false.
 
 
+<h3 id=numbers>Numbers</h3>
+
+<p class=XXX>Numbers are complicated, please see
+<a href="https://github.com/whatwg/infra/issues/87">issue #87</a>. In due course we hope to offer
+more guidance here around types and mathematical operations. Help appreciated!
+
+<hr>
+
+<p>An <dfn export>8-bit unsigned integer</dfn> is an integer in the range 0 to 255 (0 to
+2<sup>8</sup> &minus; 1), inclusive.
+
+<p>A <dfn export>16-bit unsigned integer</dfn> is an integer in the range 0 to 65535 (0 to
+2<sup>16</sup> &minus; 1), inclusive.
+
+<p>A <dfn export>32-bit unsigned integer</dfn> is an integer in the range 0 to 4294967295 (0 to
+2<sup>32</sup> &minus; 1), inclusive.
+
+<p>A <dfn export>64-bit unsigned integer</dfn> is an integer in the range 0 to 18446744073709551615
+(0 to 2<sup>64</sup> &minus; 1), inclusive.
+
+<p>A <dfn export>128-bit unsigned integer</dfn> is an integer in the range 0 to
+340282366920938463463374607431768211455 (0 to 2<sup>128</sup> &minus; 1), inclusive.
+
+<p class=example id=example-128-bit-unsigned-integer>An IPv6 address is an
+<a for=/>128-bit unsigned integer</a>.
+
+<hr>
+
+<p>An <dfn export>8-bit signed integer</dfn> is an integer in the range -128 to 127 (-2<sup>7</sup>
+to 2<sup>7</sup> &minus; 1), inclusive.
+
+<p>A <dfn export>16-bit signed integer</dfn> is an integer in the range -32768 to 32767
+(-2<sup>15</sup> to 2<sup>15</sup> &minus; 1), inclusive.
+
+<p>A <dfn export>32-bit signed integer</dfn> is an integer in the range -2147483648 to 2147483647
+(-2<sup>31</sup> to 2<sup>31</sup> &minus; 1), inclusive.
+
+<p>A <dfn export>64-bit signed integer</dfn> is an integer in the range -9223372036854775808 to
+9223372036854775807 (-2<sup>63</sup> to 2<sup>63</sup> &minus; 1), inclusive.
+
+
 <h3 id=bytes>Bytes</h3>
 
 <p>A <dfn export>byte</dfn> is a sequence of eight bits and is represented as "<code>0x</code>"
