@@ -933,6 +933,8 @@ SPACE.
 
 <p class=note>"Whitespace" is a mass noun.
 
+<p class=note>[[xml11#NT-S|XML's definition of whitespace]] omits U+000C FF.
+
 <p>A <dfn export>C0 control</dfn> is a <a>code point</a> in the range U+0000 NULL to
 U+001F INFORMATION SEPARATOR ONE, inclusive.
 
