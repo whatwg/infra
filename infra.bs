@@ -1898,8 +1898,9 @@ specification. [[!ECMA-262]]
 </div>
 
 <div algorithm>
-<p>To <dfn export>parse JSON bytes to a JavaScript value</dfn>, given a <a>byte sequence</a>
-|bytes|:
+<p>To
+<dfn export lt="parse JSON bytes to a JavaScript value|parse JSON from bytes">parse JSON bytes to a JavaScript value</dfn>,
+given a <a>byte sequence</a> |bytes|:
 
 <ol>
  <li><p>Let |string| be the result of running <a>UTF-8 decode</a> on |bytes|. [[!ENCODING]]
@@ -1932,8 +1933,9 @@ specification. [[!ECMA-262]]
 </div>
 
 <div algorithm>
-<p>To <dfn export>serialize a JavaScript value to JSON bytes</dfn>, given a JavaScript value
-|value|:
+<p>To
+<dfn export lt="serialize a JavaScript value to JSON bytes|serialize JSON to bytes">serialize a JavaScript value to JSON bytes</dfn>,
+given a JavaScript value |value|:
 
 <ol>
  <li><p>Let |string| be the result of <a>serializing a JavaScript value to a JSON string</a> given
