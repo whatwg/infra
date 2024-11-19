@@ -967,10 +967,10 @@ U+007A (z), inclusive.
 
 <h3 id=strings>Strings</h3>
 
-<p>A <dfn export lt="string|JavaScript string">string</dfn> is a sequence of unsigned 16-bit
-integers, also known as <dfn export lt="code unit">code units</dfn>. A <a>string</a> is also known
-as a <a id="javascript-string">JavaScript string</a>. <a>Strings</a> are denoted by double quotes
-and monospace font.
+<p>A <dfn export lt="string|JavaScript string">string</dfn> is a sequence of
+<a for=/>16-bit unsigned integers</a>, also known as <dfn export lt="code unit">code units</dfn>. A
+<a>string</a> is also known as a <a id="javascript-string">JavaScript string</a>.
+<a for=/>Strings</a> are denoted by double quotes and monospace font.
 
 <p class=example id=example-string-notation>"<code>Hello, world!</code>" is a string.
 
