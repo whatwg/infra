@@ -933,7 +933,19 @@ SPACE.
 
 <p class=note>"Whitespace" is a mass noun.
 
-<p class=note>[[xml10#NT-S|XML's definition of whitespace]] omits U+000C FF.
+<div class=note>
+ <p>The XML, JSON, and parts of the HTTP specifications exclude U+000C FF in their definition of
+ whitespace:
+
+ <ul class=brief>
+  <li>[[xml10#NT-S|XML's S production]]
+  <li>[[JSON#section-2|JSON's ws production]]
+  <li>[=HTTP whitespace=]
+ </ul>
+
+ <p>Prefer using Infra's [=ASCII whitespace=] definition for new features, unless your specification
+ deals exclusively with XML/JSON/HTTP.
+</div>
 
 <p>A <dfn export>C0 control</dfn> is a <a>code point</a> in the range U+0000 NULL to
 U+001F INFORMATION SEPARATOR ONE, inclusive.
