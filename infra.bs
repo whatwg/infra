@@ -1726,6 +1726,10 @@ of creating a new <a>ordered set</a> |set| and, <a for=list>for each</a> |item| 
 <a for=list>cloning</a> |A| as |set| and, <a for=list>for each</a> |item| of |B|,
 <a for=set>appending</a> |item| to |set|.
 
+<p>The <dfn export for=set>difference</dfn> of <a>ordered sets</a> |A| and |B|, is the result
+of creating a new <a>ordered set</a> |set| and, <a for=list>for each</a> |item| of |A|, if |B|
+[=set/contains|does not contain=] |item|, <a for=set>appending</a> |item| to |set|.
+
 <hr>
 
 <p><dfn export lt="the range|the inclusive range">The range</dfn> <var>n</var> to <var>m</var>,
