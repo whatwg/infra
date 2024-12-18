@@ -1694,6 +1694,16 @@ unordered one, since interoperability requires that any developer-exposed enumer
 contents be consistent between browsers. In those cases where order is not important, we still use
 ordered sets; implementations can optimize based on the fact that the order is not observable.
 
+<div algorithm>
+<p>To <dfn export for=set>create</dfn> a [=/set=], from a [=/list=] |input|:
+
+<ol>
+ <li><p>Let |result| be an empty [=/set=].
+ <li><p>For each [=list/item=] |item| in |input|, [=set/append=] |item| to |result|.
+ <li><p>Return |result|.
+</ol>
+</div>
+
 <p>To <dfn export for=set>append</dfn> to an <a>ordered set</a>: if the set <a for=list>contains</a>
 the given <a for=set>item</a>, then do nothing; otherwise, perform the normal <a>list</a>
 <a for=list>append</a> operation.
