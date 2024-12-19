@@ -1695,11 +1695,11 @@ contents be consistent between browsers. In those cases where order is not impor
 ordered sets; implementations can optimize based on the fact that the order is not observable.
 
 <div algorithm>
-<p>To <dfn export for=set>create</dfn> a [=/set=], from a [=/list=] |input|:
+<p>To <dfn export for=set>create</dfn> a [=/set=], given a [=/list=] |input|:
 
 <ol>
  <li><p>Let |result| be an empty [=/set=].
- <li><p>For each [=list/item=] |item| in |input|, [=set/append=] |item| to |result|.
+ <li><p>[=list/for each=] |item| of |input|, [=set/append=] |item| to |result|.
  <li><p>Return |result|.
 </ol>
 </div>
