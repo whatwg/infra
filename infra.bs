@@ -1699,7 +1699,7 @@ ordered sets; implementations can optimize based on the fact that the order is n
 
 <ol>
  <li><p>Let |result| be an empty [=/set=].
- <li><p>[=list/for each=] |item| of |input|, [=set/append=] |item| to |result|.
+ <li><p>[=list/For each=] |item| of |input|, [=set/append=] |item| to |result|.
  <li><p>Return |result|.
 </ol>
 </div>
