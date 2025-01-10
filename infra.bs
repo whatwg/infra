@@ -1728,6 +1728,9 @@ of either with <var>replacement</var> and <a for=set>remove</a> all other instan
 <p class=note>This implies that an <a>ordered set</a> is both a <a for=set>subset</a> and a
 <a for=set>superset</a> of itself.
 
+<p>A [=/set=] |A| is <dfn export for=set>equal</dfn> to a [=/set=] |B|
+if |A| is a [=subset=] of |B| and |A| is a [=superset=] of |B|.
+
 <p>The <dfn export for=set>intersection</dfn> of <a>ordered sets</a> |A| and |B|, is the result
 of creating a new <a>ordered set</a> |set| and, <a for=list>for each</a> |item| of |A|, if |B|
 <a for=set>contains</a> |item|, <a for=set>appending</a> |item| to |set|.
