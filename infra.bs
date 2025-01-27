@@ -545,14 +545,14 @@ of the preceding <a>abort when</a> step evaluated to true.
   <li><p>Let |result| be an empty <a>list</a>.
 
   <li>
-   <p>If the user has not clicked the "Cancel" button, then:
+   <p>If the user has not clicked the "Cancel" button:
 
    <ol>
     <li><p>Compute the first million digits of <var>π</var>, and <a for=list>append</a> the result
     to |result|.
 
     <li>
-     <p>If the user has not clicked the "Cancel" button, then:
+     <p>If the user has not clicked the "Cancel" button:
 
      <ol>
       <li><p>Compute the first million digits of |e|, and <a for=list>append</a> the result to
@@ -1441,7 +1441,7 @@ interspersed <a>ASCII whitespace</a>.
    <li><p><a for="list">Append</a> <var>token</var> to <var>tokens</var>.
 
    <li>
-    <p>If <var>position</var> is not past the end of <var>input</var>, then:
+    <p>If <var>position</var> is not past the end of <var>input</var>:
 
     <ol>
      <li><p><a>Assert</a>: the <a>code point</a> at <var>position</var> within <var>input</var> is
@@ -1899,7 +1899,7 @@ zero-based index into a <a>tuple</a> inside square brackets. The index cannot be
  number) and <dfn ignore>text</dfn> (a byte sequence).
 
  <p>A nonsense algorithm that manipulates status tuples for the purpose of demonstrating their
- usage is then:</p>
+ usage is:</p>
 
  <ol>
   <li>Let |statusInstance| be the status (200, `<code>OK</code>`).
@@ -2013,10 +2013,10 @@ given a <a>string</a> |string|:
 
 <ol>
  <li><p>If |jsValue| is <emu-val>null</emu-val>, |jsValue| [=is a Boolean=], |jsValue|
-  [=is a String=], or |jsValue| [=is a Number=], then return |jsValue|.
+ [=is a String=], or |jsValue| [=is a Number=], then return |jsValue|.
 
  <li>
-  <p>If [$IsArray$](|jsValue|) is true, then:
+  <p>If [$IsArray$](|jsValue|) is true:
 
    <ol>
     <li><p>Let |result| be an empty [=list=].
@@ -2096,7 +2096,7 @@ given a <a>string</a> |string|:
  <li><p>If |value| is a <a>string</a>, <a>boolean</a>, number, or null, then return |value|.
 
  <li>
-  <p>If |value| is a <a>list</a>, then:
+  <p>If |value| is a <a>list</a>:
 
   <ol>
    <li><p>Let |jsValue| be ! [$ArrayCreate$](0).
@@ -2163,8 +2163,7 @@ certain inputs.
  <!-- https://lists.w3.org/Archives/Public/public-whatwg-archive/2011May/0207.html -->
 
  <li>
-  <p>If <var>data</var>'s <a for=string>code point length</a> divides by 4 leaving no remainder,
-  then:
+  <p>If <var>data</var>'s <a for=string>code point length</a> divides by 4 leaving no remainder:
 
   <ol>
    <li><p>If <var>data</var> ends with one or two U+003D (=) <a>code points</a>, then remove them
