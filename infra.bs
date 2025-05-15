@@ -1805,7 +1805,7 @@ by providing a <a for=map>key</a> inside square brackets directly following a <a
 <p class=example id=example-map-get-with-default>Let <var>example</var> be the <a>ordered map</a>
 «[ "<code>a</code>" → "<code>x</code>", "<code>b</code>" → "<code>y</code>" ]». Then
 |example|["<code>a</code>"] is the same as |example|["<code>a</code>"] <a>with default</a> "<code>z</code>",
-namely "<code>x</code>". |example|["<code>c</code>"] is invalid.
+namely "<code>x</code>". |example|["<code>c</code>"] would hit an assert.
 |example|["<code>c</code>"] <a>with default</a> "<code>z</code>" is "<code>z</code>".</p>
 
 <p>To <dfn export for=map lt="set|set the value">set the value of an entry</dfn> in an
