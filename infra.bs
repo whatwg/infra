@@ -1786,7 +1786,7 @@ entries with a comma.
 
 <p>To <dfn export for=map lt="get|get the value">get the value of an entry</dfn> in an
 <a>ordered map</a> <var>map</var> given a <a for=map>key</a> <var>key</var> and an optional
-<a for=map>value</a> <var>default</var>:
+<var>default</var>:
 
 <ol>
  <li><p>If <var>map</var> does not <a for=map>contain</a> <var>key</var> and <var>default</var>
