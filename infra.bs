@@ -1785,9 +1785,13 @@ entries with a comma.
 <hr>
 
 <p>To <dfn export for=map lt="get|get the value">get the value of an entry</dfn> in an
-<a>ordered map</a> <var>map</var> given a <a for=map>key</a> <var>key</var>:
+<a>ordered map</a> <var>map</var> given a <a for=map>key</a> <var>key</var> and an optional
+<var>default</var>:
 
 <ol>
+ <li><p>If <var>map</var> does not <a for=map>contain</a> <var>key</var> and <var>default</var>
+ is given, then return <var>default</var>.
+
  <li><p>Assert: <var>map</var> <a for=map>contains</a> <var>key</var>.
 
  <li><p>Return the <a for=map>value</a> of the <a for=map>entry</a> in <var>map</var> whose
@@ -1796,9 +1800,17 @@ entries with a comma.
 
 <p>We can also denote <a for=map lt=get>getting the value of an entry</a> using an indexing syntax,
 by providing a <a for=map>key</a> inside square brackets directly following a <a for=/>map</a>.
+A default can be given by adding the phrase <dfn export for=map>with default</dfn> followed by the
+default value.
 
 <p class=example id=example-map-get>If <var ignore>map</var>["<code>test</code>"]
 <a for=map>exists</a>, then return <var ignore>map</var>["<code>test</code>"].
+
+<p class=example id=example-map-get-with-default>Let <var>example</var> be the <a>ordered map</a>
+«[ "<code>a</code>" → "<code>x</code>", "<code>b</code>" → "<code>y</code>" ]». Then
+|example|["<code>a</code>"] is the same as |example|["<code>a</code>"] <a>with default</a> "<code>z</code>",
+namely "<code>x</code>". |example|["<code>c</code>"] would hit an assert.
+|example|["<code>c</code>"] <a>with default</a> "<code>z</code>" is "<code>z</code>".
 
 <p>To <dfn export for=map lt="set|set the value">set the value of an entry</dfn> in an
 <a>ordered map</a> to a given <a for=map>value</a> is to update the value of any existing
