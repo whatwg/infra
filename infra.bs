@@ -6,6 +6,7 @@ Text Macro: TWITTER infrastandard
 Text Macro: LATESTRD 2025-01
 Abstract: The Infra Standard aims to define the fundamental concepts upon which standards are built.
 Translation: ja https://triple-underscore.github.io/infra-ja.html
+Translation: zh-Hans https://htmlspecs.com/infra/
 Required IDs: tracking-vector
 </pre>
 
