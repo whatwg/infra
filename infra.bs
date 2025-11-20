@@ -1521,6 +1521,16 @@ they can only be compared with "is".
  </ol>
 </div>
 
+<div class=example id=example-singleton-failure>
+ <p><a>Failure</a> is often used as the result of an algorithm that can fail or return a value:
+
+ <ol>
+  <li><p>If <var>status</var> is less than 200 or greater than 599, then return <a>failure</a>.
+
+  <li><p>Return <var>status</var>.
+ </ol>
+</div>
+
 
 <h2 id=data-structures>Data structures</h2>
 
