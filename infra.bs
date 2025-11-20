@@ -1492,7 +1492,7 @@ they can only be compared for equality in specifications via "is".
 
  <ol>
   <li><p>If something unexpectedly bad happened, then return <a>failure</a>.
-  <li><p>Otherwise, return <a>success</a>.
+  <li><p>Return <a>success</a>.
  </ol>
 
  <p>Callers of that algorithm might evaluate the result as follows:
