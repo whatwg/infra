@@ -1488,7 +1488,7 @@ They have no web-visible representation beyond their effect on the flow of any g
 they can only be compared for equality in specifications via "is".
 
 <div class=example id=example-singleton-return-and-comparison>
- <p>The following algorithm might return <a>success</a> or <a>failure</a>:
+ <p>The following algorithm returns <a>success</a> or <a>failure</a>:
 
  <ol>
   <li><p>If something unexpectedly bad happened, then return <a>failure</a>.
