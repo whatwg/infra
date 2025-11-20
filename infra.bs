@@ -1485,7 +1485,7 @@ these steps:
 
 The following types can be used as inputs or outputs of algorithmic prose to improve comprehension.
 They have no web-visible representation beyond their effect on the flow of any given algorithm, and
-they can only be compared for equality in specifications via "is".
+they can only be compared with "is".
 
 <dl>
  <dt><dfn export>allowed</dfn>
