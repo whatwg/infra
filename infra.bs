@@ -1497,7 +1497,7 @@ they can only be compared with "is".
 
  <dt><dfn export>failure</dfn>
  <dd><p>Indicates that some operation did not proceed as expected, often used in opposition to
- <a>success</a>.
+ <a>success</a> or in combination with a more concrete type.
 
  <dt><dfn export>success</dfn>
  <dd><p>Indicates that some operation proceeded as expected, often used in opposition to
