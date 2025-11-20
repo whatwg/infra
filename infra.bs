@@ -1498,7 +1498,7 @@ they can only be compared for equality in specifications via "is".
  <p>Callers of that algorithm might evaluate the result as follows:
 
  <ol>
-  <li><p>If <var>result</var> is <a>failure</a>, shut everything down gracefully and abort.
+  <li><p>If <var>result</var> is <a>failure</a>, then shut everything down gracefully and abort.
   <li><p>Assert: <var>result</var> is <a>success</a>.
   <li><p>...
  </ol>
