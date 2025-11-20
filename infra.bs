@@ -1487,23 +1487,6 @@ The following types can be used as inputs or outputs of algorithmic prose to imp
 They have no web-visible representation beyond their effect on the flow of any given algorithm, and
 they can only be compared for equality in specifications via "is".
 
-<div class=example id=example-singleton-return-and-comparison>
- <p>The following algorithm returns <a>success</a> or <a>failure</a>:
-
- <ol>
-  <li><p>If something unexpectedly bad happened, then return <a>failure</a>.
-  <li><p>Return <a>success</a>.
- </ol>
-
- <p>Callers of that algorithm might evaluate the result as follows:
-
- <ol>
-  <li><p>If <var>result</var> is <a>failure</a>, then shut everything down gracefully and abort.
-  <li><p>Assert: <var>result</var> is <a>success</a>.
-  <li><p>...
- </ol>
-</div>
-
 <dl>
  <dt><dfn export>allowed</dfn>
  <dd><p>Indicates that some operation is permitted, often used in opposition to <a>blocked</a>.
@@ -1520,6 +1503,23 @@ they can only be compared for equality in specifications via "is".
  <dd><p>Indicates that some operation proceeded as expected, often used in opposition to
  <a>failure</a>.
 </dl>
+
+<div class=example id=example-singleton-return-and-comparison>
+ <p>The following algorithm returns <a>success</a> or <a>failure</a>:
+
+ <ol>
+  <li><p>If something unexpectedly bad happened, then return <a>failure</a>.
+  <li><p>Return <a>success</a>.
+ </ol>
+
+ <p>Callers of that algorithm might evaluate the result as follows:
+
+ <ol>
+  <li><p>If <var>result</var> is <a>failure</a>, then shut everything down gracefully and abort.
+  <li><p>Assert: <var>result</var> is <a>success</a>.
+  <li><p>...
+ </ol>
+</div>
 
 
 <h2 id=data-structures>Data structures</h2>
