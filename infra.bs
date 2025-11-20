@@ -1516,7 +1516,7 @@ they can only be compared with "is".
 
  <ol>
   <li><p>If <var>result</var> is <a>failure</a>, then shut everything down gracefully and abort.
-  <li><p>Assert: <var>result</var> is <a>success</a>.
+  <li><p><a>Assert</a>: <var>result</var> is <a>success</a>.
   <li><p>...
  </ol>
 </div>
