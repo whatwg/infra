@@ -1192,7 +1192,7 @@ within a <a>string</a> <var>string</var> is determined as follows:
 
  <li><p>Let <var>result</var> be the empty string.</p></li>
 
- <li><p><a for="set">For each</a> <var>i</var> in <a lt="the exclusive range">the range</a> from
+ <li><p><a for="set">For each</a> <var>i</var> of <a lt="the exclusive range">the range</a> from
  <var>start</var> to <var>start</var> + <var>length</var>, exclusive: append the <var>i</var>th
  <a>code unit</a> of <var>string</var> to <var>result</var>.</p></li>
 
@@ -1230,7 +1230,7 @@ is the empty string, even though there is no code unit at index 0 within the emp
 
  <li><p>Let <var>result</var> be the empty string.</p></li>
 
- <li><p><a for="set">For each</a> <var>i</var> in <a lt="the exclusive range">the range</a> from
+ <li><p><a for="set">For each</a> <var>i</var> of <a lt="the exclusive range">the range</a> from
  <var>start</var> to <var>start</var> + <var>length</var>, exclusive: append the <var>i</var>th
  <a>code point</a> of <var>string</var> to <var>result</var>.</p></li>
 
@@ -1845,7 +1845,7 @@ entries with a comma.
  <li><p>If <var>map</var> does not <a for=map>contain</a> <var>key</var> and <var>default</var>
  is given, then return <var>default</var>.
 
- <li><p>Assert: <var>map</var> <a for=map>contains</a> <var>key</var>.
+ <li><p><a>Assert</a>: <var>map</var> <a for=map>contains</a> <var>key</var>.
 
  <li><p>Return the <a for=map>value</a> of the <a for=map>entry</a> in <var>map</var> whose
  <a for=map>key</a> is <var>key</var>.
@@ -2187,7 +2187,7 @@ given a <a>string</a> |string|:
    <li><p>Return |jsValue|.
   </ol>
 
- <li><p>Assert: |value| is a <a>map</a>.
+ <li><p><a>Assert</a>: |value| is a <a>map</a>.
 
  <li><p>Let |jsValue| be ! [$OrdinaryObjectCreate$](null).
 
@@ -2195,7 +2195,7 @@ given a <a>string</a> |string|:
   <p><a for=list>For each</a> |mapKey| → |mapValue| of |value|:
 
   <ol>
-   <li><p>Assert: |mapKey| is a <a>string</a>.
+   <li><p><a>Assert</a>: |mapKey| is a <a>string</a>.
 
    <li><p>Let |mapValueJSValue| be the result of
    <a>converting an Infra value to a JSON-compatible JavaScript value</a>, given |mapValue|.
