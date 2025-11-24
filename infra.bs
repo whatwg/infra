@@ -1484,7 +1484,7 @@ these steps:
 <h3 id=singleton>Singletons</h3>
 
 The following types can be used as inputs or outputs of algorithmic prose to improve comprehension.
-They have no web-visible representation beyond their effect on the flow of any given algorithm, and
+They have no observable representation beyond their effect on the flow of any given algorithm, and
 they can only be compared with "is".
 
 <dl>
@@ -1517,7 +1517,7 @@ they can only be compared with "is".
  <ol>
   <li><p>If <var>result</var> is <a>failure</a>, then shut everything down gracefully and abort.
   <li><p><a>Assert</a>: <var>result</var> is <a>success</a>.
-  <li><p>...
+  <li><p>…
  </ol>
 </div>
 
