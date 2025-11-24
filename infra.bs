@@ -1481,6 +1481,57 @@ these steps:
 [[HR-TIME-3#sec-tools]] when creating these and exchanging them with JavaScript. [[HR-TIME]]
 
 
+<h3 id=singleton>Singletons</h3>
+
+The following types can be used as inputs or outputs of algorithmic prose to improve comprehension.
+They have no observable representation beyond their effect on the flow of any given algorithm, and
+they can only be compared with "is".
+
+<dl>
+ <dt><dfn export>allowed</dfn>
+ <dd><p>Indicates that some operation is permitted, often used in opposition to <a>blocked</a>.
+
+ <dt><dfn export>blocked</dfn>
+ <dd><p>Indicates that some operation is not permitted, often used in opposition to
+ <a>allowed</a>.
+
+ <dt><dfn export>failure</dfn>
+ <dd><p>Indicates that some operation did not proceed as expected, often used in opposition to
+ <a>success</a> or in combination with a more concrete type.
+
+ <dt><dfn export>success</dfn>
+ <dd><p>Indicates that some operation proceeded as expected, often used in opposition to
+ <a>failure</a>.
+</dl>
+
+<div class=example id=example-singleton-return-and-comparison>
+ <p>The following algorithm returns <a>success</a> or <a>failure</a>:
+
+ <ol>
+  <li><p>If something unexpectedly bad happened, then return <a>failure</a>.
+  <li><p>Return <a>success</a>.
+ </ol>
+
+ <p>Callers of that algorithm might evaluate the result as follows:
+
+ <ol>
+  <li><p>If <var>result</var> is <a>failure</a>, then shut everything down gracefully and abort.
+  <li><p><a>Assert</a>: <var>result</var> is <a>success</a>.
+  <li><p>…
+ </ol>
+</div>
+
+<div class=example id=example-singleton-failure>
+ <p><a>Failure</a> is often used as the result of an algorithm that can fail or return a value:
+
+ <ol>
+  <li><p>If <var>status</var> is less than 200 or greater than 599, then return <a>failure</a>.
+
+  <li><p>Return <var>status</var>.
+ </ol>
+</div>
+
+
 <h2 id=data-structures>Data structures</h2>
 
 <p>Conventionally, specifications have operated on a variety of vague specification-level data
