@@ -1661,13 +1661,15 @@ set of steps on each <a for=list>item</a> in order, use phrasing of the form
 "<a for=list>For each</a> |item| of <var ignore>list</var>", and then operate on |item| in the
 subsequent prose.
 
-<p>To <dfn export for=list,stack,queue,set>clone</dfn> a <a>list</a> |list| is to create a new
-<a>list</a> |clone|, of the same designation, and, <a for=list>for each</a> |item| of |list|,
-<a for=list>append</a> |item| to |clone|, so that |clone| <a for=list>contains</a> the same
-<a for=list>items</a>, in the same order as |list|.
+<p>To <dfn export for=list,stack,queue,set>slice</dfn> a <a>list</a> |list|, with an optional index
+<dfn export for=list/slice><var>from</var></dfn> (default 0) and an optional index
+<dfn export for=list/slice><var>to</var></dfn> (default |list|'s <a for=list>size</a>), is to create a new
+<a>list</a> |slice|, of the same designation, and <a for=list>append</a> each
+<a for=list>item</a> of |list|, where the index is greater than or equal to |from| and less than
+|to|, to |slice|, maintaining order.
 
-<p class=note>This is a "shallow clone", as the <a for=list>items</a> themselves are not cloned in
-any way.
+<p>To <dfn export for=list,stack,queue,set>clone</dfn> a <a>list</a> |list| is to return a
+<a for=list>slice</a> of |list|.
 
 <p class=example id=example-list-clone>Let |original| be the <a>ordered set</a> «
 "<code>a</code>", "<code>b</code>", "<code>c</code>" ». <a for=set>Cloning</a> |original| creates
