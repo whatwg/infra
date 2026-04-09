@@ -1671,6 +1671,9 @@ subsequent prose.
 <p>To <dfn export for=list,stack,queue,set>clone</dfn> a <a>list</a> |list| is to return a
 <a for=list>slice</a> of |list|.
 
+<p class=note>This is a "shallow clone", as the <a for=list>items</a> themselves are not cloned in
+any way.
+
 <p class=example id=example-list-clone>Let |original| be the <a>ordered set</a> «
 "<code>a</code>", "<code>b</code>", "<code>c</code>" ». <a for=set>Cloning</a> |original| creates
 a new <a>ordered set</a> |clone|, so that <a for=set>replacing</a> "<code>a</code>" with
