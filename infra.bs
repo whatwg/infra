@@ -1661,10 +1661,30 @@ set of steps on each <a for=list>item</a> in order, use phrasing of the form
 "<a for=list>For each</a> |item| of <var ignore>list</var>", and then operate on |item| in the
 subsequent prose.
 
-<p>To <dfn export for=list,stack,queue,set>clone</dfn> a <a>list</a> |list| is to create a new
-<a>list</a> |clone|, of the same designation, and, <a for=list>for each</a> |item| of |list|,
-<a for=list>append</a> |item| to |clone|, so that |clone| <a for=list>contains</a> the same
-<a for=list>items</a>, in the same order as |list|.
+<div algorithm=slice>
+<p>To <dfn export for=list,stack,queue,set>slice</dfn> a <a>list</a> |list|, with an optional
+integer <dfn export for=list/slice><var>from</var></dfn> (default 0) and an optional integer
+<dfn export for=list/slice><var>to</var></dfn> (default |list|'s <a for=list>size</a>), perform the
+following steps. They return a <a>list</a> of the same designation as |list|.
+
+<ol>
+ <li><p><a>Assert</a>: |from| is greater than or equal to 0.
+
+ <li><p><a>Assert</a>: |to| is less than or equal to |list|'s <a for=list>size</a>.
+
+ <li><p><a>Assert</a>: |to| is greater than or equal to |from|.
+
+ <li><p>Let |slice| be a new <a>list</a> of the same designation as |list|.
+
+ <li><p><a for=set>For each</a> |i| of <a lt="the exclusive range">the range</a> |from| to |to|,
+ exclusive: <a for=list>append</a> |list|[|i|] to |slice|.
+
+ <li><p>Return |slice|.
+</ol>
+</div>
+
+<p>To <dfn export for=list,stack,queue,set>clone</dfn> a <a>list</a> |list| is to return a
+<a for=list>slice</a> of |list|.
 
 <p class=note>This is a "shallow clone", as the <a for=list>items</a> themselves are not cloned in
 any way.
