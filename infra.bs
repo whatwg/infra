@@ -1668,11 +1668,11 @@ integer <dfn export for=list/slice><var>from</var></dfn> (default 0) and an opti
 following steps. They return a <a>list</a> of the same designation as |list|.
 
 <ol>
+ <li><p><a>Assert</a>: |from| is greater than or equal to 0.
+
+ <li><p><a>Assert</a>: |to| is less than or equal to |list|'s <a for=list>size</a>.
+
  <li><p><a>Assert</a>: |to| is greater than or equal to |from|.
-
- <li><p>If |from| is less than 0, then set |from| to 0.
-
- <li><p>If |to| is greater than |list|'s <a for=list>size</a>, then set |to| to |list|'s <a for=list>size</a>.
 
  <li><p>Let |slice| be a new <a>list</a> of the same designation as |list|.
 
