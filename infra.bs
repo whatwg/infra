@@ -1630,11 +1630,11 @@ the given index is 0, then <a for=list>prepend</a> the given item to the list.
 <p>To <dfn export for=list,set>remove</dfn> zero or more <a for=list>items</a> from a <a>list</a>:
 
 <ol>
-<li><p>Let |sizeBefore| be |list|'s <a for=list>size</a>.
+ <li><p>Let |sizeBefore| be |list|'s <a for=list>size</a>.
 
-<li><p>Remove all items from the list that match a given condition, or do nothing if none do.
+ <li><p>Remove all items from the list that match a given condition, or do nothing if none do.
 
-<li><p>Return true if |list|'s <a for=list>size</a> is less than |sizeBefore|; otherwise false.
+ <li><p>Return true if |list|'s <a for=list>size</a> is less than |sizeBefore|; otherwise false.
 </ol>
 </div>
 
