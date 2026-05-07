@@ -1718,7 +1718,7 @@ To check if a <a>list</a> |list| <dfn export for=list>has duplicates</dfn>:
  <li><p>Let <var>result</var> be « ».
 
  <li>
-  <p><a for=set>For each</a> |item| of <var>list</var>:</p>
+  <p><a for=set>For each</a> |item| of <var>list</var>:
 
   <ol>
    <li><p>If <var>result</var> <a for=list>contains</a> |item|, return true.</p></li>
