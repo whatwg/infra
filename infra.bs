@@ -1695,22 +1695,6 @@ To <dfn export for=list,set>potentialy remove</dfn> zero or more <a for=list>ite
 </ol>
 </div>
 
-<div algorithm=remove-duplicates>
-To <dfn export for=list>remove duplicates</dfn> from a <a>list</a> <var>list</var>, perform the following steps:
-
-<ol>
- <li><p>Let <var>result</var> be an empty <a>list</a>.
-
- <li><p><a for=set>For each</a> |item| of <var>list</var>:
-
-  <ol>
-   <li><p>If <var>result</var> does not <a for=list>contain</a> |item|, <a for=list>append</a> |item| to <var>result</var>.</p></li>
-  </ol>
-
- <li><p>Return <var>result</var>.</p></li>
-</ol>
-</div>
-
 <div algorithm=has-duplicates>
 To check if a <a>list</a> |list| <dfn export for=list>has duplicates</dfn>:
 
