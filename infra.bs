@@ -1712,16 +1712,19 @@ To <dfn export for=list>remove duplicates</dfn> from a <a>list</a> <var>list</va
 </div>
 
 <div algorithm=has-duplicates>
-To check if a <a>list</a> |list| <dfn export for=list>has duplicates</dfn>, perform the following steps:
+To check if a <a>list</a> |list| <dfn export for=list>has duplicates</dfn>:
 
 <ol>
- <li><p>Let <var>result</var> be an empty <a>list</a>.
+ <li><p>Let <var>result</var> be « ».
 
- <li><p><a for=set>For each</a> |item| of <var>list</var>:
+ <li>
+  <p><a for=set>For each</a> |item| of <var>list</var>:</p>
 
   <ol>
    <li><p>If <var>result</var> <a for=list>contains</a> |item|, return true.</p></li>
+   <li><p><a for=list>Append</a> |item| to <var>result</var>.</p></li>
   </ol>
+ </li>
 
  <li><p>Return false.</p></li>
 </ol>
