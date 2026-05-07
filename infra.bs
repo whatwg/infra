@@ -1687,7 +1687,7 @@ following steps. They return a <a>list</a> of the same designation as |list|.
 To <dfn export for=list,set>potentialy remove</dfn> zero or more <a for=list>items</a> from a <a>list</a> |list| based on a condition:
 
 <ol>
- <li><p>If no item in |list| matches the given condition <a for=list,set>exists</a>, return false.
+ <li><p>If no item in |list| matches the given condition <a for=list,set>exists</a>, then return false.
 
  <li><p><a for=list,set>Remove</a> the items from |list|.
 
