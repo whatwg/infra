@@ -1626,7 +1626,7 @@ below for <a for=set lt=append>ordered set append</a>, <a for=set>prepend</a>, a
 index is to add the given item to the list between the given index &minus; 1 and the given index. If
 the given index is 0, then <a for=list>prepend</a> the given item to the list.
 
-<div algorithm=remove>
+<div algorithm>
 <p>To <dfn export for=list,set>remove</dfn> zero or more <a for=list>items</a> from a <a>list</a>:
 
 <ol>
