@@ -1693,7 +1693,7 @@ following steps. They return a <a>list</a> of the same designation as |list|.
 </div>
 
 <div algorithm>
-To check if a <a>list</a> |list| <dfn export for=list>has duplicates</dfn>:
+<p>To check if a <a>list</a> |list| <dfn export for=list>has duplicates</dfn>:
 
 <ol>
  <li><p>Let <var>seenItems</var> be « ».
