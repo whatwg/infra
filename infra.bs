@@ -706,6 +706,47 @@ Standard that should be reported and addressed.
  </ol>
 </div>
 
+<h3 id=equality>Equality</h3>
+
+<p>Two values the same data type can be <a>identical</a>, <dfn export lt="equal|equals|shallow
+equal">equal</dfn>, or <dfn export lt="equivalent|deep equal">equivalent</dfn>.
+
+<p>Variables or references are <dfn export lt=is|identical>identical</dfn> if they refer to the same
+value, or if they are both of the same primitive type, and that primitive type's definition of
+<a>identical</a> applies to them.
+
+<p>Unless stated otherwise, two values of the same type are <a for=/>equal</a> if they are also
+<a>identical</a>. A data type can be specified to relax that condition and have its own definition
+of <a for=/>equal</a>.
+
+<p>Unless stated otherwise, two values of the same type are <a>equivalent</a> if they are also <a
+for=/>equal</a>. A data type can be specified to relax that condition and have its own definition of
+<a>equivalent</a>.
+
+
+<div class=example id=example-struct-equality>
+ <ol>
+  <p>A <dfn ignore>keyValue</dfn> is an example <a>tuple</a> consisting of a <dfn ignore>key</dfn>
+  (a string) and <dfn ignore>value</dfn> (a <a for=/>list</a> of numbers).
+
+  <li><p>Let |original| be the keyValue ("x", « 1, 2, 3, 4 »). <li><p>Let |alsoOriginal| be
+  |original|. <li><p>Let |copyWithSharedList| be the keyValue ("x", |original|'s value). <li><p>Let
+  |clone| be ("x", « 1, 2, 3, 4 »). <li><p><a>Assert</a>: |original| <a for=/>is</a> |alsoOriginal|
+  (they are <a>identical</a>). <li><p><a>Assert</a>: |original| <a for=/>is</a> not
+  |copyWithSharedList|. <li><p><a>Assert</a>: |original| <a for=/>is</a> not |clone| (they are not
+  <a>identical</a>). <li><p><a>Assert</a>: |original| is <a for=/>equal</a> to |copyWithSharedList|.
+  <li><p><a>Assert</a>: |original| is not <a for=/>equal</a> to |clone|. <li><p><a>Assert</a>:
+  |original| is <a>equivalent</a> to |clone|.
+ </ol>
+</div>
+
+<div class=example id=example-list-equivalence>
+ <ol>
+  <li><p>Let |x| be « 1, « 2, 3 », 4 ». <li><p>Let |y| be « 1, « 2, 3 », 4 ». <li><p><a>Assert</a>:
+  |x| and |y| are not <a>identical</a>. <li><p><a>Assert</a>: |x| and |y| are not <a
+  for=/>equal</a>. <li><p><a>Assert</a>: |x| and |y| are <a>equivalent</a>.
+ </ol>
+</div>
 
 <h2 id=primitive-data-types>Primitive data types</h2>
 
@@ -718,6 +759,7 @@ JavaScript <b>null</b> value. [[!ECMA-262]]
 
 <p class=example id=example-null-return>If <var>input</var> is the empty string, then return null.
 
+<p>Null values are always <a>identical</a>.
 
 <h3 id=booleans>Booleans</h3>
 
@@ -725,6 +767,7 @@ JavaScript <b>null</b> value. [[!ECMA-262]]
 
 <p class=example id=example-boolean>Let <var ignore>elementSeen</var> be false.
 
+<p>Two <a>booleans</a> are <a>identical</a> when they are both true or both false.
 
 <h3 id=numbers>Numbers</h3>
 
@@ -766,6 +809,9 @@ more guidance here around types and mathematical operations. Help appreciated!
 <p>A <dfn export>64-bit signed integer</dfn> is an integer in the range &minus;9223372036854775808
 to 9223372036854775807 (&minus;2<sup>63</sup> to 2<sup>63</sup> &minus; 1), inclusive.
 
+<hr>
+
+<p>Two numbers are <a>identical</a> when they are the same underlying number.
 
 <h3 id=bytes>Bytes</h3>
 
@@ -784,7 +830,6 @@ section of <cite>ASCII format for Network Interchange</cite>, between parenthese
 
 <p class=example id=example-byte-notation>0x49 (I) when <a>UTF-8 decoded</a> becomes the
 <a>code point</a> U+0049 (I).
-
 
 <h3 id=byte-sequences>Byte sequences</h3>
 
@@ -815,6 +860,9 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
 <p>A <a>byte sequence</a> <var>A</var> is a <dfn export>byte-case-insensitive</dfn> match for a
 <a>byte sequence</a> <var>B</var>, if the <a>byte-lowercase</a> of <var>A</var> is the
 <a>byte-lowercase</a> of <var>B</var>.
+
+<p>Two <a>byte sequences</a> are <a>identical</a> if their <a for="byte sequence">lengths</a> are
+<a>identical</a> and all of their <a>bytes</a> are <a>identical</a>.
 
 <hr>
 
@@ -1057,7 +1105,7 @@ where <a>UTF-8 encode</a> comes into play.
 
 <p>A <a>string</a> <var>a</var> <dfn export for=string lt="is|identical to">is</dfn> or is
 <a for=string>identical to</a> a <a>string</a> <var>b</var> if it consists of the same sequence of
-<a>code units</a>.
+<a>code units</a>. Those strings are considered <a>identical</a> for equality comparison.
 
 <p>Except where otherwise stated, all string comparisons use <a for=string>is</a>.
 
@@ -1592,6 +1640,9 @@ list multiple assignment syntax is used.
 
 <hr>
 
+<p>Two <a>lists</a> are <a>equivalent</a> if they have the same <a for=list>size</a> and all of
+their <a for=list>items</a> are <a>equivalent</a>.
+
 <p>To <dfn export for=list>append</dfn> to a <a>list</a> that is not an <a>ordered set</a> is to
 add the given <a for=list>item</a> to the end of the list.
 
@@ -1651,9 +1702,13 @@ the given index is 0, then <a for=list>prepend</a> the given item to the list.
 <p>To <dfn export for=list,stack,queue,set>empty</dfn> a <a>list</a> is to <a for=list>remove</a>
 all of its <a for=list>items</a>.
 
-<p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain|exist>contains</dfn> an
-<a for=list>item</a> if it appears in the list. We can also denote this by saying that, for a
-<a>list</a> |list| and an index |index|, "|list|[|index|] <a for=list>exists</a>".
+<p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain|exist>contains</dfn> an <a
+for=list>item</a> if the list has at least one item which <a>equals</a> that item. We can also
+denote this by saying that, for a <a>list</a> |list| and an index |index|, "|list|[|index|] <a
+for=list>exists</a>".
+
+<p>A <a>list</a> <dfn export for=list,stack,queue,set>contains an equivalent</dfn> of an <a
+for=list>item</a> if the list has at least one item which is <a>equivalent</a> to that item.
 
 <p>A <a>list</a>'s <dfn export for=list,stack,queue,set>size</dfn> is the number of
 <a for=list>items</a> the list <a for=list>contains</a>.
@@ -1835,11 +1890,22 @@ of either with <var>replacement</var> and <a for=set>remove</a> all other instan
 |superset| (and conversely, |superset| is a <dfn export for=set>superset</dfn> of |set|) if,
 <a for=list>for each</a> |item| of |set|, |superset| <a for=set>contains</a> |item|.
 
+<p>An <a>ordered set</a> |set| is a <dfn export for=set>equivalent subset</dfn> of another
+<a>ordered set</a> |superset| (and conversely, |superset| is a <dfn export for=set>equivalent
+superset</dfn> of |set|) if, <a for=list>for each</a> |item| of |set|, |superset| <a
+for=set>contains an equivalent</a> of |item|.
+
 <p class=note>This implies that an <a>ordered set</a> is both a <a for=set>subset</a> and a
 <a for=set>superset</a> of itself.
 
-<p>A [=/set=] |A| is <dfn export for=set>equal</dfn> to a [=/set=] |B|
-if |A| is a [=subset=] of |B| and |A| is a [=superset=] of |B|.
+<p>A [=/set=] |A| is <dfn export for=set lt=equal>unordered equal</dfn> to a [=/set=] |B| if |A| is
+a [=subset=] of |B| and |A| is a [=superset=] of |B|.
+
+<p>A [=/set=] |A| is <a>equivalent</a> to a [=/set=] |B| if |A| is an [=equivalent subset=] of |B|
+and |B| is an [=equivalent subset=] of |B|.
+
+<p>A [=/set=] |A| is <a for=/>equal</a> to a [=/set=] |B| if |A| is a [=subset=] of |B| and |B| is a
+[=subset=] of |A|.
 
 <p>The <dfn export for=set>intersection</dfn> of <a>ordered sets</a> |A| and |B|, is the result
 of creating a new <a>ordered set</a> |set| and, <a for=list>for each</a> |item| of |A|, if |B|
@@ -1889,6 +1955,16 @@ entries with a comma.
 |example|["<code>a</code>"] is the <a>byte sequence</a> `<code>x</code>`.
 
 <hr>
+
+<p>Two <a for=/>maps</a> <var>A</var> and <var>B</var> are the <dfn export>unordered
+equivalent</dfn> of each other if <var>A</var>'s <a for=map>size</a> is <var>B</var>'s <a
+for=map>size</a>, and <a for=list>for each</a> <a for=map>key</a> <var>k</var> in <var>A</var>,
+<var>A</var>[<var>k</var>] is <a>equivalent</a> to <var>B</var>[<var>k</var>].
+
+<p>Two <a for=/>maps</a> <var>A</var> and <var>B</var> are <a>equivalent</a> if <var>A</var>'s <a
+for=map>keys</a> and <var>B</var>'s <a for=map>keys</a> are <a>equivalent</a>, and for every <a
+for=map>key</a> <var>k</var> in <var>A</var>, <var>A</var>[<var>k</var>] is <a>equivalent</a> to
+<var>B</var>[<var>k</var>].
 
 <p>To <dfn export for=map lt="get|get the value">get the value of an entry</dfn> in an
 <a>ordered map</a> <var>map</var> given a <a for=map>key</a> <var>key</var> and an optional
@@ -2005,6 +2081,12 @@ a <a>map</a> |map|, with a less than algorithm |lessThanAlgo|, is to create a ne
   <li>&hellip;
  </ol>
 </div>
+
+<p>Two <a>structs</a> are <a for=/>equal</a> if all of their corresponding <a for=struct>items</a>
+are <a for=/>equal</a>.
+
+<p>Two <a>structs</a> are <a for=/>equivalent</a> if all of their corresponding <a
+for=struct>items</a> are <a>equivalent</a>.
 
 <h4 id=tuples>Tuples</h4>
 
