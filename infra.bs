@@ -1691,7 +1691,7 @@ To <dfn export for=list,set>potentialy remove</dfn> zero or more <a for=list>ite
 
  <li><p><a for=list,set>Remove</a> the items from |list| based on the given condition.
 
- <li><p>Return true if |list|'s <a for=list>size</a> is less than |sizeBefore|, and false otherwise.
+ <li><p>Return true if |list|'s <a for=list>size</a> is less than |sizeBefore|; otherwise false.
 </ol>
 </div>
 
