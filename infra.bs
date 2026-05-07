@@ -1722,6 +1722,7 @@ To check if a <a>list</a> |list| <dfn export for=list>has duplicates</dfn>:
 
   <ol>
    <li><p>If <var>result</var> <a for=list>contains</a> |item|, return true.</p></li>
+
    <li><p><a for=list>Append</a> |item| to <var>result</var>.</p></li>
   </ol>
  </li>
