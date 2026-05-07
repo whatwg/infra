@@ -1626,8 +1626,17 @@ below for <a for=set lt=append>ordered set append</a>, <a for=set>prepend</a>, a
 index is to add the given item to the list between the given index &minus; 1 and the given index. If
 the given index is 0, then <a for=list>prepend</a> the given item to the list.
 
-<p>To <dfn export for=list,set>remove</dfn> zero or more <a for=list>items</a> from a <a>list</a> is
-to remove all items from the list that match a given condition, or do nothing if none do.
+<div algorithm=remove>
+<p>To <dfn export for=list,set>remove</dfn> zero or more <a for=list>items</a> from a <a>list</a>:
+
+<ol>
+<li><p>Let |sizeBefore| be |list|'s <a for=list>size</a>.
+
+<li><p>Remove all items from the list that match a given condition, or do nothing if none do.
+
+<li><p>Return true if |list|'s <a for=list>size</a> is less than |sizeBefore|; otherwise false.
+</ol>
+</div>
 
 <div class=example id=example-list-remove>
  <p><a for=list>Removing</a> |x| from the <a>list</a> « |x|, |y|, |z|, |x| » is to remove all
@@ -1683,31 +1692,19 @@ following steps. They return a <a>list</a> of the same designation as |list|.
 </ol>
 </div>
 
-<div algorithm=porentially-remove>
-To <dfn export for=list,set>potentialy remove</dfn> zero or more <a for=list>items</a> from a <a>list</a> |list| based on a condition:
-
-<ol>
- <li><p>Let |sizeBefore| be |list|'s <a for=list>size</a>.
-
- <li><p><a for=list,set>Remove</a> the items from |list| based on the given condition.
-
- <li><p>Return true if |list|'s <a for=list>size</a> is less than |sizeBefore|; otherwise false.
-</ol>
-</div>
-
 <div algorithm=has-duplicates>
 To check if a <a>list</a> |list| <dfn export for=list>has duplicates</dfn>:
 
 <ol>
- <li><p>Let <var>result</var> be « ».
+ <li><p>Let <var>seenItems</var> be « ».
 
  <li>
   <p><a for=set>For each</a> |item| of <var>list</var>:
 
   <ol>
-   <li><p>If <var>result</var> <a for=list>contains</a> |item|, return true.</p></li>
+   <li><p>If <var>seenItems</var> <a for=list>contains</a> |item|, return true.</p></li>
 
-   <li><p><a for=list>Append</a> |item| to <var>result</var>.</p></li>
+   <li><p><a for=list>Append</a> |item| to <var>seenItems</var>.</p></li>
   </ol>
  </li>
 
