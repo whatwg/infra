@@ -1890,7 +1890,7 @@ of either with <var>replacement</var> and <a for=set>remove</a> all other instan
 |superset| (and conversely, |superset| is a <dfn export for=set>superset</dfn> of |set|) if,
 <a for=list>for each</a> |item| of |set|, |superset| <a for=set>contains</a> |item|.
 
-<p>An <a>ordered set</a> |set| is a <dfn export for=set>equivalent subset</dfn> of another
+<p>An <a>ordered set</a> |set| is an <dfn export for=set>equivalent subset</dfn> of another
 <a>ordered set</a> |superset| (and conversely, |superset| is a <dfn export for=set>equivalent
 superset</dfn> of |set|) if, <a for=list>for each</a> |item| of |set|, |superset| <a
 for=set>contains an equivalent</a> of |item|.
