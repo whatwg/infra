@@ -726,7 +726,7 @@ compare them in that way must [=assert=].
   ignore>key</dfn> (a string) and <dfn ignore>value</dfn> (a <a for=/>list</a> of numbers).
 
   <li><p>Let |original| be the keyValue ("x", « 1, 2, 3, 4 »).
-  
+
   <li><p>Let |alsoOriginal| be |original|. <li><p>Let |copyWithSharedList| be the keyValue ("x",
   |original|'s value). <li><p>Let |clone| be ("x", « 1, 2, 3, 4 »).
 
