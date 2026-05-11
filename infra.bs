@@ -730,9 +730,9 @@ compare them in that way must [=assert=].
   <li><p>Let |alsoOriginal| be |original|. <li><p>Let |copyWithSharedList| be the keyValue ("x",
   |original|'s value). <li><p>Let |clone| be ("x", « 1, 2, 3, 4 »).
 
-  <li><p><a>Assert</a>: |original| <a for=/>is</a> |alsoOriginal|. 
+  <li><p><a>Assert</a>: |original| <a for=/>is</a> |alsoOriginal|.
 
-  <li><p><a>Assert</a>: |original| is <a for=/>identical to</a> |alsoOriginal|. 
+  <li><p><a>Assert</a>: |original| is <a for=/>identical to</a> |alsoOriginal|.
 
   <li><p><a>Assert</a>: |original| <a for=/>is</a> not |clone|.
 
