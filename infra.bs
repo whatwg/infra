@@ -713,7 +713,7 @@ lt="equal|equals|shallow equal">equal</dfn>.
 
 <p>Variables or references are <dfn export>identical to</dfn> each other if they refer to the same
 value, or if they are both of the same primitive type, and that primitive type's definition of <a
-for=/>identical to</a> applies to them. A variable <dfn export>is</dfn> another variable when theh
+for=/>identical to</a> applies to them. A variable <dfn export>is</dfn> another variable when they
 are <a for=/>identical to</a> each other.
 
 <p>Primitive data types are <a for=/>equal</a> if they are also <a for=/>identical to</a> each
