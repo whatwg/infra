@@ -757,20 +757,20 @@ context">visited items</dfn>, initially « ».</p>
 <p>To check if <var>A</var> and <var>B</var> are <dfn export>equal</dfn> given an optional
 <a>equality context</a> <var>context</var> (default a new <a>equality context</a>):
  <ol>
-  <li><p>If <var>A</var> and <var>B</var> are not of the same data type, then return false.</p></li>
+  <li><p>If <var>A</var> and <var>B</var> are not of the same data type, then return false.
 
-  <li><p>If <var>A</var> is <a for=/>identical to</a> <var>B</var>, then return true.</p></li>
+  <li><p>If <var>A</var> is <a for=/>identical to</a> <var>B</var>, then return true.
 
   <li><p><a>Assert</a>: There is no item in <var>context</var>'s <a for="equality context">visited
   items</a>'s <a for=list>items</a> who <a for=/>is</a> either <var>A</var> or
-  <var>B</var>.</p></li>
+  <var>B</var>.
 
-  <li><p><a for=list>Append</a> <var>A</var> to <var>context</var>.</p></li>
+  <li><p><a for=list>Append</a> <var>A</var> to <var>context</var>.
 
-  <li><p><a for=list>Append</a> <var>B</var> to <var>context</var>.</p></li>
+  <li><p><a for=list>Append</a> <var>B</var> to <var>context</var>.
 
   <li><p>Return the result of the <a>equality check</a> given <var>A</var> and
-  <var>B</var>.</p></li>
+  <var>B</var>.
  </ol>
 </div>
 
@@ -778,16 +778,16 @@ context">visited items</dfn>, initially « ».</p>
 <p>To check if <var>A</var> is <dfn export>identical to</dfn> <var>B</var> (<var>A</var> <dfn
 export>is</dfn> <var>B</var>):
 <ol>
- <li><p>If <var>A</var> and <var>B</var> are not of the same type, then return false.</p></li>
+ <li><p>If <var>A</var> and <var>B</var> are not of the same type, then return false.
 
  <li><p>If <var>A</var> and <var>B</var> are references to the same value, then return
- true.</p></li>
+ true.
 
  <li><p>If the common type of <var>A</var> and <var>B</var> does not define an <a>identity
- check</a>, then return false.</p></li>
+ check</a>, then return false.
 
  <li><p>Return the result of the type-specific <a>identity check</a> given <var>A</var> and
- <var>B</var>.</p></li>
+ <var>B</var>.
 </ol>
 </div>
 
