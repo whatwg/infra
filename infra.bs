@@ -747,11 +747,11 @@ check</a> does not contain cyclic references.</p>
  </ol>
 </div>
 
-<p>An <dfn>equality context</dfn> is an object used for book keeping when performing equality checks.</p>
+<p>An <dfn>equality context</dfn> is an object used for book keeping when performing equality
+checks.</p>
 
-<p>An <a>equality context</a> has an associated <a for=/>list</a> <dfn for="equality context">visited items</dfn>, initially « ».</p></li>
- a <a for=/>list</a>, representing values visited when checking
-for equality.</p>
+<p>An <a>equality context</a> has an associated <a for=/>list</a> <dfn for="equality
+context">visited items</dfn>, initially « ».</p>
 
 <div algorithm>
 <p>To check if <var>A</var> and <var>B</var> are <dfn export>equal</dfn> given an optional
@@ -761,8 +761,9 @@ for equality.</p>
 
   <li><p>If <var>A</var> is <a for=/>identical to</a> <var>B</var>, then return true.</p></li>
 
-  <li><p><a>Assert</a>: There is no item in <var>context</var>'s <a for="equality context">visited items</a>'s <a for=list>items</a> who <a
-  for=/>is</a> either <var>A</var> or <var>B</var>.</p></li>
+  <li><p><a>Assert</a>: There is no item in <var>context</var>'s <a for="equality context">visited
+  items</a>'s <a for=list>items</a> who <a for=/>is</a> either <var>A</var> or
+  <var>B</var>.</p></li>
 
   <li><p><a for=list>Append</a> <var>A</var> to <var>context</var>.</p></li>
 
