@@ -747,7 +747,7 @@ check</a> does not contain cyclic references.</p>
  </ol>
 </div>
 
-<p>A <dfn>equality context</dfn> is a <a for=/>list</a>, representing values visited when checking
+<p>An <dfn>equality context</dfn> is a <a for=/>list</a>, representing values visited when checking
 for equality.</p>
 
 <div algorithm>
