@@ -2012,7 +2012,7 @@ a <a>map</a> |map|, with a less than algorithm |lessThanAlgo|, is to create a ne
 
 <p>A <dfn export>tuple</dfn> is a <a>struct</a> whose <a for=struct>items</a> are ordered. For
 notational convenience, a literal syntax can be used to express <a>tuples</a>, by surrounding the
-tuple with parenthesis and separating its <a for=tuple>items</a> with U+002C (,). To use this
+tuple with parentheses and separating its <a for=tuple>items</a> with U+002C (,). To use this
 notation, the <a for=tuple>names</a> need to be clear from context. This can be done by preceding
 the first instance with the name given to the <a>tuple</a>. An indexing syntax can be used by
 providing a zero-based index into a <a>tuple</a> inside square brackets. The index cannot be
