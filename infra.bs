@@ -481,7 +481,7 @@ Variables must not be declared more than once per algorithm.
 
 <p>A multiple assignment syntax can be used to assign multiple variables to the <a>tuple</a>'s
 <a for=tuple>items</a>, by surrounding the variable names with U+0028 LEFT PARENTHESIS and
-U+0029 RIGHT PARENTHESIS, and separating each variable name by U+002C (,). The number of variables
+U+0029 RIGHT PARENTHESIS, and separating each variable name with U+002C (,). The number of variables
 assigned cannot differ from the number of <a for=tuple>items</a> in the <a>tuple</a>.
 
 <div class=example id=example-tuple-multiple-assignment>
