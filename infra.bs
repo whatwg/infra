@@ -706,6 +706,91 @@ Standard that should be reported and addressed.
  </ol>
 </div>
 
+<h3 id=equality>Equality</h3>
+
+<p>Two values the same data type can be <a for=/>equal</a> or <a for=/>identical to</a> each
+other.</p>
+
+<p>Primitive data types define an <dfn export lt="considered identical|identity check">identity
+check</dfn>, as primitive data types are compared by value rather than by reference.</p>
+
+<p>Other data types may provide an <dfn export lt="considered equal|equality check">equality
+check</dfn>. This is useful, for example, for maintaining a <a for=/>set</a> of non-primitive items
+and guaranteeing uniqueness.</p>
+
+<p>When defining its own <a>equality check</a>, a data type must pass along the <a>equality
+context</a> argument it receives. This is used internally to assert that a nested <a>equality
+check</a> does not contain cyclic references.</p>
+
+<div class=example id=example-struct-equality>
+ <ol>
+  <li><p>A <dfn ignore>keyValue</dfn> is an example <a>tuple</a> consisting of a <dfn
+  ignore>key</dfn> (a string) and <dfn ignore>value</dfn> (a <a for=/>list</a> of numbers).
+
+  <li><p>Let |original| be the keyValue ("x", « 1, 2, 3, 4 »).
+
+  <li><p>Let |alsoOriginal| be |original|.
+
+  <li><p>Let |copyWithSharedList| be the keyValue ("x", |original|'s value).
+
+  <li><p>Let |clone| be ("x", « 1, 2, 3, 4 »).
+
+  <li><p><a>Assert</a>: |original| <a for=/>is</a> |alsoOriginal|.
+
+  <li><p><a>Assert</a>: |original| is <a for=/>identical to</a> |alsoOriginal|.
+
+  <li><p><a>Assert</a>: |original| <a for=/>is</a> not |clone|.
+
+  <li><p><a>Assert</a>: |original| <a for=/>is</a> not |copyWithSharedList|.
+
+  <li><p><a>Assert</a>: |original| is <a for=/>equal</a> to |copyWithSharedList|.
+ </ol>
+</div>
+
+<p>An <dfn>equality context</dfn> is an object used for book keeping when performing equality
+checks.</p>
+
+<p>An <a>equality context</a> has an associated <a for=/>list</a> <dfn for="equality
+context">visited items</dfn>, initially « ».</p>
+
+<div algorithm>
+<p>To check if <var>A</var> and <var>B</var> are <dfn export>equal</dfn> given an optional
+<a>equality context</a> <var>context</var> (default a new <a>equality context</a>):
+ <ol>
+  <li><p>If <var>A</var> and <var>B</var> are not of the same data type, then return false.
+
+  <li><p>If <var>A</var> is <a for=/>identical to</a> <var>B</var>, then return true.
+
+  <li><p><a>Assert</a>: There is no item in <var>context</var>'s <a for="equality context">visited
+  items</a>'s <a for=list>items</a> who <a for=/>is</a> either <var>A</var> or
+  <var>B</var>.
+
+  <li><p><a for=list>Append</a> <var>A</var> to <var>context</var>.
+
+  <li><p><a for=list>Append</a> <var>B</var> to <var>context</var>.
+
+  <li><p>Return the result of the <a>equality check</a> given <var>A</var> and
+  <var>B</var>.
+ </ol>
+</div>
+
+<div algorithm=identity-check>
+<p>To check if <var>A</var> is <dfn export>identical to</dfn> <var>B</var> (<var>A</var> <dfn
+export>is</dfn> <var>B</var>):
+<ol>
+ <li><p>If <var>A</var> and <var>B</var> are not of the same type, then return false.
+
+ <li><p>If <var>A</var> and <var>B</var> are references to the same value, then return
+ true.
+
+ <li><p>If the common type of <var>A</var> and <var>B</var> does not define an <a>identity
+ check</a>, then return false.
+
+ <li><p>Return the result of the type-specific <a>identity check</a> given <var>A</var> and
+ <var>B</var>.
+</ol>
+</div>
+
 
 <h2 id=primitive-data-types>Primitive data types</h2>
 
@@ -718,6 +803,7 @@ JavaScript <b>null</b> value. [[!ECMA-262]]
 
 <p class=example id=example-null-return>If <var>input</var> is the empty string, then return null.
 
+<p>Null values are always <a for=/>considered identical</a>.
 
 <h3 id=booleans>Booleans</h3>
 
@@ -725,6 +811,7 @@ JavaScript <b>null</b> value. [[!ECMA-262]]
 
 <p class=example id=example-boolean>Let <var ignore>elementSeen</var> be false.
 
+<p>Two <a>booleans</a> are <a for=/>considered identical</a> when they are both true or both false.
 
 <h3 id=numbers>Numbers</h3>
 
@@ -766,6 +853,9 @@ more guidance here around types and mathematical operations. Help appreciated!
 <p>A <dfn export>64-bit signed integer</dfn> is an integer in the range &minus;9223372036854775808
 to 9223372036854775807 (&minus;2<sup>63</sup> to 2<sup>63</sup> &minus; 1), inclusive.
 
+<hr>
+
+<p>Two numbers are <a>considered identical</a> when they are the same underlying number.
 
 <h3 id=bytes>Bytes</h3>
 
@@ -784,7 +874,6 @@ section of <cite>ASCII format for Network Interchange</cite>, between parenthese
 
 <p class=example id=example-byte-notation>0x49 (I) when <a>UTF-8 decoded</a> becomes the
 <a>code point</a> U+0049 (I).
-
 
 <h3 id=byte-sequences>Byte sequences</h3>
 
@@ -815,6 +904,10 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
 <p>A <a>byte sequence</a> <var>A</var> is a <dfn export>byte-case-insensitive</dfn> match for a
 <a>byte sequence</a> <var>B</var>, if the <a>byte-lowercase</a> of <var>A</var> is the
 <a>byte-lowercase</a> of <var>B</var>.
+
+<p>Two <a>byte sequences</a> are <a>considered identical</a> if their <a for="byte
+sequence">lengths</a> are <a for=/>identical to</a> each other and all of their <a>bytes</a> are <a
+for=/>identical to</a> each other.
 
 <hr>
 
@@ -1057,7 +1150,7 @@ where <a>UTF-8 encode</a> comes into play.
 
 <p>A <a>string</a> <var>a</var> <dfn export for=string lt="is|identical to">is</dfn> or is
 <a for=string>identical to</a> a <a>string</a> <var>b</var> if it consists of the same sequence of
-<a>code units</a>.
+<a>code units</a>. Those strings are <a>considered identical</a>.
 
 <p>Except where otherwise stated, all string comparisons use <a for=string>is</a>.
 
@@ -1652,9 +1745,10 @@ the given index is 0, then <a for=list>prepend</a> the given item to the list.
 <p>To <dfn export for=list,stack,queue,set>empty</dfn> a <a>list</a> is to <a for=list>remove</a>
 all of its <a for=list>items</a>.
 
-<p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain|exist>contains</dfn> an
-<a for=list>item</a> if it appears in the list. We can also denote this by saying that, for a
-<a>list</a> |list| and an index |index|, "|list|[|index|] <a for=list>exists</a>".
+<p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain|exist>contains</dfn> an <a
+for=list>item</a> if the list has at least one item which <a for=/>equals</a> that item. We can also
+denote this by saying that, for a <a>list</a> |list| and an index |index|, "|list|[|index|] <a
+for=list>exists</a>".
 
 <p>A <a>list</a>'s <dfn export for=list,stack,queue,set>size</dfn> is the number of
 <a for=list>items</a> the list <a for=list>contains</a>.
@@ -1670,6 +1764,9 @@ its <a for=list>size</a> is zero.
 set of steps on each <a for=list>item</a> in order, use phrasing of the form
 "<a for=list>For each</a> |item| of <var ignore>list</var>", and then operate on |item| in the
 subsequent prose.
+
+<p>To [=Lists=] |A| and |B| are <a>considered equal</a> given |context| if |A| has the same size as
+|B| and |A|[|i|] is <a for=/>equal</a> to |B|[|i|] given |context| for all [=indices=] |i| of |A|.
 
 <div algorithm=slice>
 <p>To <dfn export for=list,stack,queue,set>slice</dfn> a <a>list</a> |list|, with an optional
@@ -1839,8 +1936,8 @@ of either with <var>replacement</var> and <a for=set>remove</a> all other instan
 <p class=note>This implies that an <a>ordered set</a> is both a <a for=set>subset</a> and a
 <a for=set>superset</a> of itself.
 
-<p>A [=/set=] |A| is <dfn export for=set>equal</dfn> to a [=/set=] |B|
-if |A| is a [=subset=] of |B| and |A| is a [=superset=] of |B|.
+<p>A [=/set=] |A| is <dfn export for=set lt=equal>unordered equal</dfn> to a [=/set=] |B| if |A| is
+a [=subset=] of |B| and |A| is a [=superset=] of |B|.
 
 <p>The <dfn export for=set>intersection</dfn> of <a>ordered sets</a> |A| and |B|, is the result
 of creating a new <a>ordered set</a> |set| and, <a for=list>for each</a> |item| of |A|, if |B|
@@ -1874,9 +1971,8 @@ creates a new <a>ordered set</a> containing all of the integers from <var>n</var
 
 <p>An <dfn export lt="ordered map|map">ordered map</dfn>, or sometimes just "map", is a
 specification type consisting of a finite ordered sequence of <a for=/>tuples</a>, each consisting
-of a <dfn for=map export>key</dfn> and a <dfn for=map export>value</dfn>, with no key appearing
-twice. Each such tuple is called an <dfn for=map export>entry</dfn>.
-<!-- TODO: we have to define key equality for this to be truly sound. -->
+of a <dfn for=map export>key</dfn> and a <dfn for=map export>value</dfn>, with no two keys being <a
+for=/>equal</a>. Each such tuple is called an <dfn for=map export>entry</dfn>.
 
 <p class=note>As with <a>ordered sets</a>, by default we assume that maps need to be ordered for
 interoperability among implementations.
@@ -1959,6 +2055,9 @@ a set of steps on each <a for=map>entry</a> in order, use phrasing of the form
 "<a for=map>For each</a> |key| → |value| of |map|", and then operate on |key| and |value| in the
 subsequent prose.
 
+<p>Two <a for=/>maps</a> are <a>considered equal</a> given |context| when their <a for=map>entry</a>
+lists are <a for=/>equal</a> given |context|.
+
 <p>To <dfn export for=map>clone</dfn> an <a>ordered map</a> |map| is to create a new
 <a>ordered map</a> |clone|, and, <a for=map>for each</a> |key| → |value| of |map|,
 <a for=map>set</a> |clone|[|key|] to |value|.
@@ -2007,6 +2106,9 @@ a <a>map</a> |map|, with a less than algorithm |lessThanAlgo|, is to create a ne
   <li>&hellip;
  </ol>
 </div>
+
+<p>Two <a>structs</a> are <a>considered equal</a> given |context| if all of their corresponding <a
+for=struct>items</a> are <a for=/>equal</a> given |context|.
 
 <h4 id=tuples>Tuples</h4>
 
