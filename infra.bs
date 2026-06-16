@@ -480,9 +480,9 @@ behavior; otherwise null.
 Variables must not be declared more than once per algorithm.
 
 <p>A multiple assignment syntax can be used to assign multiple variables to the <a>tuple</a>'s
-<a for=tuple>items</a>, by surrounding the variable names with parenthesis and separating each
-variable name by a comma. The number of variables assigned cannot differ from the number of
-<a for=tuple>items</a> in the <a>tuple</a>.
+<a for=tuple>items</a>, by surrounding the variable names with U+0028 LEFT PARENTHESIS and
+U+0029 RIGHT PARENTHESIS, and separating each variable name with U+002C (,). The number of variables
+assigned cannot differ from the number of <a for=tuple>items</a> in the <a>tuple</a>.
 
 <div class=example id=example-tuple-multiple-assignment>
  <ol>
@@ -1551,19 +1551,20 @@ for working with them, in order to create common ground.
 <dfn export for=list,stack,queue,set lt=item>items</dfn>.
 
 <p>For notational convenience, a literal syntax can be used to express <a>lists</a>, by surrounding
-the list by « » characters and separating its <a for=list>items</a> with a comma. An indexing syntax
-can be used by providing a zero-based index into a list inside square brackets. The index cannot be
-out-of-bounds, except when used with <a for=list>exists</a>.
+the list with U+00AB («) and U+00BB (»), and separating its <a for=list>items</a> with U+002C (,).
+An indexing syntax can be used by providing a zero-based index into a list inside square brackets.
+The index cannot be out-of-bounds, except when used with <a for=list>exists</a>.
 
 <p class=example id=example-list-notation>Let |example| be the <a>list</a> « "<code>a</code>",
 "<code>b</code>", "<code>c</code>", "<code>a</code>" ». Then |example|[1] is the <a>string</a>
 "<code>b</code>".
 
 <p>For notational convenience, a multiple assignment syntax may be used to assign multiple variables
-to the <a>list</a>'s <a for=list>items</a>, by surrounding the variables to be assigned by « »
-characters and separating each variable name with a comma. The <a>list</a>'s <a for=list>size</a>
-must be the same as the number of variables to be assigned. Each variable given is then set to the
-value of the <a>list</a>'s <a for=list>item</a> at the corresponding index.
+to the <a>list</a>'s <a for=list>items</a>, by surrounding the variables to be assigned with
+U+00AB («) and U+00BB (») (same as lists), and separating each variable name with U+002C (,). The
+<a>list</a>'s <a for=list>size</a> must be the same as the number of variables to be assigned. Each
+variable given is then set to the value of the <a>list</a>'s <a for=list>item</a> at the
+corresponding index.
 
 <div class=example id=example-list-multiple-assignment>
  <ol>
@@ -1880,9 +1881,10 @@ twice. Each such tuple is called an <dfn for=map export>entry</dfn>.
 <p class=note>As with <a>ordered sets</a>, by default we assume that maps need to be ordered for
 interoperability among implementations.
 
-<p>A literal syntax can be used to express <a>ordered maps</a>, by surrounding the ordered map with
-«[ ]» characters, denoting each of its <a for=map>entries</a> as |key| → |value|, and separating its
-entries with a comma.
+<p>A literal syntax can be used to express <a>ordered maps</a>, by starting an ordered map with
+U+00AB («) and U+005B ([), ending it with U+005D (]) and U+00BB (»), separating each
+<a for=map>entry</a>'s |key| and |value| with U+2192 (→), and separating its entries with
+U+002C (,).
 
 <p class=example id=example-map-notation>Let |example| be the <a>ordered map</a> «[
 "<code>a</code>" → `<code>x</code>`, "<code>b</code>" → `<code>y</code>` ]». Then
@@ -2010,10 +2012,11 @@ a <a>map</a> |map|, with a less than algorithm |lessThanAlgo|, is to create a ne
 
 <p>A <dfn export>tuple</dfn> is a <a>struct</a> whose <a for=struct>items</a> are ordered. For
 notational convenience, a literal syntax can be used to express <a>tuples</a>, by surrounding the
-tuple with parenthesis and separating its <a for=tuple>items</a> with a comma. To use this notation,
-the <a for=tuple>names</a> need to be clear from context. This can be done by preceding the first
-instance with the name given to the <a>tuple</a>. An indexing syntax can be used by providing a
-zero-based index into a <a>tuple</a> inside square brackets. The index cannot be out-of-bounds.
+tuple with parentheses and separating its <a for=tuple>items</a> with U+002C (,). To use this
+notation, the <a for=tuple>names</a> need to be clear from context. This can be done by preceding
+the first instance with the name given to the <a>tuple</a>. An indexing syntax can be used by
+providing a zero-based index into a <a>tuple</a> inside square brackets. The index cannot be
+out-of-bounds.
 
 <div class=example id=example-tuple>
  <p>A <dfn ignore>status</dfn> is an example <a>tuple</a> consisting of a <dfn ignore>code</dfn> (a
