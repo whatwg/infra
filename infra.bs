@@ -879,6 +879,7 @@ section of <cite>ASCII format for Network Interchange</cite>, between parenthese
 <p class=example id=example-byte-notation>0x49 (I) when <a>UTF-8 decoded</a> becomes the
 <a>code point</a> U+0049 (I).
 
+
 <h3 id=byte-sequences>Byte sequences</h3>
 
 <p>A <dfn export>byte sequence</dfn> is a sequence of <a>bytes</a>, represented as a space-separated
