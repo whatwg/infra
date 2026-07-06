@@ -771,7 +771,13 @@ context">visited items</dfn>, initially « ».</p>
 
  <li><p><a for=list>Append</a> |B| to |context|'s <a for="equality context">visited items</a>.
 
- <li><p>Return the result of the <a>equality check</a> given |A|, |B|, and |context|.
+ <li><p>Let |result| be the result of the <a>equality check</a> given |A|, |B|, and |context|.
+
+ <li><p><a for=list>Remove</a> |A| from |context|'s <a for="equality context">visited items</a>.
+
+ <li><p><a for=list>Remove</a> |B| from |context|'s <a for="equality context">visited items</a>.
+
+ <li><p>Return |result|.
 </ol>
 </div>
 
