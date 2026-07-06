@@ -754,42 +754,38 @@ checks.</p>
 context">visited items</dfn>, initially « ».</p>
 
 <div algorithm>
-<p>To check if |A| and |B| are <dfn export>equal</dfn> given an optional
-<a>equality context</a> |context| (default a new <a>equality context</a>):
+<p>To check if |A| and |B| are <dfn export>equal</dfn> given an optional <a>equality context</a>
+|context| (default a new <a>equality context</a>):
 <ol>
  <li><p>If |A| and |B| are not of the same data type, then return false.
 
  <li><p>If |A| is <a for=/>identical to</a> |B|, then return true.
 
- <li><p>If the common data type of |A| and |B| does not define an <a>equality
- check</a>, then return false.
+ <li><p>If the common data type of |A| and |B| does not define an <a>equality check</a>, then return
+ false.
 
- <li><p><a>Assert</a>: There is no item in |context|'s <a for="equality context">visited
- items</a> that <a for=/>is</a> either |A| or |B|.
+ <li><p><a>Assert</a>: There is no item in |context|'s <a for="equality context">visited items</a>
+ that <a for=/>is</a> either |A| or |B|.
 
  <li><p><a for=list>Append</a> |A| to |context|'s <a for="equality context">visited items</a>.
 
  <li><p><a for=list>Append</a> |B| to |context|'s <a for="equality context">visited items</a>.
 
- <li><p>Return the result of the <a>equality check</a> given |A|, |B|, and
- |context|.
+ <li><p>Return the result of the <a>equality check</a> given |A|, |B|, and |context|.
 </ol>
 </div>
 
 <div algorithm=identity-check>
-<p>To check if |A| is <dfn export>identical to</dfn> |B| (|A| <dfn
-export>is</dfn> |B|):
+<p>To check if |A| is <dfn export>identical to</dfn> |B| (|A| <dfn export>is</dfn> |B|):
 <ol>
  <li><p>If |A| and |B| are not of the same data type, then return false.
 
- <li><p>If |A| and |B| are references to the same value, then return
- true.
+ <li><p>If |A| and |B| are references to the same value, then return true.
 
- <li><p>If the common data type of |A| and |B| does not define an <a>identity
- check</a>, then return false.
+ <li><p>If the common data type of |A| and |B| does not define an <a>identity check</a>, then return
+ false.
 
- <li><p>Return the result of the type-specific <a>identity check</a> given |A| and
- |B|.
+ <li><p>Return the result of the type-specific <a>identity check</a> given |A| and |B|.
 </ol>
 </div>
 
@@ -1766,8 +1762,8 @@ set of steps on each <a for=list>item</a> in order, use phrasing of the form
 "<a for=list>For each</a> |item| of <var ignore>list</var>", and then operate on |item| in the
 subsequent prose.
 
-<p>Two lists |A| and |B| are <a>considered equal</a> given |context| if |A| has the same size as
-|B| and |A|[|i|] is <a for=/>equal</a> to |B|[|i|] given |context| for all [=indices=] |i| of |A|.
+<p>Two lists |A| and |B| are <a>considered equal</a> given |context| if |A| has the same size as |B|
+and |A|[|i|] is <a for=/>equal</a> to |B|[|i|] given |context| for all [=indices=] |i| of |A|.
 
 <div algorithm=slice>
 <p>To <dfn export for=list,stack,queue,set>slice</dfn> a <a>list</a> |list|, with an optional
