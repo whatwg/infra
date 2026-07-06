@@ -1749,10 +1749,10 @@ the given index is 0, then <a for=list>prepend</a> the given item to the list.
 <p>To <dfn export for=list,stack,queue,set>empty</dfn> a <a>list</a> is to <a for=list>remove</a>
 all of its <a for=list>items</a>.
 
-<p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain|exist>contains</dfn> an <a
-for=list>item</a> if the list has at least one item which <a for=/>equals</a> that item. We can also
-denote this by saying that, for a <a>list</a> |list| and an index |index|, "|list|[|index|] <a
-for=list>exists</a>".
+<p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain|exist>contains</dfn> an
+<a for=list>item</a> if the list has at least one item which <a for=/>equals</a> that item. We can also
+denote this by saying that, for a <a>list</a> |list| and an index |index|, "|list|[|index|]
+<a for=list>exists</a>".
 
 <p>A <a>list</a>'s <dfn export for=list,stack,queue,set>size</dfn> is the number of
 <a for=list>items</a> the list <a for=list>contains</a>.
@@ -1975,8 +1975,8 @@ creates a new <a>ordered set</a> containing all of the integers from <var>n</var
 
 <p>An <dfn export lt="ordered map|map">ordered map</dfn>, or sometimes just "map", is a
 specification type consisting of a finite ordered sequence of <a for=/>tuples</a>, each consisting
-of a <dfn for=map export>key</dfn> and a <dfn for=map export>value</dfn>, with no two keys being <a
-for=/>equal</a>. Each such tuple is called an <dfn for=map export>entry</dfn>.
+of a <dfn for=map export>key</dfn> and a <dfn for=map export>value</dfn>, with no two keys being
+<a for=/>equal</a>. Each such tuple is called an <dfn for=map export>entry</dfn>.
 
 <p class=note>As with <a>ordered sets</a>, by default we assume that maps need to be ordered for
 interoperability among implementations.
