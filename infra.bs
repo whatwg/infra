@@ -708,7 +708,7 @@ Standard that should be reported and addressed.
 
 <h3 id=equality>Equality</h3>
 
-<p>Two values the same data type can be <a for=/>equal</a> or <a for=/>identical to</a> each
+<p>Two values of the same data type can be <a for=/>equal</a> or <a for=/>identical to</a> each
 other.</p>
 
 <p>Primitive data types define an <dfn export lt="considered identical|identity check">identity
@@ -724,14 +724,14 @@ check</a> does not contain cyclic references.</p>
 
 <div class=example id=example-struct-equality>
  <ol>
-  <li><p>A <dfn ignore>keyValue</dfn> is an example <a>tuple</a> consisting of a <dfn
-  ignore>key</dfn> (a string) and <dfn ignore>value</dfn> (a <a for=/>list</a> of numbers).
+  <li><p>A <dfn ignore>key value</dfn> is an example <a>tuple</a> consisting of a <dfn
+  ignore>key</dfn> (a string) and a <dfn ignore>value</dfn> (a <a for=/>list</a> of numbers).
 
-  <li><p>Let |original| be the keyValue ("x", « 1, 2, 3, 4 »).
+  <li><p>Let |original| be the key value ("x", « 1, 2, 3, 4 »).
 
   <li><p>Let |alsoOriginal| be |original|.
 
-  <li><p>Let |copyWithSharedList| be the keyValue ("x", |original|'s value).
+  <li><p>Let |copyWithSharedList| be the key value ("x", |original|'s value).
 
   <li><p>Let |clone| be ("x", « 1, 2, 3, 4 »).
 
@@ -747,47 +747,49 @@ check</a> does not contain cyclic references.</p>
  </ol>
 </div>
 
-<p>An <dfn>equality context</dfn> is an object used for book keeping when performing equality
+<p>An <dfn>equality context</dfn> is an object used for bookkeeping when performing equality
 checks.</p>
 
 <p>An <a>equality context</a> has an associated <a for=/>list</a> <dfn for="equality
 context">visited items</dfn>, initially « ».</p>
 
 <div algorithm>
-<p>To check if <var>A</var> and <var>B</var> are <dfn export>equal</dfn> given an optional
-<a>equality context</a> <var>context</var> (default a new <a>equality context</a>):
- <ol>
-  <li><p>If <var>A</var> and <var>B</var> are not of the same data type, then return false.
+<p>To check if |A| and |B| are <dfn export>equal</dfn> given an optional
+<a>equality context</a> |context| (default a new <a>equality context</a>):
+<ol>
+ <li><p>If |A| and |B| are not of the same data type, then return false.
 
-  <li><p>If <var>A</var> is <a for=/>identical to</a> <var>B</var>, then return true.
+ <li><p>If |A| is <a for=/>identical to</a> |B|, then return true.
 
-  <li><p><a>Assert</a>: There is no item in <var>context</var>'s <a for="equality context">visited
-  items</a>'s <a for=list>items</a> who <a for=/>is</a> either <var>A</var> or
-  <var>B</var>.
+ <li><p>If the common data type of |A| and |B| does not define an <a>equality
+ check</a>, then return false.
 
-  <li><p><a for=list>Append</a> <var>A</var> to <var>context</var>.
+ <li><p><a>Assert</a>: There is no item in |context|'s <a for="equality context">visited
+ items</a> that <a for=/>is</a> either |A| or |B|.
 
-  <li><p><a for=list>Append</a> <var>B</var> to <var>context</var>.
+ <li><p><a for=list>Append</a> |A| to |context|'s <a for="equality context">visited items</a>.
 
-  <li><p>Return the result of the <a>equality check</a> given <var>A</var> and
-  <var>B</var>.
- </ol>
+ <li><p><a for=list>Append</a> |B| to |context|'s <a for="equality context">visited items</a>.
+
+ <li><p>Return the result of the <a>equality check</a> given |A|, |B|, and
+ |context|.
+</ol>
 </div>
 
 <div algorithm=identity-check>
-<p>To check if <var>A</var> is <dfn export>identical to</dfn> <var>B</var> (<var>A</var> <dfn
-export>is</dfn> <var>B</var>):
+<p>To check if |A| is <dfn export>identical to</dfn> |B| (|A| <dfn
+export>is</dfn> |B|):
 <ol>
- <li><p>If <var>A</var> and <var>B</var> are not of the same type, then return false.
+ <li><p>If |A| and |B| are not of the same data type, then return false.
 
- <li><p>If <var>A</var> and <var>B</var> are references to the same value, then return
+ <li><p>If |A| and |B| are references to the same value, then return
  true.
 
- <li><p>If the common type of <var>A</var> and <var>B</var> does not define an <a>identity
+ <li><p>If the common data type of |A| and |B| does not define an <a>identity
  check</a>, then return false.
 
- <li><p>Return the result of the type-specific <a>identity check</a> given <var>A</var> and
- <var>B</var>.
+ <li><p>Return the result of the type-specific <a>identity check</a> given |A| and
+ |B|.
 </ol>
 </div>
 
@@ -855,7 +857,7 @@ to 9223372036854775807 (&minus;2<sup>63</sup> to 2<sup>63</sup> &minus; 1), incl
 
 <hr>
 
-<p>Two numbers are <a>considered identical</a> when they are the same underlying number.
+<p>Two numbers are <a for=/>considered identical</a> when they are the same underlying number.
 
 <h3 id=bytes>Bytes</h3>
 
@@ -905,7 +907,7 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
 <a>byte sequence</a> <var>B</var>, if the <a>byte-lowercase</a> of <var>A</var> is the
 <a>byte-lowercase</a> of <var>B</var>.
 
-<p>Two <a>byte sequences</a> are <a>considered identical</a> if their <a for="byte
+<p>Two <a>byte sequences</a> are <a for=/>considered identical</a> if their <a for="byte
 sequence">lengths</a> are <a for=/>identical to</a> each other and all of their <a>bytes</a> are <a
 for=/>identical to</a> each other.
 
@@ -1764,7 +1766,7 @@ set of steps on each <a for=list>item</a> in order, use phrasing of the form
 "<a for=list>For each</a> |item| of <var ignore>list</var>", and then operate on |item| in the
 subsequent prose.
 
-<p>To [=Lists=] |A| and |B| are <a>considered equal</a> given |context| if |A| has the same size as
+<p>Two lists |A| and |B| are <a>considered equal</a> given |context| if |A| has the same size as
 |B| and |A|[|i|] is <a for=/>equal</a> to |B|[|i|] given |context| for all [=indices=] |i| of |A|.
 
 <div algorithm=slice>
