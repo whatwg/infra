@@ -2110,8 +2110,8 @@ a <a>map</a> |map|, with a less than algorithm |lessThanAlgo|, is to create a ne
  </ol>
 </div>
 
-<p>Two <a>structs</a> are <a>considered equal</a> given |context| if all of their corresponding <a
-for=struct>items</a> are <a for=/>equal</a> given |context|.
+<p>Two <a>structs</a> are <a>considered equal</a> given |context| if all of their corresponding
+<a for=struct>items</a> are <a for=/>equal</a> given |context|.
 
 <h4 id=tuples>Tuples</h4>
 
