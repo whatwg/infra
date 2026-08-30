@@ -1857,17 +1857,32 @@ of creating a new <a>ordered set</a> |set| and, <a for=list>for each</a> |item| 
 <hr>
 
 <p><dfn export lt="the range|the inclusive range">The range</dfn> <var>n</var> to <var>m</var>,
-inclusive, creates a new <a>ordered set</a> containing all of the integers from <var>n</var> up to
-and including <var>m</var> in consecutively increasing order, as long as <var>m</var> is greater
-than or equal to <var>n</var>.
+inclusive, is determined as follows:
 
-<p><dfn export lt="the exclusive range">The range</dfn> <var>n</var> to <var>m</var>, exclusive,
-creates a new <a>ordered set</a> containing all of the integers from <var>n</var> up to and including
-<var>m</var> &minus; 1 in consecutively increasing order, as long as <var>m</var> is greater than
-<var>n</var>. If <var>m</var> equals <var>n</var>, then it creates an empty <a>ordered set</a>.
+<ol>
+ <li><p><a>Assert</a>: <var>m</var> is greater than or equal to <var>n</var>.
+
+ <li><p>Return a new <a>ordered set</a> containing all of the integers from <var>n</var> up to and
+ including <var>m</var> in consecutively increasing order.
+</ol>
 
 <p class=example id=example-the-range><a for=set>For each</a> <var>n</var> of <a>the range</a> 1 to
 4, inclusive, &hellip;
+
+<p><dfn export lt="the exclusive range">The range</dfn> <var>n</var> to <var>m</var>, exclusive, is
+determined as follows:
+
+<ol>
+ <li><p><a>Assert</a>: <var>m</var> is greater than or equal to <var>n</var>.
+
+ <li><p>If <var>m</var> equals <var>n</var>, then return the empty <a>ordered set</a>.
+
+ <li><p>Return a new <a>ordered set</a> containing all of the integers from <var>n</var> up to and
+ including <var>m</var> &minus; 1 in consecutively increasing order.
+</ol>
+
+<p class=note><a>The exclusive range</a> is usually what is needed when working with <a>lists</a> as
+they can be empty.
 
 
 <h3 id=maps>Maps</h3>
