@@ -706,93 +706,66 @@ Standard that should be reported and addressed.
  </ol>
 </div>
 
-<h3 id=equality>Equality</h3>
 
-<p>Two values of the same data type can be <a for=/>equal</a> or <a for=/>identical to</a> each
-other.</p>
+<h3 id=identity-and-equality>Identity and equality</h3>
 
-<p>Primitive data types define an <dfn export lt="considered identical|identity check">identity
-check</dfn>, as primitive data types are compared by value rather than by reference.</p>
+<p>A value |a| <dfn export lt="is|identical to">is</dfn> (or is <a for=/>identical to</a>) a value
+|b| if they are the same value. For values of primitive data types this means that they have the
+same contents, e.g., two <a for=/>strings</a> are identical when they consist of the same sequence
+of <a>code units</a>. For values of other data types, such as <a for=/>lists</a>,
+<a for=/>maps</a>, and <a>structs</a>, this means that they are the same instance; two such values
+that were created separately are never identical to each other, even if their contents are the
+same.
 
-<p>Other data types may provide an <dfn export lt="considered equal|equality check">equality
-check</dfn>. This is useful, for example, for maintaining a <a for=/>set</a> of non-primitive items
-and guaranteeing uniqueness.</p>
+<p>A data type has an <dfn export>equality</dfn>, which is an algorithm that takes two values of
+that data type and returns a <a>boolean</a>. Unless defined otherwise, a data type's
+<a>equality</a> returns true if the two values are <a for=/>identical to</a> each other; otherwise
+false. This standard defines a different <a>equality</a> for <a for=/>lists</a>,
+<a for=/>maps</a>, and <a>tuples</a>.
 
-<p>When defining its own <a>equality check</a>, a data type must pass along the <a>equality
-context</a> argument it receives. This is used internally to assert that a nested <a>equality
-check</a> does not contain cyclic references.</p>
+<p>A value |a| <dfn export lt="equal|equals">equals</dfn> (or is <a for=/>equal</a> to) a value |b|
+if |a| <a for=/>is</a> |b|, or if |a| and |b| are of the same data type and that data type's
+<a>equality</a> returns true given |a| and |b|.
 
-<div class=example id=example-struct-equality>
+<div class=example id=example-equality>
+ <p>A <dfn ignore>key value</dfn> is an example <a>tuple</a> consisting of a <dfn ignore>key</dfn>
+ (a <a for=/>string</a>) and a <dfn ignore>value</dfn> (a <a for=/>list</a> of numbers).
+
  <ol>
-  <li><p>A <dfn ignore>key value</dfn> is an example <a>tuple</a> consisting of a <dfn
-  ignore>key</dfn> (a string) and a <dfn ignore>value</dfn> (a <a for=/>list</a> of numbers).
-
-  <li><p>Let |original| be the key value ("x", « 1, 2, 3, 4 »).
+  <li><p>Let |original| be the key value ("<code>x</code>", « 1, 2, 3, 4 »).
 
   <li><p>Let |alsoOriginal| be |original|.
 
-  <li><p>Let |copyWithSharedList| be the key value ("x", |original|'s value).
-
-  <li><p>Let |clone| be ("x", « 1, 2, 3, 4 »).
+  <li><p>Let |copy| be the key value ("<code>x</code>", « 1, 2, 3, 4 »).
 
   <li><p><a>Assert</a>: |original| <a for=/>is</a> |alsoOriginal|.
 
-  <li><p><a>Assert</a>: |original| is <a for=/>identical to</a> |alsoOriginal|.
+  <li><p><a>Assert</a>: |original| <a for=/>is</a> not |copy|.
 
-  <li><p><a>Assert</a>: |original| <a for=/>is</a> not |clone|.
-
-  <li><p><a>Assert</a>: |original| <a for=/>is</a> not |copyWithSharedList|.
-
-  <li><p><a>Assert</a>: |original| is <a for=/>equal</a> to |copyWithSharedList|.
+  <li><p><a>Assert</a>: |original| <a for=/>equals</a> |copy|, as their keys are
+  <a for=/>identical to</a> each other and their values are <a for=/>equal</a>.
  </ol>
-</div>
 
-<p>An <dfn>equality context</dfn> is an object used for bookkeeping when performing equality
-checks.</p>
+ <p>As the <a>equality</a> of <a for=/>lists</a>, <a for=/>maps</a>, and <a>tuples</a> compares
+ their contents using <a for=/>equals</a>, comparing values that contain themselves, directly or
+ indirectly, is to be avoided, as it can result in an infinite loop:
 
-<p>An <a>equality context</a> has an associated <a for=/>list</a> <dfn for="equality
-context">visited items</dfn>, initially « ».</p>
+ <ol>
+  <li><p>Let |a| be « ».
 
-<div algorithm>
-<p>To check if |A| and |B| are <dfn export>equal</dfn> given an optional <a>equality context</a>
-|context| (default a new <a>equality context</a>):
-<ol>
- <li><p>If |A| and |B| are not of the same data type, then return false.
+  <li><p><a for=list>Append</a> |a| to |a|.
 
- <li><p>If |A| is <a for=/>identical to</a> |B|, then return true.
+  <li><p>Let |b| be « ».
 
- <li><p>If the common data type of |A| and |B| does not define an <a>equality check</a>, then return
- false.
+  <li><p><a for=list>Append</a> |b| to |b|.
 
- <li><p><a>Assert</a>: There is no item in |context|'s <a for="equality context">visited items</a>
- that <a for=/>is</a> either |A| or |B|.
+  <li><p>If |a| <a for=/>equals</a> |b|, then &hellip;
+ </ol>
 
- <li><p><a for=list>Append</a> |A| to |context|'s <a for="equality context">visited items</a>.
-
- <li><p><a for=list>Append</a> |B| to |context|'s <a for="equality context">visited items</a>.
-
- <li><p>Let |result| be the result of the <a>equality check</a> given |A|, |B|, and |context|.
-
- <li><p><a for=list>Remove</a> |A| from |context|'s <a for="equality context">visited items</a>.
-
- <li><p><a for=list>Remove</a> |B| from |context|'s <a for="equality context">visited items</a>.
-
- <li><p>Return |result|.
-</ol>
-</div>
-
-<div algorithm=identity-check>
-<p>To check if |A| is <dfn export>identical to</dfn> |B| (|A| <dfn export>is</dfn> |B|):
-<ol>
- <li><p>If |A| and |B| are not of the same data type, then return false.
-
- <li><p>If |A| and |B| are references to the same value, then return true.
-
- <li><p>If the common data type of |A| and |B| does not define an <a>identity check</a>, then return
- false.
-
- <li><p>Return the result of the type-specific <a>identity check</a> given |A| and |B|.
-</ol>
+ <p>The last step never finishes: |a| and |b| are not <a for=/>identical to</a> each other and have
+ the same <a for=list>size</a>, so determining whether they are <a for=/>equal</a> requires
+ determining whether |a|[0] <a for=/>equals</a> |b|[0], which is the same question, as |a|[0]
+ <a for=/>is</a> |a| and |b|[0] <a for=/>is</a> |b|.
 </div>
 
 
@@ -807,7 +780,6 @@ JavaScript <b>null</b> value. [[!ECMA-262]]
 
 <p class=example id=example-null-return>If <var>input</var> is the empty string, then return null.
 
-<p>Null values are always <a for=/>considered identical</a>.
 
 <h3 id=booleans>Booleans</h3>
 
@@ -815,7 +787,6 @@ JavaScript <b>null</b> value. [[!ECMA-262]]
 
 <p class=example id=example-boolean>Let <var ignore>elementSeen</var> be false.
 
-<p>Two <a>booleans</a> are <a for=/>considered identical</a> when they are both true or both false.
 
 <h3 id=numbers>Numbers</h3>
 
@@ -859,7 +830,8 @@ to 9223372036854775807 (&minus;2<sup>63</sup> to 2<sup>63</sup> &minus; 1), incl
 
 <hr>
 
-<p>Two numbers are <a for=/>considered identical</a> when they are the same underlying number.
+<p>Two numbers are <a for=/>identical to</a> each other if they are the same mathematical value.
+
 
 <h3 id=bytes>Bytes</h3>
 
@@ -910,9 +882,8 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
 <a>byte sequence</a> <var>B</var>, if the <a>byte-lowercase</a> of <var>A</var> is the
 <a>byte-lowercase</a> of <var>B</var>.
 
-<p>Two <a>byte sequences</a> are <a for=/>considered identical</a> if their <a for="byte
-sequence">lengths</a> are <a for=/>identical to</a> each other and all of their <a>bytes</a> are <a
-for=/>identical to</a> each other.
+<p>Two <a>byte sequences</a> are <a for=/>identical to</a> each other if they consist of the same
+sequence of <a>bytes</a>.
 
 <hr>
 
@@ -1155,7 +1126,7 @@ where <a>UTF-8 encode</a> comes into play.
 
 <p>A <a>string</a> <var>a</var> <dfn export for=string lt="is|identical to">is</dfn> or is
 <a for=string>identical to</a> a <a>string</a> <var>b</var> if it consists of the same sequence of
-<a>code units</a>. Those strings are <a>considered identical</a>.
+<a>code units</a>.
 
 <p>Except where otherwise stated, all string comparisons use <a for=string>is</a>.
 
@@ -1376,7 +1347,6 @@ the <a>string</a> with their corresponding <a>code point</a> in <a>ASCII upper a
 <p>A <a>string</a> <var>A</var> is an <dfn export>ASCII case-insensitive</dfn> match for a
 <a>string</a> <var>B</var>, if the <a>ASCII lowercase</a> of <var>A</var> is the
 <a>ASCII lowercase</a> of <var>B</var>.
-<!-- TODO: define string equals? -->
 
 <div algorithm>
 <p>To <dfn export>ASCII encode</dfn> an <a>ASCII string</a> <var>input</var>: return the
@@ -1751,9 +1721,9 @@ the given index is 0, then <a for=list>prepend</a> the given item to the list.
 all of its <a for=list>items</a>.
 
 <p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain|exist>contains</dfn> an
-<a for=list>item</a> if the list has at least one item which <a for=/>equals</a> that item. We can also
-denote this by saying that, for a <a>list</a> |list| and an index |index|, "|list|[|index|]
-<a for=list>exists</a>".
+<a for=list>item</a> if one of the list's <a for=list>items</a> <a for=/>equals</a> that item. We
+can also denote this by saying that, for a <a>list</a> |list| and an index |index|,
+"|list|[|index|] <a for=list>exists</a>".
 
 <p>A <a>list</a>'s <dfn export for=list,stack,queue,set>size</dfn> is the number of
 <a for=list>items</a> the list <a for=list>contains</a>.
@@ -1770,8 +1740,9 @@ set of steps on each <a for=list>item</a> in order, use phrasing of the form
 "<a for=list>For each</a> |item| of <var ignore>list</var>", and then operate on |item| in the
 subsequent prose.
 
-<p>Two lists |A| and |B| are <a>considered equal</a> given |context| if |A| has the same size as |B|
-and |A|[|i|] is <a for=/>equal</a> to |B|[|i|] given |context| for all [=indices=] |i| of |A|.
+<p>A <a>list</a>'s <a>equality</a>, given <a>lists</a> |a| and |b|, returns true if |a|'s
+<a for=list>size</a> is |b|'s <a for=list>size</a> and |a|[|i|] <a for=/>equals</a> |b|[|i|] for
+each |i| of |a|'s <a for=list>indices</a>; otherwise false.
 
 <div algorithm=slice>
 <p>To <dfn export for=list,stack,queue,set>slice</dfn> a <a>list</a> |list|, with an optional
@@ -1896,8 +1867,8 @@ instead, a combination of <a>while</a> and <a for=queue>dequeue</a> is more appr
 <h4 id=sets>Sets</h4>
 
 <p>Some <a>lists</a> are designated as <dfn export lt="ordered set|set">ordered sets</dfn>. An
-ordered set is a <a>list</a> with the additional semantic that it must not contain the same
-<a for=set>item</a> twice.
+ordered set is a <a>list</a> with the additional semantic that it must not contain two
+<a for=set>items</a> that are <a for=/>equal</a>.
 
 <p class=note>Almost all cases on the web platform require an <em>ordered</em> set, instead of an
 unordered one, since interoperability requires that any developer-exposed enumeration of the set's
@@ -1941,8 +1912,13 @@ of either with <var>replacement</var> and <a for=set>remove</a> all other instan
 <p class=note>This implies that an <a>ordered set</a> is both a <a for=set>subset</a> and a
 <a for=set>superset</a> of itself.
 
-<p>A [=/set=] |A| is <dfn export for=set lt=equal>unordered equal</dfn> to a [=/set=] |B| if |A| is
-a [=subset=] of |B| and |A| is a [=superset=] of |B|.
+<p>A [=/set=] |A| is
+<dfn export for=set lt="unordered equal|equal" oldids=set-equal>unordered equal</dfn> to a
+[=/set=] |B| if |A| is a [=subset=] of |B| and |A| is a [=superset=] of |B|.
+
+<p class=example id=example-set-unordered-equal>The <a>ordered sets</a> « 1, 2 » and « 2, 1 » are
+<a for=set>unordered equal</a>, but they are not <a for=/>equal</a>, as the <a>equality</a> of
+<a>lists</a> takes the order of their <a for=list>items</a> into account.
 
 <p>The <dfn export for=set>intersection</dfn> of <a>ordered sets</a> |A| and |B|, is the result
 of creating a new <a>ordered set</a> |set| and, <a for=list>for each</a> |item| of |A|, if |B|
@@ -2004,7 +1980,7 @@ U+002C (,).
  <li><p><a>Assert</a>: <var>map</var> <a for=map>contains</a> <var>key</var>.
 
  <li><p>Return the <a for=map>value</a> of the <a for=map>entry</a> in <var>map</var> whose
- <a for=map>key</a> is <var>key</var>.
+ <a for=map>key</a> <a for=/>equals</a> <var>key</var>.
 </ol>
 
 <p>We can also denote <a for=map lt=get>getting the value of an entry</a> using an indexing syntax,
@@ -2037,9 +2013,9 @@ an <a>ordered map</a> |map| and key |key|, "<a for=map>remove</a> |map|[|key|]".
 from the map.
 
 <p>An <a>ordered map</a> <dfn export for=map lt=exist|contain id=map-exists>contains an
-<a for=map>entry</a> with a given key</dfn> if there exists an entry with that <a for=map>key</a>.
-We can also denote this by saying that, for an <a>ordered map</a> |map| and key |key|, "|map|[|key|]
-<a for=map>exists</a>".
+<a for=map>entry</a> with a given key</dfn> if there exists an entry whose <a for=map>key</a>
+<a for=/>equals</a> that key. We can also denote this by saying that, for an <a>ordered map</a>
+|map| and key |key|, "|map|[|key|] <a for=map>exists</a>".
 
 <p>To <dfn export for=map lt="getting the keys|get the keys|keys">get the keys</dfn> of an
 <a>ordered map</a>, return a new <a>ordered set</a> whose <a for=set>items</a> are each of the
@@ -2060,8 +2036,10 @@ a set of steps on each <a for=map>entry</a> in order, use phrasing of the form
 "<a for=map>For each</a> |key| → |value| of |map|", and then operate on |key| and |value| in the
 subsequent prose.
 
-<p>Two <a for=/>maps</a> are <a>considered equal</a> given |context| when their <a for=map>entry</a>
-lists are <a for=/>equal</a> given |context|.
+<p>An <a>ordered map</a>'s <a>equality</a>, given <a>ordered maps</a> |a| and |b|, returns true if
+|a|'s <a for=map>size</a> is |b|'s <a for=map>size</a> and each <a for=map>entry</a> of |a| has a
+<a for=map>key</a> and a <a for=map>value</a> that <a for=/>equal</a> the <a for=map>key</a> and
+the <a for=map>value</a> of the <a for=map>entry</a> of |b| at the same position; otherwise false.
 
 <p>To <dfn export for=map>clone</dfn> an <a>ordered map</a> |map| is to create a new
 <a>ordered map</a> |clone|, and, <a for=map>for each</a> |key| → |value| of |map|,
@@ -2112,8 +2090,43 @@ a <a>map</a> |map|, with a less than algorithm |lessThanAlgo|, is to create a ne
  </ol>
 </div>
 
-<p>Two <a>structs</a> are <a>considered equal</a> given |context| if all of their corresponding
-<a for=struct>items</a> are <a for=/>equal</a> given |context|.
+<p>Unless its definition specifies otherwise, a <a>struct</a> that is not a <a>tuple</a> only
+<a for=/>equals</a> itself: its <a>equality</a> returns true if the two structs are
+<a for=/>identical to</a> each other; otherwise false.
+
+<p>The <dfn export for=struct>itemwise equality</dfn>, given <a>structs</a> |a| and |b|, returns
+true if each <a for=struct>item</a> of |a| <a for=/>equals</a> the <a for=struct>item</a> of |b|
+with the same <a for=struct>name</a>; otherwise false. A <a>struct</a>'s definition can specify that
+its <a>equality</a> is <a for=struct>itemwise equality</a>.
+
+<div class=example id=example-struct-equality>
+ <p>Using the definition of email above:
+
+ <ol>
+  <li><p>Let |email| be an email whose local part is "<code>hostmaster</code>" and host is
+  <code>infra.example</code>.
+
+  <li><p>Let |sameEmail| be |email|.
+
+  <li><p>Let |otherEmail| be an email whose local part is "<code>hostmaster</code>" and host is
+  <code>infra.example</code>.
+
+  <li><p><a>Assert</a>: |email| <a for=/>equals</a> |sameEmail|, as they are
+  <a for=/>identical to</a> each other.
+
+  <li><p><a>Assert</a>: |email| does not <a for=/>equal</a> |otherEmail|, as they are not
+  <a for=/>identical to</a> each other.
+ </ol>
+
+ <p>If the definition of email instead specified that an email's <a>equality</a> is
+ <a for=struct>itemwise equality</a>, |email| would <a for=/>equal</a> |otherEmail|, as their local
+ parts are <a for=/>identical to</a> each other and their hosts are <a for=/>equal</a>.
+</div>
+
+<p class=note>Thus, if a <a>struct</a> whose definition does not specify its <a>equality</a> is used
+as a <a for=map>key</a> of an <a>ordered map</a> or as an <a for=set>item</a> of an
+<a>ordered set</a>, it can only be found again using that very same struct. If that is not desired,
+its definition needs to specify its <a>equality</a>, e.g., as <a for=struct>itemwise equality</a>.
 
 <h4 id=tuples>Tuples</h4>
 
@@ -2145,6 +2158,12 @@ out-of-bounds.
 <p class=note>It is intentional that not all <a>structs</a> are <a>tuples</a>. Documents using the
 Infra Standard might need the flexibility to add new <a for=struct>names</a> to their struct
 without breaking literal syntax used by their dependencies. In that case a tuple is not appropriate.
+
+<p>A <a>tuple</a>'s <a>equality</a> is <a for=struct>itemwise equality</a>, unless its definition
+specifies otherwise.
+
+<p class=note>Changing a <a>tuple</a> into a <a>struct</a> that is not a <a>tuple</a> also means it
+no longer has <a for=struct>itemwise equality</a>, unless its definition then specifies it.
 
 
 <h2 id=json>JSON</h2>
@@ -2494,6 +2513,7 @@ Michael™ Smith,
 Mike West,
 Mike Taylor,
 Ms2ger,
+Noam Rosenthal,
 Pavel "Al Arz" Kurochkin,
 Philip Jägenstedt,
 Rashaun "Snuggs" Stovall,
