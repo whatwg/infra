@@ -1659,6 +1659,10 @@ list multiple assignment syntax is used.
  </ol>
 </div>
 
+<p>A <a>list</a>'s <a>equality</a>, given <a>lists</a> |a| and |b|, returns true if |a|'s
+<a for=list>size</a> is |b|'s <a for=list>size</a> and |a|[|i|] <a for=/>equals</a> |b|[|i|] for
+each |i| of |a|'s <a for=list>indices</a>; otherwise false.
+
 <hr>
 
 <p>To <dfn export for=list>append</dfn> to a <a>list</a> that is not an <a>ordered set</a> is to
@@ -1739,10 +1743,6 @@ its <a for=list>size</a> is zero.
 set of steps on each <a for=list>item</a> in order, use phrasing of the form
 "<a for=list>For each</a> |item| of <var ignore>list</var>", and then operate on |item| in the
 subsequent prose.
-
-<p>A <a>list</a>'s <a>equality</a>, given <a>lists</a> |a| and |b|, returns true if |a|'s
-<a for=list>size</a> is |b|'s <a for=list>size</a> and |a|[|i|] <a for=/>equals</a> |b|[|i|] for
-each |i| of |a|'s <a for=list>indices</a>; otherwise false.
 
 <div algorithm=slice>
 <p>To <dfn export for=list,stack,queue,set>slice</dfn> a <a>list</a> |list|, with an optional
@@ -1967,6 +1967,11 @@ U+002C (,).
 "<code>a</code>" → `<code>x</code>`, "<code>b</code>" → `<code>y</code>` ]». Then
 |example|["<code>a</code>"] is the <a>byte sequence</a> `<code>x</code>`.
 
+<p>An <a>ordered map</a>'s <a>equality</a>, given <a>ordered maps</a> |a| and |b|, returns true if
+|a|'s <a for=map>size</a> is |b|'s <a for=map>size</a> and each <a for=map>entry</a> of |a| has a
+<a for=map>key</a> and a <a for=map>value</a> that <a for=/>equal</a> the <a for=map>key</a> and
+the <a for=map>value</a> of the <a for=map>entry</a> of |b| at the same position; otherwise false.
+
 <hr>
 
 <p>To <dfn export for=map lt="get|get the value">get the value of an entry</dfn> in an
@@ -2035,11 +2040,6 @@ of running <a for=map>get the keys</a> on the map.
 a set of steps on each <a for=map>entry</a> in order, use phrasing of the form
 "<a for=map>For each</a> |key| → |value| of |map|", and then operate on |key| and |value| in the
 subsequent prose.
-
-<p>An <a>ordered map</a>'s <a>equality</a>, given <a>ordered maps</a> |a| and |b|, returns true if
-|a|'s <a for=map>size</a> is |b|'s <a for=map>size</a> and each <a for=map>entry</a> of |a| has a
-<a for=map>key</a> and a <a for=map>value</a> that <a for=/>equal</a> the <a for=map>key</a> and
-the <a for=map>value</a> of the <a for=map>entry</a> of |b| at the same position; otherwise false.
 
 <p>To <dfn export for=map>clone</dfn> an <a>ordered map</a> |map| is to create a new
 <a>ordered map</a> |clone|, and, <a for=map>for each</a> |key| → |value| of |map|,
