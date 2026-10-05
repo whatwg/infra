@@ -707,6 +707,68 @@ Standard that should be reported and addressed.
 </div>
 
 
+<h3 id=identity-and-equality>Identity and equality</h3>
+
+<p>A value |a| <dfn export lt="is|identical to">is</dfn> (or is <a for=/>identical to</a>) a value
+|b| if they are the same value. For values of primitive data types this means that they have the
+same contents, e.g., two <a for=/>strings</a> are identical when they consist of the same sequence
+of <a>code units</a>. For values of other data types, such as <a for=/>lists</a>,
+<a for=/>maps</a>, and <a>structs</a>, this means that they are the same instance; two such values
+that were created separately are never identical to each other, even if their contents are the
+same.
+
+<p>A data type has an <dfn export>equality</dfn>, which is an algorithm that takes two values of
+that data type and returns a <a>boolean</a>. Unless defined otherwise, a data type's
+<a>equality</a> returns true if the two values are <a for=/>identical to</a> each other; otherwise
+false. This standard defines a different <a>equality</a> for <a for=/>lists</a>,
+<a for=/>maps</a>, and <a>tuples</a>.
+
+<p>A value |a| <dfn export lt="equal|equals">equals</dfn> (or is <a for=/>equal</a> to) a value |b|
+if |a| <a for=/>is</a> |b|, or if |a| and |b| are of the same data type and that data type's
+<a>equality</a> returns true given |a| and |b|.
+
+<div class=example id=example-equality>
+ <p>A <dfn ignore>key value</dfn> is an example <a>tuple</a> consisting of a <dfn ignore>key</dfn>
+ (a <a for=/>string</a>) and a <dfn ignore>value</dfn> (a <a for=/>list</a> of numbers).
+
+ <ol>
+  <li><p>Let |original| be the key value ("<code>x</code>", « 1, 2, 3, 4 »).
+
+  <li><p>Let |alsoOriginal| be |original|.
+
+  <li><p>Let |copy| be the key value ("<code>x</code>", « 1, 2, 3, 4 »).
+
+  <li><p><a>Assert</a>: |original| <a for=/>is</a> |alsoOriginal|.
+
+  <li><p><a>Assert</a>: |original| <a for=/>is</a> not |copy|.
+
+  <li><p><a>Assert</a>: |original| <a for=/>equals</a> |copy|, as their keys are
+  <a for=/>identical to</a> each other and their values are <a for=/>equal</a>.
+ </ol>
+
+ <p>As the <a>equality</a> of <a for=/>lists</a>, <a for=/>maps</a>, and <a>tuples</a> compares
+ their contents using <a for=/>equals</a>, comparing values that contain themselves, directly or
+ indirectly, is to be avoided, as it can result in an infinite loop:
+
+ <ol>
+  <li><p>Let |a| be « ».
+
+  <li><p><a for=list>Append</a> |a| to |a|.
+
+  <li><p>Let |b| be « ».
+
+  <li><p><a for=list>Append</a> |b| to |b|.
+
+  <li><p>If |a| <a for=/>equals</a> |b|, then &hellip;
+ </ol>
+
+ <p>The last step never finishes: |a| and |b| are not <a for=/>identical to</a> each other and have
+ the same <a for=list>size</a>, so determining whether they are <a for=/>equal</a> requires
+ determining whether |a|[0] <a for=/>equals</a> |b|[0], which is the same question, as |a|[0]
+ <a for=/>is</a> |a| and |b|[0] <a for=/>is</a> |b|.
+</div>
+
+
 <h2 id=primitive-data-types>Primitive data types</h2>
 
 <h3 id=nulls>Nulls</h3>
@@ -766,6 +828,10 @@ more guidance here around types and mathematical operations. Help appreciated!
 <p>A <dfn export>64-bit signed integer</dfn> is an integer in the range &minus;9223372036854775808
 to 9223372036854775807 (&minus;2<sup>63</sup> to 2<sup>63</sup> &minus; 1), inclusive.
 
+<hr>
+
+<p>Two numbers are <a for=/>identical to</a> each other if they are the same mathematical value.
+
 
 <h3 id=bytes>Bytes</h3>
 
@@ -815,6 +881,9 @@ contains, in the range 0x61 (a) to 0x7A (z), inclusive, by 0x20.
 <p>A <a>byte sequence</a> <var>A</var> is a <dfn export>byte-case-insensitive</dfn> match for a
 <a>byte sequence</a> <var>B</var>, if the <a>byte-lowercase</a> of <var>A</var> is the
 <a>byte-lowercase</a> of <var>B</var>.
+
+<p>Two <a>byte sequences</a> are <a for=/>identical to</a> each other if they consist of the same
+sequence of <a>bytes</a>.
 
 <hr>
 
@@ -1278,7 +1347,6 @@ the <a>string</a> with their corresponding <a>code point</a> in <a>ASCII upper a
 <p>A <a>string</a> <var>A</var> is an <dfn export>ASCII case-insensitive</dfn> match for a
 <a>string</a> <var>B</var>, if the <a>ASCII lowercase</a> of <var>A</var> is the
 <a>ASCII lowercase</a> of <var>B</var>.
-<!-- TODO: define string equals? -->
 
 <div algorithm>
 <p>To <dfn export>ASCII encode</dfn> an <a>ASCII string</a> <var>input</var>: return the
@@ -1591,6 +1659,10 @@ list multiple assignment syntax is used.
  </ol>
 </div>
 
+<p>A <a>list</a>'s <a>equality</a>, given <a>lists</a> |a| and |b|, returns true if |a|'s
+<a for=list>size</a> is |b|'s <a for=list>size</a> and |a|[|i|] <a for=/>equals</a> |b|[|i|] for
+each |i| of |a|'s <a for=list>indices</a>; otherwise false.
+
 <hr>
 
 <p>To <dfn export for=list>append</dfn> to a <a>list</a> that is not an <a>ordered set</a> is to
@@ -1653,8 +1725,9 @@ the given index is 0, then <a for=list>prepend</a> the given item to the list.
 all of its <a for=list>items</a>.
 
 <p>A <a>list</a> <dfn export for=list,stack,queue,set lt=contain|exist>contains</dfn> an
-<a for=list>item</a> if it appears in the list. We can also denote this by saying that, for a
-<a>list</a> |list| and an index |index|, "|list|[|index|] <a for=list>exists</a>".
+<a for=list>item</a> if one of the list's <a for=list>items</a> <a for=/>equals</a> that item. We
+can also denote this by saying that, for a <a>list</a> |list| and an index |index|,
+"|list|[|index|] <a for=list>exists</a>".
 
 <p>A <a>list</a>'s <dfn export for=list,stack,queue,set>size</dfn> is the number of
 <a for=list>items</a> the list <a for=list>contains</a>.
@@ -1794,8 +1867,8 @@ instead, a combination of <a>while</a> and <a for=queue>dequeue</a> is more appr
 <h4 id=sets>Sets</h4>
 
 <p>Some <a>lists</a> are designated as <dfn export lt="ordered set|set">ordered sets</dfn>. An
-ordered set is a <a>list</a> with the additional semantic that it must not contain the same
-<a for=set>item</a> twice.
+ordered set is a <a>list</a> with the additional semantic that it must not contain two
+<a for=set>items</a> that are <a for=/>equal</a>.
 
 <p class=note>Almost all cases on the web platform require an <em>ordered</em> set, instead of an
 unordered one, since interoperability requires that any developer-exposed enumeration of the set's
@@ -1839,8 +1912,13 @@ of either with <var>replacement</var> and <a for=set>remove</a> all other instan
 <p class=note>This implies that an <a>ordered set</a> is both a <a for=set>subset</a> and a
 <a for=set>superset</a> of itself.
 
-<p>A [=/set=] |A| is <dfn export for=set>equal</dfn> to a [=/set=] |B|
-if |A| is a [=subset=] of |B| and |A| is a [=superset=] of |B|.
+<p>A [=/set=] |A| is
+<dfn export for=set lt="unordered equal|equal" oldids=set-equal>unordered equal</dfn> to a
+[=/set=] |B| if |A| is a [=subset=] of |B| and |A| is a [=superset=] of |B|.
+
+<p class=example id=example-set-unordered-equal>The <a>ordered sets</a> « 1, 2 » and « 2, 1 » are
+<a for=set>unordered equal</a>, but they are not <a for=/>equal</a>, as the <a>equality</a> of
+<a>lists</a> takes the order of their <a for=list>items</a> into account.
 
 <p>The <dfn export for=set>intersection</dfn> of <a>ordered sets</a> |A| and |B|, is the result
 of creating a new <a>ordered set</a> |set| and, <a for=list>for each</a> |item| of |A|, if |B|
@@ -1874,9 +1952,8 @@ creates a new <a>ordered set</a> containing all of the integers from <var>n</var
 
 <p>An <dfn export lt="ordered map|map">ordered map</dfn>, or sometimes just "map", is a
 specification type consisting of a finite ordered sequence of <a for=/>tuples</a>, each consisting
-of a <dfn for=map export>key</dfn> and a <dfn for=map export>value</dfn>, with no key appearing
-twice. Each such tuple is called an <dfn for=map export>entry</dfn>.
-<!-- TODO: we have to define key equality for this to be truly sound. -->
+of a <dfn for=map export>key</dfn> and a <dfn for=map export>value</dfn>, with no two keys being
+<a for=/>equal</a>. Each such tuple is called an <dfn for=map export>entry</dfn>.
 
 <p class=note>As with <a>ordered sets</a>, by default we assume that maps need to be ordered for
 interoperability among implementations.
@@ -1889,6 +1966,11 @@ U+002C (,).
 <p class=example id=example-map-notation>Let |example| be the <a>ordered map</a> «[
 "<code>a</code>" → `<code>x</code>`, "<code>b</code>" → `<code>y</code>` ]». Then
 |example|["<code>a</code>"] is the <a>byte sequence</a> `<code>x</code>`.
+
+<p>An <a>ordered map</a>'s <a>equality</a>, given <a>ordered maps</a> |a| and |b|, returns true if
+|a|'s <a for=map>size</a> is |b|'s <a for=map>size</a> and each <a for=map>entry</a> of |a| has a
+<a for=map>key</a> and a <a for=map>value</a> that <a for=/>equal</a> the <a for=map>key</a> and
+the <a for=map>value</a> of the <a for=map>entry</a> of |b| at the same position; otherwise false.
 
 <hr>
 
@@ -1903,7 +1985,7 @@ U+002C (,).
  <li><p><a>Assert</a>: <var>map</var> <a for=map>contains</a> <var>key</var>.
 
  <li><p>Return the <a for=map>value</a> of the <a for=map>entry</a> in <var>map</var> whose
- <a for=map>key</a> is <var>key</var>.
+ <a for=map>key</a> <a for=/>equals</a> <var>key</var>.
 </ol>
 
 <p>We can also denote <a for=map lt=get>getting the value of an entry</a> using an indexing syntax,
@@ -1936,9 +2018,9 @@ an <a>ordered map</a> |map| and key |key|, "<a for=map>remove</a> |map|[|key|]".
 from the map.
 
 <p>An <a>ordered map</a> <dfn export for=map lt=exist|contain id=map-exists>contains an
-<a for=map>entry</a> with a given key</dfn> if there exists an entry with that <a for=map>key</a>.
-We can also denote this by saying that, for an <a>ordered map</a> |map| and key |key|, "|map|[|key|]
-<a for=map>exists</a>".
+<a for=map>entry</a> with a given key</dfn> if there exists an entry whose <a for=map>key</a>
+<a for=/>equals</a> that key. We can also denote this by saying that, for an <a>ordered map</a>
+|map| and key |key|, "|map|[|key|] <a for=map>exists</a>".
 
 <p>To <dfn export for=map lt="getting the keys|get the keys|keys">get the keys</dfn> of an
 <a>ordered map</a>, return a new <a>ordered set</a> whose <a for=set>items</a> are each of the
@@ -2008,6 +2090,44 @@ a <a>map</a> |map|, with a less than algorithm |lessThanAlgo|, is to create a ne
  </ol>
 </div>
 
+<p>Unless its definition specifies otherwise, a <a>struct</a> that is not a <a>tuple</a> only
+<a for=/>equals</a> itself: its <a>equality</a> returns true if the two structs are
+<a for=/>identical to</a> each other; otherwise false.
+
+<p>The <dfn export for=struct>itemwise equality</dfn>, given <a>structs</a> |a| and |b|, returns
+true if each <a for=struct>item</a> of |a| <a for=/>equals</a> the <a for=struct>item</a> of |b|
+with the same <a for=struct>name</a>; otherwise false. A <a>struct</a>'s definition can specify that
+its <a>equality</a> is <a for=struct>itemwise equality</a>.
+
+<div class=example id=example-struct-equality>
+ <p>Using the definition of email above:
+
+ <ol>
+  <li><p>Let |email| be an email whose local part is "<code>hostmaster</code>" and host is
+  <code>infra.example</code>.
+
+  <li><p>Let |sameEmail| be |email|.
+
+  <li><p>Let |otherEmail| be an email whose local part is "<code>hostmaster</code>" and host is
+  <code>infra.example</code>.
+
+  <li><p><a>Assert</a>: |email| <a for=/>equals</a> |sameEmail|, as they are
+  <a for=/>identical to</a> each other.
+
+  <li><p><a>Assert</a>: |email| does not <a for=/>equal</a> |otherEmail|, as they are not
+  <a for=/>identical to</a> each other.
+ </ol>
+
+ <p>If the definition of email instead specified that an email's <a>equality</a> is
+ <a for=struct>itemwise equality</a>, |email| would <a for=/>equal</a> |otherEmail|, as their local
+ parts are <a for=/>identical to</a> each other and their hosts are <a for=/>equal</a>.
+</div>
+
+<p class=note>Thus, if a <a>struct</a> whose definition does not specify its <a>equality</a> is used
+as a <a for=map>key</a> of an <a>ordered map</a> or as an <a for=set>item</a> of an
+<a>ordered set</a>, it can only be found again using that very same struct. If that is not desired,
+its definition needs to specify its <a>equality</a>, e.g., as <a for=struct>itemwise equality</a>.
+
 <h4 id=tuples>Tuples</h4>
 
 <p>A <dfn export>tuple</dfn> is a <a>struct</a> whose <a for=struct>items</a> are ordered. For
@@ -2038,6 +2158,12 @@ out-of-bounds.
 <p class=note>It is intentional that not all <a>structs</a> are <a>tuples</a>. Documents using the
 Infra Standard might need the flexibility to add new <a for=struct>names</a> to their struct
 without breaking literal syntax used by their dependencies. In that case a tuple is not appropriate.
+
+<p>A <a>tuple</a>'s <a>equality</a> is <a for=struct>itemwise equality</a>, unless its definition
+specifies otherwise.
+
+<p class=note>Changing a <a>tuple</a> into a <a>struct</a> that is not a <a>tuple</a> also means it
+no longer has <a for=struct>itemwise equality</a>, unless its definition then specifies it.
 
 
 <h2 id=json>JSON</h2>
@@ -2387,6 +2513,7 @@ Michael™ Smith,
 Mike West,
 Mike Taylor,
 Ms2ger,
+Noam Rosenthal,
 Pavel "Al Arz" Kurochkin,
 Philip Jägenstedt,
 Rashaun "Snuggs" Stovall,
