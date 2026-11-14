@@ -1324,7 +1324,7 @@ from <var>start</var> to the end of a <a>string</a> <var>string</var> is the
  <p>Otherwise, <a>code point substring</a> is likely to be better. For example, the
  <a>code point substring</a> from 0 with length 1 within "<code>👽</code>" is "<code>👽</code>",
  whereas the <a>code unit substring</a> from 0 with length 1 within "<code>👽</code>" is the
- <a>string</a> containing the single <a>surrogate</a> U+D83B.
+ <a>string</a> containing the single <a>surrogate</a> U+D83D.
 </div>
 
 <hr>
