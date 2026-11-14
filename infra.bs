@@ -1805,14 +1805,14 @@ while |original|[0] is still the <a>string</a> "<code>a</code>".
 <p>To <dfn export for=list,stack,queue,set lt="sort in ascending order|sorting in ascending order|sort|sorting">sort in ascending order</dfn>
 a <a>list</a> |list|, with a less than algorithm |lessThanAlgo|, is to create a new <a>list</a>
 |sorted|, containing the same <a for=list>items</a> as |list| but sorted so that according to
-|lessThanAlgo|, each item is less than the one following it, if any. For items that sort the same
+|lessThanAlgo|, no item is less than the one preceding it, if any. For items that sort the same
 (i.e., for which |lessThanAlgo| returns false for both comparisons), their relative order in
 |sorted| must be the same as it was in |list|.
 
 <p>To <dfn export for=list,stack,queue,set lt="sort in descending order|sorting in descending order">sort in descending order</dfn>
 a <a>list</a> |list|, with a less than algorithm |lessThanAlgo|, is to create a new <a>list</a>
 |sorted|, containing the same <a for=list>items</a> as |list| but sorted so that according to
-|lessThanAlgo|, each item is less than the one preceding it, if any. For items that sort the same
+|lessThanAlgo|, no item is less than the one following it, if any. For items that sort the same
 (i.e., for which |lessThanAlgo| returns false for both comparisons), their relative order in
 |sorted| must be the same as it was in |list|.
 
@@ -2059,14 +2059,14 @@ same <a>list</a>.
 <p>To <dfn export for=map lt="sort in ascending order|sorting in ascending order|sort|sorting">sort in ascending order</dfn>
 a <a>map</a> |map|, with a less than algorithm |lessThanAlgo|, is to create a new <a>map</a>
 |sorted|, containing the same <a for=map>entries</a> as |map| but sorted so that according to
-|lessThanAlgo|, each entry is less than the one following it, if any. For entries that sort the same
+|lessThanAlgo|, no entry is less than the one preceding it, if any. For entries that sort the same
 (i.e., for which |lessThanAlgo| returns false for both comparisons), their relative order in
 |sorted| must be the same as it was in |map|.
 
 <p>To <dfn export for=map lt="sort in descending order|sorting in descending order">sort in descending order</dfn>
 a <a>map</a> |map|, with a less than algorithm |lessThanAlgo|, is to create a new <a>map</a>
 |sorted|, containing the same <a for=map>entries</a> as |map| but sorted so that according to
-|lessThanAlgo|, each entry is less than the one preceding it, if any. For entries that sort the same
+|lessThanAlgo|, no entry is less than the one following it, if any. For entries that sort the same
 (i.e., for which |lessThanAlgo| returns false for both comparisons), their relative order in
 |sorted| must be the same as it was in |map|.
 
