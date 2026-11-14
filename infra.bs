@@ -2049,7 +2049,7 @@ subsequent prose.
 themselves are not cloned in any way.
 
 <p class=example id=example-map-clone>Let |original| be the <a>ordered map</a> «[
-"<code>a</code>" → «1, 2, 3», "<code>b</code>" → «» ]». <a for=set>Cloning</a> |original| creates a
+"<code>a</code>" → «1, 2, 3», "<code>b</code>" → «» ]». <a for=map>Cloning</a> |original| creates a
 new <a>ordered map</a> |clone|, so that <a for=map>setting</a> |clone|["<code>a</code>"] to
 «-1, -2, -3» gives «[ "<code>a</code>" → «-1, -2, -3», "<code>b</code>" → «» ]» and leaves
 |original| unchanged. However, <a for=list>appending</a> 4 to |clone|["<code>b</code>"] will modify
